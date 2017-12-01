@@ -1,0 +1,20 @@
+{
+  "name": "aproplan-api-examples",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://sbitbucket.org/aproplan/aproplan-api-doc.git"
+  },
+  "author": "Sergio Ristagno",
+  "license": "ISC",
+  "homepage": "https://bitbucket.org/aproplan/aproplan-api-doc.git%1B%5BD%1B%5BD%1B%5BD%1B%5BD%1B%5BD%1B%5BD%1B%5BD%1B%5BD%1B%5BD%1B%5BD%1B%5BD%1B%5BD%1B%5BD%1B%5BD%1B%5BD%1B%5BD%1B%5BD%1B%5BD%1B%5BD%1B%5BD%1B%5BD%1B%5BD%1B%5BD%1B%5BD%1B%5BD%1B%5BD%1B%5BD%1B%5BD%1B%5BD%1B%5BD%1B%5BD%1B%5BD%1B%5BD%1B%5BD%1B%5BD%1B%5BD%1B%5BD%1B%5BD%1B%5BD%1B%5BD%1B%5BD%1B%5BD%1B%5BD%1B%5BD%1B%5BD%1B%5B%1B%5B3~%1B%5B3~%1B%5B3~%1B%5B3~%1B%5BD%1B%5BD%1B%5BD%1B%5BD%1B%5BD%1B%5BD%1B%5BD%1B%5BD%1B%5BD%1B%5BC%1B%5B3~%1B%5B3~%1B%5B3~%1B%5BC%1B%5BC%1B%5BC%1B%5BC%1B%5BC%1B%5BC%1B%5BC%1B%5BC#readme",
+  "devDependencies": {
+    "bluebird": "^3.5.1",
+    "request": "^2.83.0"
+  }
+}
