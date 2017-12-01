@@ -19,4 +19,4 @@ Instead of to make your development with our API directly on the production, you
 * Go to nodejs folder
 * Fill parameter with your requester id and the API url to use in the config.js file
 * Run `npm install` to install packages (you need to have nodejs installed)
-* Run `node index.js` to run the simple example to retrieve Coutries from APROPLAN API
+* Run `node index.js` to run the simple example to retrieve Countries from APROPLAN API
