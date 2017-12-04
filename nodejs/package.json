@@ -15,6 +15,10 @@
   "homepage": "https://bitbucket.org/aproplan/aproplan-api-doc.git%1B%5BD%1B%5BD%1B%5BD%1B%5BD%1B%5BD%1B%5BD%1B%5BD%1B%5BD%1B%5BD%1B%5BD%1B%5BD%1B%5BD%1B%5BD%1B%5BD%1B%5BD%1B%5BD%1B%5BD%1B%5BD%1B%5BD%1B%5BD%1B%5BD%1B%5BD%1B%5BD%1B%5BD%1B%5BD%1B%5BD%1B%5BD%1B%5BD%1B%5BD%1B%5BD%1B%5BD%1B%5BD%1B%5BD%1B%5BD%1B%5BD%1B%5BD%1B%5BD%1B%5BD%1B%5BD%1B%5BD%1B%5BD%1B%5BD%1B%5BD%1B%5BD%1B%5BD%1B%5B%1B%5B3~%1B%5B3~%1B%5B3~%1B%5B3~%1B%5BD%1B%5BD%1B%5BD%1B%5BD%1B%5BD%1B%5BD%1B%5BD%1B%5BD%1B%5BD%1B%5BC%1B%5B3~%1B%5B3~%1B%5B3~%1B%5BC%1B%5BC%1B%5BC%1B%5BC%1B%5BC%1B%5BC%1B%5BC%1B%5BC#readme",
   "devDependencies": {
     "bluebird": "^3.5.1",
+    "colors": "^1.1.2",
     "request": "^2.83.0"
+  },
+  "dependencies": {
+    "prompt": "^1.0.0"
   }
 }

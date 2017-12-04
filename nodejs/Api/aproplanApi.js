@@ -2,7 +2,9 @@
 
 const Promise = require("bluebird");
 const request = require("request-promise");
+//const colors = require("colors");
 const config = require("../config");
+
 
 /**
  * This class is to make request on APROPLAN API to get/update/create/delete entities
@@ -44,7 +46,7 @@ class ApiAproplan {
 
         let requestParam = buildRequest(requestMetadata, this._token);
 
-        console.log("Request " + requestParam.method + " - url: " + requestParam.url);
+        console.log(("Request " + requestParam.method + " - url: " + requestParam.url).debug);
         return request(requestParam).then(function(response, err) {
             let data = JSON.parse(response);
             return data;
@@ -171,6 +173,8 @@ function buildRequest(requestMetadata, token) {
     return requestParam;
 }
 
+
+
 /**
  * This method is to build the url usabled by APROPLAN API. Ex: https://api.aproplan.com/rest/countries?requesterid={requesterid}&v={apiVersion}
  * It will use the config file in the root to get values.
@@ -217,6 +221,7 @@ function buildFinalUrl(url, token){
         else
             finalUrl += "&" + apiVersion;
     }
+    finalUrl += "&dateformat=iso"
     return finalUrl;
 }
 
