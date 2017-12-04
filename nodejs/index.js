@@ -13,20 +13,23 @@ function testCountries(){
     // Retrieve the list of countries starting with "Bel"
     return api.getEntityList("Country", "Filter.StartsWith(Name,\"Bel\")")
         .then(function(data){
-            console.log("Countries starting with 'Bel'")
-            console.log(data);
+            console.log(("Countries starting with 'Bel'").info);
+            for(let i = 0; i < data.length; i++) {
+                let country = data[i];
+                console.log(("(" + country.Iso + "/" + country.Iso2 + ") " + country.Name).result);
+            }
             return data;
         })
         .then(function(countriesBel){
 
             // Retrieve the country by its Id        
             return api.getEntityById("Country", countriesBel[1].Id).then(function(country){
-                console.log("Country with Id: " + countriesBel[1].Id + " -> " + country.Name);
+                console.log(("Country with Id: " + countriesBel[1].Id + " -> " + country.Name).result);
             });
         }).then(function(){
             // Retrieve the number of countries available in APROPLAN
             return api.getEntityCount("Country").then(function(cpt){
-                console.log("Countries number: " + cpt)
+                console.log(("Countries number: " + cpt).result);
             });
         })
         .catch(function(err){
@@ -71,10 +74,12 @@ function promptUserChoice(){
                 authService.login().finally(function(){
                     promptUserChoice();
                 });
+                break;
             case 3: 
                 projectService.test().finally(function(){
                     promptUserChoice();
                 });
+                break;
         }
         
     });
