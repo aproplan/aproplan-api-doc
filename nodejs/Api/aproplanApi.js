@@ -150,13 +150,22 @@ function getRestEntityUrl(entityName, getType){
  * @param {Object} requestMetadata 
  * @param {String} token This is the token to identify the user who makes the api request 
  */
-function buildRequest(requestMetadata, token){
+function buildRequest(requestMetadata, token) {
+    let defaultContentType = undefined;
+
+    let serializedData = undefined;
+    if(requestMetadata.data){
+        serializedData = JSON.stringify(requestMetadata.data);
+    }
+
+    if(requestMetadata.method !== "GET")
+        defaultContentType = "application/json";
     let requestParam = {
         method: requestMetadata.method,
         url: buildFinalUrl(requestMetadata.url, token),
-        data: requestMetadata.data,
+        body: serializedData,
         responseType: requestMetadata.options.responseType,
-        headers: requestMetadata.options.contentType ? { "Content-Type": requestMetadata.options.contentType }: undefined,
+        headers: requestMetadata.options.contentType ? { "Content-Type": requestMetadata.options.contentType }: {"Content-Type": defaultContentType },
         responseType: requestMetadata.options.responseType
     }
     return requestParam;
@@ -210,4 +219,6 @@ function buildFinalUrl(url, token){
     }
     return finalUrl;
 }
-module.exports = new ApiAproplan();
+
+let instance = new ApiAproplan();
+module.exports = instance;
