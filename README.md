@@ -17,6 +17,6 @@ Instead of to make your development with our API directly on the production, you
 ### Nodejs
 
 * Go to nodejs folder
-* Fill parameter with your requester id and the API url to use in the config.js file
+* Fill parameters with your requester id, the API url and credentials to use in the config.js file
 * Run `npm install` to install packages (you need to have nodejs installed)
 * Run `node index.js` to run the program to show some sample
