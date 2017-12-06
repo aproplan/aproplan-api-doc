@@ -90,7 +90,7 @@ class ApiAproplan {
         url += "?filter=" + encodeURIComponent(filter);
         if (pathtoload) {
             url += filter ? "&" : "?";
-            url += "pathtoload=" + pathToLoad;
+            url += "pathtoload=" + pathtoload;
         }
 
         return this.makeRequest(url, "GET", null, options);

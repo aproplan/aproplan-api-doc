@@ -20,3 +20,10 @@ Instead of to make your development with our API directly on the production, you
 * Fill parameters with your requester id, the API url and credentials to use in the config.js file
 * Run `npm install` to install packages (you need to have nodejs installed)
 * Run `node index.js` to run the program to show some sample
+
+There are samples
+
+* To make a login into APROPLAN and renew the token (Services/authService.js)
+* To get entities with filters (index.js)
+* To retrieve the list of projects and then, to select one to work on it (Services/projectService.js)
+* Update a point by changing its status (Services/pointService.js)
