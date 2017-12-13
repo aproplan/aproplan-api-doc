@@ -32,7 +32,7 @@ To work on objects related to a projects (lists, points, forms...), you need fir
 
 ## API Using
 
-When you use APROPLAN API it is better to make first your test on the following url "https://api-tst.aproplan.com" (application url: https://app.aproplan.com).
+When you use APROPLAN API it is better to make first your test on the following url "https://api-tst.aproplan.com" (application url: https://app-tst.aproplan.com).
 Before to use the API, you need to have a **requesterid** supplied by us. To get one requester, please contact the support. When you have it, you can start to call the APROPLAN API.
 For each call of the API, you need to have 3 mandatory parameters: 
 
