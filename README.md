@@ -14,6 +14,15 @@ Instead of to make your development with our API directly on the production, you
 1. To use APROPLAN, you need to have a requester to identify your application. Please contact the support if you don't have a requester id yet.
 1. Clone the repository
 
+The application shows you how to use the api with several samples:
+
+* To make a login into APROPLAN and renew the token (Services/authService.js)
+* To get entities with filters (index.js)
+* To retrieve the list of projects and then, to select one to work on it (Services/projectService.js)
+* Update a point by changing its status (Services/pointService.js)
+
+To work on objects related to a projects (lists, points, forms...), you need first to select a project with the related sample. There is a sample to list your projects with Id value and then, you can select one of them with the sample "Select a working project by its id".
+
 ### Nodejs
 
 * Go to nodejs folder
@@ -21,9 +30,12 @@ Instead of to make your development with our API directly on the production, you
 * Run `npm install` to install packages (you need to have nodejs installed)
 * Run `node index.js` to run the program to show some sample
 
-There are samples
+## API Using
 
-* To make a login into APROPLAN and renew the token (Services/authService.js)
-* To get entities with filters (index.js)
-* To retrieve the list of projects and then, to select one to work on it (Services/projectService.js)
-* Update a point by changing its status (Services/pointService.js)
+When you use APROPLAN API it is better to make first your test on the following url "https://api-tst.aproplan.com" (application url: https://app.aproplan.com).
+Before to use the API, you need to have a **requesterid** supplied by us. To get one requester, please contact the support. When you have it, you can start to call the APROPLAN API.
+For each call of the API, you need to have 3 mandatory parameters: 
+
+* **v** specifying the version of the API to use. Actual version = 6 (v=6)
+* **requesterid** to specify your requester id
+* **t** to specify the token your receive while you call the **loginsecure** method to identify the user making the call. This parameter is not always mandatory, some calls doet not require to be authentified.

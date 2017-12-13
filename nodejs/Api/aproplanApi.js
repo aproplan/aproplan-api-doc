@@ -110,6 +110,54 @@ class ApiAproplan {
         });
     }
 
+    /**
+     * This method creates a list of entities through the API
+     * @param {*String} entityName  This is the entity name of objects to create
+     * @param {*any[]} entities This is the array of entities to create
+     * @param {*object} options Options, parameters to send to the API call
+     */
+    createEntities(entityName, entities, options){        
+        let url = "rest/" + getRestEntityUrl(entityName, "entities");
+        return this.makeRequest(url, "POST", entities, options);
+    }
+
+    /**
+     * This method creates an entity through the API
+     * @param {*} entityName This is the entity name of the object to create
+     * @param {*} entity This is the entity to create
+     * @param {*} options Options, parameters to send to the API call
+     */
+    createEntity(entityName, entity, options){
+        let url = "rest/" + getRestEntityUrl(entityName, "entities");
+        return this.makeRequest(url, "POST", [entity], options).then(function(data){
+            return data[0];
+        });        
+    }
+
+    /**
+     * This method updates a list of entities through the API
+     * @param {*String} entityName  This is the entity name of objects to modify
+     * @param {*any[]} entities This is the array of entities to update
+     * @param {*object} options Options, parameters to send to the API call
+     */
+    updateEntities(entityName, entities, options){        
+        let url = "rest/" + getRestEntityUrl(entityName, "entities");
+        return this.makeRequest(url, "PUT", entities, options);
+    }
+
+    /**
+     * This method updates an entity through the API
+     * @param {*} entityName This is the entity name of the object to update
+     * @param {*} entity This is the entity to update
+     * @param {*} options Options, parameters to send to the API call
+     */
+    updateEntity(entityName, entity, options){
+        let url = "rest/" + getRestEntityUrl(entityName, "entities");
+        return this.makeRequest(url, "PUT", [entity], options).then(function(data){
+            return data[0];
+        });                
+    }
+
     constructor(){
         this._token = null;
     }

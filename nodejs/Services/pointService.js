@@ -107,7 +107,7 @@ class pointService {
                                 for(let i = 0; i < projectStatuses.length; i++){
                                     let projectStatus = projectStatuses[i];
                                     if(projectStatus.Id !== thePoint.Status.Id)
-                                        choices.push({choice: projectStatus.Name});
+                                        choices.push({choice: projectStatus.Name, originalIndex: i});
                                 }
                                     
                                 appUtility.promptUserChoices({                                    
@@ -115,9 +115,26 @@ class pointService {
                                     description: "Select the new status you want to apply to the point",
                                     type: "number",
                                     required: true
-                                }, choices, "We need now to know what is the new status").then(function(selectedStatus){
-                                    console.log("You selected the status: "+ projectStatuses[selectedStatus - 1].Name);
-                                    resolve();
+                                }, choices, "We need now to know what is the new status").then(function(statusChosen){
+                                    let selectedStatus = projectStatuses[choices[statusChosen - 1].originalIndex]; // Get the chosen status
+                                    console.log(("You selected the status: "+ selectedStatus.Id + " "+ selectedStatus.Name).info);
+                                    let updatePoint = { // Create the object to update through the API with the minimum of information needed for the updated
+                                        Id: thePoint.Id, // Id to identify the object to update
+                                        EntityVersion: thePoint.EntityVersion, // The current version of the entity then, the API knows you are modifying the same version of the object
+                                        Status: { // For the new status, it is just necessary to specify its ID
+                                            Id: selectedStatus.Id
+                                        },
+                                        ModifiedProperties: ["Status"] // As we don't send the complete object, we need to specify the properties to update then, API doesn't take care about other properties
+                                    };
+                                    api.updateEntity("Notes", updatePoint).then(function(updatedPoint){ // Call the api for the update
+                                        if(updatedPoint.Status.Id != selectedStatus.Id) 
+                                            throw Error("A problem occured when updating the status");
+                                        thePoint.EntityVersion = updatedPoint.EntityVersion; // Take the new version of the object
+                                        thePoint.Status = selectedStatus;
+                                        self.writePoint(thePoint);
+                                        resolve(thePoint);
+                                    });
+                                    
                                 });
                                 
                             });    
