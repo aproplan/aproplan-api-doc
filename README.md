@@ -16,10 +16,16 @@ Instead of to make your development with our API directly on the production, you
 
 The application shows you how to use the api with several samples:
 
-* To make a login into APROPLAN and renew the token (Services/authService.js)
+* Login (Services/authService.js)
+  * To make a login into APROPLAN 
+  * To renew the token 
 * To get entities with filters (index.js)
-* To retrieve the list of projects and then, to select one to work on it (Services/projectService.js)
-* Update a point by changing its status (Services/pointService.js)
+* Projects (Services/projectService.js)
+  * To retrieve the list of projects and then, to select one to work on it
+  * To retrieve the folder structure of the selected project
+* Points (Services/pointService.js)
+  * Retrieve the list of points (max 15) of the selected project
+  * Update a point by changing its status6
 
 To work on objects related to a projects (lists, points, forms...), you need first to select a project with the related sample. There is a sample to list your projects with Id value and then, you can select one of them with the sample "Select a working project by its id".
 
@@ -32,9 +38,9 @@ To work on objects related to a projects (lists, points, forms...), you need fir
 
 ## API Using
 
-When you use APROPLAN API it is better to make first your test on the following url "https://api-tst.aproplan.com" (application url: https://app.aproplan.com).
+When you use APROPLAN API it is better to make first your test on the following url "https://api-tst.aproplan.com/rest" (application url: https://app.aproplan.com).
 Before to use the API, you need to have a **requesterid** supplied by us. To get one requester, please contact the support. When you have it, you can start to call the APROPLAN API.
-For each call of the API, you need to have 3 mandatory parameters: 
+For each call of the API, you need to have 3 mandatory parameters:
 
 * **v** specifying the version of the API to use. Actual version = 6 (v=6)
 * **requesterid** to specify your requester id
