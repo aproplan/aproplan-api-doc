@@ -28,8 +28,7 @@ class pointService {
                     api.getEntityList("Notes", filter, pathToLoad).then(function(data) { // make the request to the API
                         console.log(("Points retrieved: " + data.length).info);
                         for(let i = 0; (i < data.length && i < 15); i++){
-                            let point = data[i];
-                            let issueType = (!!point.IssueType) ? point.IssueType.Code + "/" + point.IssueType.ParentChapter.Code : "none";
+                            let point = data[i];                       
 
                             // Display information about points retrieved
                             self.writePoint(point);
@@ -75,7 +74,7 @@ class pointService {
             + " by: " + pad(point.From.Alias.substring(0, 35), 35)
             + " - subcat: " + pad(issueType.substring(0, 15), 15) 
             + " - list: " + pad(point.Meeting.Title.substring(0, 15), 15)
-            + " (" + point.Id + ")").result );
+            + " (id: " + point.Id + ")").result );
         }
     }
 
