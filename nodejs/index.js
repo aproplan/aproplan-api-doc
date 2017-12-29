@@ -1,9 +1,9 @@
 let api = require("./Api/aproplanApi");
 let authService = require("./Services/authService");
-let projectService = require("./Services/projectService");
-let documentService = require("./Services/documentService");
-let documentUseCases = require("./UseCases/documentUseCases");
 let pointService = require("./Services/pointService");
+
+let documentUseCases = require("./UseCases/documentUseCases");
+let projectUseCases = require("./UseCases/projectUseCases");
 
 let colors = require("colors");
 let prompt = require("prompt");
@@ -52,7 +52,7 @@ function promptUserChoices(){
         { choice: "Simple use of API without login - to retrieve country list", fnPromise: testCountries, caller: this } ,
         { choice: "Simple use of the loginsecure method", fnPromise: authService.login, caller: authService },        
     ];
-    choices = choices.concat(projectService.getSampleChoices());
+    choices = choices.concat(projectUseCases.getSampleChoices());
     choices = choices.concat(documentUseCases.getSampleChoices());
     choices = choices.concat(pointService.getSampleChoices());
     choices.push({ choice: "Exit", fnPromise: undefined });

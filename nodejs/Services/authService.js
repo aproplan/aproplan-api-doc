@@ -24,6 +24,7 @@ class authService {
     checkLogin(){
         let promise = undefined;
         let self = this;
+        
         return new Promise(function(resolve, reject) {
             if(!!!userInfo){ // no login has been done yet
                 console.log("Make login".info);

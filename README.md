@@ -27,7 +27,7 @@ The application shows you how to use the api with several samples:
   * Retrieve the list of points (max 15) of the selected project
   * Update a point by changing its status6
 
-To work on objects related to a projects (lists, points, forms...), you need first to select a project with the related sample. There is a sample to list your projects with Id value and then, you can select one of them with the sample "Select a working project by its id".
+To work on objects related to a projects (lists, points, forms...), you need first to select a project with the related sample. Then, you need to run the sample "Select a working project by its id".
 
 ### Nodejs
 
