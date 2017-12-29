@@ -1,9 +1,10 @@
 let api = require("./Api/aproplanApi");
 let authService = require("./Services/authService");
-let pointService = require("./Services/pointService");
+
 
 let documentUseCases = require("./UseCases/documentUseCases");
 let projectUseCases = require("./UseCases/projectUseCases");
+let pointUseCases = require("./UseCases/pointUseCases");
 
 let colors = require("colors");
 let prompt = require("prompt");
@@ -27,11 +28,13 @@ function testCountries(){
         })
         .then(function(countriesBel){
 
+            console.log(("Retrieve a country with its ID").info);
             // Retrieve the country by its Id        
             return api.getEntityById("Country", countriesBel[1].Id).then(function(country){
                 console.log(("Country with Id: " + countriesBel[1].Id + " -> " + country.Name).result);
             });
         }).then(function(){
+            console.log(("Retrieve the number of country").info);
             // Retrieve the number of countries available in APROPLAN
             return api.getEntityCount("Country").then(function(cpt){
                 console.log(("Countries number: " + cpt).result);
@@ -54,7 +57,7 @@ function promptUserChoices(){
     ];
     choices = choices.concat(projectUseCases.getSampleChoices());
     choices = choices.concat(documentUseCases.getSampleChoices());
-    choices = choices.concat(pointService.getSampleChoices());
+    choices = choices.concat(pointUseCases.getSampleChoices());
     choices.push({ choice: "Exit", fnPromise: undefined });
 
     let schema = {
