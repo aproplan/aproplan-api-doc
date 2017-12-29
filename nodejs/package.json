@@ -20,6 +20,7 @@
     "request": "^2.83.0"
   },
   "dependencies": {
+    "mime-types": "^2.1.17",
     "prompt": "^1.0.0"
   }
 }

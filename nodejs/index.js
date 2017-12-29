@@ -2,6 +2,7 @@ let api = require("./Api/aproplanApi");
 let authService = require("./Services/authService");
 let projectService = require("./Services/projectService");
 let documentService = require("./Services/documentService");
+let documentUseCases = require("./UseCases/documentUseCases");
 let pointService = require("./Services/pointService");
 
 let colors = require("colors");
@@ -52,14 +53,14 @@ function promptUserChoices(){
         { choice: "Simple use of the loginsecure method", fnPromise: authService.login, caller: authService },        
     ];
     choices = choices.concat(projectService.getSampleChoices());
-    choices = choices.concat(documentService.getSampleChoices());
+    choices = choices.concat(documentUseCases.getSampleChoices());
     choices = choices.concat(pointService.getSampleChoices());
     choices.push({ choice: "Exit", fnPromise: undefined });
 
     let schema = {
         name: "choice",
         description: "Select the sample to run",
-        pattern: /^[1-9]$/,
+        pattern: /^[1-9]|(10)$/,
         message: "You need to select the number corresponding to your choice",
         type: "string",
         required: true

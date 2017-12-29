@@ -3,8 +3,8 @@
 const Promise = require("bluebird");
 const request = require("request-promise");
 //const colors = require("colors");
+const fs = require("fs");
 const config = require("../config");
-
 
 /**
  * This class is to make request on APROPLAN API to get/update/create/delete entities
@@ -27,7 +27,7 @@ class ApiAproplan {
      * 
      * @param {String} url The relative url to make the API call. Eg: /rest/countries
      * @param {String} method The method to use for the API call. GET, POST, PUT, DELETE
-     * @param {Object} data If data must be sent, it is the object to send
+     * @param {Object} data If data must be sent, it is the object to send. If it is a file data must be a ReadStream to the filepath
      * @param {String} options Options, parameters to send to the API call
      */
     makeRequest(url, method, data, options){
@@ -46,13 +46,15 @@ class ApiAproplan {
 
         let requestParam = buildRequest(requestMetadata, this._token);
 
-        console.log(("Request " + requestParam.method + " - url: " + requestParam.url).debug);
+        let contentType = requestParam.headers["Content-Type"];
+        console.log(("Request " + requestParam.method + " - contentType: " + contentType + " - url: " + requestParam.url).debug);
+        
         return request(requestParam).then(function(response, err) {
             let data = JSON.parse(response);
             return data;
         }).catch(function(err){
             console.log("An error occured in the request: " + url);
-            console.log(err.response.body);
+          //  console.log(err.response.body);
             return Promise.reject(
                 {
                     statusCode: err,
@@ -203,16 +205,20 @@ function getRestEntityUrl(entityName, getType){
 function buildRequest(requestMetadata, token) {
     let defaultContentType = undefined;
 
-    let serializedData = undefined;
-    if(requestMetadata.data){
-        serializedData = JSON.stringify(requestMetadata.data);
+    let serializedData = requestMetadata.data;
+    let isFile = false;
+    
+    if(requestMetadata.data) {
+        isFile = (requestMetadata.data instanceof fs.ReadStream);
+        if(!isFile)
+            serializedData = JSON.stringify(requestMetadata.data);
     }
 
     if(requestMetadata.method !== "GET")
         defaultContentType = "application/json";
     let requestParam = {
         method: requestMetadata.method,
-        url: buildFinalUrl(requestMetadata.url, token),
+        url: buildFinalUrl(requestMetadata.url, token, requestMetadata.options),        
         body: serializedData,
         responseType: requestMetadata.options.responseType,
         headers: requestMetadata.options.contentType ? { "Content-Type": requestMetadata.options.contentType }: {"Content-Type": defaultContentType },
@@ -228,8 +234,9 @@ function buildRequest(requestMetadata, token) {
  * It will use the config file in the root to get values.
  * @param {String} url This is the relative url /rest/... to complete
  * @param {String} token This is the token to identify the user received just after the login
+ * @param {String} options
  */
-function buildFinalUrl(url, token){
+function buildFinalUrl(url, token, options){
     let apiUrl = config.apiUrl;
     
     // If for the API call, the user needs to be authenticated, it sets the token receives from the login method
@@ -268,6 +275,15 @@ function buildFinalUrl(url, token){
             finalUrl += "?" + apiVersion;
         else
             finalUrl += "&" + apiVersion;
+    }
+    if(options && options.customParams && options.customParams.length > 0){
+        let idx = finalUrl.indexOf("?");
+        let paramSeparator = idx === 0 ? "?" : "&";
+        for(let i = 0; i < options.customParams.length; i++){
+            let paramKeyValue = options.customParams[i];
+            finalUrl += paramSeparator + paramKeyValue.name + "=" + encodeURIComponent(paramKeyValue.value);
+            paramSeparator = "&";
+        }
     }
     finalUrl += "&dateformat=iso"
     return finalUrl;
