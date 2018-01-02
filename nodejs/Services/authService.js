@@ -16,6 +16,10 @@ class authService {
         return !!userInfo && new Date(userInfo.ValidityLimit) < new Date();
     }
 
+    get user(){
+        return !userInfo ? null : userInfo.UserInfo;
+    }
+
     /**
      * This method is to check if the user is already connected and if the token is already valid. 
      * If user is not yet connected, a login is done.

@@ -63,7 +63,7 @@ function promptUserChoices(){
     let schema = {
         name: "choice",
         description: "Select the sample to run",
-        pattern: /^[1-9]|(10)$/,
+        pattern: /^[1-9]|(10)|(11)$/,
         message: "You need to select the number corresponding to your choice",
         type: "string",
         required: true

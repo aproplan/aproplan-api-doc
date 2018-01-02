@@ -7,6 +7,7 @@ let prompt = require("prompt");
 let Promise = require("bluebird");
 let appUtility = require("../appUtility");
 let pad = require("pad");
+let Guid = require("guid");
 
 class pointService {
     
@@ -77,6 +78,74 @@ class pointService {
                 point.Status = newStatus;
             return point;
         });
+    }
+
+    /**
+     * To create a new point throught the API
+     * @param {*Meeting} list The list where the point must be created
+     * @param {*string} subject The subject to use for the new point
+     * @param {string} firstComment The comment to use for the first comment created. If not defined, it uses the same value as the subject
+     * @param {IssueType} subcategory The sub-category to use for the new point
+     * @param {Date} dueDate This is the due date to put in the new point.
+     */
+    createPoint(list, subject, firstComment, subcategory, dueDate){
+        let newPoint = {
+            Id: Guid.raw(), // We generate a new id for the new point
+            Subject: subject,
+            EntityVersion: 0, 
+            DueDate: dueDate,
+            From: { // we sent minimum info to optimize data sent
+                Id: authService.user.Id
+            },
+            Project: { // we sent minimum info to optimize data sent
+                Id: projectService.project.Id
+            },
+            Meeting: { // we sent minimum info to optimize data sent
+                Id: list.Id
+            },
+            Date: new Date(), 
+            Comments: [ // We generate the first comment
+                {
+                    Id: Guid.raw(), 
+                    IsFirst: true, 
+                    Date: new Date(),
+                    From: {
+                        Id: authService.user.Id
+                    },
+                    Comment: !firstComment ? subject: firstComment
+                }
+            ]
+        };
+        if(subcategory){
+            newPoint.IssueType = {
+                Id: subcategory
+            };
+        }
+        // We need to put a status for the created point. Then, we get status configured to the project
+        return projectService.getProjectStatus(projectService.project.Id).then((statuses) => {
+            // By default, we set the status with the code "InProgress"
+            for(let i = 0; i < statuses.length; i++){
+                let status = statuses[i];
+                if(status.Code === "InProgress"){
+                    newPoint.Status = status;
+                    break;
+                }
+            }
+            // We can call the API method to create the point with the build point object
+            return api.createEntity("Notes", newPoint).then((result)=> {
+                if(result.Id !== newPoint.Id){
+                    console.log("An error occured while the saving of the point");
+                }
+                // As we don't send full object for related entity, we fill tehm after the save to display them
+                result.IssueType = subcategory;
+                result.From = authService.user;
+                result.Project = projectService.project;
+                result.Meeting = list;                
+                return result;
+            });
+        });
+        
+
     }
 
     /**
