@@ -26,7 +26,7 @@ The application shows you how to use the api with several samples:
 * Points (Services/pointService.js)
   * Retrieve the list of points (max 15) of the selected project
   * Update a point by changing its status6
-  * Create a new point
+  * Create a new point by selecting list, due date, subject and the first comment
 
 To work on objects related to a projects (lists, points, forms...), you need first to select a project with the related sample. Then, you need to run the sample "Select a working project by its id".
 
