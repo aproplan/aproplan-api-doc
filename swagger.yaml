@@ -1,0 +1,1239 @@
+swagger: '2.0'
+info:
+  description: This is a sample of APROPLAN API.
+  version: 1.0.0
+  title: APROPLAN API
+  termsOfService: 'http://swagger.io/terms/'
+  contact:
+    email: apiteam@aproplan.com
+  license:
+    name: Apache 2.0
+    url: 'http://www.apache.org/licenses/LICENSE-2.0.html'
+host: api.aproplan.com
+basePath: /rest
+tags:
+  - name: Forms
+    description: Everything about Forms
+schemes:
+  - https
+paths:
+  /forms:
+    get:
+      tags:
+        - Forms
+      summary: Return the list of forms available to the current user
+      parameters:
+        - in: query
+          name: filter
+          description: >-
+            This is the filter to apply to retrieve the list of forms available
+            for the current user
+          type: string
+        - in: query
+          name: pathtoload
+          description: >-
+            This is the pathtoload to know which related entities we need to
+            retrieve in the call
+          type: string
+      description: ''
+      responses:
+        '200':
+          description: >-
+            Successful operation returning the array of form corresponding to
+            the queryparameter
+          schema:
+            type: array
+            items:
+              $ref: '#/definitions/Form'
+    post:
+      tags:
+        - Forms
+      summary: To create new form in the cloud APROPLAN
+      parameters:
+        - in: body
+          name: body
+          description: This is the array of forms to create through the cloud
+          schema:
+            type: array
+            items:
+              $ref: '#/definitions/Form'
+      responses:
+        '200':
+          description: Successful operation to create new form array in the cloud
+          schema:
+            type: array
+            items:
+              $ref: '#/definitions/Form'
+    put:
+      tags:
+        - Forms
+      summary: To update forms in the cloud APROPLAN
+      parameters:
+        - in: body
+          name: body
+          description: This is the array of forms to update in the cloud
+          schema:
+            type: array
+            items:
+              $ref: '#/definitions/Form'
+      responses:
+        '200':
+          description: Successful operation to update array of forms in the cloud
+          schema:
+            type: array
+            items:
+              $ref: '#/definitions/Form'
+    delete:
+      tags:
+        - Forms
+      summary: To delete forms and all items in the cloud APROPLAN
+      parameters:
+        - in: body
+          name: body
+          description: Array of FormSignature id to delete from the cloud
+          required: true
+          schema:
+            type: array
+            items:
+              type: string
+            example:
+              - ea5d793f-c795-4311-8344-eb18e8efa065
+              - afff9354-abb3-4a9c-aca5-9810490938ef
+      responses:
+        '200':
+          description: >-
+            Successful operation meaning all specified id of Form are deleted
+            from the cloud
+          schema:
+            type: string
+            example: success
+  /formitems:
+    get:
+      tags:
+        - Forms
+      summary: Retrieve items related to a specific form
+      parameters:
+        - in: query
+          name: parentEntityId
+          required: true
+          description: This is the parent form for which the item are requested
+          type: string
+      description: ''
+      responses:
+        '200':
+          description: >-
+            Successful operation returning the array of form item corresponding
+            to a specific form
+          schema:
+            type: array
+            items:
+              $ref: '#/definitions/FormItem'
+    post:
+      tags:
+        - Forms
+      summary: Create new items related to a specific form
+      parameters:
+        - in: body
+          name: body
+          required: true
+          description: This is the array of form's item to create
+          schema:
+            type: array
+            items:
+              $ref: '#/definitions/FormItem'
+      description: ''
+      responses:
+        '200':
+          description: Successful operation returning the array of form's items created
+          schema:
+            type: array
+            items:
+              $ref: '#/definitions/FormItem'
+    put:
+      tags:
+        - Forms
+      summary: Update form's items
+      parameters:
+        - in: body
+          name: body
+          required: true
+          description: This is the array of form's item to update
+          schema:
+            type: array
+            items:
+              $ref: '#/definitions/FormItem'
+      description: ''
+      responses:
+        '200':
+          description: Successful operation returning the array of form's items updated
+          schema:
+            type: array
+            items:
+              $ref: '#/definitions/FormItem'
+  /formsignatures:
+    get:
+      tags:
+        - Forms
+      summary: Retrieve the signatures of a specified form
+      parameters:
+        - in: query
+          name: parentEntityId
+          required: true
+          description: This is the parent form for which the signature are requested
+          type: string
+      description: ''
+      responses:
+        '200':
+          description: >-
+            Successful operation returning the array of form signatures
+            corresponding to a specific form
+          schema:
+            type: array
+            items:
+              $ref: '#/definitions/FormSignature'
+    put:
+      tags:
+        - Forms
+      summary: To edit a new signature for the form
+      parameters:
+        - in: body
+          name: body
+          description: Array of formsignatures to edit
+          required: true
+          schema:
+            type: array
+            items:
+              $ref: '#/definitions/FormSignature'
+      responses:
+        '200':
+          description: 'Successfull update of all signatures. '
+          schema:
+            type: array
+            items:
+              $ref: '#/definitions/FormSignature'
+    post:
+      tags:
+        - Forms
+      summary: To create  new signatures for the form
+      parameters:
+        - in: body
+          name: body
+          description: Array of formsignatures to create
+          required: true
+          schema:
+            type: array
+            items:
+              $ref: '#/definitions/FormSignature'
+      responses:
+        '200':
+          description: 'Successfull create of all signatures. '
+          schema:
+            type: array
+            items:
+              $ref: '#/definitions/FormSignature'
+  /generateformreport:
+    post:
+      tags:
+        - Forms
+      summary: To generate the form report and send it by mail
+      parameters:
+        - in: body
+          name: FormReportParams
+          description: >-
+            Basic definition of the report that will be generated after the
+            finalization, if successful.
+          schema:
+            $ref: '#/definitions/FormReportParams'
+      responses:
+        '200':
+          description: The report request is created with parameter
+          schema:
+            $ref: '#/definitions/ReportRestIdentification'
+  /previewformreport:
+    post:
+      tags:
+        - Forms
+      summary: To preview the form report
+      parameters:
+        - in: body
+          name: FormReportParams
+          description: >-
+            Basic definition of the report that will be generated after the
+            finalization, if successful.
+          schema:
+            $ref: '#/definitions/FormReportParams'
+      responses:
+        '200':
+          description: The report request is created with parameter
+          schema:
+            $ref: '#/definitions/ReportRestIdentification'
+  /formfinalization:
+    put:
+      tags:
+        - Forms
+      summary: Finalize a form
+      parameters:
+        - in: body
+          name: FormReportParams
+          description: >-
+            Basic definition of the report that will be generated after the
+            finalization, if successful.
+          schema:
+            $ref: '#/definitions/FormReportParams'
+      responses:
+        '200':
+          description: >-
+            Successful operation. Return the form finalized and the
+            ReportRequest identification
+          schema:
+            $ref: '#/definitions/FormFinalizationResponse'
+  /formtemplates:
+    get:
+      tags:
+        - Form Template
+      summary: Return form template available to the current user
+      parameters:
+        - in: query
+          name: filter
+          description: >-
+            This is the filter to apply to retrieve formtemplate available for
+            the current user
+          type: string
+        - in: query
+          name: pathtoload
+          description: >-
+            This is the pathtoload to know which related entities we need to
+            retrieve in the call
+          type: string
+      description: ''
+      responses:
+        '200':
+          description: >-
+            Successful operation returning the array of formtemplate
+            corresponding to the queryparameter
+          schema:
+            type: array
+            items:
+              $ref: '#/definitions/FormTemplate'
+    post:
+      tags:
+        - Form Template
+      summary: >-
+        To create new form templates for the company of the current user to
+        APROPLAN
+      description: ''
+      operationId: addFormtemplate
+      consumes:
+        - application/json
+      produces:
+        - application/json
+      parameters:
+        - in: body
+          name: body
+          description: Form object that needs to be added
+          required: true
+          schema:
+            type: array
+            items:
+              $ref: '#/definitions/FormTemplate'
+      responses:
+        '200':
+          description: Successful operation returning the array of formtemplate created
+          schema:
+            type: array
+            items:
+              $ref: '#/definitions/FormTemplate'
+        '405':
+          description: Invalid input
+    put:
+      tags:
+        - Form Template
+      summary: Update a form template available to the current user
+      operationId: updateFormTemplate
+      consumes:
+        - application/json
+      produces:
+        - application/json
+      parameters:
+        - in: body
+          name: body
+          description: Form object that needs to be added
+          required: true
+          schema:
+            type: array
+            items:
+              $ref: '#/definitions/FormTemplate'
+      responses:
+        '200':
+          description: OK
+          schema:
+            type: array
+            items:
+              $ref: '#/definitions/FormTemplate'
+        '405':
+          description: Invalid input
+    delete:
+      tags:
+        - Form Template
+      summary: Delete a form template available to the current user
+      operationId: deleteFormTemplate
+      parameters:
+        - in: body
+          name: body
+          description: Array of formtemplate id to delete from the cloud
+          required: true
+          schema:
+            type: array
+            items:
+              type: number
+            example:
+              - ea5d793f-c795-4311-8344-eb18e8efa065
+              - afff9354-abb3-4a9c-aca5-9810490938ef
+      responses:
+        '200':
+          description: >-
+            Successful operation meaning all specified id of FormTemplate are
+            deleted with all related questions from the cloud
+          schema:
+            type: string
+            example: success
+  /formquestions:
+    get:
+      tags:
+        - Form Template
+      summary: Retrieve questions related to a specific form template
+      parameters:
+        - in: query
+          name: parentEntityId
+          required: true
+          description: >-
+            This is the parent form template for which the questions are
+            requested
+          type: string
+      description: ''
+      responses:
+        '200':
+          description: >-
+            Successful operation returning the array of form question
+            corresponding to a specific form
+          schema:
+            type: array
+            items:
+              $ref: '#/definitions/FormQuestion'
+  /formsignaturerules:
+    get:
+      tags:
+        - Form Template
+      summary: Retrieve the signature rules of a specified form template
+      parameters:
+        - in: query
+          name: parentEntityId
+          required: true
+          description: >-
+            This is the parent form template for which the signature rules are
+            requested
+          type: string
+      description: ''
+      responses:
+        '200':
+          description: >-
+            Successful operation returning the array of form signature rule
+            corresponding to a specific form template
+          schema:
+            type: array
+            items:
+              $ref: '#/definitions/FormSignatureRule'
+    put:
+      tags:
+        - Form Template
+      summary: To edit a new signature rule for the template
+      parameters:
+        - in: body
+          name: body
+          description: Array of formsignaturerules to edit
+          required: true
+          schema:
+            type: array
+            items:
+              $ref: '#/definitions/FormSignatureRule'
+      responses:
+        '200':
+          description: 'Successfull update of all signature rules. '
+          schema:
+            type: array
+            items:
+              $ref: '#/definitions/FormSignatureRule'
+    post:
+      tags:
+        - Form Template
+      summary: To create  new signature rules for the template
+      parameters:
+        - in: body
+          name: body
+          description: Array of formsignaturerules to create
+          required: true
+          schema:
+            type: array
+            items:
+              $ref: '#/definitions/FormSignatureRule'
+      responses:
+        '200':
+          description: 'Successfull create of all signature rules. '
+          schema:
+            type: array
+            items:
+              $ref: '#/definitions/FormSignatureRule'
+    delete:
+      tags:
+        - Form Template
+      summary: Delete form signature rules available to the current user
+      operationId: deleteFormSignatureRule
+      parameters:
+        - in: body
+          name: body
+          description: Array of formsignaturerule id to delete from the cloud
+          required: true
+          schema:
+            type: array
+            items:
+              type: number
+            example:
+              - ea5d793f-c795-4311-8344-eb18e8efa065
+              - afff9354-abb3-4a9c-aca5-9810490938ef
+      responses:
+        '200':
+          description: >-
+            Successful operation meaning all specified id of FormSignatureRule
+            are deleted
+          schema:
+            type: string
+            example: success
+  /formsync:
+    get:
+      tags:
+        - Form Synchronization
+      summary: Retrieve form of a user from a specific last datetime synchronization
+      description: ''
+      responses:
+        '200':
+          description: >-
+            Successful operation returning the array of forms updated/deleted
+            from a specific date
+          schema:
+            type: array
+            items:
+              $ref: '#/definitions/Form'
+  /formtemplatesync:
+    get:
+      tags:
+        - Form Synchronization
+      summary: >-
+        Retrieve form template available to a user from a specific last datetime
+        synchronization
+      description: ''
+      responses:
+        '200':
+          description: >-
+            Successful operation returning the array of forms updated/deleted
+            from a specific date
+          schema:
+            type: array
+            items:
+              $ref: '#/definitions/Form'
+definitions:
+  RestEntity:
+    title: RestEntity
+    type: object
+    required:
+      - Id
+      - EntityVersion
+    properties:
+      Id:
+        type: string
+        description: Guid identifier
+        pattern: '^{[A-Z0-9]{8}-([A-Z0-9]{4}-){3}[A-Z0-9]{12}}$'
+        example: f230aeb4-7d72-435b-8e12-b9240156e098
+      EntityVersion:
+        type: integer
+        format: int64
+      EntityCreationUser:
+        type: string
+        description: Guid identifier
+        pattern: '^{[A-Z0-9]{8}-([A-Z0-9]{4}-){3}[A-Z0-9]{12}}$'
+  Language:
+    type: object
+    allOf:
+      - $ref: '#/definitions/RestEntity'
+      - type: object
+      - title: Language
+      - properties:
+          Code:
+            type: string
+            description: This is the code of the language ISO2
+            example: fr
+          Name:
+            type: string
+            description: This is the name of the language in English
+            example: French
+          TranslationCode:
+            type: string
+            description: This is the localization of the language
+            example: FR
+          TranslatedName:
+            type: string
+            description: This is the name of the language in translated in this language
+            example: Français
+  ReportRestEntityIdentification:
+    type: object
+    properties:
+      GuidId:
+        type: string
+      PreviewUri:
+        type: string
+        description: >-
+          This is the url to use to get the preview of the generated report when
+          ready
+      Date:
+        type: string
+        format: date-time
+      ReportTitle:
+        type: string
+      Status:
+        type: string
+        enum:
+          - New
+          - InProgress
+          - Generated
+          - Error
+          - Deleted
+  FormReportParams:
+    type: object
+    required:
+      - FormId
+    properties:
+      FormId:
+        type: string
+        format: guid
+        description: The Guid of the form that needs to be generated
+        pattern: '^{[A-Z0-9]{8}-([A-Z0-9]{4}-){3}[A-Z0-9]{12}}$'
+        example: f230aeb4-7d72-435b-8e12-b9240156e098
+      ReportRequestId:
+        type: string
+        format: guid
+        description: The Guid of the report request
+        pattern: '^{[A-Z0-9]{8}-([A-Z0-9]{4}-){3}[A-Z0-9]{12}}$'
+        example: de9590b5-14f2-4a07-8877-aad9e4b338e6
+      LanguageCode:
+        type: string
+        description: The language in which the report will be generated
+        example: EN
+      Date:
+        type: string
+        format: date-time
+        description: The report generation date
+      PreviewUri:
+        type: string
+        description: >-
+          This is the url to use to get the preview of the generated report when
+          ready
+      ReportTitle:
+        type: string
+      SendByMail:
+        type: boolean
+        description: Should this report be sent by mail ?
+      RecipientIds:
+        type: array
+        description: The list of user's guids that want the email sent to them
+      MailSubject:
+        type: string
+        description: The mail subject that will be sent
+      MailBody:
+        type: string
+        description: The text to insert in the body of the mail that will be sent
+      Status:
+        type: string
+        enum:
+          - New
+          - InProgress
+          - Generated
+          - Error
+          - Deleted
+  User:
+    type: object
+    allOf:
+      - $ref: '#/definitions/RestEntity'
+      - type: object
+      - title: User
+      - properties:
+          Alias:
+            type: string
+            description: >-
+              This is the alias to use by the user to log in to the APROPLAN
+              application
+            example: john.smith@aproplan.com
+  Project:
+    type: object
+    allOf:
+      - $ref: '#/definitions/RestEntity'
+      - type: object
+      - title: Project
+      - properties:
+          Code:
+            type: string
+            description: ''
+            example: MyP
+          Name:
+            type: string
+            description: ''
+            example: My Project
+  SheetBase:
+    type: object
+    allOf:
+      - $ref: '#/definitions/RestEntity'
+      - type: object
+      - title: SheetBase
+      - properties:
+          Width:
+            type: integer
+            description: This is the width of the sheet
+            example: 800
+          Height:
+            type: integer
+            description: This is the height of the sheet
+            example: 600
+          ZoomLevelNumber:
+            type: integer
+          TileSize:
+            type: integer
+          BigThumbWidth:
+            type: integer
+          BigThumbHeight:
+            type: integer
+          SmallThumbWidth:
+            type: integer
+          SmallThumbHeight:
+            type: integer
+  DocumentBase:
+    type: object
+    allOf:
+      - $ref: '#/definitions/SheetBase'
+      - type: object
+      - title: DocumentBase
+      - properties:
+          ImageUrl:
+            type: string
+          SourceUrl:
+            type: string
+          Date:
+            type: string
+            format: date-time
+          UploadedBy:
+            $ref: '#/definitions/User'
+          UploadedDate:
+            type: string
+            format: date-time
+          Subject:
+            type: string
+          RotateAngle:
+            type: integer
+  Document:
+    type: object
+    allOf:
+      - $ref: '#/definitions/DocumentBase'
+      - type: object
+      - title: Document
+      - properties:
+          FolderId:
+            type: string
+          Name:
+            type: string
+          PageCount:
+            type: integer
+          HasDifference:
+            type: boolean
+          IsArchived:
+            type: boolean
+  Meeting:
+    type: object
+    allOf:
+      - $ref: '#/definitions/RestEntity'
+      - type: object
+      - title: Meeting
+      - properties:
+          Title:
+            type: string
+            description: ''
+            example: My list
+          Code:
+            type: string
+            description: ''
+            example: MyL
+          Project:
+            $ref: '#/definitions/Project'
+  NoteProjectStatusBase:
+    type: object
+    description: ''
+    allOf:
+      - $ref: '#/definitions/RestEntity'
+      - type: object
+      - title: NoteProjectStatusBase
+      - properties:
+          Code:
+            type: string
+          Name:
+            type: string
+          DisplayOrder:
+            type: integer
+          IsOnlyUsedByMeetingManager:
+            type: boolean
+          Color:
+            type: string
+          IsTodo:
+            type: boolean
+          IsDone:
+            type: boolean
+          DoneAction:
+            type: boolean
+          IsBlocked:
+            type: boolean
+          IsBlockedAction:
+            type: boolean
+  NoteProjectStatus:
+    type: object
+    description: ''
+    allOf:
+      - $ref: '#/definitions/NoteProjectStatusBase'
+      - type: object
+      - title: NoteProjectStatus
+      - properties:
+          Project:
+            $ref: '#/definitions/Project'
+          IsDisabled:
+            type: boolean
+  NoteComment:
+    type: object
+    description: To make comment on annotation
+    allOf:
+      - $ref: '#/definitions/RestEntity'
+      - type: object
+      - title: NoteComment
+      - required:
+          - NoteBaseId
+      - properties:
+          NoteBaseId:
+            type: string
+            description: This is the id of the Note on which the comment is linked
+          From:
+            description: >-
+              This is the creator of the comment. This parameter is not used
+              from the api
+            $ref: '#/definitions/User'
+          Date:
+            type: string
+            description: This is the creation date of the annotation
+            format: date-time
+          LastModificationDate:
+            type: string
+            description: This is the last modification date of the comment
+            format: date-time
+          IsRead:
+            type: boolean
+            example: true
+          IsFirst:
+            type: boolean
+            example: false
+          IsArchived:
+            type: boolean
+            example: false
+          Code:
+            type: string
+          MeetingOccurrence:
+            type: integer
+          MeetingRevision:
+            type: integer
+          MeetingPointNumber:
+            type: string
+  NoteDocument:
+    type: object
+    description: To attach document on annotation
+    allOf:
+      - $ref: '#/definitions/RestEntity'
+      - type: object
+      - title: NoteDocument
+      - required:
+          - NoteBaseId
+      - properties:
+          NoteBaseId:
+            type: string
+            description: This is the id of the Note on which the document is linked
+          DisplayOrder:
+            type: integer
+  NoteInCharge:
+    type: object
+    allOf:
+      - $ref: '#/definitions/RestEntity'
+      - type: object
+      - title: NoteInCharge
+      - required:
+          - Tag
+          - UserId
+          - NoteBaseId
+      - properties:
+          NoteBaseId:
+            type: string
+            description: This is the id of the Note on which the document is linked
+          UserId:
+            type: string
+          Tag:
+            type: string
+          IsContactInvitedOnProject:
+            type: boolean
+  NoteBase:
+    type: object
+    description: >-
+      This is the base classes used for all kind of annotations available on
+      APROPLAN
+    allOf:
+      - $ref: '#/definitions/RestEntity'
+      - type: object
+      - title: NoteBase
+      - properties:
+          Meeting:
+            $ref: '#/definitions/Meeting'
+            description: This is the meeting on which the annotation is linked
+          Project:
+            $ref: '#/definitions/Project'
+            description: This is the project on which the annotation is linked
+          ParentNote:
+            description: >-
+              An annotation can from/to be linked to another annotation. This is
+              the parent annotation
+            $ref: '#/definitions/NoteBase'
+          ChildrenNotes:
+            type: array
+            items:
+              $ref: '#/definitions/NoteBase'
+          IsUrgent:
+            type: boolean
+            example: true
+          CodeNum:
+            type: string
+            example: '1.05'
+          Date:
+            type: string
+            description: This is the creation date of the annotation
+            format: date-time
+          ModificationDate:
+            type: string
+            format: date-time
+          From:
+            description: >-
+              This is the creator of the annotation. This parameter is not used
+              from the api
+            $ref: '#/definitions/User'
+          Subject:
+            type: string
+            description: This is the summary of the annotation
+            example: My first annotation
+          IsArchived:
+            type: boolean
+            description: 'To know if the annotation is archived or not '
+            example: false
+          ArchivedDate:
+            type: string
+            format: date-time
+            description: To know when the annotation was archived the last time
+          DueDate:
+            type: string
+            format: date-time
+            description: >-
+              This is the due date for which an action is expected for the
+              annotation
+          HasAttachment:
+            type: boolean
+            description: To know if there are some attachment linked to the annotation
+          Comments:
+            type: array
+            items:
+              $ref: '#/definitions/NoteComment'
+          NoteDocuments:
+            type: array
+            items:
+              $ref: '#/definitions/NoteDocument'
+          NoteInCharge:
+            type: array
+            items:
+              $ref: '#/definitions/NoteInCharge'
+  Note:
+    type: object
+    description: This is the definition of an annotation
+    allOf:
+      - $ref: '#/definitions/NoteBase'
+      - type: object
+      - title: Note
+      - properties:
+          FormItemId:
+            type: string
+            format: guid
+            description: >-
+              If the note was created for form, we can specify for which item
+              the note was created
+          Status:
+            $ref: '#/definitions/NoteProjectStatus'
+  FormItemBase:
+    type: object
+    allOf:
+      - $ref: '#/definitions/RestEntity'
+      - type: object
+      - title: FormItemBase
+      - properties:
+          DisplayOrder:
+            type: integer
+            format: int32
+            description: This is the order of the item in the Form or Form template
+            example: '0'
+          Title:
+            type: string
+          Description:
+            type: string
+          ItemType:
+            type: string
+            enum:
+              - string
+              - number
+              - array
+          Template:
+            type: string
+  Form:
+    type: object
+    description: This is a Form created from a FormTemplate
+    allOf:
+      - $ref: '#/definitions/NoteBase'
+      - type: object
+      - title: Form
+      - properties:
+          Type:
+            type: string
+            enum:
+              - Quality
+              - Security
+              - Environment
+          Language:
+            $ref: '#/definitions/Language'
+          Status:
+            type: string
+            enum:
+              - Todo
+              - InProgress
+              - Done
+          DoneStatus:
+            type: string
+            format: date-time
+            description: This is the date when the form has been finalized
+          TemplateId:
+            type: string
+            description: >-
+              This is the id of the template from where the form has been
+              created
+          Signatures:
+            type: array
+            items:
+              - $ref: '#/definitions/FormSignature'
+          Items:
+            type: array
+            items:
+              - $ref: '#/definitions/FormItem'
+          IsConform:
+            type: boolean
+          Report:
+            $ref: '#/definitions/Document'
+  FormItem:
+    type: object
+    description: >-
+      It is an item of a form, it means question with potential value given by a
+      user
+    allOf:
+      - $ref: '#/definitions/FormItemBase'
+      - type: object
+      - title: FormItem
+      - properties:
+          FormId:
+            type: string
+            description: This is the id of the form owner of the item
+            example: f230aeb4-7d72-435b-8e12-b9240156e098
+          QuestionId:
+            type: string
+            description: >-
+              This is the id of the question from where the item has been
+              created
+          User:
+            description: >-
+              This is the user who answered to the question. This parameter is
+              not used from the api
+            $ref: '#/definitions/User'
+          Value:
+            description: This is the value answered by the user converted to string
+            type: string
+            example: Die hard 3
+          NotApplicable:
+            type: boolean
+            example: true
+            description: >-
+              A question can be not applicable then, the user is able to answer
+              by setting this value to true
+          IsConform:
+            type: boolean
+            example: true
+            description: >-
+              When the answer is given and there are rule of conformity. This
+              value is computed regarding the value and conformity rules
+  FormSignature:
+    type: object
+    description: This is the signature wanted for the Form
+    allOf:
+      - $ref: '#/definitions/RestEntity'
+      - type: object
+      - title: FormSignature
+      - properties:
+          FormId:
+            type: number
+            description: This is the id of the parent form
+          SignatureRuleId:
+            type: string
+            description: >-
+              This is the id of the signature rule from where the signature has
+              been created
+          Title:
+            type: string
+            description: This is the title to display for the signature
+            example: User who fill the form
+          Signature:
+            type: string
+            description: This is the list of point (coordinate) necessary to draw signature
+            example: '62,75,54,71,52,71,51,71,50,71,50,70,52,62,62,48'
+          Date:
+            type: string
+            format: date-time
+            description: >-
+              If a signature was done, this is the date time when the signature
+              was done
+          SignatureUser:
+            $ref: '#/definitions/User'
+  FormFinalizationResponse:
+    type: object
+    description: >-
+      When a form is finalized, it contains information about the report request
+      + the form with new status and data
+    properties:
+      Form:
+        $ref: '#/definitions/Form'
+      FormReportParams:
+        $ref: '#/definitions/ReportRestIdentification'
+  FormTemplate:
+    type: object
+    description: This is a template of Form
+    allOf:
+      - $ref: '#/definitions/RestEntity'
+      - type: object
+      - title: FormTemplate
+      - properties:
+          Subject:
+            type: string
+            description: This is the subject of the form
+          Type:
+            type: string
+            enum:
+              - Quality
+              - Security
+              - Environment
+          Language:
+            $ref: '#/definitions/Language'
+          Creator:
+            $ref: '#/definitions/User'
+          Date:
+            type: string
+            format: date-time
+          IsArchived:
+            type: boolean
+            description: To know if the template is archived or not
+          ArchivedDate:
+            type: string
+            format: date-time
+            description: This is the date time when the template was archived
+          CompanyId:
+            type: string
+            description: This is the id of the company owner of the template
+            example: 91cb89f2-79a0-415c-9f47-77f22193b420
+          Questions:
+            type: array
+            items:
+              $ref: '#/definitions/FormQuestion'
+          SignatureRules:
+            type: array
+            items:
+              $ref: '#/definitions/FormSignatureRule'
+  FormQuestion:
+    allOf:
+      - $ref: '#/definitions/FormItemBase'
+      - type: object
+      - title: FormQuestion
+      - properties:
+          FormTemplateId:
+            type: string
+            description: this is the id of the FormTemplate owner of the question
+            example: f230aeb4-7d72-435b-8e12-b9240156e098
+          IsArchived:
+            type: boolean
+            description: To know if the question has been archived or not
+          ArchivedDate:
+            type: string
+            format: date-time
+            description: >-
+              If the question is archived, this is the date when the archive has
+              been done
+  FormSignatureRule:
+    allOf:
+      - $ref: '#/definitions/RestEntity'
+      - type: object
+      - title: FormSignatureRule
+      - properties:
+          Title:
+            type: string
+            description: this is the title to display for the wanted signature
+            example: User who fill the form
+          FormTemplateId:
+            type: number
+            description: This is the id of the parent template
+          IsArchived:
+            type: boolean
+            description: To know if the question has been archived or not
+          ArchivedDate:
+            type: string
+            format: date-time
+            description: >-
+              If the question is archived, this is the date when the archive has
+              been done
+  ReportRestIdentification:
+    type: object
+    description: Information returned by the server about the requested report
+    properties:
+      Date:
+        type: string
+        format: date-time
+      GuidId:
+        type: string
+        description: The Id of the request report
+        pattern: '^{[A-Z0-9]{8}-([A-Z0-9]{4}-){3}[A-Z0-9]{12}}$'
+        example: f230aeb4-7d72-435b-8e12-b9240156e098
+      NumberRecipients:
+        type: integer
+        description: The amount of recipients to whom the report will be sent
+      ReportTitle:
+        type: string
+        description: The title of the report
+      PreviewUri:
+        type: string
+        description: The URI where it is possible to preview the report
+      Status:
+        type: string
+        description: The status of the requested report
