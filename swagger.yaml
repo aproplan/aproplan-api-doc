@@ -1,24 +1,118 @@
 swagger: '2.0'
 info:
   description: This is a sample of APROPLAN API.
-  version: 1.0.0
+  version: 1.7.0
   title: APROPLAN API
   termsOfService: 'http://swagger.io/terms/'
   contact:
-    email: apiteam@aproplan.com
+    name: APROPLAN support
+    email: support@aproplan.com
   license:
     name: Apache 2.0
     url: 'http://www.apache.org/licenses/LICENSE-2.0.html'
 host: api.aproplan.com
 basePath: /rest
 tags:
+  - name: Login
+    description: necessary method to identify a user
+  - name: Form Template
+    description: Everything about Form Templates
   - name: Forms
     description: Everything about Forms
 schemes:
   - https
+parameters: 
+  tokenParameter:
+    name: t
+    in: query
+    description: the token to call the api method
+    required: true
+    type: string
+  dateFormatParam:
+    name: dateformat
+    in: query
+    description: to specify of date must be formatted
+    required: false
+    type: string
+    enum: [microsoft, iso]
+    default: microsoft
+  requesterParam:
+    name: requesterid
+    in: query
+    required: true
+    type: string
+    description: this is the token you received from aproplan to identify as a user of the APROPLAN API  
 paths:
+  /loginsecure:
+    post: 
+      operationId: loginSecure
+      tags: 
+        - Login
+      summary: to identify a user and then, to be able to make other call in the api
+      parameters:
+        - $ref: '#/parameters/requesterParam'
+        - $ref: '#/parameters/dateFormatParam'
+        - in: body
+          name: body
+          schema:
+            $ref: '#/definitions/AliasPass'
+      responses: 
+        '200': 
+          description: >-
+            Successful operation returning a new TokenInfo object with the new valid token to use
+          schema: 
+            $ref: '#/definitions/TokenInfo'
+  /renewtoken:
+    get:
+      operationId: renewToken
+      tags: 
+        - Login
+      summary: Permit to request a new token to identify the user before the current one becomes invalidate.
+      parameters: 
+        - in: query
+          name: t
+          description: the current valid token received at the login or a previous renew token
+          type: string
+      responses: 
+        '200': 
+          description: >-
+            Successful operation returning a new TokenInfo object with the new valid token to use
+          schema: 
+            $ref: '#/definitions/TokenInfo'
+  /users:
+    post:
+      operationId: createUser
+      tags:
+        - Login
+      summary: Create an account in APROPLAN
+      description: >-
+        To create an new user in aproplan, it is necessary to send the user object with at least the following properties of User object
+        * Id
+        * Alias
+        * DisplayName
+        * Person
+          * Id
+          * Code
+          * Name
+          * LanguageCode
+          * Country
+            * Id
+        * LanguageCode
+        
+      parameters:
+        - in: body
+          name: body
+          description: "Need an object with 2 properties: User and Pass"
+          schema:
+            $ref: '#/definitions/UserPass'
+      responses: 
+        '200': 
+          description: Successful operation
+          schema:
+            $ref: '#/definitions/User'
   /forms:
     get:
+      operationId: getForms
       tags:
         - Forms
       summary: Return the list of forms available to the current user
@@ -46,6 +140,7 @@ paths:
             items:
               $ref: '#/definitions/Form'
     post:
+      operationId: postForms
       tags:
         - Forms
       summary: To create new form in the cloud APROPLAN
@@ -65,6 +160,7 @@ paths:
             items:
               $ref: '#/definitions/Form'
     put:
+      operationId: putForms
       tags:
         - Forms
       summary: To update forms in the cloud APROPLAN
@@ -84,6 +180,7 @@ paths:
             items:
               $ref: '#/definitions/Form'
     delete:
+      operationId: deleteForms
       tags:
         - Forms
       summary: To delete forms and all items in the cloud APROPLAN
@@ -109,6 +206,7 @@ paths:
             example: success
   /formitems:
     get:
+      operationId: getFormItems
       tags:
         - Forms
       summary: Retrieve items related to a specific form
@@ -129,6 +227,7 @@ paths:
             items:
               $ref: '#/definitions/FormItem'
     post:
+      operationId: postFormItems
       tags:
         - Forms
       summary: Create new items related to a specific form
@@ -150,6 +249,7 @@ paths:
             items:
               $ref: '#/definitions/FormItem'
     put:
+      operationId: putFormItems
       tags:
         - Forms
       summary: Update form's items
@@ -172,6 +272,7 @@ paths:
               $ref: '#/definitions/FormItem'
   /formsignatures:
     get:
+      operationId: getFormSignatures
       tags:
         - Forms
       summary: Retrieve the signatures of a specified form
@@ -192,6 +293,7 @@ paths:
             items:
               $ref: '#/definitions/FormSignature'
     put:
+      operationId: putFormSignatures
       tags:
         - Forms
       summary: To edit a new signature for the form
@@ -212,6 +314,7 @@ paths:
             items:
               $ref: '#/definitions/FormSignature'
     post:
+      operationId: postFormSignatures
       tags:
         - Forms
       summary: To create  new signatures for the form
@@ -233,6 +336,7 @@ paths:
               $ref: '#/definitions/FormSignature'
   /generateformreport:
     post:
+      operationId: generateFormReport
       tags:
         - Forms
       summary: To generate the form report and send it by mail
@@ -251,6 +355,7 @@ paths:
             $ref: '#/definitions/ReportRestIdentification'
   /previewformreport:
     post:
+      operationId: previewFormReport
       tags:
         - Forms
       summary: To preview the form report
@@ -269,6 +374,7 @@ paths:
             $ref: '#/definitions/ReportRestIdentification'
   /formfinalization:
     put:
+      operationId: formFinalization
       tags:
         - Forms
       summary: Finalize a form
@@ -289,6 +395,7 @@ paths:
             $ref: '#/definitions/FormFinalizationResponse'
   /formtemplates:
     get:
+      operationId: getFormTemplates
       tags:
         - Form Template
       summary: Return form template available to the current user
@@ -316,13 +423,13 @@ paths:
             items:
               $ref: '#/definitions/FormTemplate'
     post:
+      operationId: postFormTemplates
       tags:
         - Form Template
       summary: >-
         To create new form templates for the company of the current user to
         APROPLAN
       description: ''
-      operationId: addFormtemplate
       consumes:
         - application/json
       produces:
@@ -373,10 +480,10 @@ paths:
         '405':
           description: Invalid input
     delete:
+      operationId: deleteFormTemplates
       tags:
         - Form Template
       summary: Delete a form template available to the current user
-      operationId: deleteFormTemplate
       parameters:
         - in: body
           name: body
@@ -399,6 +506,7 @@ paths:
             example: success
   /formquestions:
     get:
+      operationId: getFormQuestions
       tags:
         - Form Template
       summary: Retrieve questions related to a specific form template
@@ -422,6 +530,7 @@ paths:
               $ref: '#/definitions/FormQuestion'
   /formsignaturerules:
     get:
+      operationId: getFormSignatureRules
       tags:
         - Form Template
       summary: Retrieve the signature rules of a specified form template
@@ -444,6 +553,7 @@ paths:
             items:
               $ref: '#/definitions/FormSignatureRule'
     put:
+      operationId: putFormSignatureRules
       tags:
         - Form Template
       summary: To edit a new signature rule for the template
@@ -464,6 +574,7 @@ paths:
             items:
               $ref: '#/definitions/FormSignatureRule'
     post:
+      operationId: postFormSignatureRules
       tags:
         - Form Template
       summary: To create  new signature rules for the template
@@ -541,6 +652,47 @@ paths:
             items:
               $ref: '#/definitions/Form'
 definitions:
+  AliasPass: 
+    title: AliasPass
+    type: object
+    properties:
+      Alias:
+        type: string
+        description: This is the alias used by the user to identify himself into APROPLAN
+        example: "john.smith@aproplan.com"
+      Pass:
+        type: string
+        description: This is the password of the user to log in to APROPLAN
+        example: aproplan
+  UserPass:
+    title: UserPass
+    type: object
+    properties:
+      User:
+        $ref: '#/definitions/User'
+      Pass:
+        type: string
+        description: this is the password to apply to the new user
+        example: aproplan
+  TokenInfo: 
+    title: TokenInfo
+    type: object
+    properties:
+      Token:
+        type: string
+        description: Guid to identify the user. Received at the login
+        pattern: '^{[A-Z0-9]{8}-([A-Z0-9]{4}-){3}[A-Z0-9]{12}}$'
+        example: a75678b7-5042-484e-99aa-a029aebc98b4
+      ValidityLimit:
+        type: string
+        format: date-time
+        description: The end date-time when the token will be invalidate
+        example: "2018-01-10T16:07:56.7509736Z"
+      ValidityStart:
+        type: string
+        format: date-time
+        description: The start date-time of the token validity
+        example: "2018-01-10T15:57:56.7509736Z"
   RestEntity:
     title: RestEntity
     type: object
@@ -583,6 +735,38 @@ definitions:
             type: string
             description: This is the name of the language in translated in this language
             example: Français
+  Country: 
+    type: object
+    allOf: 
+      - $ref: '#/definitions/RestEntity'
+      - type: object
+      - title: Country
+      - properties: 
+          Name:
+            type: string
+            description: this is the name of the country
+            example: Belgium
+          Iso: 
+            type: string
+            description: this is the iso of the country in 3 characters
+            example: BEL
+          Iso2:
+            type: string
+            description: this is the iso of the country in 2 characters
+            example: BE
+  Profession:
+    type: object
+    allOf:
+      - $ref: '#/definitions/RestEntity'
+      - type: object
+      - title: Profession
+      - properties:
+          Code:
+            type: string
+          Name:
+            type: string
+            
+    
   ReportRestEntityIdentification:
     type: object
     properties:
@@ -643,6 +827,9 @@ definitions:
         description: Should this report be sent by mail ?
       RecipientIds:
         type: array
+        items: {
+          type: string
+        }
         description: The list of user's guids that want the email sent to them
       MailSubject:
         type: string
@@ -658,6 +845,136 @@ definitions:
           - Generated
           - Error
           - Deleted
+  Phone:
+    type: object
+    allOf:
+      - $ref: '#/definitions/RestEntity'
+      - type: object
+      - title: Phone
+      - properties:
+          Number:
+            type: string
+          Order: 
+            type: string
+          InfoType: 
+            type: string
+            enum:
+              - Home
+              - Home2
+              - Business
+              - Business2
+              - Mobile
+              - Other
+  Email:
+    type: object
+    allOf:
+      - $ref: '#/definitions/RestEntity'
+      - type: object
+      - title: Email
+      - properties:
+          Email:
+            type: string
+          Order: 
+            type: string
+          InfoType: 
+            type: string
+            enum:
+              - Home
+              - Home2
+              - Business
+              - Business2
+              - Mobile
+              - Other    
+  Party:
+    type: object
+    allOf: 
+      - $ref: '#/definitions/RestEntity'
+      - type: object
+      - title: Party
+      - properties: 
+          Code: 
+            type: string
+          Name: 
+            type: string
+          Language: 
+            $ref: '#/definitions/Language'
+          LanguageCode: 
+            type: string
+          Country: 
+            $ref: '#/definitions/Country'
+          Email:
+            type: string
+          Phones: 
+            type: array
+            items: 
+              $ref: '#/definitions/Phone'
+          Emails: 
+            type: array
+            items: 
+              $ref: '#/definitions/Email'
+  Person:
+    type: object
+    allOf: 
+      - $ref: '#/definitions/Party'
+      - type: object
+      - title: Person
+      - properties:
+          SpellCheckLanguage:
+            $ref: '#/definitions/Language'
+  CompanyUserInvitationRequest:
+    type: object
+    allOf: 
+      - $ref: '#/definitions/RestEntity'
+      - title: CompanyUserInvitationRequest
+      - type: object
+      - properties: 
+          Status: 
+            type: string
+            enum: 
+              - Sent
+              - Accepted
+              - Refused
+              - Cancelled
+          Company:
+            $ref: '#/definitions/ManagedCompany'
+          InvitedUser: 
+            $ref: '#/definitions/User'
+          Inviter: 
+            $ref: '#/definitions/User'
+          StatusChangedDate:
+            type: string
+            format: date-time
+  CompanyUser:
+    type: object
+    allOf:
+      - $ref: '#/definitions/RestEntity'
+      - type: object
+      - title: CompanyUser
+      - properties:
+          IsOwner:
+            type: boolean
+          IsManager: 
+            type: boolean
+          Company: 
+            $ref: '#/definitions/ManagedCompany'
+          CompanyUserInvitationRequests:
+            type: array
+            items:
+              - $ref: '#/definitions/CompanyUserInvitationRequest'
+  ManagedCompany:
+    type: object
+    allOf: 
+      - $ref: '#/definitions/Party'
+      - type: object
+      - title: LegalEntity
+      - properties: 
+          CompanyOwner:
+            $ref: '#/definitions/User'
+          CompanyUsers:
+            type: array
+            items:
+              $ref: '#/definitions/CompanyUser'
+  
   User:
     type: object
     allOf:
@@ -671,6 +988,55 @@ definitions:
               This is the alias to use by the user to log in to the APROPLAN
               application
             example: john.smith@aproplan.com
+          DisplayName: 
+            type: string
+            example: John Smith
+          TimeZoneName: 
+            type: string
+            example: Jordan Standard Time
+          DefaultEmail:
+            type: string
+            example: john.smith@aproplan.com
+          LanguageCode:
+            type: string
+            example: en
+          Person:
+            $ref: '#/definitions/Person'
+          Company:
+            $ref: '#/definitions/ManagedCompany'
+          LogoUrl:
+            type: string
+          Profession:
+            $ref: '#/definitions/Profession'
+          IsDailyMailReceiver:
+            type: boolean
+          LocalTimeToSendDailyMail:
+            type: string
+            format: date-time
+          CompanyName:
+            type: string
+          Role:
+            type: string
+          Street: 
+            type: string
+          Zip:
+            type: string
+          City:
+            type: string
+          IsDailyMyTasksReceiver:
+            type: boolean
+          LocalTimeToSendDailyMyTasks:
+            type: string
+            format: date-time
+          AllowSync:
+            type: boolean
+          ActivationDate:
+            type: string
+            format: date-time
+          MustChangePassword:
+            type: boolean
+          AvatarFileName: 
+            type: string
   Project:
     type: object
     allOf:
