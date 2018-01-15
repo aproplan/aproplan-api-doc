@@ -19,7 +19,7 @@ allOf:
           - Todo
           - InProgress
           - Done
-      DoneStatus:
+      DoneDate:
         type: string
         format: date-time
         description: This is the date when the form has been finalized

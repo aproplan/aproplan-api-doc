@@ -21,3 +21,5 @@ allOf:
           - array
       Template:
         type: string
+      ConformityRules:
+        type: string
