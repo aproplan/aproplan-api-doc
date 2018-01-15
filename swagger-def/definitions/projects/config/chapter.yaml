@@ -1,0 +1,17 @@
+description: To represent category level 1
+type: object
+allOf:
+  - $ref: '#/definitions/RestEntity'
+  - type: object
+  - title: Chapter
+  - properties: 
+      DisplayOrder:
+        type: number
+      IsDisabled: 
+        type: boolean
+      ProjectId:
+        type: string
+      IssueTypes: 
+        type: array
+        items:
+          $ref: '#/definitions/IssueType'

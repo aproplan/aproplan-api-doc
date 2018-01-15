@@ -772,83 +772,6 @@ definitions:
             type: string
           Name:
             type: string
-  ReportRestEntityIdentification:
-    type: object
-    properties:
-      GuidId:
-        type: string
-      PreviewUri:
-        type: string
-        description: >-
-          This is the url to use to get the preview of the generated report when
-          ready
-      Date:
-        type: string
-        format: date-time
-      ReportTitle:
-        type: string
-      Status:
-        type: string
-        enum:
-          - New
-          - InProgress
-          - Generated
-          - Error
-          - Deleted
-  FormReportParams:
-    type: object
-    required:
-      - FormId
-    properties:
-      FormId:
-        type: string
-        format: guid
-        description: The Guid of the form that needs to be generated
-        pattern: '^{[A-Z0-9]{8}-([A-Z0-9]{4}-){3}[A-Z0-9]{12}}$'
-        example: f230aeb4-7d72-435b-8e12-b9240156e098
-      ReportRequestId:
-        type: string
-        format: guid
-        description: The Guid of the report request
-        pattern: '^{[A-Z0-9]{8}-([A-Z0-9]{4}-){3}[A-Z0-9]{12}}$'
-        example: de9590b5-14f2-4a07-8877-aad9e4b338e6
-      LanguageCode:
-        type: string
-        description: The language in which the report will be generated
-        example: EN
-      Date:
-        type: string
-        format: date-time
-        description: The report generation date
-      PreviewUri:
-        type: string
-        description: >-
-          This is the url to use to get the preview of the generated report when
-          ready
-      ReportTitle:
-        type: string
-      SendByMail:
-        type: boolean
-        description: Should this report be sent by mail ?
-      RecipientIds:
-        type: array
-        items:
-          type: string
-        description: The list of user's guids that want the email sent to them
-      MailSubject:
-        type: string
-        description: The mail subject that will be sent
-      MailBody:
-        type: string
-        description: The text to insert in the body of the mail that will be sent
-      Status:
-        type: string
-        enum:
-          - New
-          - InProgress
-          - Generated
-          - Error
-          - Deleted
   Phone:
     type: object
     allOf:
@@ -889,6 +812,30 @@ definitions:
               - Business2
               - Mobile
               - Other
+  AccessRightBase:
+    type: object
+    allOf:
+      - $ref: '#/definitions/RestEntity'
+      - type: object
+      - title: AccessRightBase
+      - properties:
+          CanEdit:
+            type: boolean
+            description: To know if the user can edit the object
+          Level:
+            type: string
+            enum:
+              - Admin
+              - Manager
+              - Contributor
+              - Guest
+              - Subcontractor
+            description: This is the level of the access right of the user
+            example: Admin
+          Iso2:
+            type: string
+            description: this is the iso of the country in 2 characters
+            example: BE
   Party:
     type: object
     allOf:
@@ -1079,6 +1026,32 @@ definitions:
           EndDate:
             type: string
             format: date-time
+          UserAccessRight:
+            $ref: '#/definitions/ProjectAccessRight'
+          Folders:
+            type: array
+            items:
+              $ref: '#/definitions/Folder'
+          Contacts:
+            type: array
+            items:
+              $ref: '#/definitions/ContactDetails'
+          Cells:
+            type: array
+            items:
+              $ref: '#/definitions/ParentCell'
+          Chapters:
+            type: array
+            items:
+              $ref: '#/definitions/Chapter'
+          NoteStatus:
+            type: array
+            items:
+              $ref: '#/definitions/NoteProjectStatus'
+          Visibilities:
+            type: array
+            items:
+              $ref: '#/definitions/ProjectVisibility'
           NotesNumber:
             type: number
             description: >-
@@ -1108,7 +1081,7 @@ definitions:
       - properties:
           InvitedUserId:
             type: string
-            descrption: this is the id of the user having the visibility on a folder
+            description: this is the id of the user having the visibility on a folder
           InviterUserId:
             type: string
             description: this is the id of the user who grant the visibility to another
@@ -1119,6 +1092,90 @@ definitions:
               user because he created the folder
           ProjectId:
             type: string
+  ProjectAccessRight:
+    type: object
+    allOf:
+      - $ref: '#/definitions/AccessRightBase'
+      - type: object
+      - title: ProjectAccessRight
+      - properties:
+          CanConfig:
+            type: boolean
+            description: To know if the user can configure the project
+          CanAddFolder:
+            type: boolean
+            description: To know if the user can add folder in the project
+          CanUploadDoc:
+            type: boolean
+            description: To know if the user can upload document in the project
+          CanDownloadDoc:
+            type: boolean
+            description: To know if the user can download doc from the project
+          CanArchiveDoc:
+            type: boolean
+            description: To know if the user can archive doc of the project
+          CanDeleteFolder:
+            type: boolean
+            description: >-
+              To know if the user can delete folder of the project created by
+              himself
+          CanEditFolder:
+            type: boolean
+            description: >-
+              To know if the user can edit a folder in the project created by
+              himself
+          CanEditAllFolder:
+            type: boolean
+            description: >-
+              To know if the user can edit a folder even if he does not create
+              the folder himself
+          CanEditDoc:
+            type: boolean
+            description: To know if the user can edit a document uploaded by himself
+          CanDeleteDoc:
+            type: boolean
+            description: To know if the user can delete a document uploaded by himself
+          CanEditAllDoc:
+            type: boolean
+            description: >-
+              To know if the user can edit a document even if he does not
+              uploaded the document himself
+          CanAddMeeting:
+            type: boolean
+            description: To know if the user can create a list in the project
+          CanEditAllList:
+            type: boolean
+            description: >-
+              To know if the user can edit a list even if he does not create the
+              list himself
+          CanAddVersion:
+            type: boolean
+            description: >-
+              To know if the user can upload a new version on a document he
+              uploaded
+          CanDeleteVersion:
+            type: boolean
+            description: >-
+              To know if the user can delete a version of a document he uploaded
+              himself
+          CanMoveDoc:
+            type: boolean
+            description: >-
+              To know if the user can move a document to another folder of the
+              project
+          CanEditContact:
+            type: boolean
+            description: To know if the user can edit a participant of the project
+          CanRemoveContact:
+            type: boolean
+            description: >-
+              To know if the user can remove a participant he created himself of
+              the project
+          CanEditAllContact:
+            type: boolean
+            description: >-
+              To know if the user can edit a participant even he does added this
+              participant himself
   Folder:
     type: object
     allOf:
@@ -1163,7 +1220,7 @@ definitions:
       - properties:
           InvitedUserId:
             type: string
-            descrption: this is the id of the user having the visibility on a folder
+            description: this is the id of the user having the visibility on a folder
           InviterUserId:
             type: string
             description: this is the id of the user who grant the visibility to another
@@ -1174,6 +1231,101 @@ definitions:
               user because he created the folder
           FolderId:
             type: string
+  ChapterBase:
+    description: this is the base class to define category structure
+    type: object
+    allOf:
+      - $ref: '#/definitions/RestEntity'
+      - type: object
+      - title: ChapterBase
+      - properties:
+          Code:
+            type: string
+          Description:
+            type: string
+  Chapter:
+    description: To represent category level 1
+    type: object
+    allOf:
+      - $ref: '#/definitions/RestEntity'
+      - type: object
+      - title: Chapter
+      - properties:
+          DisplayOrder:
+            type: number
+          IsDisabled:
+            type: boolean
+          ProjectId:
+            type: string
+          IssueTypes:
+            type: array
+            items:
+              $ref: '#/definitions/IssueType'
+  IssueTypeBase:
+    description: this is the base class to define subcategory
+    type: object
+    allOf:
+      - $ref: '#/definitions/RestEntity'
+      - type: object
+      - title: IssueTypeBase
+      - properties:
+          Code:
+            type: string
+          Description:
+            type: string
+  IssueType:
+    description: to represent subcategory (category level 2)
+    type: object
+    allOf:
+      - $ref: '#/definitions/IssueTypeBase'
+      - type: object
+      - title: IssueType
+      - properties:
+          DisplayOrder:
+            type: number
+          ParentChapter:
+            $ref: '#/definitions/Chapter'
+          NoteSubjects:
+            type: array
+            items:
+              $ref: '#/definitions/IssueTypeNoteSubject'
+          HasDefaultNoteSubjects:
+            type: boolean
+            description: to know if the subcategory contains some default subjectsnumber
+          IsDisabled:
+            type: boolean
+            description: to know if the subcategory can be used or not
+          ContactIssueTypeLinks:
+            type: array
+            items:
+              $ref: '#/definitions/ContactIssueType'
+  IssueTypeNoteSubjectBase:
+    description: this is the base class to define default subject of a subcategory
+    type: object
+    allOf:
+      - $ref: '#/definitions/RestEntity'
+      - type: object
+      - title: IssueTypeNoteSubjectBase
+      - properties:
+          Subject:
+            type: string
+          DefaultDescription:
+            type: string
+          DisplayOrder:
+            type: number
+  IssueTypeNoteSubject:
+    description: this is the base class to define default subject of a subcategory
+    type: object
+    allOf:
+      - $ref: '#/definitions/RestEntity'
+      - type: object
+      - title: IssueTypeNoteSubjectBase
+      - properties:
+          IssueType:
+            $ref: '#/definitions/IssueType'
+            description: >-
+              the parent subcategory for which a default subject/description is
+              defined
   CellBase:
     description: this is the base class to define rooms
     type: object
@@ -1214,6 +1366,136 @@ definitions:
       - properties:
           ParentCell:
             $ref: '#/definitions/ParentCell'
+  NoteProjectStatusBase:
+    type: object
+    description: ''
+    allOf:
+      - $ref: '#/definitions/RestEntity'
+      - type: object
+      - title: NoteProjectStatusBase
+      - properties:
+          Code:
+            type: string
+          Name:
+            type: string
+          DisplayOrder:
+            type: integer
+          IsOnlyUsedByMeetingManager:
+            type: boolean
+          Color:
+            type: string
+          IsTodo:
+            type: boolean
+          IsDone:
+            type: boolean
+          DoneAction:
+            type: boolean
+          IsBlocked:
+            type: boolean
+          IsBlockedAction:
+            type: boolean
+  NoteProjectStatus:
+    type: object
+    description: ''
+    allOf:
+      - $ref: '#/definitions/NoteProjectStatusBase'
+      - type: object
+      - title: NoteProjectStatus
+      - properties:
+          Project:
+            $ref: '#/definitions/Project'
+          IsDisabled:
+            type: boolean
+  ContactDetails:
+    description: to represent participant of a project
+    type: object
+    allOf:
+      - $ref: '#/definitions/RestEntity'
+      - type: object
+      - title: ContactDetails
+      - properties:
+          User:
+            $ref: '#/definitions/User'
+            description: this is the user defined as participant of the project
+          ProjectId:
+            type: string
+            description: This is the id of the project for which the user is participants
+          Project:
+            $ref: '#/definitions/Project'
+          DisplayName:
+            type: string
+            description: >-
+              This is the name we want to see when we use this participant
+              through the project
+            example: AP - John Smith
+          City:
+            type: string
+          Phone:
+            type: string
+          Street:
+            type: string
+          Zip:
+            type: string
+          Vat:
+            type: string
+          Company:
+            type: string
+            example: APROPLAN
+            description: >-
+              A freetext to assign a company name to a participant then, when we
+              assign an annotation to somebody, we can also specify a company
+              name.  In that case, all participants with the same role will see
+              the annotation as assign to him
+          Role:
+            type: string
+            example: Architect
+            description: >-
+              A freetext to specify a role to a participant then, when we assign
+              an annotation to somebody, we can also specify a role.  In that
+              case, all participants with the same role will see the annotation
+              as assign to him
+          LinkedIssueTypes:
+            type: array
+            description: >-
+              This is the list of subcategories linked to the participants of
+              the project.
+            items:
+              $ref: '#/definitions/ContactIssueType'
+          AccessRightLevel:
+            type: string
+            enum:
+              - Admin
+              - Manager
+              - Contributor
+              - Guest
+            description: >-
+              this is the level of access right of the participant in the
+              project
+          IsInvited:
+            type: boolean
+            example: Specify if the user can see or not the project through APROPLAN
+  ContactIssueType:
+    description: >-
+      To represent the relation between a subcategory and a participant of a
+      project
+    type: object
+    allOf:
+      - $ref: '#/definitions/RestEntity'
+      - type: object
+      - title: ContactIssueType
+      - properties:
+          ContactId:
+            type: string
+            description: >-
+              the id of the contact on which the subcategory is linked
+              (ContactDetails)
+          IssueTypeId:
+            type: string
+            description: >-
+              the id of the subcategory on which the contact is linked
+              (IssueType)
+          IssueType:
+            $ref: '#/definitions/IssueType'
   SheetBase:
     type: object
     allOf:
@@ -1298,46 +1580,6 @@ definitions:
             example: MyL
           Project:
             $ref: '#/definitions/Project'
-  NoteProjectStatusBase:
-    type: object
-    description: ''
-    allOf:
-      - $ref: '#/definitions/RestEntity'
-      - type: object
-      - title: NoteProjectStatusBase
-      - properties:
-          Code:
-            type: string
-          Name:
-            type: string
-          DisplayOrder:
-            type: integer
-          IsOnlyUsedByMeetingManager:
-            type: boolean
-          Color:
-            type: string
-          IsTodo:
-            type: boolean
-          IsDone:
-            type: boolean
-          DoneAction:
-            type: boolean
-          IsBlocked:
-            type: boolean
-          IsBlockedAction:
-            type: boolean
-  NoteProjectStatus:
-    type: object
-    description: ''
-    allOf:
-      - $ref: '#/definitions/NoteProjectStatusBase'
-      - type: object
-      - title: NoteProjectStatus
-      - properties:
-          Project:
-            $ref: '#/definitions/Project'
-          IsDisabled:
-            type: boolean
   NoteComment:
     type: object
     description: To make comment on annotation
@@ -1575,46 +1817,6 @@ definitions:
             type: boolean
           Report:
             $ref: '#/definitions/Document'
-  FormItem:
-    type: object
-    description: >-
-      It is an item of a form, it means question with potential value given by a
-      user
-    allOf:
-      - $ref: '#/definitions/FormItemBase'
-      - type: object
-      - title: FormItem
-      - properties:
-          FormId:
-            type: string
-            description: This is the id of the form owner of the item
-            example: f230aeb4-7d72-435b-8e12-b9240156e098
-          QuestionId:
-            type: string
-            description: >-
-              This is the id of the question from where the item has been
-              created
-          User:
-            description: >-
-              This is the user who answered to the question. This parameter is
-              not used from the api
-            $ref: '#/definitions/User'
-          Value:
-            description: This is the value answered by the user converted to string
-            type: string
-            example: Die hard 3
-          NotApplicable:
-            type: boolean
-            example: true
-            description: >-
-              A question can be not applicable then, the user is able to answer
-              by setting this value to true
-          IsConform:
-            type: boolean
-            example: true
-            description: >-
-              When the answer is given and there are rule of conformity. This
-              value is computed regarding the value and conformity rules
   FormSignature:
     type: object
     description: This is the signature wanted for the Form
@@ -1657,6 +1859,46 @@ definitions:
         $ref: '#/definitions/Form'
       FormReportParams:
         $ref: '#/definitions/ReportRestIdentification'
+  FormItem:
+    type: object
+    description: >-
+      It is an item of a form, it means question with potential value given by a
+      user
+    allOf:
+      - $ref: '#/definitions/FormItemBase'
+      - type: object
+      - title: FormItem
+      - properties:
+          FormId:
+            type: string
+            description: This is the id of the form owner of the item
+            example: f230aeb4-7d72-435b-8e12-b9240156e098
+          QuestionId:
+            type: string
+            description: >-
+              This is the id of the question from where the item has been
+              created
+          User:
+            description: >-
+              This is the user who answered to the question. This parameter is
+              not used from the api
+            $ref: '#/definitions/User'
+          Value:
+            description: This is the value answered by the user converted to string
+            type: string
+            example: Die hard 3
+          NotApplicable:
+            type: boolean
+            example: true
+            description: >-
+              A question can be not applicable then, the user is able to answer
+              by setting this value to true
+          IsConform:
+            type: boolean
+            example: true
+            description: >-
+              When the answer is given and there are rule of conformity. This
+              value is computed regarding the value and conformity rules
   FormTemplate:
     type: object
     description: This is a template of Form
@@ -1701,6 +1943,8 @@ definitions:
             items:
               $ref: '#/definitions/FormSignatureRule'
   FormQuestion:
+    description: To represent template for question in a form template
+    type: object
     allOf:
       - $ref: '#/definitions/FormItemBase'
       - type: object
@@ -1720,6 +1964,7 @@ definitions:
               If the question is archived, this is the date when the archive has
               been done
   FormSignatureRule:
+    type: object
     allOf:
       - $ref: '#/definitions/RestEntity'
       - type: object
@@ -1765,3 +2010,58 @@ definitions:
       Status:
         type: string
         description: The status of the requested report
+  FormReportParams:
+    type: object
+    required:
+      - FormId
+    properties:
+      FormId:
+        type: string
+        format: guid
+        description: The Guid of the form that needs to be generated
+        pattern: '^{[A-Z0-9]{8}-([A-Z0-9]{4}-){3}[A-Z0-9]{12}}$'
+        example: f230aeb4-7d72-435b-8e12-b9240156e098
+      ReportRequestId:
+        type: string
+        format: guid
+        description: The Guid of the report request
+        pattern: '^{[A-Z0-9]{8}-([A-Z0-9]{4}-){3}[A-Z0-9]{12}}$'
+        example: de9590b5-14f2-4a07-8877-aad9e4b338e6
+      LanguageCode:
+        type: string
+        description: The language in which the report will be generated
+        example: EN
+      Date:
+        type: string
+        format: date-time
+        description: The report generation date
+      PreviewUri:
+        type: string
+        description: >-
+          This is the url to use to get the preview of the generated report when
+          ready
+      ReportTitle:
+        type: string
+      SendByMail:
+        type: boolean
+        description: Should this report be sent by mail ?
+      RecipientIds:
+        type: array
+        items:
+          type: string
+        description: The list of user's guids that want the email sent to them
+      MailSubject:
+        type: string
+        description: The mail subject that will be sent
+      MailBody:
+        type: string
+        description: The text to insert in the body of the mail that will be sent
+      Status:
+        type: string
+        enum:
+          - New
+          - InProgress
+          - Generated
+          - Error
+          - Deleted
+

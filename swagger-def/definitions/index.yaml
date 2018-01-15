@@ -16,6 +16,8 @@ Phone:
   $ref: ./common/phone.yaml
 Email:
   $ref: ./common/email.yaml
+AccessRightBase:
+  $ref: ./common/accessright-base.yaml
 Party:
   $ref: ./actors/party.yaml
 Person:
@@ -32,20 +34,38 @@ Project:
   $ref: ./projects/project.yaml
 ProjectVisibility: 
   $ref: ./projects/project-visibility.yaml
+ProjectAccessRight:
+  $ref: ./projects/project-accessright.yaml
 Folder: 
   $ref: ./projects/folder.yaml
 FolderVisibility: 
-  $ref: ./projects/folder-visibility.yaml  
+  $ref: ./projects/folder-visibility.yaml
+ChapterBase: 
+  $ref: ./projects/config/chapter-base.yaml
+Chapter:
+  $ref: ./projects/config/chapter.yaml
+IssueTypeBase:
+  $ref: ./projects/config/issuetype-base.yaml
+IssueType:
+  $ref: ./projects/config/issuetype.yaml
+IssueTypeNoteSubjectBase:
+  $ref: ./projects/config/issuetype-note-subject-base.yaml
+IssueTypeNoteSubject:
+  $ref: ./projects/config/issuetype-note-subject.yaml
 CellBase: 
-  $ref: ./projects/cell-base.yaml
+  $ref: ./projects/config/cell-base.yaml
 ParentCell: 
-  $ref: ./projects/parent-cell.yaml
+  $ref: ./projects/config/parent-cell.yaml
 SubCell: 
-  $ref: ./projects/sub-cell.yaml
+  $ref: ./projects/config/sub-cell.yaml
 NoteProjectStatusBase: 
-  $ref: ./projects/note-project-status-base.yaml
+  $ref: ./projects/config/note-project-status-base.yaml
 NoteProjectStatus: 
-  $ref: ./projects/note-project-status.yaml
+  $ref: ./projects/config/note-project-status.yaml
+ContactDetails:
+  $ref: ./projects/contact-details.yaml
+ContactIssueType: 
+  $ref: ./projects/config/contact-issuetype.yaml
 SheetBase:
   $ref: ./documents/sheet-base.yaml
 DocumentBase:

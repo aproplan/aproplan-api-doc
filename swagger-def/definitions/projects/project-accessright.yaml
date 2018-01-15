@@ -1,0 +1,64 @@
+type: object
+allOf: 
+  - $ref: '#/definitions/AccessRightBase'
+  - type: object
+  - title: ProjectAccessRight
+  - properties: 
+      CanConfig:
+        type: boolean
+        description: To know if the user can configure the project
+      CanAddFolder:
+        type: boolean
+        description: To know if the user can add folder in the project
+      CanUploadDoc:
+        type: boolean
+        description: To know if the user can upload document in the project
+      CanDownloadDoc:
+        type: boolean
+        description: To know if the user can download doc from the project
+      CanArchiveDoc:
+        type: boolean
+        description: To know if the user can archive doc of the project
+      CanDeleteFolder:
+        type: boolean
+        description: To know if the user can delete folder of the project created by himself
+      CanEditFolder:
+        type: boolean
+        description: To know if the user can edit a folder in the project created by himself
+      CanEditAllFolder:
+        type: boolean
+        description: To know if the user can edit a folder even if he does not create the folder himself
+      CanEditDoc:
+        type: boolean
+        description: To know if the user can edit a document uploaded by himself
+      CanDeleteDoc:
+        type: boolean
+        description: To know if the user can delete a document uploaded by himself
+      CanEditAllDoc:
+        type: boolean
+        description: To know if the user can edit a document even if he does not uploaded the document himself
+      CanAddMeeting:
+        type: boolean
+        description: To know if the user can create a list in the project
+      CanEditAllList:
+        type: boolean
+        description: To know if the user can edit a list even if he does not create the list himself      
+      CanAddVersion:
+        type: boolean
+        description: To know if the user can upload a new version on a document he uploaded
+      CanDeleteVersion:
+        type: boolean
+        description: To know if the user can delete a version of a document he uploaded himself
+      CanMoveDoc:
+        type: boolean
+        description: To know if the user can move a document to another folder of the project
+      CanEditContact:
+        type: boolean
+        description: To know if the user can edit a participant of the project
+      CanRemoveContact:
+        type: boolean
+        description: To know if the user can remove a participant he created himself of the project
+      CanEditAllContact:
+        type: boolean
+        description: To know if the user can edit a participant even he does added this participant himself      
+      

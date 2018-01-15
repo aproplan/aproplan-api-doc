@@ -1,0 +1,25 @@
+description: to represent subcategory (category level 2)
+type: object
+allOf:
+  - $ref: '#/definitions/IssueTypeBase'
+  - type: object
+  - title: IssueType
+  - properties:
+      DisplayOrder: 
+        type: number
+      ParentChapter:
+        $ref: '#/definitions/Chapter'
+      NoteSubjects: 
+        type: array
+        items:
+          $ref: '#/definitions/IssueTypeNoteSubject'
+      HasDefaultNoteSubjects:
+        type: boolean
+        description: to know if the subcategory contains some default subjectsnumber
+      IsDisabled: 
+        type: boolean
+        description: to know if the subcategory can be used or not
+      ContactIssueTypeLinks: 
+        type: array
+        items: 
+          $ref: '#/definitions/ContactIssueType'

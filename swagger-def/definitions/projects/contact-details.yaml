@@ -1,0 +1,59 @@
+description: to represent participant of a project
+type: object
+allOf:
+  - $ref: '#/definitions/RestEntity'
+  - type: object
+  - title: ContactDetails
+  - properties:
+      User:
+        $ref: '#/definitions/User'
+        description: this is the user defined as participant of the project
+      ProjectId: 
+        type: string
+        description: This is the id of the project for which the user is participants
+      Project: 
+        $ref: '#/definitions/Project'
+      DisplayName: 
+        type: string
+        description: This is the name we want to see when we use this participant through the project
+        example: AP - John Smith
+      City:
+        type: string      
+      Phone:
+        type: string
+      Street: 
+        type: string
+      Zip: 
+        type: string
+      Vat: 
+        type: string
+      Company:
+        type: string
+        example: APROPLAN
+        description: >- 
+          A freetext to assign a company name to a participant then, when we assign an annotation to somebody, we can also specify a company name. 
+          In that case, all participants with the same role will see the annotation as assign to him
+      Role:
+        type: string
+        example: Architect
+        description: >- 
+          A freetext to specify a role to a participant then, when we assign an annotation to somebody, we can also specify a role. 
+          In that case, all participants with the same role will see the annotation as assign to him
+      LinkedIssueTypes:
+        type: array
+        description: This is the list of subcategories linked to the participants of the project.
+        items:
+          $ref: '#/definitions/ContactIssueType'
+      AccessRightLevel:
+        type: string
+        enum: 
+          - Admin
+          - Manager
+          - Contributor
+          - Guest
+        description: this is the level of access right of the participant in the project
+      IsInvited: 
+        type: boolean
+        example: Specify if the user can see or not the project through APROPLAN
+
+      

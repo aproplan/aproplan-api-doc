@@ -1,0 +1,10 @@
+description: this is the base class to define default subject of a subcategory
+type: object
+allOf:
+  - $ref: '#/definitions/RestEntity'
+  - type: object
+  - title: IssueTypeNoteSubjectBase
+  - properties: 
+      IssueType: 
+        $ref: '#/definitions/IssueType'
+        description: the parent subcategory for which a default subject/description is defined

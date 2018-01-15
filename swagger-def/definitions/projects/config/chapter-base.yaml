@@ -1,0 +1,11 @@
+description: this is the base class to define category structure
+type: object
+allOf:
+  - $ref: '#/definitions/RestEntity'
+  - type: object
+  - title: ChapterBase
+  - properties: 
+      Code:
+        type: string
+      Description: 
+        type: string

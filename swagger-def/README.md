@@ -8,7 +8,9 @@ The output is swagger.yaml that you can open in the swagger editor to see the AP
 ## Installation
 
 To generate the swagger file it is necessary to install multi-swagger file <https://github.com/mohsen1/multi-file-swagger-example>
+
 `npm install -g multi-file-swagger`
 
 and then, you can run the following command to generate the final swagger file:
+
 `multi-file-swagger -o yaml index.yaml > ./../swagger.yaml`

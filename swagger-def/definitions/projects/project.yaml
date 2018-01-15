@@ -34,6 +34,32 @@ allOf:
       EndDate:
         type: string
         format: date-time
+      UserAccessRight:
+        $ref: '#/definitions/ProjectAccessRight'
+      Folders:
+        type: array
+        items: 
+          $ref: '#/definitions/Folder'
+      Contacts:
+        type: array
+        items: 
+          $ref: '#/definitions/ContactDetails'
+      Cells:
+        type: array
+        items: 
+          $ref: '#/definitions/ParentCell'
+      Chapters:
+        type: array
+        items: 
+          $ref: '#/definitions/Chapter'
+      NoteStatus:
+        type: array
+        items: 
+          $ref: '#/definitions/NoteProjectStatus'      
+      Visibilities:
+        type: array
+        items: 
+          $ref: '#/definitions/ProjectVisibility'      
       NotesNumber:
         type: number
         description: this is a calculated property then, it is necessary to specify it in the pathtoload to have a good value on it
