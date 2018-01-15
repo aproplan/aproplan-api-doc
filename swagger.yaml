@@ -21,7 +21,7 @@ tags:
     description: Everything about Forms
 schemes:
   - https
-parameters: 
+parameters:
   tokenParameter:
     name: t
     in: query
@@ -34,21 +34,25 @@ parameters:
     description: to specify of date must be formatted
     required: false
     type: string
-    enum: [microsoft, iso]
+    enum:
+      - microsoft
+      - iso
     default: microsoft
   requesterParam:
     name: requesterid
     in: query
     required: true
     type: string
-    description: this is the token you received from aproplan to identify as a user of the APROPLAN API  
+    description: >-
+      this is the token you received from aproplan to identify as a user of the
+      APROPLAN API
 paths:
   /loginsecure:
-    post: 
+    post:
       operationId: loginSecure
-      tags: 
+      tags:
         - Login
-      summary: to identify a user and then, to be able to make other call in the api
+      summary: 'to identify a user and then, to be able to make other call in the api'
       parameters:
         - $ref: '#/parameters/requesterParam'
         - $ref: '#/parameters/dateFormatParam'
@@ -56,28 +60,34 @@ paths:
           name: body
           schema:
             $ref: '#/definitions/AliasPass'
-      responses: 
-        '200': 
+      responses:
+        '200':
           description: >-
-            Successful operation returning a new TokenInfo object with the new valid token to use
-          schema: 
+            Successful operation returning a new TokenInfo object with the new
+            valid token to use
+          schema:
             $ref: '#/definitions/TokenInfo'
   /renewtoken:
     get:
       operationId: renewToken
-      tags: 
+      tags:
         - Login
-      summary: Permit to request a new token to identify the user before the current one becomes invalidate.
-      parameters: 
+      summary: >-
+        Permit to request a new token to identify the user before the current
+        one becomes invalidate.
+      parameters:
         - in: query
           name: t
-          description: the current valid token received at the login or a previous renew token
-          type: string
-      responses: 
-        '200': 
           description: >-
-            Successful operation returning a new TokenInfo object with the new valid token to use
-          schema: 
+            the current valid token received at the login or a previous renew
+            token
+          type: string
+      responses:
+        '200':
+          description: >-
+            Successful operation returning a new TokenInfo object with the new
+            valid token to use
+          schema:
             $ref: '#/definitions/TokenInfo'
   /users:
     post:
@@ -86,11 +96,9 @@ paths:
         - Login
       summary: Create an account in APROPLAN
       description: >-
-        To create an new user in aproplan, it is necessary to send the user object with at least the following properties of User object
-        * Id
-        * Alias
-        * DisplayName
-        * Person
+        To create an new user in aproplan, it is necessary to send the user
+        object with at least the following properties of User object * Id *
+        Alias * DisplayName * Person
           * Id
           * Code
           * Name
@@ -98,15 +106,14 @@ paths:
           * Country
             * Id
         * LanguageCode
-        
       parameters:
         - in: body
           name: body
-          description: "Need an object with 2 properties: User and Pass"
+          description: 'Need an object with 2 properties: User and Pass'
           schema:
             $ref: '#/definitions/UserPass'
-      responses: 
-        '200': 
+      responses:
+        '200':
           description: Successful operation
           schema:
             $ref: '#/definitions/User'
@@ -652,14 +659,14 @@ paths:
             items:
               $ref: '#/definitions/Form'
 definitions:
-  AliasPass: 
+  AliasPass:
     title: AliasPass
     type: object
     properties:
       Alias:
         type: string
         description: This is the alias used by the user to identify himself into APROPLAN
-        example: "john.smith@aproplan.com"
+        example: john.smith@aproplan.com
       Pass:
         type: string
         description: This is the password of the user to log in to APROPLAN
@@ -674,7 +681,7 @@ definitions:
         type: string
         description: this is the password to apply to the new user
         example: aproplan
-  TokenInfo: 
+  TokenInfo:
     title: TokenInfo
     type: object
     properties:
@@ -687,12 +694,12 @@ definitions:
         type: string
         format: date-time
         description: The end date-time when the token will be invalidate
-        example: "2018-01-10T16:07:56.7509736Z"
+        example: '2018-01-10T16:07:56.7509736Z'
       ValidityStart:
         type: string
         format: date-time
         description: The start date-time of the token validity
-        example: "2018-01-10T15:57:56.7509736Z"
+        example: '2018-01-10T15:57:56.7509736Z'
   RestEntity:
     title: RestEntity
     type: object
@@ -735,18 +742,18 @@ definitions:
             type: string
             description: This is the name of the language in translated in this language
             example: Français
-  Country: 
+  Country:
     type: object
-    allOf: 
+    allOf:
       - $ref: '#/definitions/RestEntity'
       - type: object
       - title: Country
-      - properties: 
+      - properties:
           Name:
             type: string
             description: this is the name of the country
             example: Belgium
-          Iso: 
+          Iso:
             type: string
             description: this is the iso of the country in 3 characters
             example: BEL
@@ -765,8 +772,6 @@ definitions:
             type: string
           Name:
             type: string
-            
-    
   ReportRestEntityIdentification:
     type: object
     properties:
@@ -827,9 +832,8 @@ definitions:
         description: Should this report be sent by mail ?
       RecipientIds:
         type: array
-        items: {
+        items:
           type: string
-        }
         description: The list of user's guids that want the email sent to them
       MailSubject:
         type: string
@@ -854,9 +858,9 @@ definitions:
       - properties:
           Number:
             type: string
-          Order: 
+          Order:
             type: string
-          InfoType: 
+          InfoType:
             type: string
             enum:
               - Home
@@ -874,9 +878,9 @@ definitions:
       - properties:
           Email:
             type: string
-          Order: 
+          Order:
             type: string
-          InfoType: 
+          InfoType:
             type: string
             enum:
               - Home
@@ -884,37 +888,37 @@ definitions:
               - Business
               - Business2
               - Mobile
-              - Other    
+              - Other
   Party:
     type: object
-    allOf: 
+    allOf:
       - $ref: '#/definitions/RestEntity'
       - type: object
       - title: Party
-      - properties: 
-          Code: 
+      - properties:
+          Code:
             type: string
-          Name: 
+          Name:
             type: string
-          Language: 
+          Language:
             $ref: '#/definitions/Language'
-          LanguageCode: 
+          LanguageCode:
             type: string
-          Country: 
+          Country:
             $ref: '#/definitions/Country'
           Email:
             type: string
-          Phones: 
+          Phones:
             type: array
-            items: 
+            items:
               $ref: '#/definitions/Phone'
-          Emails: 
+          Emails:
             type: array
-            items: 
+            items:
               $ref: '#/definitions/Email'
   Person:
     type: object
-    allOf: 
+    allOf:
       - $ref: '#/definitions/Party'
       - type: object
       - title: Person
@@ -923,23 +927,23 @@ definitions:
             $ref: '#/definitions/Language'
   CompanyUserInvitationRequest:
     type: object
-    allOf: 
+    allOf:
       - $ref: '#/definitions/RestEntity'
       - title: CompanyUserInvitationRequest
       - type: object
-      - properties: 
-          Status: 
+      - properties:
+          Status:
             type: string
-            enum: 
+            enum:
               - Sent
               - Accepted
               - Refused
               - Cancelled
           Company:
             $ref: '#/definitions/ManagedCompany'
-          InvitedUser: 
+          InvitedUser:
             $ref: '#/definitions/User'
-          Inviter: 
+          Inviter:
             $ref: '#/definitions/User'
           StatusChangedDate:
             type: string
@@ -953,9 +957,9 @@ definitions:
       - properties:
           IsOwner:
             type: boolean
-          IsManager: 
+          IsManager:
             type: boolean
-          Company: 
+          Company:
             $ref: '#/definitions/ManagedCompany'
           CompanyUserInvitationRequests:
             type: array
@@ -963,18 +967,17 @@ definitions:
               - $ref: '#/definitions/CompanyUserInvitationRequest'
   ManagedCompany:
     type: object
-    allOf: 
+    allOf:
       - $ref: '#/definitions/Party'
       - type: object
-      - title: LegalEntity
-      - properties: 
+      - title: ManagedCompany
+      - properties:
           CompanyOwner:
             $ref: '#/definitions/User'
           CompanyUsers:
             type: array
             items:
               $ref: '#/definitions/CompanyUser'
-  
   User:
     type: object
     allOf:
@@ -988,10 +991,10 @@ definitions:
               This is the alias to use by the user to log in to the APROPLAN
               application
             example: john.smith@aproplan.com
-          DisplayName: 
+          DisplayName:
             type: string
             example: John Smith
-          TimeZoneName: 
+          TimeZoneName:
             type: string
             example: Jordan Standard Time
           DefaultEmail:
@@ -1017,7 +1020,7 @@ definitions:
             type: string
           Role:
             type: string
-          Street: 
+          Street:
             type: string
           Zip:
             type: string
@@ -1035,7 +1038,7 @@ definitions:
             format: date-time
           MustChangePassword:
             type: boolean
-          AvatarFileName: 
+          AvatarFileName:
             type: string
   Project:
     type: object
@@ -1046,12 +1049,171 @@ definitions:
       - properties:
           Code:
             type: string
-            description: ''
+            description: This is the code of the project
             example: MyP
           Name:
             type: string
-            description: ''
+            description: This is the name of the project
             example: My Project
+          Address:
+            type: string
+          City:
+            type: string
+          ZipCode:
+            type: string
+          Country:
+            $ref: '#/definitions/Country'
+          IsActive:
+            type: boolean
+            description: >-
+              To know if the project is active or not. Nothing can be done on
+              project inactive
+          LogoUrl:
+            type: string
+            description: This the url to display the logo of the project
+          Creator:
+            $ref: '#/definitions/User'
+          StartDate:
+            type: string
+            format: date-time
+          EndDate:
+            type: string
+            format: date-time
+          NotesNumber:
+            type: number
+            description: >-
+              this is a calculated property then, it is necessary to specify it
+              in the pathtoload to have a good value on it
+          DocumentsNumber:
+            type: number
+            description: >-
+              this is a calculated property then, it is necessary to specify it
+              in the pathtoload to have a good value on it
+          ParticipantsNumber:
+            type: number
+            description: >-
+              this is a calculated property then, it is necessary to specify it
+              in the pathtoload to have a good value on it
+          NewFormatPictureName:
+            type: boolean
+            description: >-
+              this is to specify if the project need to make the new
+              numerotation for document and photo uploaded on it.
+  ProjectVisibility:
+    type: object
+    allOf:
+      - $ref: '#/definitions/RestEntity'
+      - type: object
+      - title: ProjectVisibility
+      - properties:
+          InvitedUserId:
+            type: string
+            descrption: this is the id of the user having the visibility on a folder
+          InviterUserId:
+            type: string
+            description: this is the id of the user who grant the visibility to another
+          IsCreator:
+            type: boolean
+            description: >-
+              this flag is set to true when the visibility has been granted to a
+              user because he created the folder
+          ProjectId:
+            type: string
+  Folder:
+    type: object
+    allOf:
+      - $ref: '#/definitions/Folder'
+      - type: object
+      - title: Folder
+      - properties:
+          Project:
+            $ref: '#/definitions/Project'
+          FolderType:
+            type: string
+            description: >-
+              to specify the kind of the folder. To differentiate the one create
+              by the user than the one creatd by the system.
+            enum:
+              - Custom
+              - Photo
+              - Report
+          DisplayOrder:
+            type: number
+            description: to know in which order the folder must be displayed
+          IsPublic:
+            type: boolean
+            description: >-
+              to know if the folder is public to all participants of the project
+              or not
+          PlanNumber:
+            type: number
+            description: >-
+              this is a calculated property then, it is necessary to specify it
+              in the pathtoload to have a good value on it
+          Children:
+            type: array
+            items:
+              $ref: '#/definitions/Folder'
+  FolderVisibility:
+    type: object
+    allOf:
+      - $ref: '#/definitions/RestEntity'
+      - type: object
+      - title: FolderVisibility
+      - properties:
+          InvitedUserId:
+            type: string
+            descrption: this is the id of the user having the visibility on a folder
+          InviterUserId:
+            type: string
+            description: this is the id of the user who grant the visibility to another
+          IsCreator:
+            type: boolean
+            description: >-
+              this flag is set to true when the visibility has been granted to a
+              user because he created the folder
+          FolderId:
+            type: string
+  CellBase:
+    description: this is the base class to define rooms
+    type: object
+    allOf:
+      - $ref: '#/definitions/RestEntity'
+      - type: object
+      - title: CellBase
+      - properties:
+          Code:
+            type: string
+          Description:
+            type: string
+          DisplayOrder:
+            type: number
+          IsDisabled:
+            type: boolean
+  ParentCell:
+    description: to represent the first level of room
+    type: object
+    allOf:
+      - $ref: '#/definitions/CellBase'
+      - type: object
+      - title: ParentCell
+      - properties:
+          ProjectId:
+            type: string
+          SubCells:
+            type: array
+            items:
+              $ref: '#/definitions/SubCell'
+  SubCell:
+    description: to represent the first level of room
+    type: object
+    allOf:
+      - $ref: '#/definitions/CellBase'
+      - type: object
+      - title: ParentCell
+      - properties:
+          ParentCell:
+            $ref: '#/definitions/ParentCell'
   SheetBase:
     type: object
     allOf:
