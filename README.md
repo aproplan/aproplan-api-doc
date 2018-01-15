@@ -11,8 +11,8 @@ Instead of to make your development with our API directly on the production, you
 
 ## Documentation
 
-We do not have yet an online document but we have a OpenApi document that you can open in the online swagger editor.
-Go to swagger-def and upload the swagger.yaml file in <https://editor.swagger.io/>
+We do not have yet an online documentation but we have an OpenApi document that you can open in the online swagger editor.
+Go to `swagger-def` and upload the swagger.yaml file in <https://editor.swagger.io/>
 
 ## Quick start
 
