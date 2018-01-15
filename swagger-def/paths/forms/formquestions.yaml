@@ -1,0 +1,23 @@
+get:
+  operationId: getFormQuestions
+  tags:
+    - Form Template
+  summary: Retrieve questions related to a specific form template
+  parameters:
+    - in: query
+      name: parentEntityId
+      required: true
+      description: >-
+        This is the parent form template for which the questions are
+        requested
+      type: string
+  description: ''
+  responses:
+    '200':
+      description: >-
+        Successful operation returning the array of form question
+        corresponding to a specific form
+      schema:
+        type: array
+        items:
+          $ref: '#/definitions/FormQuestion'

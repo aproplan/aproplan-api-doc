@@ -1,0 +1,27 @@
+type: object
+description: ''
+allOf:
+  - $ref: '#/definitions/RestEntity'
+  - type: object
+  - title: NoteProjectStatusBase
+  - properties:
+      Code:
+        type: string
+      Name:
+        type: string
+      DisplayOrder:
+        type: integer
+      IsOnlyUsedByMeetingManager:
+        type: boolean
+      Color:
+        type: string
+      IsTodo:
+        type: boolean
+      IsDone:
+        type: boolean
+      DoneAction:
+        type: boolean
+      IsBlocked:
+        type: boolean
+      IsBlockedAction:
+        type: boolean

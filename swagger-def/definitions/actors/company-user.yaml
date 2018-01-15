@@ -1,0 +1,16 @@
+type: object
+allOf:
+  - $ref: '#/definitions/RestEntity'
+  - type: object
+  - title: CompanyUser
+  - properties:
+      IsOwner:
+        type: boolean
+      IsManager: 
+        type: boolean
+      Company: 
+        $ref: '#/definitions/ManagedCompany'
+      CompanyUserInvitationRequests:
+        type: array
+        items:
+          - $ref: '#/definitions/CompanyUserInvitationRequest'

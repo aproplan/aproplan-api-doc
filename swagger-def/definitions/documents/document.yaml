@@ -1,0 +1,16 @@
+type: object
+allOf:
+  - $ref: '#/definitions/DocumentBase'
+  - type: object
+  - title: Document
+  - properties:
+      FolderId:
+        type: string
+      Name:
+        type: string
+      PageCount:
+        type: integer
+      HasDifference:
+        type: boolean
+      IsArchived:
+        type: boolean

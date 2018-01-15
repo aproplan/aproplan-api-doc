@@ -1,0 +1,110 @@
+get:
+  operationId: getFormTemplates
+  tags:
+    - Form Template
+  summary: Return form template available to the current user
+  parameters:
+    - in: query
+      name: filter
+      description: >-
+        This is the filter to apply to retrieve formtemplate available for
+        the current user
+      type: string
+    - in: query
+      name: pathtoload
+      description: >-
+        This is the pathtoload to know which related entities we need to
+        retrieve in the call
+      type: string
+  description: ''
+  responses:
+    '200':
+      description: >-
+        Successful operation returning the array of formtemplate
+        corresponding to the queryparameter
+      schema:
+        type: array
+        items:
+          $ref: '#/definitions/FormTemplate'
+post:
+  operationId: postFormTemplates
+  tags:
+    - Form Template
+  summary: >-
+    To create new form templates for the company of the current user to
+    APROPLAN
+  description: ''
+  consumes:
+    - application/json
+  produces:
+    - application/json
+  parameters:
+    - in: body
+      name: body
+      description: Form object that needs to be added
+      required: true
+      schema:
+        type: array
+        items:
+          $ref: '#/definitions/FormTemplate'
+  responses:
+    '200':
+      description: Successful operation returning the array of formtemplate created
+      schema:
+        type: array
+        items:
+          $ref: '#/definitions/FormTemplate'
+    '405':
+      description: Invalid input
+put:
+  tags:
+    - Form Template
+  summary: Update a form template available to the current user
+  operationId: updateFormTemplate
+  consumes:
+    - application/json
+  produces:
+    - application/json
+  parameters:
+    - in: body
+      name: body
+      description: Form object that needs to be added
+      required: true
+      schema:
+        type: array
+        items:
+          $ref: '#/definitions/FormTemplate'
+  responses:
+    '200':
+      description: OK
+      schema:
+        type: array
+        items:
+          $ref: '#/definitions/FormTemplate'
+    '405':
+      description: Invalid input
+delete:
+  operationId: deleteFormTemplates
+  tags:
+    - Form Template
+  summary: Delete a form template available to the current user
+  parameters:
+    - in: body
+      name: body
+      description: Array of formtemplate id to delete from the cloud
+      required: true
+      schema:
+        type: array
+        items:
+          type: number
+        example:
+          - ea5d793f-c795-4311-8344-eb18e8efa065
+          - afff9354-abb3-4a9c-aca5-9810490938ef
+  responses:
+    '200':
+      description: >-
+        Successful operation meaning all specified id of FormTemplate are
+        deleted with all related questions from the cloud
+      schema:
+        type: string
+        example: success

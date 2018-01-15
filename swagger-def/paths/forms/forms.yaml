@@ -1,0 +1,93 @@
+get:
+  operationId: getForms
+  tags:
+    - Forms
+  summary: Return the list of forms available to the current user
+  parameters:
+    - in: query
+      name: filter
+      description: >-
+        This is the filter to apply to retrieve the list of forms available
+        for the current user
+      type: string
+    - in: query
+      name: pathtoload
+      description: >-
+        This is the pathtoload to know which related entities we need to
+        retrieve in the call
+      type: string
+  description: ''
+  responses:
+    '200':
+      description: >-
+        Successful operation returning the array of form corresponding to
+        the queryparameter
+      schema:
+        type: array
+        items:
+          $ref: '#/definitions/Form'
+post:
+  operationId: postForms
+  tags:
+    - Forms
+  summary: To create new form in the cloud APROPLAN
+  parameters:
+    - in: body
+      name: body
+      description: This is the array of forms to create through the cloud
+      schema:
+        type: array
+        items:
+          $ref: '#/definitions/Form'
+  responses:
+    '200':
+      description: Successful operation to create new form array in the cloud
+      schema:
+        type: array
+        items:
+          $ref: '#/definitions/Form'
+put:
+  operationId: putForms
+  tags:
+    - Forms
+  summary: To update forms in the cloud APROPLAN
+  parameters:
+    - in: body
+      name: body
+      description: This is the array of forms to update in the cloud
+      schema:
+        type: array
+        items:
+          $ref: '#/definitions/Form'
+  responses:
+    '200':
+      description: Successful operation to update array of forms in the cloud
+      schema:
+        type: array
+        items:
+          $ref: '#/definitions/Form'
+delete:
+  operationId: deleteForms
+  tags:
+    - Forms
+  summary: To delete forms and all items in the cloud APROPLAN
+  parameters:
+    - in: body
+      name: body
+      description: Array of FormSignature id to delete from the cloud
+      required: true
+      schema:
+        type: array
+        items:
+          type: string
+        example:
+          - ea5d793f-c795-4311-8344-eb18e8efa065
+          - afff9354-abb3-4a9c-aca5-9810490938ef
+  responses:
+    '200':
+      description: >-
+        Successful operation meaning all specified id of Form are deleted
+        from the cloud
+      schema:
+        type: string
+        example: success

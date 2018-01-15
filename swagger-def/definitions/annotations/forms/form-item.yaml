@@ -1,0 +1,39 @@
+type: object
+description: >-
+  It is an item of a form, it means question with potential value given by a
+  user
+allOf:
+  - $ref: '#/definitions/FormItemBase'
+  - type: object
+  - title: FormItem
+  - properties:
+      FormId:
+        type: string
+        description: This is the id of the form owner of the item
+        example: f230aeb4-7d72-435b-8e12-b9240156e098
+      QuestionId:
+        type: string
+        description: >-
+          This is the id of the question from where the item has been
+          created
+      User:
+        description: >-
+          This is the user who answered to the question. This parameter is
+          not used from the api
+        $ref: '#/definitions/User'
+      Value:
+        description: This is the value answered by the user converted to string
+        type: string
+        example: Die hard 3
+      NotApplicable:
+        type: boolean
+        example: true
+        description: >-
+          A question can be not applicable then, the user is able to answer
+          by setting this value to true
+      IsConform:
+        type: boolean
+        example: true
+        description: >-
+          When the answer is given and there are rule of conformity. This
+          value is computed regarding the value and conformity rules

@@ -1,0 +1,14 @@
+get:
+  tags:
+    - Form Synchronization
+  summary: Retrieve form of a user from a specific last datetime synchronization
+  description: ''
+  responses:
+    '200':
+      description: >-
+        Successful operation returning the array of forms updated/deleted
+        from a specific date
+      schema:
+        type: array
+        items:
+          $ref: '#/definitions/Form'

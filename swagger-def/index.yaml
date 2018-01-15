@@ -1,0 +1,20 @@
+swagger: '2.0'
+info:
+  $ref: ./info/index.yaml
+host: api.aproplan.com
+basePath: /rest
+tags:
+  - name: Login
+    description: necessary method to identify a user
+  - name: Form Template
+    description: Everything about Form Templates
+  - name: Forms
+    description: Everything about Forms
+schemes:
+  - https
+parameters:
+  $ref: ./parameters/common.yaml
+paths:
+  $ref: ./paths/index.yaml
+definitions: 
+  $ref: ./definitions/index.yaml

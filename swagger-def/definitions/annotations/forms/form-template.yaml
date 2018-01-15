@@ -1,0 +1,42 @@
+type: object
+description: This is a template of Form
+allOf:
+  - $ref: '#/definitions/RestEntity'
+  - type: object
+  - title: FormTemplate
+  - properties:
+      Subject:
+        type: string
+        description: This is the subject of the form
+      Type:
+        type: string
+        enum:
+          - Quality
+          - Security
+          - Environment
+      Language:
+        $ref: '#/definitions/Language'
+      Creator:
+        $ref: '#/definitions/User'
+      Date:
+        type: string
+        format: date-time
+      IsArchived:
+        type: boolean
+        description: To know if the template is archived or not
+      ArchivedDate:
+        type: string
+        format: date-time
+        description: This is the date time when the template was archived
+      CompanyId:
+        type: string
+        description: This is the id of the company owner of the template
+        example: 91cb89f2-79a0-415c-9f47-77f22193b420
+      Questions:
+        type: array
+        items:
+          $ref: '#/definitions/FormQuestion'
+      SignatureRules:
+        type: array
+        items:
+          $ref: '#/definitions/FormSignatureRule'

@@ -1,0 +1,23 @@
+type: object
+allOf:
+  - $ref: '#/definitions/RestEntity'
+  - type: object
+  - title: FormItemBase
+  - properties:
+      DisplayOrder:
+        type: integer
+        format: int32
+        description: This is the order of the item in the Form or Form template
+        example: '0'
+      Title:
+        type: string
+      Description:
+        type: string
+      ItemType:
+        type: string
+        enum:
+          - string
+          - number
+          - array
+      Template:
+        type: string

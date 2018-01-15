@@ -1,0 +1,17 @@
+type: object
+allOf:
+  - $ref: '#/definitions/RestEntity'
+  - type: object
+  - title: FolderVisibility
+  - properties: 
+      InvitedUserId: 
+        type: string
+        description: this is the id of the user having the visibility on a folder
+      InviterUserId: 
+        type: string
+        description: this is the id of the user who grant the visibility to another
+      IsCreator: 
+        type: boolean
+        description: this flag is set to true when the visibility has been granted to a user because he created the folder
+      FolderId: 
+        type: string

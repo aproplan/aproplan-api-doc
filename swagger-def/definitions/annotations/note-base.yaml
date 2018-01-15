@@ -1,0 +1,75 @@
+type: object
+description: >-
+  This is the base classes used for all kind of annotations available on
+  APROPLAN
+allOf:
+  - $ref: '#/definitions/RestEntity'
+  - type: object
+  - title: NoteBase
+  - properties:
+      Meeting:
+        $ref: '#/definitions/Meeting'
+        description: This is the meeting on which the annotation is linked
+      Project:
+        $ref: '#/definitions/Project'
+        description: This is the project on which the annotation is linked
+      ParentNote:
+        description: >-
+          An annotation can from/to be linked to another annotation. This is
+          the parent annotation
+        $ref: '#/definitions/NoteBase'
+      ChildrenNotes:
+        type: array
+        items:
+          $ref: '#/definitions/NoteBase'
+      IsUrgent:
+        type: boolean
+        example: true
+      CodeNum:
+        type: string
+        example: '1.05'
+      Date:
+        type: string
+        description: This is the creation date of the annotation
+        format: date-time
+      ModificationDate:
+        type: string
+        format: date-time
+      From:
+        description: >-
+          This is the creator of the annotation. This parameter is not used
+          from the api
+        $ref: '#/definitions/User'
+      Subject:
+        type: string
+        description: This is the summary of the annotation
+        example: My first annotation
+      IsArchived:
+        type: boolean
+        description: 'To know if the annotation is archived or not '
+        example: false
+      ArchivedDate:
+        type: string
+        format: date-time
+        description: To know when the annotation was archived the last time
+      DueDate:
+        type: string
+        format: date-time
+        description: >-
+          This is the due date for which an action is expected for the
+          annotation
+      HasAttachment:
+        type: boolean
+        description: To know if there are some attachment linked to the annotation
+      Comments:
+        type: array
+        items:
+          $ref: '#/definitions/NoteComment'
+      NoteDocuments:
+        type: array
+        items:
+          $ref: '#/definitions/NoteDocument'
+      NoteInCharge:
+        type: array
+        items:
+          $ref: '#/definitions/NoteInCharge'

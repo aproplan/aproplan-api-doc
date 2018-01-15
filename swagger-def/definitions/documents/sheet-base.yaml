@@ -1,0 +1,26 @@
+type: object
+allOf:
+  - $ref: '#/definitions/RestEntity'
+  - type: object
+  - title: SheetBase
+  - properties:
+      Width:
+        type: integer
+        description: This is the width of the sheet
+        example: 800
+      Height:
+        type: integer
+        description: This is the height of the sheet
+        example: 600
+      ZoomLevelNumber:
+        type: integer
+      TileSize:
+        type: integer
+      BigThumbWidth:
+        type: integer
+      BigThumbHeight:
+        type: integer
+      SmallThumbWidth:
+        type: integer
+      SmallThumbHeight:
+        type: integer

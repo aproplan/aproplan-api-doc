@@ -1,0 +1,9 @@
+title: UserPass
+type: object
+properties:
+  User:
+    $ref: '#/definitions/User'
+  Pass:
+    type: string
+    description: this is the password to apply to the new user
+    example: aproplan

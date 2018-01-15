@@ -1,0 +1,18 @@
+title: TokenInfo
+type: object
+properties:
+  Token:
+    type: string
+    description: Guid to identify the user. Received at the login
+    pattern: '^{[A-Z0-9]{8}-([A-Z0-9]{4}-){3}[A-Z0-9]{12}}$'
+    example: a75678b7-5042-484e-99aa-a029aebc98b4
+  ValidityLimit:
+    type: string
+    format: date-time
+    description: The end date-time when the token will be invalidate
+    example: "2018-01-10T16:07:56.7509736Z"
+  ValidityStart:
+    type: string
+    format: date-time
+    description: The start date-time of the token validity
+    example: "2018-01-10T15:57:56.7509736Z"

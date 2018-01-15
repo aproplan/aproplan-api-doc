@@ -1,0 +1,18 @@
+title: RestEntity
+type: object
+required:
+  - Id
+  - EntityVersion
+properties:
+  Id:
+    type: string
+    description: Guid identifier
+    pattern: '^{[A-Z0-9]{8}-([A-Z0-9]{4}-){3}[A-Z0-9]{12}}$'
+    example: f230aeb4-7d72-435b-8e12-b9240156e098
+  EntityVersion:
+    type: integer
+    format: int64
+  EntityCreationUser:
+    type: string
+    description: Guid identifier
+    pattern: '^{[A-Z0-9]{8}-([A-Z0-9]{4}-){3}[A-Z0-9]{12}}$'

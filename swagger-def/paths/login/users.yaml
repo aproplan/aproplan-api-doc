@@ -1,0 +1,30 @@
+post:
+  operationId: createUser
+  tags:
+    - Login
+  summary: Create an account in APROPLAN
+  description: >-
+    To create an new user in aproplan, it is necessary to send the user object with at least the following properties of User object
+    * Id
+    * Alias
+    * DisplayName
+    * Person
+      * Id
+      * Code
+      * Name
+      * LanguageCode
+      * Country
+        * Id
+    * LanguageCode
+    
+  parameters:
+    - in: body
+      name: body
+      description: "Need an object with 2 properties: User and Pass"
+      schema:
+        $ref: '#/definitions/UserPass'
+  responses: 
+    '200': 
+      description: Successful operation
+      schema:
+        $ref: '#/definitions/User'

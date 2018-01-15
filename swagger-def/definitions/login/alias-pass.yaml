@@ -1,0 +1,11 @@
+title: AliasPass
+type: object
+properties:
+  Alias:
+    type: string
+    description: This is the alias used by the user to identify himself into APROPLAN
+    example: "john.smith@aproplan.com"
+  Pass:
+    type: string
+    description: This is the password of the user to log in to APROPLAN
+    example: aproplan

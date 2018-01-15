@@ -1,0 +1,23 @@
+type: object
+description: Information returned by the server about the requested report
+properties:
+  Date:
+    type: string
+    format: date-time
+  GuidId:
+    type: string
+    description: The Id of the request report
+    pattern: '^{[A-Z0-9]{8}-([A-Z0-9]{4}-){3}[A-Z0-9]{12}}$'
+    example: f230aeb4-7d72-435b-8e12-b9240156e098
+  NumberRecipients:
+    type: integer
+    description: The amount of recipients to whom the report will be sent
+  ReportTitle:
+    type: string
+    description: The title of the report
+  PreviewUri:
+    type: string
+    description: The URI where it is possible to preview the report
+  Status:
+    type: string
+    description: The status of the requested report

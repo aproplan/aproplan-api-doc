@@ -1,0 +1,42 @@
+type: object
+description: To make comment on annotation
+allOf:
+  - $ref: '#/definitions/RestEntity'
+  - type: object
+  - title: NoteComment
+  - required:
+      - NoteBaseId
+  - properties:
+      NoteBaseId:
+        type: string
+        description: This is the id of the Note on which the comment is linked
+      From:
+        description: >-
+          This is the creator of the comment. This parameter is not used
+          from the api
+        $ref: '#/definitions/User'
+      Date:
+        type: string
+        description: This is the creation date of the annotation
+        format: date-time
+      LastModificationDate:
+        type: string
+        description: This is the last modification date of the comment
+        format: date-time
+      IsRead:
+        type: boolean
+        example: true
+      IsFirst:
+        type: boolean
+        example: false
+      IsArchived:
+        type: boolean
+        example: false
+      Code:
+        type: string
+      MeetingOccurrence:
+        type: integer
+      MeetingRevision:
+        type: integer
+      MeetingPointNumber:
+        type: string

@@ -1,0 +1,63 @@
+get:
+  operationId: getFormSignatures
+  tags:
+    - Forms
+  summary: Retrieve the signatures of a specified form
+  parameters:
+    - in: query
+      name: parentEntityId
+      required: true
+      description: This is the parent form for which the signature are requested
+      type: string
+  description: ''
+  responses:
+    '200':
+      description: >-
+        Successful operation returning the array of form signatures
+        corresponding to a specific form
+      schema:
+        type: array
+        items:
+          $ref: '#/definitions/FormSignature'
+put:
+  operationId: putFormSignatures
+  tags:
+    - Forms
+  summary: To edit a new signature for the form
+  parameters:
+    - in: body
+      name: body
+      description: Array of formsignatures to edit
+      required: true
+      schema:
+        type: array
+        items:
+          $ref: '#/definitions/FormSignature'
+  responses:
+    '200':
+      description: 'Successfull update of all signatures. '
+      schema:
+        type: array
+        items:
+          $ref: '#/definitions/FormSignature'
+post:
+  operationId: postFormSignatures
+  tags:
+    - Forms
+  summary: To create  new signatures for the form
+  parameters:
+    - in: body
+      name: body
+      description: Array of formsignatures to create
+      required: true
+      schema:
+        type: array
+        items:
+          $ref: '#/definitions/FormSignature'
+  responses:
+    '200':
+      description: 'Successfull create of all signatures. '
+      schema:
+        type: array
+        items:
+          $ref: '#/definitions/FormSignature'

@@ -1,0 +1,20 @@
+tokenParameter:
+  name: t
+  in: query
+  description: the token to call the api method
+  required: true
+  type: string
+dateFormatParam:
+  name: dateformat
+  in: query
+  description: to specify of date must be formatted
+  required: false
+  type: string
+  enum: [microsoft, iso]
+  default: microsoft
+requesterParam:
+  name: requesterid
+  in: query
+  required: true
+  type: string
+  description: this is the token you received from aproplan to identify as a user of the APROPLAN API  

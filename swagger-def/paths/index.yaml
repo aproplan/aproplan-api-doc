@@ -1,0 +1,29 @@
+/loginsecure:
+  $ref: ./login/login-secure.yaml
+/renewtoken:
+  $ref: ./login/renew-token.yaml
+/users:
+  $ref: ./login/users.yaml
+/forms:
+  $ref: ./forms/forms.yaml
+/formitems:
+  $ref: ./forms/formitems.yaml
+/formsignatures:
+  $ref: ./forms/formsignatures.yaml
+/generateformreport:
+  $ref: ./forms/generateformreport.yaml
+/previewformreport:
+  $ref: ./forms/previewformreport.yaml
+/formfinalization:
+  $ref: ./forms/formfinalization.yaml
+/formtemplates:
+  $ref: ./forms/formtemplates.yaml
+/formquestions:
+  $ref: ./forms/formquestions.yaml
+/formsignaturerules:
+  $ref: ./forms/formsignaturerules.yaml
+/formsync:
+  $ref: ./forms/formsync.yaml
+/formtemplatesync:
+  $ref: ./forms/formtemplatesync.yaml
+

@@ -1,0 +1,42 @@
+type: object
+description: This is a Form created from a FormTemplate
+allOf:
+  - $ref: '#/definitions/NoteBase'
+  - type: object
+  - title: Form
+  - properties:
+      Type:
+        type: string
+        enum:
+          - Quality
+          - Security
+          - Environment
+      Language:
+        $ref: '#/definitions/Language'
+      Status:
+        type: string
+        enum:
+          - Todo
+          - InProgress
+          - Done
+      DoneStatus:
+        type: string
+        format: date-time
+        description: This is the date when the form has been finalized
+      TemplateId:
+        type: string
+        description: >-
+          This is the id of the template from where the form has been
+          created
+      Signatures:
+        type: array
+        items:
+          - $ref: '#/definitions/FormSignature'
+      Items:
+        type: array
+        items:
+          - $ref: '#/definitions/FormItem'
+      IsConform:
+        type: boolean
+      Report:
+        $ref: '#/definitions/Document'

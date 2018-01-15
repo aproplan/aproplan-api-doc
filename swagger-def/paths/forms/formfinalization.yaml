@@ -1,0 +1,20 @@
+put:
+  operationId: formFinalization
+  tags:
+    - Forms
+  summary: Finalize a form
+  parameters:
+    - in: body
+      name: FormReportParams
+      description: >-
+        Basic definition of the report that will be generated after the
+        finalization, if successful.
+      schema:
+        $ref: '#/definitions/FormReportParams'
+  responses:
+    '200':
+      description: >-
+        Successful operation. Return the form finalized and the
+        ReportRequest identification
+      schema:
+        $ref: '#/definitions/FormFinalizationResponse'

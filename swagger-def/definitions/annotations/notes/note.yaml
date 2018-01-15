@@ -1,0 +1,15 @@
+type: object
+description: This is the definition of an annotation
+allOf:
+  - $ref: '#/definitions/NoteBase'
+  - type: object
+  - title: Note
+  - properties:
+      FormItemId:
+        type: string
+        format: guid
+        description: >-
+          If the note was created for form, we can specify for which item
+          the note was created
+      Status:
+        $ref: '#/definitions/NoteProjectStatus'

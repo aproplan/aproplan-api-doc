@@ -1,0 +1,18 @@
+post:
+  operationId: previewFormReport
+  tags:
+    - Forms
+  summary: To preview the form report
+  parameters:
+    - in: body
+      name: FormReportParams
+      description: >-
+        Basic definition of the report that will be generated after the
+        finalization, if successful.
+      schema:
+        $ref: '#/definitions/FormReportParams'
+  responses:
+    '200':
+      description: The report request is created with parameter
+      schema:
+        $ref: '#/definitions/ReportRestIdentification'

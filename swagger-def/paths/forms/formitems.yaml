@@ -1,0 +1,65 @@
+get:
+  operationId: getFormItems
+  tags:
+    - Forms
+  summary: Retrieve items related to a specific form
+  parameters:
+    - in: query
+      name: parentEntityId
+      required: true
+      description: This is the parent form for which the item are requested
+      type: string
+  description: ''
+  responses:
+    '200':
+      description: >-
+        Successful operation returning the array of form item corresponding
+        to a specific form
+      schema:
+        type: array
+        items:
+          $ref: '#/definitions/FormItem'
+post:
+  operationId: postFormItems
+  tags:
+    - Forms
+  summary: Create new items related to a specific form
+  parameters:
+    - in: body
+      name: body
+      required: true
+      description: This is the array of form's item to create
+      schema:
+        type: array
+        items:
+          $ref: '#/definitions/FormItem'
+  description: ''
+  responses:
+    '200':
+      description: Successful operation returning the array of form's items created
+      schema:
+        type: array
+        items:
+          $ref: '#/definitions/FormItem'
+put:
+  operationId: putFormItems
+  tags:
+    - Forms
+  summary: Update form's items
+  parameters:
+    - in: body
+      name: body
+      required: true
+      description: This is the array of form's item to update
+      schema:
+        type: array
+        items:
+          $ref: '#/definitions/FormItem'
+  description: ''
+  responses:
+    '200':
+      description: Successful operation returning the array of form's items updated
+      schema:
+        type: array
+        items:
+          $ref: '#/definitions/FormItem'

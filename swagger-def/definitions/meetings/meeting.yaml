@@ -1,0 +1,16 @@
+type: object
+allOf:
+  - $ref: '#/definitions/RestEntity'
+  - type: object
+  - title: Meeting
+  - properties:
+      Title:
+        type: string
+        description: ''
+        example: My list
+      Code:
+        type: string
+        description: ''
+        example: MyL
+      Project:
+        $ref: '#/definitions/Project'
