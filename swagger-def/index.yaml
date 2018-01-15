@@ -6,6 +6,8 @@ basePath: /rest
 tags:
   - name: Login
     description: necessary method to identify a user
+  - name: Projects
+    description: Everything about the Project
   - name: Form Template
     description: Everything about Form Templates
   - name: Forms

@@ -4,6 +4,8 @@
   $ref: ./login/renew-token.yaml
 /users:
   $ref: ./login/users.yaml
+/projects:
+  $ref: ./projects/projects.yaml
 /forms:
   $ref: ./forms/forms.yaml
 /formitems:
