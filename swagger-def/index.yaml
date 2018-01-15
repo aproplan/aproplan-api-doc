@@ -10,6 +10,8 @@ tags:
     description: Everything about the Project
   - name: Documents
     description: Everything about the Document
+  - name: Points
+    description: Everything about the Points
   - name: Form Template
     description: Everything about Form Templates
   - name: Forms

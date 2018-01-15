@@ -1,8 +1,8 @@
 post:
-  operationId: uploadDocuments
+  operationId: uploadNoteDocuments
   tags:
-    - Documents
-  summary: To upload a new document or a version of document in the cloud APROPLAN
+    - Points
+  summary: To upload a new document in APROPLAN and to attach it directly to a point
   consumes:
     - application/pdf
     - application/jpg
@@ -15,6 +15,11 @@ post:
     - $ref: '#/parameters/requesterParam'
     - $ref: '#/parameters/versionParam'
     - $ref: '#/parameters/dateFormatParam'
+    - in: query
+      name: noteid
+      type: string
+      required: true
+      description: 'The id of the point on which the uploaded document must be attached'
     - in: query
       name: file
       type: string
@@ -79,6 +84,6 @@ post:
         format: binary
   responses:
     '200':
-      description: Successful operation to upload a new document/version
+      description: Successful operation to upload a new document/version and attach it to a point
       schema:
-        $ref: '#/definitions/DocumentBase'
+        $ref: '#/definitions/NoteDocument'

@@ -8,24 +8,26 @@
   $ref: ./projects/projects.yaml
 /uploaddocument:
   $ref: ./documents/uploaddocument.yaml
+/uploadnotedocument:
+  $ref: ./annotations/uploadnotedocument.yaml
 /forms:
-  $ref: ./forms/forms.yaml
+  $ref: ./annotations/forms/forms.yaml
 /formitems:
-  $ref: ./forms/formitems.yaml
+  $ref: ./annotations/forms/formitems.yaml
 /formsignatures:
-  $ref: ./forms/formsignatures.yaml
+  $ref: ./annotations/forms/formsignatures.yaml
 /previewformreport:
-  $ref: ./forms/previewformreport.yaml
+  $ref: ./annotations/forms/previewformreport.yaml
 /formfinalization:
-  $ref: ./forms/formfinalization.yaml
+  $ref: ./annotations/forms/formfinalization.yaml
 /formtemplates:
-  $ref: ./forms/formtemplates.yaml
+  $ref: ./annotations/forms/formtemplates.yaml
 /formquestions:
-  $ref: ./forms/formquestions.yaml
+  $ref: ./annotations/forms/formquestions.yaml
 /formsignaturerules:
-  $ref: ./forms/formsignaturerules.yaml
+  $ref: ./annotations/forms/formsignaturerules.yaml
 /formsync:
-  $ref: ./forms/formsync.yaml
+  $ref: ./annotations/forms/formsync.yaml
 /formtemplatesync:
-  $ref: ./forms/formtemplatesync.yaml
+  $ref: ./annotations/forms/formtemplatesync.yaml
 
