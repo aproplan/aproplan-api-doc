@@ -6,6 +6,8 @@
   $ref: ./login/users.yaml
 /projects:
   $ref: ./projects/projects.yaml
+/uploaddocument:
+  $ref: ./documents/uploaddocument.yaml
 /forms:
   $ref: ./forms/forms.yaml
 /formitems:

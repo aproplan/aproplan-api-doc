@@ -4,6 +4,12 @@ tokenParam:
   description: the token to call the api method
   required: true
   type: string
+versionParam:
+  name: v
+  in: query
+  description: the version of the API V1 to use
+  required: true
+  type: string
 dateFormatParam:
   name: dateformat
   in: query

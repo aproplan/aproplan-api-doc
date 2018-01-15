@@ -8,6 +8,8 @@ tags:
     description: necessary method to identify a user
   - name: Projects
     description: Everything about the Project
+  - name: Documents
+    description: Everything about the Document
   - name: Form Template
     description: Everything about Form Templates
   - name: Forms
