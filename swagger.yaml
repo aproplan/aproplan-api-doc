@@ -22,7 +22,7 @@ tags:
 schemes:
   - https
 parameters:
-  tokenParameter:
+  tokenParam:
     name: t
     in: query
     description: the token to call the api method
@@ -31,7 +31,7 @@ parameters:
   dateFormatParam:
     name: dateformat
     in: query
-    description: to specify of date must be formatted
+    description: to specify how date must be formatted
     required: false
     type: string
     enum:
@@ -46,6 +46,38 @@ parameters:
     description: >-
       this is the token you received from aproplan to identify as a user of the
       APROPLAN API
+  filterParam:
+    in: query
+    name: filter
+    description: >-
+      This is the filter to apply to retrieve the list of entities available for
+      the current user
+    type: string
+  pathtoloadParam:
+    in: query
+    name: pathtoload
+    description: >-
+      This is the pathtoload to know which related entities we need to retrieve
+      in the call
+    type: string
+  sortorderParam:
+    in: query
+    name: sortorder
+    description: >-
+      Specify the property on which the list of data can sorted. Each property
+      must be separated by comma. Depending of the kind of entity to load, the
+      properties used for sort are specific.
+    type: string
+  loadfkParam:
+    in: query
+    name: isloadfkidproperty
+    description: >-
+      "To specify if it is necessary to load Id of related object. Example: You
+      want to load Country with to load the object Language but you want at
+      least to have the Language object created with only the Id property
+      (Country.Language.Id).  In that case, you need to specify this parameter
+      to true "
+    type: string
 paths:
   /loginsecure:
     post:
@@ -124,18 +156,11 @@ paths:
         - Forms
       summary: Return the list of forms available to the current user
       parameters:
-        - in: query
-          name: filter
-          description: >-
-            This is the filter to apply to retrieve the list of forms available
-            for the current user
-          type: string
-        - in: query
-          name: pathtoload
-          description: >-
-            This is the pathtoload to know which related entities we need to
-            retrieve in the call
-          type: string
+        - $ref: '#/parameters/tokenParam'
+        - $ref: '#/parameters/requesterParam'
+        - $ref: '#/parameters/dateFormatParam'
+        - $ref: '#/parameters/filterParam'
+        - $ref: '#/parameters/pathtoloadParam'
       description: ''
       responses:
         '200':
@@ -152,6 +177,9 @@ paths:
         - Forms
       summary: To create new form in the cloud APROPLAN
       parameters:
+        - $ref: '#/parameters/tokenParam'
+        - $ref: '#/parameters/requesterParam'
+        - $ref: '#/parameters/dateFormatParam'
         - in: body
           name: body
           description: This is the array of forms to create through the cloud
@@ -172,6 +200,9 @@ paths:
         - Forms
       summary: To update forms in the cloud APROPLAN
       parameters:
+        - $ref: '#/parameters/tokenParam'
+        - $ref: '#/parameters/requesterParam'
+        - $ref: '#/parameters/dateFormatParam'
         - in: body
           name: body
           description: This is the array of forms to update in the cloud
@@ -192,6 +223,9 @@ paths:
         - Forms
       summary: To delete forms and all items in the cloud APROPLAN
       parameters:
+        - $ref: '#/parameters/tokenParam'
+        - $ref: '#/parameters/requesterParam'
+        - $ref: '#/parameters/dateFormatParam'
         - in: body
           name: body
           description: Array of FormSignature id to delete from the cloud
@@ -218,6 +252,9 @@ paths:
         - Forms
       summary: Retrieve items related to a specific form
       parameters:
+        - $ref: '#/parameters/tokenParam'
+        - $ref: '#/parameters/requesterParam'
+        - $ref: '#/parameters/dateFormatParam'
         - in: query
           name: parentEntityId
           required: true
@@ -239,6 +276,9 @@ paths:
         - Forms
       summary: Create new items related to a specific form
       parameters:
+        - $ref: '#/parameters/tokenParam'
+        - $ref: '#/parameters/requesterParam'
+        - $ref: '#/parameters/dateFormatParam'
         - in: body
           name: body
           required: true
@@ -261,6 +301,9 @@ paths:
         - Forms
       summary: Update form's items
       parameters:
+        - $ref: '#/parameters/tokenParam'
+        - $ref: '#/parameters/requesterParam'
+        - $ref: '#/parameters/dateFormatParam'
         - in: body
           name: body
           required: true
@@ -284,6 +327,9 @@ paths:
         - Forms
       summary: Retrieve the signatures of a specified form
       parameters:
+        - $ref: '#/parameters/tokenParam'
+        - $ref: '#/parameters/requesterParam'
+        - $ref: '#/parameters/dateFormatParam'
         - in: query
           name: parentEntityId
           required: true
@@ -305,6 +351,9 @@ paths:
         - Forms
       summary: To edit a new signature for the form
       parameters:
+        - $ref: '#/parameters/tokenParam'
+        - $ref: '#/parameters/requesterParam'
+        - $ref: '#/parameters/dateFormatParam'
         - in: body
           name: body
           description: Array of formsignatures to edit
@@ -326,6 +375,9 @@ paths:
         - Forms
       summary: To create  new signatures for the form
       parameters:
+        - $ref: '#/parameters/tokenParam'
+        - $ref: '#/parameters/requesterParam'
+        - $ref: '#/parameters/dateFormatParam'
         - in: body
           name: body
           description: Array of formsignatures to create
@@ -341,25 +393,6 @@ paths:
             type: array
             items:
               $ref: '#/definitions/FormSignature'
-  /generateformreport:
-    post:
-      operationId: generateFormReport
-      tags:
-        - Forms
-      summary: To generate the form report and send it by mail
-      parameters:
-        - in: body
-          name: FormReportParams
-          description: >-
-            Basic definition of the report that will be generated after the
-            finalization, if successful.
-          schema:
-            $ref: '#/definitions/FormReportParams'
-      responses:
-        '200':
-          description: The report request is created with parameter
-          schema:
-            $ref: '#/definitions/ReportRestIdentification'
   /previewformreport:
     post:
       operationId: previewFormReport
@@ -367,6 +400,9 @@ paths:
         - Forms
       summary: To preview the form report
       parameters:
+        - $ref: '#/parameters/tokenParam'
+        - $ref: '#/parameters/requesterParam'
+        - $ref: '#/parameters/dateFormatParam'
         - in: body
           name: FormReportParams
           description: >-
@@ -407,18 +443,11 @@ paths:
         - Form Template
       summary: Return form template available to the current user
       parameters:
-        - in: query
-          name: filter
-          description: >-
-            This is the filter to apply to retrieve formtemplate available for
-            the current user
-          type: string
-        - in: query
-          name: pathtoload
-          description: >-
-            This is the pathtoload to know which related entities we need to
-            retrieve in the call
-          type: string
+        - $ref: '#/parameters/tokenParam'
+        - $ref: '#/parameters/requesterParam'
+        - $ref: '#/parameters/dateFormatParam'
+        - $ref: '#/parameters/filterParam'
+        - $ref: '#/parameters/pathtoloadParam'
       description: ''
       responses:
         '200':
@@ -442,6 +471,9 @@ paths:
       produces:
         - application/json
       parameters:
+        - $ref: '#/parameters/tokenParam'
+        - $ref: '#/parameters/requesterParam'
+        - $ref: '#/parameters/dateFormatParam'
         - in: body
           name: body
           description: Form object that needs to be added
@@ -469,6 +501,9 @@ paths:
       produces:
         - application/json
       parameters:
+        - $ref: '#/parameters/tokenParam'
+        - $ref: '#/parameters/requesterParam'
+        - $ref: '#/parameters/dateFormatParam'
         - in: body
           name: body
           description: Form object that needs to be added
@@ -492,6 +527,9 @@ paths:
         - Form Template
       summary: Delete a form template available to the current user
       parameters:
+        - $ref: '#/parameters/tokenParam'
+        - $ref: '#/parameters/requesterParam'
+        - $ref: '#/parameters/dateFormatParam'
         - in: body
           name: body
           description: Array of formtemplate id to delete from the cloud
@@ -518,6 +556,9 @@ paths:
         - Form Template
       summary: Retrieve questions related to a specific form template
       parameters:
+        - $ref: '#/parameters/tokenParam'
+        - $ref: '#/parameters/requesterParam'
+        - $ref: '#/parameters/dateFormatParam'
         - in: query
           name: parentEntityId
           required: true
@@ -542,6 +583,9 @@ paths:
         - Form Template
       summary: Retrieve the signature rules of a specified form template
       parameters:
+        - $ref: '#/parameters/tokenParam'
+        - $ref: '#/parameters/requesterParam'
+        - $ref: '#/parameters/dateFormatParam'
         - in: query
           name: parentEntityId
           required: true
@@ -565,6 +609,9 @@ paths:
         - Form Template
       summary: To edit a new signature rule for the template
       parameters:
+        - $ref: '#/parameters/tokenParam'
+        - $ref: '#/parameters/requesterParam'
+        - $ref: '#/parameters/dateFormatParam'
         - in: body
           name: body
           description: Array of formsignaturerules to edit
@@ -586,6 +633,9 @@ paths:
         - Form Template
       summary: To create  new signature rules for the template
       parameters:
+        - $ref: '#/parameters/tokenParam'
+        - $ref: '#/parameters/requesterParam'
+        - $ref: '#/parameters/dateFormatParam'
         - in: body
           name: body
           description: Array of formsignaturerules to create
@@ -607,6 +657,9 @@ paths:
       summary: Delete form signature rules available to the current user
       operationId: deleteFormSignatureRule
       parameters:
+        - $ref: '#/parameters/tokenParam'
+        - $ref: '#/parameters/requesterParam'
+        - $ref: '#/parameters/dateFormatParam'
         - in: body
           name: body
           description: Array of formsignaturerule id to delete from the cloud
@@ -2061,6 +2114,8 @@ definitions:
               - array
           Template:
             type: string
+          ConformityRules:
+            type: string
   Form:
     type: object
     description: This is a Form created from a FormTemplate
@@ -2083,7 +2138,7 @@ definitions:
               - Todo
               - InProgress
               - Done
-          DoneStatus:
+          DoneDate:
             type: string
             format: date-time
             description: This is the date when the form has been finalized

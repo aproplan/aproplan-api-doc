@@ -3,19 +3,12 @@ get:
   tags:
     - Forms
   summary: Return the list of forms available to the current user
-  parameters:
-    - in: query
-      name: filter
-      description: >-
-        This is the filter to apply to retrieve the list of forms available
-        for the current user
-      type: string
-    - in: query
-      name: pathtoload
-      description: >-
-        This is the pathtoload to know which related entities we need to
-        retrieve in the call
-      type: string
+  parameters:  
+    - $ref: '#/parameters/tokenParam'
+    - $ref: '#/parameters/requesterParam'
+    - $ref: '#/parameters/dateFormatParam'
+    - $ref: '#/parameters/filterParam'
+    - $ref: '#/parameters/pathtoloadParam'
   description: ''
   responses:
     '200':
@@ -32,6 +25,9 @@ post:
     - Forms
   summary: To create new form in the cloud APROPLAN
   parameters:
+    - $ref: '#/parameters/tokenParam'
+    - $ref: '#/parameters/requesterParam'
+    - $ref: '#/parameters/dateFormatParam'
     - in: body
       name: body
       description: This is the array of forms to create through the cloud
@@ -52,6 +48,9 @@ put:
     - Forms
   summary: To update forms in the cloud APROPLAN
   parameters:
+    - $ref: '#/parameters/tokenParam'
+    - $ref: '#/parameters/requesterParam'
+    - $ref: '#/parameters/dateFormatParam'
     - in: body
       name: body
       description: This is the array of forms to update in the cloud
@@ -72,6 +71,9 @@ delete:
     - Forms
   summary: To delete forms and all items in the cloud APROPLAN
   parameters:
+    - $ref: '#/parameters/tokenParam'
+    - $ref: '#/parameters/requesterParam'
+    - $ref: '#/parameters/dateFormatParam'
     - in: body
       name: body
       description: Array of FormSignature id to delete from the cloud

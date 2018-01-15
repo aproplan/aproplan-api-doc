@@ -1,4 +1,4 @@
-tokenParameter:
+tokenParam:
   name: t
   in: query
   description: the token to call the api method
@@ -7,7 +7,7 @@ tokenParameter:
 dateFormatParam:
   name: dateformat
   in: query
-  description: to specify of date must be formatted
+  description: to specify how date must be formatted
   required: false
   type: string
   enum: [microsoft, iso]
@@ -17,4 +17,33 @@ requesterParam:
   in: query
   required: true
   type: string
-  description: this is the token you received from aproplan to identify as a user of the APROPLAN API  
+  description: this is the token you received from aproplan to identify as a user of the APROPLAN API
+filterParam:
+  in: query
+  name: filter
+  description: >-
+    This is the filter to apply to retrieve the list of entities available
+    for the current user
+  type: string
+pathtoloadParam:
+  in: query
+  name: pathtoload
+  description: >-
+    This is the pathtoload to know which related entities we need to
+    retrieve in the call
+  type: string
+sortorderParam:
+  in: query
+  name: sortorder
+  description: >-
+    Specify the property on which the list of data can sorted. Each property must be separated by comma. Depending of the kind of entity to load, the properties used for sort are specific.
+  type: string
+loadfkParam:
+  in: query
+  name: isloadfkidproperty
+  description: >-
+    "To specify if it is necessary to load Id of related object. Example:
+    You want to load Country with to load the object Language but you want at least to have the Language object created with only the Id property (Country.Language.Id). 
+    In that case, you need to specify this parameter to true
+    "
+  type: string

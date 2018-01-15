@@ -4,18 +4,11 @@ get:
     - Form Template
   summary: Return form template available to the current user
   parameters:
-    - in: query
-      name: filter
-      description: >-
-        This is the filter to apply to retrieve formtemplate available for
-        the current user
-      type: string
-    - in: query
-      name: pathtoload
-      description: >-
-        This is the pathtoload to know which related entities we need to
-        retrieve in the call
-      type: string
+    - $ref: '#/parameters/tokenParam'
+    - $ref: '#/parameters/requesterParam'
+    - $ref: '#/parameters/dateFormatParam'
+    - $ref: '#/parameters/filterParam'
+    - $ref: '#/parameters/pathtoloadParam'
   description: ''
   responses:
     '200':
@@ -39,6 +32,9 @@ post:
   produces:
     - application/json
   parameters:
+    - $ref: '#/parameters/tokenParam'
+    - $ref: '#/parameters/requesterParam'
+    - $ref: '#/parameters/dateFormatParam'
     - in: body
       name: body
       description: Form object that needs to be added
@@ -66,6 +62,9 @@ put:
   produces:
     - application/json
   parameters:
+    - $ref: '#/parameters/tokenParam'
+    - $ref: '#/parameters/requesterParam'
+    - $ref: '#/parameters/dateFormatParam'
     - in: body
       name: body
       description: Form object that needs to be added
@@ -89,6 +88,9 @@ delete:
     - Form Template
   summary: Delete a form template available to the current user
   parameters:
+    - $ref: '#/parameters/tokenParam'
+    - $ref: '#/parameters/requesterParam'
+    - $ref: '#/parameters/dateFormatParam'
     - in: body
       name: body
       description: Array of formtemplate id to delete from the cloud

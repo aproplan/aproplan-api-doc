@@ -10,8 +10,6 @@
   $ref: ./forms/formitems.yaml
 /formsignatures:
   $ref: ./forms/formsignatures.yaml
-/generateformreport:
-  $ref: ./forms/generateformreport.yaml
 /previewformreport:
   $ref: ./forms/previewformreport.yaml
 /formfinalization:

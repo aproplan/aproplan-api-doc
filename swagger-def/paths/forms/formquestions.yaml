@@ -4,6 +4,9 @@ get:
     - Form Template
   summary: Retrieve questions related to a specific form template
   parameters:
+    - $ref: '#/parameters/tokenParam'
+    - $ref: '#/parameters/requesterParam'
+    - $ref: '#/parameters/dateFormatParam'
     - in: query
       name: parentEntityId
       required: true

@@ -4,6 +4,9 @@ get:
     - Forms
   summary: Retrieve items related to a specific form
   parameters:
+    - $ref: '#/parameters/tokenParam'
+    - $ref: '#/parameters/requesterParam'
+    - $ref: '#/parameters/dateFormatParam'
     - in: query
       name: parentEntityId
       required: true
@@ -25,6 +28,9 @@ post:
     - Forms
   summary: Create new items related to a specific form
   parameters:
+    - $ref: '#/parameters/tokenParam'
+    - $ref: '#/parameters/requesterParam'
+    - $ref: '#/parameters/dateFormatParam'
     - in: body
       name: body
       required: true
@@ -47,6 +53,9 @@ put:
     - Forms
   summary: Update form's items
   parameters:
+    - $ref: '#/parameters/tokenParam'
+    - $ref: '#/parameters/requesterParam'
+    - $ref: '#/parameters/dateFormatParam'
     - in: body
       name: body
       required: true

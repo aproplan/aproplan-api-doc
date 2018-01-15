@@ -4,6 +4,9 @@ post:
     - Forms
   summary: To preview the form report
   parameters:
+    - $ref: '#/parameters/tokenParam'
+    - $ref: '#/parameters/requesterParam'
+    - $ref: '#/parameters/dateFormatParam'
     - in: body
       name: FormReportParams
       description: >-

@@ -4,6 +4,9 @@ get:
     - Forms
   summary: Retrieve the signatures of a specified form
   parameters:
+    - $ref: '#/parameters/tokenParam'
+    - $ref: '#/parameters/requesterParam'
+    - $ref: '#/parameters/dateFormatParam'
     - in: query
       name: parentEntityId
       required: true
@@ -25,6 +28,9 @@ put:
     - Forms
   summary: To edit a new signature for the form
   parameters:
+    - $ref: '#/parameters/tokenParam'
+    - $ref: '#/parameters/requesterParam'
+    - $ref: '#/parameters/dateFormatParam'
     - in: body
       name: body
       description: Array of formsignatures to edit
@@ -46,6 +52,9 @@ post:
     - Forms
   summary: To create  new signatures for the form
   parameters:
+    - $ref: '#/parameters/tokenParam'
+    - $ref: '#/parameters/requesterParam'
+    - $ref: '#/parameters/dateFormatParam'
     - in: body
       name: body
       description: Array of formsignatures to create

@@ -4,6 +4,9 @@ get:
     - Form Template
   summary: Retrieve the signature rules of a specified form template
   parameters:
+    - $ref: '#/parameters/tokenParam'
+    - $ref: '#/parameters/requesterParam'
+    - $ref: '#/parameters/dateFormatParam'
     - in: query
       name: parentEntityId
       required: true
@@ -27,6 +30,9 @@ put:
     - Form Template
   summary: To edit a new signature rule for the template
   parameters:
+    - $ref: '#/parameters/tokenParam'
+    - $ref: '#/parameters/requesterParam'
+    - $ref: '#/parameters/dateFormatParam'
     - in: body
       name: body
       description: Array of formsignaturerules to edit
@@ -48,6 +54,9 @@ post:
     - Form Template
   summary: To create  new signature rules for the template
   parameters:
+    - $ref: '#/parameters/tokenParam'
+    - $ref: '#/parameters/requesterParam'
+    - $ref: '#/parameters/dateFormatParam'
     - in: body
       name: body
       description: Array of formsignaturerules to create
@@ -69,6 +78,9 @@ delete:
   summary: Delete form signature rules available to the current user
   operationId: deleteFormSignatureRule
   parameters:
+    - $ref: '#/parameters/tokenParam'
+    - $ref: '#/parameters/requesterParam'
+    - $ref: '#/parameters/dateFormatParam'
     - in: body
       name: body
       description: Array of formsignaturerule id to delete from the cloud
