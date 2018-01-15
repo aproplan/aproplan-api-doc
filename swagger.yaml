@@ -1578,8 +1578,295 @@ definitions:
             type: string
             description: ''
             example: MyL
+          Comment:
+            type: string
+          Building:
+            type: string
+          Floor:
+            type: string
+          Date:
+            type: string
+            format: date-time
           Project:
             $ref: '#/definitions/Project'
+          Occurrence:
+            type: number
+          IsArchived:
+            type: boolean
+          Type:
+            type: string
+            enum:
+              - Meeting
+              - Handover
+              - Security
+          NumberingType:
+            type: string
+            enum:
+              - Sequential
+              - OccSequential
+              - CodeSequential
+              - CodeOccSequential
+          Header:
+            type: string
+          Footer:
+            type: string
+          Remarks:
+            type: string
+          IsPublic:
+            type: boolean
+          IsSystem:
+            type: boolean
+            description: >-
+              to know if the list is one created by the system (private or
+              public list)
+          UserAccessRight:
+            $ref: '#/definitions/MeetingAccessRight'
+          MeetingAuthor:
+            $ref: '#/definitions/User'
+          LinkedNotes:
+            type: array
+            items:
+              $ref: '#/definitions/Note'
+          MeetingConcerns:
+            type: array
+            items:
+              $ref: '#/definitions/MeetingConcern'
+          MeetingDocuments:
+            type: array
+            items:
+              $ref: '#/definitions/MeetingDocument'
+          TransferredDocuments:
+            type: array
+            items:
+              $ref: '#/definitions/MeetingTransferredDocs'
+          MeetingReport:
+            type: array
+            items:
+              $ref: '#/definitions/MeetingReport'
+  MeetingAccessRight:
+    type: object
+    allOf:
+      - $ref: '#/definitions/AccessRightBase'
+      - type: object
+      - title: MeetingAccessRight
+      - properties:
+          CanAddPoint:
+            type: boolean
+            description: Specify if the participant of the list can add point in the list
+          CanEditPoint:
+            type: boolean
+            description: >-
+              Specify if the participant of the list can edit a point he created
+              himself
+          CanDeletePoint:
+            type: boolean
+            description: >-
+              Specify if the participant of the list can delete a point he
+              created himself
+          CanEditPointStatus:
+            type: boolean
+            description: >-
+              Specify if the participant of the list can edit the status of a
+              point even he cannot edit it
+          CanEditPointIssueType:
+            type: boolean
+            description: >-
+              Specify if the participant of the list can edit the subcategory of
+              a point even he cannot edit it
+          CanEditPointInCharge:
+            type: boolean
+            description: >-
+              Specify if the participant of the list can edit user in charge
+              list of a point even he cannot edit it
+          CanAddComment:
+            type: boolean
+            description: >-
+              Specify if the participant of the list can add a comment on a
+              point
+          CanDeleteComment:
+            type: boolean
+            description: >-
+              Specify if the participant of the list can delete a comment of a
+              point
+          CanArchiveComment:
+            type: boolean
+            description: >-
+              Specify if the participant of the list can archive a comment of a
+              point
+          CanAddDoc:
+            type: boolean
+            description: >-
+              Specify if the participant of the list can attach document to the
+              list
+          CanGenerateReport:
+            type: boolean
+            description: >-
+              Specify if the participant of the list can generate the report of
+              the list
+          CanCreateNextMeeting:
+            type: boolean
+            description: >-
+              Specify if the participant of the list can create a new occurrence
+              of the list
+          CanEditAllPoint:
+            type: boolean
+            description: >-
+              Specify if the participant of the list can edit a point of the
+              list even he did not create himself
+          CanViewOnlyPointInCharge:
+            type: boolean
+            description: >-
+              Specify if the participant of the list can only see the point of
+              the list where he specified as user in charge
+          CanAddPointDocument:
+            type: boolean
+            description: >-
+              Specify if the participant of the list can add attchment to a
+              point of the list
+          CanDeletePointDocument:
+            type: boolean
+            description: >-
+              Specify if the participant of the list can detach a document of a
+              list' s point
+          CanViewDashboard:
+            type: boolean
+            description: >-
+              Specify if the participant of the list can see a dashboard at list
+              level
+          CanViewParticipant:
+            type: boolean
+            description: >-
+              Specify if the participant of the list can see the list of
+              participants of the list
+  MeetingConcern:
+    type: object
+    allOf:
+      - $ref: '#/definitions/RestEntity'
+      - type: object
+      - title: MeetingConcern
+      - properties:
+          User:
+            $ref: '#/definitions/User'
+            description: This is the user specified as participants of the list
+          PresenceStatus:
+            type: string
+            description: To specify a status of the presence of the participants
+            enum:
+              - Present
+              - Absent
+              - Excused
+          Meeting:
+            $ref: '#/definitions/Meeting'
+          IsReport:
+            type: boolean
+          IsOwner:
+            type: boolean
+            description: To know if the participant is the one who created the list
+          IsInvited:
+            type: boolean
+          Signature:
+            type: string
+          SignatureDate:
+            type: string
+            format: date-time
+          DisplayOrder:
+            type: number
+          Miscellaneous:
+            type: string
+          IsDisabled:
+            type: boolean
+            description: To know if the participant is still active or not in the list
+          ContactDetails:
+            $ref: '#/definitions/ContactDetails'
+            description: >-
+              This is the link to the same user as the participant at project
+              level
+          IsInvitedOnProject:
+            type: boolean
+            description: >-
+              To know if the participant has been really invited at project
+              level
+          AccessRightLevel:
+            description: To specify the access right level of the participant in the list
+            type: string
+            enum:
+              - Admin
+              - Manager
+              - Contributor
+              - Guest
+              - Subcontractor
+  MeetingDocument:
+    type: object
+    allOf:
+      - $ref: '#/definitions/RestEntity'
+      - type: object
+      - title: MeetingDocument
+      - properties:
+          Meeting:
+            $ref: '#/definitions/Meeting'
+          Document:
+            $ref: '#/definitions/Document'
+          Project:
+            $ref: '#/definitions/Project'
+          DisplayOrder:
+            type: number
+  MeetingTransferredDocs:
+    type: object
+    allOf:
+      - $ref: '#/definitions/RestEntity'
+      - type: object
+      - title: MeetingTransferredDocs
+      - properties:
+          Meeting:
+            $ref: '#/definitions/Meeting'
+          UsersTo:
+            type: array
+            items:
+              $ref: '#/definitions/MeetingTransferredDocsTo'
+          Name:
+            type: string
+          Approved:
+            type: string
+          From:
+            $ref: '#/definitions/User'
+          FromTag:
+            type: string
+  MeetingTransferredDocsTo:
+    type: object
+    allOf:
+      - $ref: '#/definitions/RestEntity'
+      - type: object
+      - title: MeetingTransferredDocsTo
+      - properties:
+          MeetingTransferredDocs:
+            $ref: '#/definitions/MeetingTransferredDocs'
+          UserId:
+            $ref: '#/definitions/User'
+          Tag:
+            type: string
+  MeetingReport:
+    type: object
+    allOf:
+      - $ref: '#/definitions/RestEntity'
+      - type: object
+      - title: MeetingReport
+      - properties:
+          Meeting:
+            $ref: '#/definitions/Meeting'
+          Document:
+            $ref: '#/definitions/Document'
+            description: >-
+              this is the document representing the report generated for the
+              list
+          VersionId:
+            type: string
+            description: this is the version id of the report generated
+          Occurrence:
+            type: number
+            description: This is the occurrence number when the report has been requested
+          SentDate:
+            type: string
+            format: date-time
   NoteComment:
     type: object
     description: To make comment on annotation

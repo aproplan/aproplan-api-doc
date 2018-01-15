@@ -12,5 +12,66 @@ allOf:
         type: string
         description: ''
         example: MyL
+      Comment:
+        type: string
+      Building:
+        type: string 
+      Floor:
+        type: string
+      Date:
+        type: string
+        format: date-time
       Project:
         $ref: '#/definitions/Project'
+      Occurrence: 
+        type: number
+      IsArchived:
+        type: boolean
+      Type:
+        type: string
+        enum:
+          - Meeting
+          - Handover
+          - Security
+      NumberingType:
+        type: string
+        enum:
+          - Sequential
+          - OccSequential
+          - CodeSequential
+          - CodeOccSequential
+      Header: 
+        type: string
+      Footer:
+        type: string
+      Remarks: 
+        type: string
+      IsPublic:
+        type: boolean
+      IsSystem:
+        type: boolean
+        description: to know if the list is one created by the system (private or public list)
+      UserAccessRight:
+        $ref: '#/definitions/MeetingAccessRight'
+      MeetingAuthor: 
+        $ref: '#/definitions/User'
+      LinkedNotes:
+        type: array
+        items: 
+          $ref: '#/definitions/Note'
+      MeetingConcerns:
+        type: array
+        items: 
+          $ref: '#/definitions/MeetingConcern'
+      MeetingDocuments:
+        type: array
+        items: 
+          $ref: '#/definitions/MeetingDocument'
+      TransferredDocuments:
+        type: array
+        items: 
+          $ref: '#/definitions/MeetingTransferredDocs'
+      MeetingReport:
+        type: array
+        items: 
+          $ref: '#/definitions/MeetingReport'

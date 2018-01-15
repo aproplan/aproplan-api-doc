@@ -74,6 +74,18 @@ Document:
   $ref: ./documents/document.yaml
 Meeting:
   $ref: ./meetings/meeting.yaml  
+MeetingAccessRight:
+  $ref: ./meetings/meeting-accessright.yaml 
+MeetingConcern:
+  $ref: ./meetings/meeting-concern.yaml   
+MeetingDocument:
+  $ref: ./meetings/meeting-document.yaml 
+MeetingTransferredDocs:
+  $ref: ./meetings/meeting-transferred-docs.yaml 
+MeetingTransferredDocsTo:
+  $ref: ./meetings/meeting-transferred-docs-to.yaml 
+MeetingReport:
+  $ref: ./meetings/meeting-report.yaml 
 NoteComment:
   $ref: ./annotations/note-comment.yaml  
 NoteDocument:

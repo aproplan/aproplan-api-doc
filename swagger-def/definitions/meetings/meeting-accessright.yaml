@@ -1,0 +1,60 @@
+type: object
+allOf:
+  - $ref: '#/definitions/AccessRightBase'
+  - type: object
+  - title: MeetingAccessRight
+  - properties:
+      CanAddPoint:
+        type: boolean
+        description: 'Specify if the participant of the list can add point in the list'
+      CanEditPoint:
+        type: boolean
+        description: 'Specify if the participant of the list can edit a point he created himself'
+      CanDeletePoint:
+        type: boolean
+        description: 'Specify if the participant of the list can delete a point he created himself'
+      CanEditPointStatus:
+        type: boolean
+        description: 'Specify if the participant of the list can edit the status of a point even he cannot edit it'
+      CanEditPointIssueType:
+        type: boolean
+        description: 'Specify if the participant of the list can edit the subcategory of a point even he cannot edit it'
+      CanEditPointInCharge:
+        type: boolean
+        description: 'Specify if the participant of the list can edit user in charge list of a point even he cannot edit it'
+      CanAddComment:
+        type: boolean
+        description: 'Specify if the participant of the list can add a comment on a point'
+      CanDeleteComment:
+        type: boolean
+        description: 'Specify if the participant of the list can delete a comment of a point'
+      CanArchiveComment:
+        type: boolean
+        description: 'Specify if the participant of the list can archive a comment of a point'
+      CanAddDoc:
+        type: boolean
+        description: 'Specify if the participant of the list can attach document to the list'
+      CanGenerateReport:
+        type: boolean
+        description: 'Specify if the participant of the list can generate the report of the list'
+      CanCreateNextMeeting:
+        type: boolean
+        description: 'Specify if the participant of the list can create a new occurrence of the list'
+      CanEditAllPoint:
+        type: boolean
+        description: 'Specify if the participant of the list can edit a point of the list even he did not create himself'
+      CanViewOnlyPointInCharge:
+        type: boolean
+        description: 'Specify if the participant of the list can only see the point of the list where he specified as user in charge'
+      CanAddPointDocument:
+        type: boolean
+        description: 'Specify if the participant of the list can add attchment to a point of the list'
+      CanDeletePointDocument:
+        type: boolean
+        description: 'Specify if the participant of the list can detach a document of a list'' s point'
+      CanViewDashboard:
+        type: boolean
+        description: 'Specify if the participant of the list can see a dashboard at list level'
+      CanViewParticipant:
+        type: boolean
+        description: 'Specify if the participant of the list can see the list of participants of the list'

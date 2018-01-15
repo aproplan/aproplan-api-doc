@@ -1,0 +1,12 @@
+type: object
+allOf:
+  - $ref: '#/definitions/RestEntity'
+  - type: object
+  - title: MeetingTransferredDocsTo
+  - properties:
+      MeetingTransferredDocs:
+        $ref: '#/definitions/MeetingTransferredDocs'
+      UserId:
+        $ref: '#/definitions/User'
+      Tag: 
+        type: string

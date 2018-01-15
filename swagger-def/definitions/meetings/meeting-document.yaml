@@ -1,0 +1,14 @@
+type: object
+allOf:
+  - $ref: '#/definitions/RestEntity'
+  - type: object
+  - title: MeetingDocument
+  - properties:
+      Meeting:
+        $ref: '#/definitions/Meeting'
+      Document:
+        $ref: '#/definitions/Document'
+      Project:
+        $ref: '#/definitions/Project'
+      DisplayOrder: 
+        type: number
