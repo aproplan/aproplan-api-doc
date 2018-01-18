@@ -1,0 +1,9 @@
+type: object
+description: >-
+  When a form is finalized, it contains information about the report request
+  + the form with new status and data
+properties:
+  Form:
+    $ref: '#/definitions/Form'
+  FormReportParams:
+    $ref: '#/definitions/ReportRestIdentification'

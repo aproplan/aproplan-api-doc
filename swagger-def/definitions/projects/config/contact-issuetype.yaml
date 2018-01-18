@@ -1,0 +1,15 @@
+description: To represent the relation between a subcategory and a participant of a project
+type: object
+allOf:
+  - $ref: '#/definitions/RestEntity'
+  - type: object
+  - title: ContactIssueType
+  - properties: 
+      ContactId:
+        type: string
+        description: the id of the contact on which the subcategory is linked (ContactDetails)
+      IssueTypeId:
+        type: string
+        description: the id of the subcategory on which the contact is linked (IssueType)
+      IssueType: 
+        $ref: '#/definitions/IssueType'

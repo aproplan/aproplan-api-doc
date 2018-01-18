@@ -1,0 +1,95 @@
+get:
+  operationId: getFormtemplate
+  tags:
+    - Form Template
+  summary: Return the list of formtemplate available to the current user
+  parameters:
+    - $ref: '#/parameters/tokenParam'
+    - $ref: '#/parameters/requesterParam'
+    - $ref: '#/parameters/dateFormatParam'
+    - $ref: '#/parameters/filterParam'
+    - $ref: '#/parameters/pathtoloadParam'
+  description: ''
+  responses:
+    '200':
+      description: >-
+        Successful operation returning the array of formtemplate corresponding
+        to the queries parameters
+      schema:
+        type: array
+        items:
+          $ref: '#/definitions/FormTemplate'
+post:
+  operationId: postFormtemplate
+  tags:
+    - Forms
+  summary: To create new formtemplate in the cloud APROPLAN
+  parameters:
+    - $ref: '#/parameters/tokenParam'
+    - $ref: '#/parameters/requesterParam'
+    - $ref: '#/parameters/dateFormatParam'
+    - in: body
+      name: body
+      description: This is the array of formtemplate to create through the cloud
+      schema:
+        type: array
+        items:
+          $ref: '#/definitions/FormTemplate'
+  responses:
+    '200':
+      description: Successful operation to create new formtemplate array in the cloud
+      schema:
+        type: array
+        items:
+          $ref: '#/definitions/FormTemplate'
+put:
+  operationId: putFormtemplate
+  tags:
+    - Forms
+  summary: To update formtemplate in the cloud APROPLAN
+  parameters:
+    - $ref: '#/parameters/tokenParam'
+    - $ref: '#/parameters/requesterParam'
+    - $ref: '#/parameters/dateFormatParam'
+    - in: body
+      name: body
+      description: This is the array of formtemplate to update in the cloud
+      schema:
+        type: array
+        items:
+          $ref: '#/definitions/FormTemplate'
+  responses:
+    '200':
+      description: Successful operation to update array of formtemplate in the cloud
+      schema:
+        type: array
+        items:
+          $ref: '#/definitions/FormTemplate'
+delete:
+  operationId: deleteFormtemplate
+  tags:
+    - Forms
+  summary: To delete items of formtemplate in the cloud APROPLAN
+  parameters:
+    - $ref: '#/parameters/tokenParam'
+    - $ref: '#/parameters/requesterParam'
+    - $ref: '#/parameters/dateFormatParam'
+    - in: body
+      name: body
+      description: Array of formtemplate id to delete from the cloud
+      required: true
+      schema:
+        type: array
+        items:
+          type: string
+        example:
+          - ea5d793f-c795-4311-8344-eb18e8efa065
+          - afff9354-abb3-4a9c-aca5-9810490938ef
+  responses:
+    '200':
+      description: >-
+        Successful operation meaning all specified items of formtemplate
+        corresponding to ids in parameters are deleted from the cloud
+      schema:
+        type: string
+        example: success

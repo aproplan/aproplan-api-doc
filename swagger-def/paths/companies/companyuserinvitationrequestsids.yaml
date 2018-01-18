@@ -1,0 +1,23 @@
+get:
+  operationId: getCompanyuserinvitationrequestIds
+  tags:
+    - Companies
+  summary: >-
+    Return the list of id corresponding to the companyuserinvitationrequest
+    available to the current user
+  parameters:
+    - $ref: '#/parameters/tokenParam'
+    - $ref: '#/parameters/requesterParam'
+    - $ref: '#/parameters/dateFormatParam'
+    - $ref: '#/parameters/filterParam'
+    - $ref: '#/parameters/pathtoloadParam'
+  description: ''
+  responses:
+    '200':
+      description: >-
+        Successful operation returning the array of id of
+        companyuserinvitationrequest corresponding to the queries parameters
+      schema:
+        type: array
+        items:
+          type: string

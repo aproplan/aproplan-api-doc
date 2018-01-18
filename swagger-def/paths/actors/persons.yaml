@@ -1,0 +1,95 @@
+get:
+  operationId: getPerson
+  tags:
+    - Actors
+  summary: Return the list of person available to the current user
+  parameters:
+    - $ref: '#/parameters/tokenParam'
+    - $ref: '#/parameters/requesterParam'
+    - $ref: '#/parameters/dateFormatParam'
+    - $ref: '#/parameters/filterParam'
+    - $ref: '#/parameters/pathtoloadParam'
+  description: ''
+  responses:
+    '200':
+      description: >-
+        Successful operation returning the array of person corresponding to the
+        queries parameters
+      schema:
+        type: array
+        items:
+          $ref: '#/definitions/Person'
+post:
+  operationId: postPerson
+  tags:
+    - Actors
+  summary: To create new person in the cloud APROPLAN
+  parameters:
+    - $ref: '#/parameters/tokenParam'
+    - $ref: '#/parameters/requesterParam'
+    - $ref: '#/parameters/dateFormatParam'
+    - in: body
+      name: body
+      description: This is the array of person to create through the cloud
+      schema:
+        type: array
+        items:
+          $ref: '#/definitions/Person'
+  responses:
+    '200':
+      description: Successful operation to create new person array in the cloud
+      schema:
+        type: array
+        items:
+          $ref: '#/definitions/Person'
+put:
+  operationId: putPerson
+  tags:
+    - Actors
+  summary: To update person in the cloud APROPLAN
+  parameters:
+    - $ref: '#/parameters/tokenParam'
+    - $ref: '#/parameters/requesterParam'
+    - $ref: '#/parameters/dateFormatParam'
+    - in: body
+      name: body
+      description: This is the array of person to update in the cloud
+      schema:
+        type: array
+        items:
+          $ref: '#/definitions/Person'
+  responses:
+    '200':
+      description: Successful operation to update array of person in the cloud
+      schema:
+        type: array
+        items:
+          $ref: '#/definitions/Person'
+delete:
+  operationId: deletePerson
+  tags:
+    - Actors
+  summary: To delete items of person in the cloud APROPLAN
+  parameters:
+    - $ref: '#/parameters/tokenParam'
+    - $ref: '#/parameters/requesterParam'
+    - $ref: '#/parameters/dateFormatParam'
+    - in: body
+      name: body
+      description: Array of person id to delete from the cloud
+      required: true
+      schema:
+        type: array
+        items:
+          type: string
+        example:
+          - ea5d793f-c795-4311-8344-eb18e8efa065
+          - afff9354-abb3-4a9c-aca5-9810490938ef
+  responses:
+    '200':
+      description: >-
+        Successful operation meaning all specified items of person corresponding
+        to ids in parameters are deleted from the cloud
+      schema:
+        type: string
+        example: success

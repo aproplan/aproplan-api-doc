@@ -1,0 +1,19 @@
+type: object
+allOf:
+  - $ref: '#/definitions/RestEntity'
+  - type: object
+  - title: Email
+  - properties:
+      Email:
+        type: string
+      Order: 
+        type: string
+      InfoType: 
+        type: string
+        enum:
+          - Home
+          - Home2
+          - Business
+          - Business2
+          - Mobile
+          - Other    

@@ -1,0 +1,99 @@
+get:
+  operationId: getIssuetypenotesubject
+  tags:
+    - Projects
+  summary: Return the list of issuetypenotesubject available to the current user
+  parameters:
+    - $ref: '#/parameters/tokenParam'
+    - $ref: '#/parameters/requesterParam'
+    - $ref: '#/parameters/dateFormatParam'
+    - $ref: '#/parameters/filterParam'
+    - $ref: '#/parameters/pathtoloadParam'
+  description: ''
+  responses:
+    '200':
+      description: >-
+        Successful operation returning the array of issuetypenotesubject
+        corresponding to the queries parameters
+      schema:
+        type: array
+        items:
+          $ref: '#/definitions/IssueTypeNoteSubject'
+post:
+  operationId: postIssuetypenotesubject
+  tags:
+    - Projects
+  summary: To create new issuetypenotesubject in the cloud APROPLAN
+  parameters:
+    - $ref: '#/parameters/tokenParam'
+    - $ref: '#/parameters/requesterParam'
+    - $ref: '#/parameters/dateFormatParam'
+    - in: body
+      name: body
+      description: This is the array of issuetypenotesubject to create through the cloud
+      schema:
+        type: array
+        items:
+          $ref: '#/definitions/IssueTypeNoteSubject'
+  responses:
+    '200':
+      description: >-
+        Successful operation to create new issuetypenotesubject array in the
+        cloud
+      schema:
+        type: array
+        items:
+          $ref: '#/definitions/IssueTypeNoteSubject'
+put:
+  operationId: putIssuetypenotesubject
+  tags:
+    - Projects
+  summary: To update issuetypenotesubject in the cloud APROPLAN
+  parameters:
+    - $ref: '#/parameters/tokenParam'
+    - $ref: '#/parameters/requesterParam'
+    - $ref: '#/parameters/dateFormatParam'
+    - in: body
+      name: body
+      description: This is the array of issuetypenotesubject to update in the cloud
+      schema:
+        type: array
+        items:
+          $ref: '#/definitions/IssueTypeNoteSubject'
+  responses:
+    '200':
+      description: >-
+        Successful operation to update array of issuetypenotesubject in the
+        cloud
+      schema:
+        type: array
+        items:
+          $ref: '#/definitions/IssueTypeNoteSubject'
+delete:
+  operationId: deleteIssuetypenotesubject
+  tags:
+    - Projects
+  summary: To delete items of issuetypenotesubject in the cloud APROPLAN
+  parameters:
+    - $ref: '#/parameters/tokenParam'
+    - $ref: '#/parameters/requesterParam'
+    - $ref: '#/parameters/dateFormatParam'
+    - in: body
+      name: body
+      description: Array of issuetypenotesubject id to delete from the cloud
+      required: true
+      schema:
+        type: array
+        items:
+          type: string
+        example:
+          - ea5d793f-c795-4311-8344-eb18e8efa065
+          - afff9354-abb3-4a9c-aca5-9810490938ef
+  responses:
+    '200':
+      description: >-
+        Successful operation meaning all specified items of issuetypenotesubject
+        corresponding to ids in parameters are deleted from the cloud
+      schema:
+        type: string
+        example: success

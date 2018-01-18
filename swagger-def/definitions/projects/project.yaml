@@ -1,0 +1,74 @@
+type: object
+allOf:
+  - $ref: '#/definitions/RestEntity'
+  - type: object
+  - title: Project
+  - properties:
+      Code:
+        type: string
+        description: 'This is the code of the project'
+        example: MyP
+      Name:
+        type: string
+        description: 'This is the name of the project'
+        example: My Project
+      Address:
+        type: string
+      City:
+        type: string
+      ZipCode:
+        type: string
+      Country:
+        $ref: '#/definitions/Country'
+      IsActive:
+        type: boolean
+        description: To know if the project is active or not. Nothing can be done on project inactive
+      LogoUrl: 
+        type: string
+        description: This the url to display the logo of the project
+      Creator: 
+        $ref: '#/definitions/User'
+      StartDate:
+        type: string
+        format: date-time
+      EndDate:
+        type: string
+        format: date-time
+      UserAccessRight:
+        $ref: '#/definitions/ProjectAccessRight'
+      Folders:
+        type: array
+        items: 
+          $ref: '#/definitions/Folder'
+      Contacts:
+        type: array
+        items: 
+          $ref: '#/definitions/ContactDetails'
+      Cells:
+        type: array
+        items: 
+          $ref: '#/definitions/ParentCell'
+      Chapters:
+        type: array
+        items: 
+          $ref: '#/definitions/Chapter'
+      NoteStatus:
+        type: array
+        items: 
+          $ref: '#/definitions/NoteProjectStatus'      
+      Visibilities:
+        type: array
+        items: 
+          $ref: '#/definitions/ProjectVisibility'      
+      NotesNumber:
+        type: number
+        description: this is a calculated property then, it is necessary to specify it in the pathtoload to have a good value on it
+      DocumentsNumber:
+        type: number
+        description: this is a calculated property then, it is necessary to specify it in the pathtoload to have a good value on it
+      ParticipantsNumber: 
+        type: number
+        description: this is a calculated property then, it is necessary to specify it in the pathtoload to have a good value on it
+      NewFormatPictureName:
+        type: boolean
+        description: this is to specify if the project need to make the new numerotation for document and photo uploaded on it.

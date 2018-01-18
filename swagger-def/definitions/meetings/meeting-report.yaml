@@ -1,0 +1,20 @@
+type: object
+allOf:
+  - $ref: '#/definitions/RestEntity'
+  - type: object
+  - title: MeetingReport
+  - properties:
+      Meeting:
+        $ref: '#/definitions/Meeting'
+      Document:
+        $ref: '#/definitions/Document'
+        description: this is the document representing the report generated for the list
+      VersionId:
+        type: string
+        description: this is the version id of the report generated
+      Occurrence: 
+        type: number
+        description: This is the occurrence number when the report has been requested
+      SentDate:
+        type: string
+        format: date-time

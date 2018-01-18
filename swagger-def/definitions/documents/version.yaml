@@ -1,0 +1,14 @@
+type: object
+allOf:
+  - $ref: '#/definitions/Version'
+  - type: object
+  - title: Version
+  - properties:
+      DocumentId:
+        type: string
+      VersionIndex:
+        type: number
+      PhysicalFolderId:
+        type: string
+      PageNbr:
+        type: number

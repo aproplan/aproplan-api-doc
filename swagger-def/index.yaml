@@ -1,0 +1,34 @@
+swagger: '2.0'
+info:
+  $ref: ./info/index.yaml
+host: api.aproplan.com
+basePath: /rest
+tags:
+  - name: Login
+    description: necessary method to identify a user
+  - name: Projects
+    description: Everything about the Project
+  - name: Documents
+    description: Everything about the Document
+  - name: Lists
+    description: Everything about the lists
+  - name: Annotations
+    description: Common objects for Points and Forms
+  - name: Points
+    description: Everything about the Points  
+  - name: Forms  
+    description: Everything about Forms
+  - name: Form Synchronization
+    description: Everything about Forms
+  - name: Form Templates
+    description: Everything about Form Templates
+  - name: Commpanies
+    description: Everything about the managed companies
+schemes:
+  - https
+parameters:
+  $ref: ./parameters/common.yaml
+paths:
+  $ref: ./paths/index.yaml
+definitions: 
+  $ref: ./definitions/index.yaml

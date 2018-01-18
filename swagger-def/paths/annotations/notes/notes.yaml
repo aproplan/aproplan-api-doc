@@ -1,0 +1,95 @@
+get:
+  operationId: getNote
+  tags:
+    - Points
+  summary: Return the list of note available to the current user
+  parameters:
+    - $ref: '#/parameters/tokenParam'
+    - $ref: '#/parameters/requesterParam'
+    - $ref: '#/parameters/dateFormatParam'
+    - $ref: '#/parameters/filterParam'
+    - $ref: '#/parameters/pathtoloadParam'
+  description: ''
+  responses:
+    '200':
+      description: >-
+        Successful operation returning the array of note corresponding to the
+        queries parameters
+      schema:
+        type: array
+        items:
+          $ref: '#/definitions/Note'
+post:
+  operationId: postNote
+  tags:
+    - Points
+  summary: To create new note in the cloud APROPLAN
+  parameters:
+    - $ref: '#/parameters/tokenParam'
+    - $ref: '#/parameters/requesterParam'
+    - $ref: '#/parameters/dateFormatParam'
+    - in: body
+      name: body
+      description: This is the array of note to create through the cloud
+      schema:
+        type: array
+        items:
+          $ref: '#/definitions/Note'
+  responses:
+    '200':
+      description: Successful operation to create new note array in the cloud
+      schema:
+        type: array
+        items:
+          $ref: '#/definitions/Note'
+put:
+  operationId: putNote
+  tags:
+    - Points
+  summary: To update note in the cloud APROPLAN
+  parameters:
+    - $ref: '#/parameters/tokenParam'
+    - $ref: '#/parameters/requesterParam'
+    - $ref: '#/parameters/dateFormatParam'
+    - in: body
+      name: body
+      description: This is the array of note to update in the cloud
+      schema:
+        type: array
+        items:
+          $ref: '#/definitions/Note'
+  responses:
+    '200':
+      description: Successful operation to update array of note in the cloud
+      schema:
+        type: array
+        items:
+          $ref: '#/definitions/Note'
+delete:
+  operationId: deleteNote
+  tags:
+    - Points
+  summary: To delete items of note in the cloud APROPLAN
+  parameters:
+    - $ref: '#/parameters/tokenParam'
+    - $ref: '#/parameters/requesterParam'
+    - $ref: '#/parameters/dateFormatParam'
+    - in: body
+      name: body
+      description: Array of note id to delete from the cloud
+      required: true
+      schema:
+        type: array
+        items:
+          type: string
+        example:
+          - ea5d793f-c795-4311-8344-eb18e8efa065
+          - afff9354-abb3-4a9c-aca5-9810490938ef
+  responses:
+    '200':
+      description: >-
+        Successful operation meaning all specified items of note corresponding
+        to ids in parameters are deleted from the cloud
+      schema:
+        type: string
+        example: success

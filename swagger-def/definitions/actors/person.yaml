@@ -1,0 +1,8 @@
+type: object
+allOf: 
+  - $ref: '#/definitions/Party'
+  - type: object
+  - title: Person
+  - properties:
+      SpellCheckLanguage:
+        $ref: '#/definitions/Language'

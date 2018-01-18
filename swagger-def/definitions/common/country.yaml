@@ -1,0 +1,18 @@
+type: object
+allOf: 
+  - $ref: '#/definitions/RestEntity'
+  - type: object
+  - title: Country
+  - properties: 
+      Name:
+        type: string
+        description: this is the name of the country
+        example: Belgium
+      Iso: 
+        type: string
+        description: this is the iso of the country in 3 characters
+        example: BEL
+      Iso2:
+        type: string
+        description: this is the iso of the country in 2 characters
+        example: BE

@@ -1,0 +1,26 @@
+type: object
+allOf: 
+  - $ref: '#/definitions/RestEntity'
+  - type: object
+  - title: Party
+  - properties: 
+      Code: 
+        type: string
+      Name: 
+        type: string
+      Language: 
+        $ref: '#/definitions/Language'
+      LanguageCode: 
+        type: string
+      Country: 
+        $ref: '#/definitions/Country'
+      Email:
+        type: string
+      Phones: 
+        type: array
+        items: 
+          $ref: '#/definitions/Phone'
+      Emails: 
+        type: array
+        items: 
+          $ref: '#/definitions/Email'

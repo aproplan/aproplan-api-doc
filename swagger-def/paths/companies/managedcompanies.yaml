@@ -1,0 +1,95 @@
+get:
+  operationId: getManagedcompany
+  tags:
+    - Companies
+  summary: Return the list of managedcompany available to the current user
+  parameters:
+    - $ref: '#/parameters/tokenParam'
+    - $ref: '#/parameters/requesterParam'
+    - $ref: '#/parameters/dateFormatParam'
+    - $ref: '#/parameters/filterParam'
+    - $ref: '#/parameters/pathtoloadParam'
+  description: ''
+  responses:
+    '200':
+      description: >-
+        Successful operation returning the array of managedcompany corresponding
+        to the queries parameters
+      schema:
+        type: array
+        items:
+          $ref: '#/definitions/ManagedCompany'
+post:
+  operationId: postManagedcompany
+  tags:
+    - Companies
+  summary: To create new managedcompany in the cloud APROPLAN
+  parameters:
+    - $ref: '#/parameters/tokenParam'
+    - $ref: '#/parameters/requesterParam'
+    - $ref: '#/parameters/dateFormatParam'
+    - in: body
+      name: body
+      description: This is the array of managedcompany to create through the cloud
+      schema:
+        type: array
+        items:
+          $ref: '#/definitions/ManagedCompany'
+  responses:
+    '200':
+      description: Successful operation to create new managedcompany array in the cloud
+      schema:
+        type: array
+        items:
+          $ref: '#/definitions/ManagedCompany'
+put:
+  operationId: putManagedcompany
+  tags:
+    - Companies
+  summary: To update managedcompany in the cloud APROPLAN
+  parameters:
+    - $ref: '#/parameters/tokenParam'
+    - $ref: '#/parameters/requesterParam'
+    - $ref: '#/parameters/dateFormatParam'
+    - in: body
+      name: body
+      description: This is the array of managedcompany to update in the cloud
+      schema:
+        type: array
+        items:
+          $ref: '#/definitions/ManagedCompany'
+  responses:
+    '200':
+      description: Successful operation to update array of managedcompany in the cloud
+      schema:
+        type: array
+        items:
+          $ref: '#/definitions/ManagedCompany'
+delete:
+  operationId: deleteManagedcompany
+  tags:
+    - Companies
+  summary: To delete items of managedcompany in the cloud APROPLAN
+  parameters:
+    - $ref: '#/parameters/tokenParam'
+    - $ref: '#/parameters/requesterParam'
+    - $ref: '#/parameters/dateFormatParam'
+    - in: body
+      name: body
+      description: Array of managedcompany id to delete from the cloud
+      required: true
+      schema:
+        type: array
+        items:
+          type: string
+        example:
+          - ea5d793f-c795-4311-8344-eb18e8efa065
+          - afff9354-abb3-4a9c-aca5-9810490938ef
+  responses:
+    '200':
+      description: >-
+        Successful operation meaning all specified items of managedcompany
+        corresponding to ids in parameters are deleted from the cloud
+      schema:
+        type: string
+        example: success

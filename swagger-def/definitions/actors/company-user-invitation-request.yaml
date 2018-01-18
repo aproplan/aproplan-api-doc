@@ -1,0 +1,22 @@
+type: object
+allOf: 
+  - $ref: '#/definitions/RestEntity'
+  - title: CompanyUserInvitationRequest
+  - type: object
+  - properties: 
+      Status: 
+        type: string
+        enum: 
+          - Sent
+          - Accepted
+          - Refused
+          - Cancelled
+      Company:
+        $ref: '#/definitions/ManagedCompany'
+      InvitedUser: 
+        $ref: '#/definitions/User'
+      Inviter: 
+        $ref: '#/definitions/User'
+      StatusChangedDate:
+        type: string
+        format: date-time

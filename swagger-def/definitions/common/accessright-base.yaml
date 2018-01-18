@@ -1,0 +1,23 @@
+type: object
+allOf: 
+  - $ref: '#/definitions/RestEntity'
+  - type: object
+  - title: AccessRightBase
+  - properties: 
+      CanEdit:
+        type: boolean
+        description: To know if the user can edit the object
+      Level: 
+        type: string
+        enum:
+          - Admin
+          - Manager
+          - Contributor
+          - Guest
+          - Subcontractor
+        description: This is the level of the access right of the user
+        example: Admin
+      Iso2:
+        type: string
+        description: this is the iso of the country in 2 characters
+        example: BE

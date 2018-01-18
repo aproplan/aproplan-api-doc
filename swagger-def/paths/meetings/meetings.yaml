@@ -1,0 +1,95 @@
+get:
+  operationId: getMeeting
+  tags:
+    - Lists
+  summary: Return the list of meeting available to the current user
+  parameters:
+    - $ref: '#/parameters/tokenParam'
+    - $ref: '#/parameters/requesterParam'
+    - $ref: '#/parameters/dateFormatParam'
+    - $ref: '#/parameters/filterParam'
+    - $ref: '#/parameters/pathtoloadParam'
+  description: ''
+  responses:
+    '200':
+      description: >-
+        Successful operation returning the array of meeting corresponding to the
+        queries parameters
+      schema:
+        type: array
+        items:
+          $ref: '#/definitions/Meeting'
+post:
+  operationId: postMeeting
+  tags:
+    - Lists
+  summary: To create new meeting in the cloud APROPLAN
+  parameters:
+    - $ref: '#/parameters/tokenParam'
+    - $ref: '#/parameters/requesterParam'
+    - $ref: '#/parameters/dateFormatParam'
+    - in: body
+      name: body
+      description: This is the array of meeting to create through the cloud
+      schema:
+        type: array
+        items:
+          $ref: '#/definitions/Meeting'
+  responses:
+    '200':
+      description: Successful operation to create new meeting array in the cloud
+      schema:
+        type: array
+        items:
+          $ref: '#/definitions/Meeting'
+put:
+  operationId: putMeeting
+  tags:
+    - Lists
+  summary: To update meeting in the cloud APROPLAN
+  parameters:
+    - $ref: '#/parameters/tokenParam'
+    - $ref: '#/parameters/requesterParam'
+    - $ref: '#/parameters/dateFormatParam'
+    - in: body
+      name: body
+      description: This is the array of meeting to update in the cloud
+      schema:
+        type: array
+        items:
+          $ref: '#/definitions/Meeting'
+  responses:
+    '200':
+      description: Successful operation to update array of meeting in the cloud
+      schema:
+        type: array
+        items:
+          $ref: '#/definitions/Meeting'
+delete:
+  operationId: deleteMeeting
+  tags:
+    - Lists
+  summary: To delete items of meeting in the cloud APROPLAN
+  parameters:
+    - $ref: '#/parameters/tokenParam'
+    - $ref: '#/parameters/requesterParam'
+    - $ref: '#/parameters/dateFormatParam'
+    - in: body
+      name: body
+      description: Array of meeting id to delete from the cloud
+      required: true
+      schema:
+        type: array
+        items:
+          type: string
+        example:
+          - ea5d793f-c795-4311-8344-eb18e8efa065
+          - afff9354-abb3-4a9c-aca5-9810490938ef
+  responses:
+    '200':
+      description: >-
+        Successful operation meaning all specified items of meeting
+        corresponding to ids in parameters are deleted from the cloud
+      schema:
+        type: string
+        example: success

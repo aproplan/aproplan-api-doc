@@ -1,0 +1,95 @@
+get:
+  operationId: getDocument
+  tags:
+    - Documents
+  summary: Return the list of document available to the current user
+  parameters:
+    - $ref: '#/parameters/tokenParam'
+    - $ref: '#/parameters/requesterParam'
+    - $ref: '#/parameters/dateFormatParam'
+    - $ref: '#/parameters/filterParam'
+    - $ref: '#/parameters/pathtoloadParam'
+  description: ''
+  responses:
+    '200':
+      description: >-
+        Successful operation returning the array of document corresponding to
+        the queries parameters
+      schema:
+        type: array
+        items:
+          $ref: '#/definitions/Document'
+post:
+  operationId: postDocument
+  tags:
+    - Documents
+  summary: To create new document in the cloud APROPLAN
+  parameters:
+    - $ref: '#/parameters/tokenParam'
+    - $ref: '#/parameters/requesterParam'
+    - $ref: '#/parameters/dateFormatParam'
+    - in: body
+      name: body
+      description: This is the array of document to create through the cloud
+      schema:
+        type: array
+        items:
+          $ref: '#/definitions/Document'
+  responses:
+    '200':
+      description: Successful operation to create new document array in the cloud
+      schema:
+        type: array
+        items:
+          $ref: '#/definitions/Document'
+put:
+  operationId: putDocument
+  tags:
+    - Documents
+  summary: To update document in the cloud APROPLAN
+  parameters:
+    - $ref: '#/parameters/tokenParam'
+    - $ref: '#/parameters/requesterParam'
+    - $ref: '#/parameters/dateFormatParam'
+    - in: body
+      name: body
+      description: This is the array of document to update in the cloud
+      schema:
+        type: array
+        items:
+          $ref: '#/definitions/Document'
+  responses:
+    '200':
+      description: Successful operation to update array of document in the cloud
+      schema:
+        type: array
+        items:
+          $ref: '#/definitions/Document'
+delete:
+  operationId: deleteDocument
+  tags:
+    - Documents
+  summary: To delete items of document in the cloud APROPLAN
+  parameters:
+    - $ref: '#/parameters/tokenParam'
+    - $ref: '#/parameters/requesterParam'
+    - $ref: '#/parameters/dateFormatParam'
+    - in: body
+      name: body
+      description: Array of document id to delete from the cloud
+      required: true
+      schema:
+        type: array
+        items:
+          type: string
+        example:
+          - ea5d793f-c795-4311-8344-eb18e8efa065
+          - afff9354-abb3-4a9c-aca5-9810490938ef
+  responses:
+    '200':
+      description: >-
+        Successful operation meaning all specified items of document
+        corresponding to ids in parameters are deleted from the cloud
+      schema:
+        type: string
+        example: success

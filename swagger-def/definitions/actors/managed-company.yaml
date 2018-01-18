@@ -1,0 +1,12 @@
+type: object
+allOf: 
+  - $ref: '#/definitions/Party'
+  - type: object
+  - title: ManagedCompany
+  - properties: 
+      CompanyOwner:
+        $ref: '#/definitions/User'
+      CompanyUsers:
+        type: array
+        items:
+          $ref: '#/definitions/CompanyUser'

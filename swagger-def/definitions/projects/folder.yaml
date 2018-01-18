@@ -1,0 +1,28 @@
+type: object
+allOf:
+  - $ref: '#/definitions/Folder'
+  - type: object
+  - title: Folder
+  - properties:
+      Project:    
+        $ref: '#/definitions/Project'
+      FolderType:
+        type: string
+        description: to specify the kind of the folder. To differentiate the one create by the user than the one creatd by the system. 
+        enum: 
+          - Custom
+          - Photo
+          - Report
+      DisplayOrder:
+        type: number
+        description: to know in which order the folder must be displayed
+      IsPublic:
+        type: boolean
+        description: to know if the folder is public to all participants of the project or not
+      PlanNumber: 
+        type: number
+        description: this is a calculated property then, it is necessary to specify it in the pathtoload to have a good value on it
+      Children:
+        type: array
+        items:
+          $ref: '#/definitions/Folder'

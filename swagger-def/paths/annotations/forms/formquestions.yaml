@@ -1,0 +1,95 @@
+get:
+  operationId: getFormquestion
+  tags:
+    - Form Template
+  summary: Return the list of formquestion available to the current user
+  parameters:
+    - $ref: '#/parameters/tokenParam'
+    - $ref: '#/parameters/requesterParam'
+    - $ref: '#/parameters/dateFormatParam'
+    - $ref: '#/parameters/filterParam'
+    - $ref: '#/parameters/pathtoloadParam'
+  description: ''
+  responses:
+    '200':
+      description: >-
+        Successful operation returning the array of formquestion corresponding
+        to the queries parameters
+      schema:
+        type: array
+        items:
+          $ref: '#/definitions/FormQuestion'
+post:
+  operationId: postFormquestion
+  tags:
+    - Forms
+  summary: To create new formquestion in the cloud APROPLAN
+  parameters:
+    - $ref: '#/parameters/tokenParam'
+    - $ref: '#/parameters/requesterParam'
+    - $ref: '#/parameters/dateFormatParam'
+    - in: body
+      name: body
+      description: This is the array of formquestion to create through the cloud
+      schema:
+        type: array
+        items:
+          $ref: '#/definitions/FormQuestion'
+  responses:
+    '200':
+      description: Successful operation to create new formquestion array in the cloud
+      schema:
+        type: array
+        items:
+          $ref: '#/definitions/FormQuestion'
+put:
+  operationId: putFormquestion
+  tags:
+    - Forms
+  summary: To update formquestion in the cloud APROPLAN
+  parameters:
+    - $ref: '#/parameters/tokenParam'
+    - $ref: '#/parameters/requesterParam'
+    - $ref: '#/parameters/dateFormatParam'
+    - in: body
+      name: body
+      description: This is the array of formquestion to update in the cloud
+      schema:
+        type: array
+        items:
+          $ref: '#/definitions/FormQuestion'
+  responses:
+    '200':
+      description: Successful operation to update array of formquestion in the cloud
+      schema:
+        type: array
+        items:
+          $ref: '#/definitions/FormQuestion'
+delete:
+  operationId: deleteFormquestion
+  tags:
+    - Forms
+  summary: To delete items of formquestion in the cloud APROPLAN
+  parameters:
+    - $ref: '#/parameters/tokenParam'
+    - $ref: '#/parameters/requesterParam'
+    - $ref: '#/parameters/dateFormatParam'
+    - in: body
+      name: body
+      description: Array of formquestion id to delete from the cloud
+      required: true
+      schema:
+        type: array
+        items:
+          type: string
+        example:
+          - ea5d793f-c795-4311-8344-eb18e8efa065
+          - afff9354-abb3-4a9c-aca5-9810490938ef
+  responses:
+    '200':
+      description: >-
+        Successful operation meaning all specified items of formquestion
+        corresponding to ids in parameters are deleted from the cloud
+      schema:
+        type: string
+        example: success

@@ -1,0 +1,84 @@
+post:
+  operationId: uploadDocuments
+  tags:
+    - Documents
+  summary: To upload a new document or a version of document in the cloud APROPLAN
+  consumes:
+    - application/pdf
+    - application/jpg
+    - application/jpeg
+    - application/png
+    - application/gif
+    - application/bmp
+  parameters:
+    - $ref: '#/parameters/tokenParam'
+    - $ref: '#/parameters/requesterParam'
+    - $ref: '#/parameters/versionParam'
+    - $ref: '#/parameters/dateFormatParam'
+    - in: query
+      name: file
+      type: string
+      description: 'to specify the kind of the document: "working" (default) or "source"'
+      enum: 
+        - working 
+        - source      
+    - in: query
+      name: action
+      type: string
+      enum: 
+        - add
+        - join
+    - in: query
+      name: target
+      type: string
+      description: 'To specify if the upload of document concerns a new doc or a new version of an existing document. Values: "doc" (default) or "version"'
+      enum: 
+        - doc
+        - version
+    - in: query
+      name: folderid
+      type: string
+      description: 'The folder where the document must be uploaded. Required when new document'
+    - in: query
+      name: parentdocid
+      type: string
+      description: 'When uploading a new version, this is the id of the document for which the new version is uploaded. Required when new version of existing document'
+    - in: query
+      name: name
+      type: string
+      description: >-
+        This is the name to apply to the new document/version
+    - in: query
+      name: id
+      type: string
+      description: 'This is the new id to apply to the new document/version. If not supplied, the system will create it itself'
+    - in: query
+      name: subject
+      type: string
+      description: >-
+        This is the subject to put in the metadata of the document
+    - in: query
+      name: references
+      type: string
+      description: >-
+        This is the references to put in the metadata of the document
+    - in: query
+      name: filetype
+      type: string
+      enum:
+        - document
+        - photo
+        - picture
+        - plan
+      description: 'This is to specify the type of the document: "document", "photo", "picture", "plan"'
+    - in: body
+      name: body
+      description: This is the array of projects to create through the cloud
+      schema:
+        type: string
+        format: binary
+  responses:
+    '200':
+      description: Successful operation to upload a new document/version
+      schema:
+        $ref: '#/definitions/DocumentBase'

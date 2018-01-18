@@ -1,0 +1,22 @@
+type: object
+allOf:
+  - $ref: '#/definitions/RestEntity'
+  - type: object
+  - title: Language
+  - properties:
+      Code:
+        type: string
+        description: This is the code of the language ISO2
+        example: fr
+      Name:
+        type: string
+        description: This is the name of the language in English
+        example: French
+      TranslationCode:
+        type: string
+        description: This is the localization of the language
+        example: FR
+      TranslatedName:
+        type: string
+        description: This is the name of the language in translated in this language
+        example: Français

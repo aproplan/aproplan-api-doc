@@ -1,0 +1,11 @@
+type: object
+description: ''
+allOf:
+  - $ref: '#/definitions/NoteProjectStatusBase'
+  - type: object
+  - title: NoteProjectStatus
+  - properties:
+      Project:
+        $ref: '#/definitions/Project'
+      IsDisabled:
+        type: boolean

@@ -1,0 +1,54 @@
+type: object
+required:
+  - FormId
+properties:
+  FormId:
+    type: string
+    format: guid
+    description: The Guid of the form that needs to be generated
+    pattern: '^{[A-Z0-9]{8}-([A-Z0-9]{4}-){3}[A-Z0-9]{12}}$'
+    example: f230aeb4-7d72-435b-8e12-b9240156e098
+  ReportRequestId:
+    type: string
+    format: guid
+    description: The Guid of the report request
+    pattern: '^{[A-Z0-9]{8}-([A-Z0-9]{4}-){3}[A-Z0-9]{12}}$'
+    example: de9590b5-14f2-4a07-8877-aad9e4b338e6
+  LanguageCode:
+    type: string
+    description: The language in which the report will be generated
+    example: EN
+  Date:
+    type: string
+    format: date-time
+    description: The report generation date
+  PreviewUri:
+    type: string
+    description: >-
+      This is the url to use to get the preview of the generated report when
+      ready
+  ReportTitle:
+    type: string
+  SendByMail:
+    type: boolean
+    description: Should this report be sent by mail ?
+  RecipientIds:
+    type: array
+    items: {
+      type: string
+    }
+    description: The list of user's guids that want the email sent to them
+  MailSubject:
+    type: string
+    description: The mail subject that will be sent
+  MailBody:
+    type: string
+    description: The text to insert in the body of the mail that will be sent
+  Status:
+    type: string
+    enum:
+      - New
+      - InProgress
+      - Generated
+      - Error
+      - Deleted

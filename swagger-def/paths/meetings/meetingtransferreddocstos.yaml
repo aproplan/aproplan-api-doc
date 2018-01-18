@@ -1,0 +1,102 @@
+get:
+  operationId: getMeetingtransferreddocsto
+  tags:
+    - Lists
+  summary: Return the list of meetingtransferreddocsto available to the current user
+  parameters:
+    - $ref: '#/parameters/tokenParam'
+    - $ref: '#/parameters/requesterParam'
+    - $ref: '#/parameters/dateFormatParam'
+    - $ref: '#/parameters/filterParam'
+    - $ref: '#/parameters/pathtoloadParam'
+  description: ''
+  responses:
+    '200':
+      description: >-
+        Successful operation returning the array of meetingtransferreddocsto
+        corresponding to the queries parameters
+      schema:
+        type: array
+        items:
+          $ref: '#/definitions/MeetingTransferredDocsTo'
+post:
+  operationId: postMeetingtransferreddocsto
+  tags:
+    - Lists
+  summary: To create new meetingtransferreddocsto in the cloud APROPLAN
+  parameters:
+    - $ref: '#/parameters/tokenParam'
+    - $ref: '#/parameters/requesterParam'
+    - $ref: '#/parameters/dateFormatParam'
+    - in: body
+      name: body
+      description: >-
+        This is the array of meetingtransferreddocsto to create through the
+        cloud
+      schema:
+        type: array
+        items:
+          $ref: '#/definitions/MeetingTransferredDocsTo'
+  responses:
+    '200':
+      description: >-
+        Successful operation to create new meetingtransferreddocsto array in the
+        cloud
+      schema:
+        type: array
+        items:
+          $ref: '#/definitions/MeetingTransferredDocsTo'
+put:
+  operationId: putMeetingtransferreddocsto
+  tags:
+    - Lists
+  summary: To update meetingtransferreddocsto in the cloud APROPLAN
+  parameters:
+    - $ref: '#/parameters/tokenParam'
+    - $ref: '#/parameters/requesterParam'
+    - $ref: '#/parameters/dateFormatParam'
+    - in: body
+      name: body
+      description: This is the array of meetingtransferreddocsto to update in the cloud
+      schema:
+        type: array
+        items:
+          $ref: '#/definitions/MeetingTransferredDocsTo'
+  responses:
+    '200':
+      description: >-
+        Successful operation to update array of meetingtransferreddocsto in the
+        cloud
+      schema:
+        type: array
+        items:
+          $ref: '#/definitions/MeetingTransferredDocsTo'
+delete:
+  operationId: deleteMeetingtransferreddocsto
+  tags:
+    - Lists
+  summary: To delete items of meetingtransferreddocsto in the cloud APROPLAN
+  parameters:
+    - $ref: '#/parameters/tokenParam'
+    - $ref: '#/parameters/requesterParam'
+    - $ref: '#/parameters/dateFormatParam'
+    - in: body
+      name: body
+      description: Array of meetingtransferreddocsto id to delete from the cloud
+      required: true
+      schema:
+        type: array
+        items:
+          type: string
+        example:
+          - ea5d793f-c795-4311-8344-eb18e8efa065
+          - afff9354-abb3-4a9c-aca5-9810490938ef
+  responses:
+    '200':
+      description: >-
+        Successful operation meaning all specified items of
+        meetingtransferreddocsto corresponding to ids in parameters are deleted
+        from the cloud
+      schema:
+        type: string
+        example: success

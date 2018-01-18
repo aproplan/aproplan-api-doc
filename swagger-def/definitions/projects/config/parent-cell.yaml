@@ -1,0 +1,13 @@
+description: to represent the first level of room
+type: object
+allOf:
+  - $ref: '#/definitions/CellBase'
+  - type: object
+  - title: ParentCell
+  - properties: 
+      ProjectId:
+        type: string
+      SubCells:
+        type: array
+        items:
+          $ref: '#/definitions/SubCell'

@@ -1,0 +1,22 @@
+type: object
+allOf:
+  - $ref: '#/definitions/SheetBase'
+  - type: object
+  - title: DocumentBase
+  - properties:
+      ImageUrl:
+        type: string
+      SourceUrl:
+        type: string
+      Date:
+        type: string
+        format: date-time
+      UploadedBy:
+        $ref: '#/definitions/User'
+      UploadedDate:
+        type: string
+        format: date-time
+      Subject:
+        type: string
+      RotateAngle:
+        type: integer

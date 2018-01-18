@@ -1,0 +1,61 @@
+type: object
+allOf:
+  - $ref: '#/definitions/RestEntity'
+  - type: object
+  - title: User
+  - properties:
+      Alias:
+        type: string
+        description: >-
+          This is the alias to use by the user to log in to the APROPLAN
+          application
+        example: john.smith@aproplan.com
+      DisplayName: 
+        type: string
+        example: John Smith
+      TimeZoneName: 
+        type: string
+        example: Jordan Standard Time
+      DefaultEmail:
+        type: string
+        example: john.smith@aproplan.com
+      LanguageCode:
+        type: string
+        example: en
+      Person:
+        $ref: '#/definitions/Person'
+      Company:
+        $ref: '#/definitions/ManagedCompany'
+      LogoUrl:
+        type: string
+      Profession:
+        $ref: '#/definitions/Profession'
+      IsDailyMailReceiver:
+        type: boolean
+      LocalTimeToSendDailyMail:
+        type: string
+        format: date-time
+      CompanyName:
+        type: string
+      Role:
+        type: string
+      Street: 
+        type: string
+      Zip:
+        type: string
+      City:
+        type: string
+      IsDailyMyTasksReceiver:
+        type: boolean
+      LocalTimeToSendDailyMyTasks:
+        type: string
+        format: date-time
+      AllowSync:
+        type: boolean
+      ActivationDate:
+        type: string
+        format: date-time
+      MustChangePassword:
+        type: boolean
+      AvatarFileName: 
+        type: string

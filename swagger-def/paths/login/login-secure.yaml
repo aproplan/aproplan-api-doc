@@ -1,0 +1,18 @@
+post: 
+  operationId: loginSecure
+  tags: 
+    - Login
+  summary: to identify a user and then, to be able to make other call in the api
+  parameters:
+    - $ref: '#/parameters/requesterParam'
+    - $ref: '#/parameters/dateFormatParam'
+    - in: body
+      name: body
+      schema:
+        $ref: '#/definitions/AliasPass'
+  responses: 
+    '200': 
+      description: >-
+        Successful operation returning a new TokenInfo object with the new valid token to use
+      schema: 
+        $ref: '#/definitions/TokenInfo'

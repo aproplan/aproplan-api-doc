@@ -1,0 +1,125 @@
+AliasPass: 
+  $ref: ./login/alias-pass.yaml
+UserPass: 
+  $ref: ./login/user-pass.yaml
+TokenInfo: 
+  $ref: ./login/token-info.yaml
+RestEntity:
+  $ref: ./rest-entity.yaml
+Language:
+  $ref: ./common/language.yaml
+Country:
+  $ref: ./common/country.yaml
+Profession:
+  $ref: ./common/profession.yaml
+Phone:
+  $ref: ./common/phone.yaml
+Email:
+  $ref: ./common/email.yaml
+AccessRightBase:
+  $ref: ./common/accessright-base.yaml
+Party:
+  $ref: ./actors/party.yaml
+Person:
+  $ref: ./actors/person.yaml
+CompanyUserInvitationRequest: 
+  $ref: ./actors/company-user-invitation-request.yaml
+CompanyUser: 
+  $ref: ./actors/company-user.yaml
+ManagedCompany: 
+  $ref: ./actors/managed-company.yaml
+User:
+  $ref: ./actors/user.yaml
+Project: 
+  $ref: ./projects/project.yaml
+ProjectVisibility: 
+  $ref: ./projects/project-visibility.yaml
+ProjectAccessRight:
+  $ref: ./projects/project-accessright.yaml
+Folder: 
+  $ref: ./projects/folder.yaml
+FolderVisibility: 
+  $ref: ./projects/folder-visibility.yaml
+ChapterBase: 
+  $ref: ./projects/config/chapter-base.yaml
+Chapter:
+  $ref: ./projects/config/chapter.yaml
+IssueTypeBase:
+  $ref: ./projects/config/issuetype-base.yaml
+IssueType:
+  $ref: ./projects/config/issuetype.yaml
+IssueTypeNoteSubjectBase:
+  $ref: ./projects/config/issuetype-note-subject-base.yaml
+IssueTypeNoteSubject:
+  $ref: ./projects/config/issuetype-note-subject.yaml
+CellBase: 
+  $ref: ./projects/config/cell-base.yaml
+ParentCell: 
+  $ref: ./projects/config/parent-cell.yaml
+SubCell: 
+  $ref: ./projects/config/sub-cell.yaml
+NoteProjectStatusBase: 
+  $ref: ./projects/config/note-project-status-base.yaml
+NoteProjectStatus: 
+  $ref: ./projects/config/note-project-status.yaml
+ContactDetails:
+  $ref: ./projects/contact-details.yaml
+ContactIssueType: 
+  $ref: ./projects/config/contact-issuetype.yaml
+SheetBase:
+  $ref: ./documents/sheet-base.yaml
+DocumentBase:
+  $ref: ./documents/document-base.yaml
+Document:
+  $ref: ./documents/document.yaml
+Version:
+  $ref: ./documents/version.yaml
+Meeting:
+  $ref: ./meetings/meeting.yaml  
+MeetingAccessRight:
+  $ref: ./meetings/meeting-accessright.yaml 
+MeetingConcern:
+  $ref: ./meetings/meeting-concern.yaml   
+MeetingDocument:
+  $ref: ./meetings/meeting-document.yaml 
+MeetingTransferredDocs:
+  $ref: ./meetings/meeting-transferred-docs.yaml 
+MeetingTransferredDocsTo:
+  $ref: ./meetings/meeting-transferred-docs-to.yaml 
+MeetingReport:
+  $ref: ./meetings/meeting-report.yaml 
+NoteComment:
+  $ref: ./annotations/note-comment.yaml  
+NoteDocument:
+  $ref: ./annotations/note-document.yaml
+NoteInCharge:
+  $ref: ./annotations/note-incharge.yaml
+NoteBase:
+  $ref: ./annotations/note-base.yaml
+Note:
+  $ref: ./annotations/notes/note.yaml
+FormItemBase:
+  $ref: ./annotations/forms/form-item-base.yaml
+Form:
+  $ref: ./annotations/forms/form.yaml
+FormSignature:
+  $ref: ./annotations/forms/form-signature.yaml
+FormFinalizationResponse:
+  $ref: ./annotations/forms/form-finalization-response.yaml
+FormItem:
+  $ref: ./annotations/forms/form-item.yaml
+FormTemplate:
+  $ref: ./annotations/forms/form-template.yaml
+FormQuestion:
+  $ref: ./annotations/forms/form-question.yaml
+FormSignatureRule:
+  $ref: ./annotations/forms/form-signature-rule.yaml
+ReportRestIdentification:
+  $ref: ./reports/report-rest-identification.yaml
+FormReportParams:
+  $ref: ./reports/form-report-params.yaml
+
+
+
+
+

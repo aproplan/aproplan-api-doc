@@ -1,0 +1,15 @@
+description: this is the base class to define rooms
+type: object
+allOf:
+  - $ref: '#/definitions/RestEntity'
+  - type: object
+  - title: CellBase
+  - properties: 
+      Code:
+        type: string
+      Description:
+        type: string
+      DisplayOrder: 
+        type: number
+      IsDisabled: 
+        type: boolean
