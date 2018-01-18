@@ -1,0 +1,95 @@
+delete:
+  operationId: deleteFoldervisibility
+  tags:
+    - Projects
+  summary: To delete items of foldervisibility in the cloud APROPLAN
+  parameters:
+    - $ref: '#/parameters/tokenParam'
+    - $ref: '#/parameters/requesterParam'
+    - $ref: '#/parameters/dateFormatParam'
+    - in: body
+      name: body
+      description: Array of foldervisibility id to delete from the cloud
+      required: true
+      schema:
+        type: array
+        items:
+          type: string
+        example:
+          - ea5d793f-c795-4311-8344-eb18e8efa065
+          - afff9354-abb3-4a9c-aca5-9810490938ef
+  responses:
+    '200':
+      description: >-
+        Successful operation meaning all specified items of foldervisibility
+        corresponding to ids in parameters are deleted from the cloud
+      schema:
+        type: string
+        example: success
+get:
+  operationId: getFoldervisibility
+  tags:
+    - Projects
+  summary: Return the list of foldervisibility available to the current user
+  parameters:
+    - $ref: '#/parameters/tokenParam'
+    - $ref: '#/parameters/requesterParam'
+    - $ref: '#/parameters/dateFormatParam'
+    - $ref: '#/parameters/filterParam'
+    - $ref: '#/parameters/pathtoloadParam'
+  description: ''
+  responses:
+    '200':
+      description: >-
+        Successful operation returning the array of foldervisibility
+        corresponding to the queries parameters
+      schema:
+        type: array
+        items:
+          $ref: '#/definitions/FolderVisibility'
+post:
+  operationId: postFoldervisibility
+  tags:
+    - Projects
+  summary: To create new foldervisibility in the cloud APROPLAN
+  parameters:
+    - $ref: '#/parameters/tokenParam'
+    - $ref: '#/parameters/requesterParam'
+    - $ref: '#/parameters/dateFormatParam'
+    - in: body
+      name: body
+      description: This is the array of foldervisibility to create through the cloud
+      schema:
+        type: array
+        items:
+          $ref: '#/definitions/FolderVisibility'
+  responses:
+    '200':
+      description: Successful operation to create new foldervisibility array in the cloud
+      schema:
+        type: array
+        items:
+          $ref: '#/definitions/FolderVisibility'
+put:
+  operationId: putFoldervisibility
+  tags:
+    - Projects
+  summary: To update foldervisibility in the cloud APROPLAN
+  parameters:
+    - $ref: '#/parameters/tokenParam'
+    - $ref: '#/parameters/requesterParam'
+    - $ref: '#/parameters/dateFormatParam'
+    - in: body
+      name: body
+      description: This is the array of foldervisibility to update in the cloud
+      schema:
+        type: array
+        items:
+          $ref: '#/definitions/FolderVisibility'
+  responses:
+    '200':
+      description: Successful operation to update array of foldervisibility in the cloud
+      schema:
+        type: array
+        items:
+          $ref: '#/definitions/FolderVisibility'

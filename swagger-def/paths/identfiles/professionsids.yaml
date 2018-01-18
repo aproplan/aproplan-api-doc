@@ -1,0 +1,23 @@
+get:
+  operationId: getProfessionIds
+  tags:
+    - IdentFiles
+  summary: >-
+    Return the list of id corresponding to the professions available to the
+    current user
+  parameters:
+    - $ref: '#/parameters/tokenParam'
+    - $ref: '#/parameters/requesterParam'
+    - $ref: '#/parameters/dateFormatParam'
+    - $ref: '#/parameters/filterParam'
+    - $ref: '#/parameters/pathtoloadParam'
+  description: ''
+  responses:
+    '200':
+      description: >-
+        Successful operation returning the array of id of profession
+        corresponding to the queries parameters
+      schema:
+        type: array
+        items:
+          type: string

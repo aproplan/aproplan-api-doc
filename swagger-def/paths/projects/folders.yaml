@@ -1,0 +1,95 @@
+delete:
+  operationId: deleteFolder
+  tags:
+    - Projects
+  summary: To delete items of folder in the cloud APROPLAN
+  parameters:
+    - $ref: '#/parameters/tokenParam'
+    - $ref: '#/parameters/requesterParam'
+    - $ref: '#/parameters/dateFormatParam'
+    - in: body
+      name: body
+      description: Array of folder id to delete from the cloud
+      required: true
+      schema:
+        type: array
+        items:
+          type: string
+        example:
+          - ea5d793f-c795-4311-8344-eb18e8efa065
+          - afff9354-abb3-4a9c-aca5-9810490938ef
+  responses:
+    '200':
+      description: >-
+        Successful operation meaning all specified items of folder corresponding
+        to ids in parameters are deleted from the cloud
+      schema:
+        type: string
+        example: success
+get:
+  operationId: getFolder
+  tags:
+    - Projects
+  summary: Return the list of folder available to the current user
+  parameters:
+    - $ref: '#/parameters/tokenParam'
+    - $ref: '#/parameters/requesterParam'
+    - $ref: '#/parameters/dateFormatParam'
+    - $ref: '#/parameters/filterParam'
+    - $ref: '#/parameters/pathtoloadParam'
+  description: ''
+  responses:
+    '200':
+      description: >-
+        Successful operation returning the array of folder corresponding to the
+        queries parameters
+      schema:
+        type: array
+        items:
+          $ref: '#/definitions/Folder'
+post:
+  operationId: postFolder
+  tags:
+    - Projects
+  summary: To create new folder in the cloud APROPLAN
+  parameters:
+    - $ref: '#/parameters/tokenParam'
+    - $ref: '#/parameters/requesterParam'
+    - $ref: '#/parameters/dateFormatParam'
+    - in: body
+      name: body
+      description: This is the array of folder to create through the cloud
+      schema:
+        type: array
+        items:
+          $ref: '#/definitions/Folder'
+  responses:
+    '200':
+      description: Successful operation to create new folder array in the cloud
+      schema:
+        type: array
+        items:
+          $ref: '#/definitions/Folder'
+put:
+  operationId: putFolder
+  tags:
+    - Projects
+  summary: To update folder in the cloud APROPLAN
+  parameters:
+    - $ref: '#/parameters/tokenParam'
+    - $ref: '#/parameters/requesterParam'
+    - $ref: '#/parameters/dateFormatParam'
+    - in: body
+      name: body
+      description: This is the array of folder to update in the cloud
+      schema:
+        type: array
+        items:
+          $ref: '#/definitions/Folder'
+  responses:
+    '200':
+      description: Successful operation to update array of folder in the cloud
+      schema:
+        type: array
+        items:
+          $ref: '#/definitions/Folder'

@@ -1,0 +1,95 @@
+delete:
+  operationId: deleteProfessions
+  tags:
+    - IdentFiles
+  summary: To delete items of professions in the cloud APROPLAN
+  parameters:
+    - $ref: '#/parameters/tokenParam'
+    - $ref: '#/parameters/requesterParam'
+    - $ref: '#/parameters/dateFormatParam'
+    - in: body
+      name: body
+      description: Array of profession id to delete from the cloud
+      required: true
+      schema:
+        type: array
+        items:
+          type: string
+        example:
+          - ea5d793f-c795-4311-8344-eb18e8efa065
+          - afff9354-abb3-4a9c-aca5-9810490938ef
+  responses:
+    '200':
+      description: >-
+        Successful operation meaning all specified items of profession
+        corresponding to ids in parameters are deleted from the cloud
+      schema:
+        type: string
+        example: success
+get:
+  operationId: getProfessions
+  tags:
+    - IdentFiles
+  summary: Return the list of professions available to the current user
+  parameters:
+    - $ref: '#/parameters/tokenParam'
+    - $ref: '#/parameters/requesterParam'
+    - $ref: '#/parameters/dateFormatParam'
+    - $ref: '#/parameters/filterParam'
+    - $ref: '#/parameters/pathtoloadParam'
+  description: ''
+  responses:
+    '200':
+      description: >-
+        Successful operation returning the array of professions corresponding to
+        the queries parameters
+      schema:
+        type: array
+        items:
+          $ref: '#/definitions/Profession'
+post:
+  operationId: postProfessions
+  tags:
+    - IdentFiles
+  summary: To create new profession in the cloud APROPLAN
+  parameters:
+    - $ref: '#/parameters/tokenParam'
+    - $ref: '#/parameters/requesterParam'
+    - $ref: '#/parameters/dateFormatParam'
+    - in: body
+      name: body
+      description: This is the array of professions to create through the cloud
+      schema:
+        type: array
+        items:
+          $ref: '#/definitions/Profession'
+  responses:
+    '200':
+      description: Successful operation to create new profession array in the cloud
+      schema:
+        type: array
+        items:
+          $ref: '#/definitions/Profession'
+put:
+  operationId: putProfessions
+  tags:
+    - IdentFiles
+  summary: To update professions in the cloud APROPLAN
+  parameters:
+    - $ref: '#/parameters/tokenParam'
+    - $ref: '#/parameters/requesterParam'
+    - $ref: '#/parameters/dateFormatParam'
+    - in: body
+      name: body
+      description: This is the array of professions to update in the cloud
+      schema:
+        type: array
+        items:
+          $ref: '#/definitions/Profession'
+  responses:
+    '200':
+      description: Successful operation to update array of professions in the cloud
+      schema:
+        type: array
+        items:
+          $ref: '#/definitions/Profession'

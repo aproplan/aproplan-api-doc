@@ -1,0 +1,20 @@
+get:
+  operationId: getCompanyuserinvitationrequestCount
+  tags:
+    - Companies
+  summary: >-
+    Return the count of companyuserinvitationrequests available to the current
+    user
+  parameters:
+    - $ref: '#/parameters/tokenParam'
+    - $ref: '#/parameters/requesterParam'
+    - $ref: '#/parameters/dateFormatParam'
+    - $ref: '#/parameters/filterParam'
+  description: ''
+  responses:
+    '200':
+      description: >-
+        Successful operation returning the number of
+        companyuserinvitationrequests corresponding to the queries parameters
+      schema:
+        type: number
