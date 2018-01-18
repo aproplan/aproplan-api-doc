@@ -19,12 +19,20 @@ tags:
     description: Everything about the Project
   - name: Documents
     description: Everything about the Document
+  - name: Lists
+    description: Everything about the lists
+  - name: Annotations
+    description: Common objects for Points and Forms
   - name: Points
     description: Everything about the Points
-  - name: Form Template
-    description: Everything about Form Templates
   - name: Forms
     description: Everything about Forms
+  - name: Form Synchronization
+    description: Everything about Forms
+  - name: Form Templates
+    description: Everything about Form Templates
+  - name: Commpanies
+    description: Everything about the managed companies
 schemes:
   - https
 parameters:
@@ -161,16 +169,1159 @@ paths:
           description: Successful operation
           schema:
             $ref: '#/definitions/User'
-  /projects:
+  /countrycount:
     get:
-      operationId: getProjects
+      operationId: getCountryCount
       tags:
-        - Projects
-      summary: Return the list of projects available to the current user
+        - IdentFiles
+      summary: Return the count of country available to the current user
       parameters:
         - $ref: '#/parameters/tokenParam'
         - $ref: '#/parameters/requesterParam'
-        - $ref: '#/parameters/versionParam'
+        - $ref: '#/parameters/dateFormatParam'
+        - $ref: '#/parameters/filterParam'
+      description: ''
+      responses:
+        '200':
+          description: >-
+            Successful operation returning the number of country corresponding
+            to the queries parameters
+          schema:
+            type: number
+  /countries:
+    get:
+      operationId: getCountry
+      tags:
+        - IdentFiles
+      summary: Return the list of country available to the current user
+      parameters:
+        - $ref: '#/parameters/tokenParam'
+        - $ref: '#/parameters/requesterParam'
+        - $ref: '#/parameters/dateFormatParam'
+        - $ref: '#/parameters/filterParam'
+        - $ref: '#/parameters/pathtoloadParam'
+      description: ''
+      responses:
+        '200':
+          description: >-
+            Successful operation returning the array of country corresponding to
+            the queries parameters
+          schema:
+            type: array
+            items:
+              $ref: '#/definitions/Country'
+    post:
+      operationId: postCountry
+      tags:
+        - IdentFiles
+      summary: To create new country in the cloud APROPLAN
+      parameters:
+        - $ref: '#/parameters/tokenParam'
+        - $ref: '#/parameters/requesterParam'
+        - $ref: '#/parameters/dateFormatParam'
+        - in: body
+          name: body
+          description: This is the array of country to create through the cloud
+          schema:
+            type: array
+            items:
+              $ref: '#/definitions/Country'
+      responses:
+        '200':
+          description: Successful operation to create new country array in the cloud
+          schema:
+            type: array
+            items:
+              $ref: '#/definitions/Country'
+    put:
+      operationId: putCountry
+      tags:
+        - IdentFiles
+      summary: To update country in the cloud APROPLAN
+      parameters:
+        - $ref: '#/parameters/tokenParam'
+        - $ref: '#/parameters/requesterParam'
+        - $ref: '#/parameters/dateFormatParam'
+        - in: body
+          name: body
+          description: This is the array of country to update in the cloud
+          schema:
+            type: array
+            items:
+              $ref: '#/definitions/Country'
+      responses:
+        '200':
+          description: Successful operation to update array of country in the cloud
+          schema:
+            type: array
+            items:
+              $ref: '#/definitions/Country'
+    delete:
+      operationId: deleteCountry
+      tags:
+        - IdentFiles
+      summary: To delete items of country in the cloud APROPLAN
+      parameters:
+        - $ref: '#/parameters/tokenParam'
+        - $ref: '#/parameters/requesterParam'
+        - $ref: '#/parameters/dateFormatParam'
+        - in: body
+          name: body
+          description: Array of country id to delete from the cloud
+          required: true
+          schema:
+            type: array
+            items:
+              type: string
+            example:
+              - ea5d793f-c795-4311-8344-eb18e8efa065
+              - afff9354-abb3-4a9c-aca5-9810490938ef
+      responses:
+        '200':
+          description: >-
+            Successful operation meaning all specified items of country
+            corresponding to ids in parameters are deleted from the cloud
+          schema:
+            type: string
+            example: success
+  /countriesids:
+    get:
+      operationId: getCountryIds
+      tags:
+        - IdentFiles
+      summary: >-
+        Return the list of id corresponding to the country available to the
+        current user
+      parameters:
+        - $ref: '#/parameters/tokenParam'
+        - $ref: '#/parameters/requesterParam'
+        - $ref: '#/parameters/dateFormatParam'
+        - $ref: '#/parameters/filterParam'
+        - $ref: '#/parameters/pathtoloadParam'
+      description: ''
+      responses:
+        '200':
+          description: >-
+            Successful operation returning the array of id of country
+            corresponding to the queries parameters
+          schema:
+            type: array
+            items:
+              type: string
+  /languagecount:
+    get:
+      operationId: getLanguageCount
+      tags:
+        - IdentFiles
+      summary: Return the count of language available to the current user
+      parameters:
+        - $ref: '#/parameters/tokenParam'
+        - $ref: '#/parameters/requesterParam'
+        - $ref: '#/parameters/dateFormatParam'
+        - $ref: '#/parameters/filterParam'
+      description: ''
+      responses:
+        '200':
+          description: >-
+            Successful operation returning the number of language corresponding
+            to the queries parameters
+          schema:
+            type: number
+  /languages:
+    get:
+      operationId: getLanguage
+      tags:
+        - IdentFiles
+      summary: Return the list of language available to the current user
+      parameters:
+        - $ref: '#/parameters/tokenParam'
+        - $ref: '#/parameters/requesterParam'
+        - $ref: '#/parameters/dateFormatParam'
+        - $ref: '#/parameters/filterParam'
+        - $ref: '#/parameters/pathtoloadParam'
+      description: ''
+      responses:
+        '200':
+          description: >-
+            Successful operation returning the array of language corresponding
+            to the queries parameters
+          schema:
+            type: array
+            items:
+              $ref: '#/definitions/Language'
+    post:
+      operationId: postLanguage
+      tags:
+        - IdentFiles
+      summary: To create new language in the cloud APROPLAN
+      parameters:
+        - $ref: '#/parameters/tokenParam'
+        - $ref: '#/parameters/requesterParam'
+        - $ref: '#/parameters/dateFormatParam'
+        - in: body
+          name: body
+          description: This is the array of language to create through the cloud
+          schema:
+            type: array
+            items:
+              $ref: '#/definitions/Language'
+      responses:
+        '200':
+          description: Successful operation to create new language array in the cloud
+          schema:
+            type: array
+            items:
+              $ref: '#/definitions/Language'
+    put:
+      operationId: putLanguage
+      tags:
+        - IdentFiles
+      summary: To update language in the cloud APROPLAN
+      parameters:
+        - $ref: '#/parameters/tokenParam'
+        - $ref: '#/parameters/requesterParam'
+        - $ref: '#/parameters/dateFormatParam'
+        - in: body
+          name: body
+          description: This is the array of language to update in the cloud
+          schema:
+            type: array
+            items:
+              $ref: '#/definitions/Language'
+      responses:
+        '200':
+          description: Successful operation to update array of language in the cloud
+          schema:
+            type: array
+            items:
+              $ref: '#/definitions/Language'
+    delete:
+      operationId: deleteLanguage
+      tags:
+        - IdentFiles
+      summary: To delete items of language in the cloud APROPLAN
+      parameters:
+        - $ref: '#/parameters/tokenParam'
+        - $ref: '#/parameters/requesterParam'
+        - $ref: '#/parameters/dateFormatParam'
+        - in: body
+          name: body
+          description: Array of language id to delete from the cloud
+          required: true
+          schema:
+            type: array
+            items:
+              type: string
+            example:
+              - ea5d793f-c795-4311-8344-eb18e8efa065
+              - afff9354-abb3-4a9c-aca5-9810490938ef
+      responses:
+        '200':
+          description: >-
+            Successful operation meaning all specified items of language
+            corresponding to ids in parameters are deleted from the cloud
+          schema:
+            type: string
+            example: success
+  /languagesids:
+    get:
+      operationId: getLanguageIds
+      tags:
+        - IdentFiles
+      summary: >-
+        Return the list of id corresponding to the language available to the
+        current user
+      parameters:
+        - $ref: '#/parameters/tokenParam'
+        - $ref: '#/parameters/requesterParam'
+        - $ref: '#/parameters/dateFormatParam'
+        - $ref: '#/parameters/filterParam'
+        - $ref: '#/parameters/pathtoloadParam'
+      description: ''
+      responses:
+        '200':
+          description: >-
+            Successful operation returning the array of id of language
+            corresponding to the queries parameters
+          schema:
+            type: array
+            items:
+              type: string
+  /professioncount:
+    get:
+      operationId: getProfessionCount
+      tags:
+        - IdentFiles
+      summary: Return the count of profession available to the current user
+      parameters:
+        - $ref: '#/parameters/tokenParam'
+        - $ref: '#/parameters/requesterParam'
+        - $ref: '#/parameters/dateFormatParam'
+        - $ref: '#/parameters/filterParam'
+      description: ''
+      responses:
+        '200':
+          description: >-
+            Successful operation returning the number of profession
+            corresponding to the queries parameters
+          schema:
+            type: number
+  /professions:
+    get:
+      operationId: getProfession
+      tags:
+        - IdentFiles
+      summary: Return the list of profession available to the current user
+      parameters:
+        - $ref: '#/parameters/tokenParam'
+        - $ref: '#/parameters/requesterParam'
+        - $ref: '#/parameters/dateFormatParam'
+        - $ref: '#/parameters/filterParam'
+        - $ref: '#/parameters/pathtoloadParam'
+      description: ''
+      responses:
+        '200':
+          description: >-
+            Successful operation returning the array of profession corresponding
+            to the queries parameters
+          schema:
+            type: array
+            items:
+              $ref: '#/definitions/Profession'
+    post:
+      operationId: postProfession
+      tags:
+        - IdentFiles
+      summary: To create new profession in the cloud APROPLAN
+      parameters:
+        - $ref: '#/parameters/tokenParam'
+        - $ref: '#/parameters/requesterParam'
+        - $ref: '#/parameters/dateFormatParam'
+        - in: body
+          name: body
+          description: This is the array of profession to create through the cloud
+          schema:
+            type: array
+            items:
+              $ref: '#/definitions/Profession'
+      responses:
+        '200':
+          description: Successful operation to create new profession array in the cloud
+          schema:
+            type: array
+            items:
+              $ref: '#/definitions/Profession'
+    put:
+      operationId: putProfession
+      tags:
+        - IdentFiles
+      summary: To update profession in the cloud APROPLAN
+      parameters:
+        - $ref: '#/parameters/tokenParam'
+        - $ref: '#/parameters/requesterParam'
+        - $ref: '#/parameters/dateFormatParam'
+        - in: body
+          name: body
+          description: This is the array of profession to update in the cloud
+          schema:
+            type: array
+            items:
+              $ref: '#/definitions/Profession'
+      responses:
+        '200':
+          description: Successful operation to update array of profession in the cloud
+          schema:
+            type: array
+            items:
+              $ref: '#/definitions/Profession'
+    delete:
+      operationId: deleteProfession
+      tags:
+        - IdentFiles
+      summary: To delete items of profession in the cloud APROPLAN
+      parameters:
+        - $ref: '#/parameters/tokenParam'
+        - $ref: '#/parameters/requesterParam'
+        - $ref: '#/parameters/dateFormatParam'
+        - in: body
+          name: body
+          description: Array of profession id to delete from the cloud
+          required: true
+          schema:
+            type: array
+            items:
+              type: string
+            example:
+              - ea5d793f-c795-4311-8344-eb18e8efa065
+              - afff9354-abb3-4a9c-aca5-9810490938ef
+      responses:
+        '200':
+          description: >-
+            Successful operation meaning all specified items of profession
+            corresponding to ids in parameters are deleted from the cloud
+          schema:
+            type: string
+            example: success
+  /professionsids:
+    get:
+      operationId: getProfessionIds
+      tags:
+        - IdentFiles
+      summary: >-
+        Return the list of id corresponding to the profession available to the
+        current user
+      parameters:
+        - $ref: '#/parameters/tokenParam'
+        - $ref: '#/parameters/requesterParam'
+        - $ref: '#/parameters/dateFormatParam'
+        - $ref: '#/parameters/filterParam'
+        - $ref: '#/parameters/pathtoloadParam'
+      description: ''
+      responses:
+        '200':
+          description: >-
+            Successful operation returning the array of id of profession
+            corresponding to the queries parameters
+          schema:
+            type: array
+            items:
+              type: string
+  /phonecount:
+    get:
+      operationId: getPhoneCount
+      tags:
+        - Actors
+      summary: Return the count of phone available to the current user
+      parameters:
+        - $ref: '#/parameters/tokenParam'
+        - $ref: '#/parameters/requesterParam'
+        - $ref: '#/parameters/dateFormatParam'
+        - $ref: '#/parameters/filterParam'
+      description: ''
+      responses:
+        '200':
+          description: >-
+            Successful operation returning the number of phone corresponding to
+            the queries parameters
+          schema:
+            type: number
+  /phones:
+    get:
+      operationId: getPhone
+      tags:
+        - Actors
+      summary: Return the list of phone available to the current user
+      parameters:
+        - $ref: '#/parameters/tokenParam'
+        - $ref: '#/parameters/requesterParam'
+        - $ref: '#/parameters/dateFormatParam'
+        - $ref: '#/parameters/filterParam'
+        - $ref: '#/parameters/pathtoloadParam'
+      description: ''
+      responses:
+        '200':
+          description: >-
+            Successful operation returning the array of phone corresponding to
+            the queries parameters
+          schema:
+            type: array
+            items:
+              $ref: '#/definitions/Phone'
+    post:
+      operationId: postPhone
+      tags:
+        - Actors
+      summary: To create new phone in the cloud APROPLAN
+      parameters:
+        - $ref: '#/parameters/tokenParam'
+        - $ref: '#/parameters/requesterParam'
+        - $ref: '#/parameters/dateFormatParam'
+        - in: body
+          name: body
+          description: This is the array of phone to create through the cloud
+          schema:
+            type: array
+            items:
+              $ref: '#/definitions/Phone'
+      responses:
+        '200':
+          description: Successful operation to create new phone array in the cloud
+          schema:
+            type: array
+            items:
+              $ref: '#/definitions/Phone'
+    put:
+      operationId: putPhone
+      tags:
+        - Actors
+      summary: To update phone in the cloud APROPLAN
+      parameters:
+        - $ref: '#/parameters/tokenParam'
+        - $ref: '#/parameters/requesterParam'
+        - $ref: '#/parameters/dateFormatParam'
+        - in: body
+          name: body
+          description: This is the array of phone to update in the cloud
+          schema:
+            type: array
+            items:
+              $ref: '#/definitions/Phone'
+      responses:
+        '200':
+          description: Successful operation to update array of phone in the cloud
+          schema:
+            type: array
+            items:
+              $ref: '#/definitions/Phone'
+    delete:
+      operationId: deletePhone
+      tags:
+        - Actors
+      summary: To delete items of phone in the cloud APROPLAN
+      parameters:
+        - $ref: '#/parameters/tokenParam'
+        - $ref: '#/parameters/requesterParam'
+        - $ref: '#/parameters/dateFormatParam'
+        - in: body
+          name: body
+          description: Array of phone id to delete from the cloud
+          required: true
+          schema:
+            type: array
+            items:
+              type: string
+            example:
+              - ea5d793f-c795-4311-8344-eb18e8efa065
+              - afff9354-abb3-4a9c-aca5-9810490938ef
+      responses:
+        '200':
+          description: >-
+            Successful operation meaning all specified items of phone
+            corresponding to ids in parameters are deleted from the cloud
+          schema:
+            type: string
+            example: success
+  /phonesids:
+    get:
+      operationId: getPhoneIds
+      tags:
+        - Actors
+      summary: >-
+        Return the list of id corresponding to the phone available to the
+        current user
+      parameters:
+        - $ref: '#/parameters/tokenParam'
+        - $ref: '#/parameters/requesterParam'
+        - $ref: '#/parameters/dateFormatParam'
+        - $ref: '#/parameters/filterParam'
+        - $ref: '#/parameters/pathtoloadParam'
+      description: ''
+      responses:
+        '200':
+          description: >-
+            Successful operation returning the array of id of phone
+            corresponding to the queries parameters
+          schema:
+            type: array
+            items:
+              type: string
+  /personcount:
+    get:
+      operationId: getPersonCount
+      tags:
+        - Actors
+      summary: Return the count of person available to the current user
+      parameters:
+        - $ref: '#/parameters/tokenParam'
+        - $ref: '#/parameters/requesterParam'
+        - $ref: '#/parameters/dateFormatParam'
+        - $ref: '#/parameters/filterParam'
+      description: ''
+      responses:
+        '200':
+          description: >-
+            Successful operation returning the number of person corresponding to
+            the queries parameters
+          schema:
+            type: number
+  /persons:
+    get:
+      operationId: getPerson
+      tags:
+        - Actors
+      summary: Return the list of person available to the current user
+      parameters:
+        - $ref: '#/parameters/tokenParam'
+        - $ref: '#/parameters/requesterParam'
+        - $ref: '#/parameters/dateFormatParam'
+        - $ref: '#/parameters/filterParam'
+        - $ref: '#/parameters/pathtoloadParam'
+      description: ''
+      responses:
+        '200':
+          description: >-
+            Successful operation returning the array of person corresponding to
+            the queries parameters
+          schema:
+            type: array
+            items:
+              $ref: '#/definitions/Person'
+    post:
+      operationId: postPerson
+      tags:
+        - Actors
+      summary: To create new person in the cloud APROPLAN
+      parameters:
+        - $ref: '#/parameters/tokenParam'
+        - $ref: '#/parameters/requesterParam'
+        - $ref: '#/parameters/dateFormatParam'
+        - in: body
+          name: body
+          description: This is the array of person to create through the cloud
+          schema:
+            type: array
+            items:
+              $ref: '#/definitions/Person'
+      responses:
+        '200':
+          description: Successful operation to create new person array in the cloud
+          schema:
+            type: array
+            items:
+              $ref: '#/definitions/Person'
+    put:
+      operationId: putPerson
+      tags:
+        - Actors
+      summary: To update person in the cloud APROPLAN
+      parameters:
+        - $ref: '#/parameters/tokenParam'
+        - $ref: '#/parameters/requesterParam'
+        - $ref: '#/parameters/dateFormatParam'
+        - in: body
+          name: body
+          description: This is the array of person to update in the cloud
+          schema:
+            type: array
+            items:
+              $ref: '#/definitions/Person'
+      responses:
+        '200':
+          description: Successful operation to update array of person in the cloud
+          schema:
+            type: array
+            items:
+              $ref: '#/definitions/Person'
+    delete:
+      operationId: deletePerson
+      tags:
+        - Actors
+      summary: To delete items of person in the cloud APROPLAN
+      parameters:
+        - $ref: '#/parameters/tokenParam'
+        - $ref: '#/parameters/requesterParam'
+        - $ref: '#/parameters/dateFormatParam'
+        - in: body
+          name: body
+          description: Array of person id to delete from the cloud
+          required: true
+          schema:
+            type: array
+            items:
+              type: string
+            example:
+              - ea5d793f-c795-4311-8344-eb18e8efa065
+              - afff9354-abb3-4a9c-aca5-9810490938ef
+      responses:
+        '200':
+          description: >-
+            Successful operation meaning all specified items of person
+            corresponding to ids in parameters are deleted from the cloud
+          schema:
+            type: string
+            example: success
+  /personsids:
+    get:
+      operationId: getPersonIds
+      tags:
+        - Actors
+      summary: >-
+        Return the list of id corresponding to the person available to the
+        current user
+      parameters:
+        - $ref: '#/parameters/tokenParam'
+        - $ref: '#/parameters/requesterParam'
+        - $ref: '#/parameters/dateFormatParam'
+        - $ref: '#/parameters/filterParam'
+        - $ref: '#/parameters/pathtoloadParam'
+      description: ''
+      responses:
+        '200':
+          description: >-
+            Successful operation returning the array of id of person
+            corresponding to the queries parameters
+          schema:
+            type: array
+            items:
+              type: string
+  /managedcompanycount:
+    get:
+      operationId: getManagedcompanyCount
+      tags:
+        - Companies
+      summary: Return the count of managedcompany available to the current user
+      parameters:
+        - $ref: '#/parameters/tokenParam'
+        - $ref: '#/parameters/requesterParam'
+        - $ref: '#/parameters/dateFormatParam'
+        - $ref: '#/parameters/filterParam'
+      description: ''
+      responses:
+        '200':
+          description: >-
+            Successful operation returning the number of managedcompany
+            corresponding to the queries parameters
+          schema:
+            type: number
+  /managedcompanies:
+    get:
+      operationId: getManagedcompany
+      tags:
+        - Companies
+      summary: Return the list of managedcompany available to the current user
+      parameters:
+        - $ref: '#/parameters/tokenParam'
+        - $ref: '#/parameters/requesterParam'
+        - $ref: '#/parameters/dateFormatParam'
+        - $ref: '#/parameters/filterParam'
+        - $ref: '#/parameters/pathtoloadParam'
+      description: ''
+      responses:
+        '200':
+          description: >-
+            Successful operation returning the array of managedcompany
+            corresponding to the queries parameters
+          schema:
+            type: array
+            items:
+              $ref: '#/definitions/ManagedCompany'
+    post:
+      operationId: postManagedcompany
+      tags:
+        - Companies
+      summary: To create new managedcompany in the cloud APROPLAN
+      parameters:
+        - $ref: '#/parameters/tokenParam'
+        - $ref: '#/parameters/requesterParam'
+        - $ref: '#/parameters/dateFormatParam'
+        - in: body
+          name: body
+          description: This is the array of managedcompany to create through the cloud
+          schema:
+            type: array
+            items:
+              $ref: '#/definitions/ManagedCompany'
+      responses:
+        '200':
+          description: Successful operation to create new managedcompany array in the cloud
+          schema:
+            type: array
+            items:
+              $ref: '#/definitions/ManagedCompany'
+    put:
+      operationId: putManagedcompany
+      tags:
+        - Companies
+      summary: To update managedcompany in the cloud APROPLAN
+      parameters:
+        - $ref: '#/parameters/tokenParam'
+        - $ref: '#/parameters/requesterParam'
+        - $ref: '#/parameters/dateFormatParam'
+        - in: body
+          name: body
+          description: This is the array of managedcompany to update in the cloud
+          schema:
+            type: array
+            items:
+              $ref: '#/definitions/ManagedCompany'
+      responses:
+        '200':
+          description: Successful operation to update array of managedcompany in the cloud
+          schema:
+            type: array
+            items:
+              $ref: '#/definitions/ManagedCompany'
+    delete:
+      operationId: deleteManagedcompany
+      tags:
+        - Companies
+      summary: To delete items of managedcompany in the cloud APROPLAN
+      parameters:
+        - $ref: '#/parameters/tokenParam'
+        - $ref: '#/parameters/requesterParam'
+        - $ref: '#/parameters/dateFormatParam'
+        - in: body
+          name: body
+          description: Array of managedcompany id to delete from the cloud
+          required: true
+          schema:
+            type: array
+            items:
+              type: string
+            example:
+              - ea5d793f-c795-4311-8344-eb18e8efa065
+              - afff9354-abb3-4a9c-aca5-9810490938ef
+      responses:
+        '200':
+          description: >-
+            Successful operation meaning all specified items of managedcompany
+            corresponding to ids in parameters are deleted from the cloud
+          schema:
+            type: string
+            example: success
+  /managedcompaniesids:
+    get:
+      operationId: getManagedcompanyIds
+      tags:
+        - Companies
+      summary: >-
+        Return the list of id corresponding to the managedcompany available to
+        the current user
+      parameters:
+        - $ref: '#/parameters/tokenParam'
+        - $ref: '#/parameters/requesterParam'
+        - $ref: '#/parameters/dateFormatParam'
+        - $ref: '#/parameters/filterParam'
+        - $ref: '#/parameters/pathtoloadParam'
+      description: ''
+      responses:
+        '200':
+          description: >-
+            Successful operation returning the array of id of managedcompany
+            corresponding to the queries parameters
+          schema:
+            type: array
+            items:
+              type: string
+  /companyusercount:
+    get:
+      operationId: getCompanyuserCount
+      tags:
+        - Companies
+      summary: Return the count of companyuser available to the current user
+      parameters:
+        - $ref: '#/parameters/tokenParam'
+        - $ref: '#/parameters/requesterParam'
+        - $ref: '#/parameters/dateFormatParam'
+        - $ref: '#/parameters/filterParam'
+      description: ''
+      responses:
+        '200':
+          description: >-
+            Successful operation returning the number of companyuser
+            corresponding to the queries parameters
+          schema:
+            type: number
+  /companyusers:
+    get:
+      operationId: getCompanyuser
+      tags:
+        - Companies
+      summary: Return the list of companyuser available to the current user
+      parameters:
+        - $ref: '#/parameters/tokenParam'
+        - $ref: '#/parameters/requesterParam'
+        - $ref: '#/parameters/dateFormatParam'
+        - $ref: '#/parameters/filterParam'
+        - $ref: '#/parameters/pathtoloadParam'
+      description: ''
+      responses:
+        '200':
+          description: >-
+            Successful operation returning the array of companyuser
+            corresponding to the queries parameters
+          schema:
+            type: array
+            items:
+              $ref: '#/definitions/CompanyUser'
+    post:
+      operationId: postCompanyuser
+      tags:
+        - Companies
+      summary: To create new companyuser in the cloud APROPLAN
+      parameters:
+        - $ref: '#/parameters/tokenParam'
+        - $ref: '#/parameters/requesterParam'
+        - $ref: '#/parameters/dateFormatParam'
+        - in: body
+          name: body
+          description: This is the array of companyuser to create through the cloud
+          schema:
+            type: array
+            items:
+              $ref: '#/definitions/CompanyUser'
+      responses:
+        '200':
+          description: Successful operation to create new companyuser array in the cloud
+          schema:
+            type: array
+            items:
+              $ref: '#/definitions/CompanyUser'
+    put:
+      operationId: putCompanyuser
+      tags:
+        - Companies
+      summary: To update companyuser in the cloud APROPLAN
+      parameters:
+        - $ref: '#/parameters/tokenParam'
+        - $ref: '#/parameters/requesterParam'
+        - $ref: '#/parameters/dateFormatParam'
+        - in: body
+          name: body
+          description: This is the array of companyuser to update in the cloud
+          schema:
+            type: array
+            items:
+              $ref: '#/definitions/CompanyUser'
+      responses:
+        '200':
+          description: Successful operation to update array of companyuser in the cloud
+          schema:
+            type: array
+            items:
+              $ref: '#/definitions/CompanyUser'
+    delete:
+      operationId: deleteCompanyuser
+      tags:
+        - Companies
+      summary: To delete items of companyuser in the cloud APROPLAN
+      parameters:
+        - $ref: '#/parameters/tokenParam'
+        - $ref: '#/parameters/requesterParam'
+        - $ref: '#/parameters/dateFormatParam'
+        - in: body
+          name: body
+          description: Array of companyuser id to delete from the cloud
+          required: true
+          schema:
+            type: array
+            items:
+              type: string
+            example:
+              - ea5d793f-c795-4311-8344-eb18e8efa065
+              - afff9354-abb3-4a9c-aca5-9810490938ef
+      responses:
+        '200':
+          description: >-
+            Successful operation meaning all specified items of companyuser
+            corresponding to ids in parameters are deleted from the cloud
+          schema:
+            type: string
+            example: success
+  /companyusersids:
+    get:
+      operationId: getCompanyuserIds
+      tags:
+        - Companies
+      summary: >-
+        Return the list of id corresponding to the companyuser available to the
+        current user
+      parameters:
+        - $ref: '#/parameters/tokenParam'
+        - $ref: '#/parameters/requesterParam'
+        - $ref: '#/parameters/dateFormatParam'
+        - $ref: '#/parameters/filterParam'
+        - $ref: '#/parameters/pathtoloadParam'
+      description: ''
+      responses:
+        '200':
+          description: >-
+            Successful operation returning the array of id of companyuser
+            corresponding to the queries parameters
+          schema:
+            type: array
+            items:
+              type: string
+  /companyuserinvitationrequestcount:
+    get:
+      operationId: getCompanyuserinvitationrequestCount
+      tags:
+        - Companies
+      summary: >-
+        Return the count of companyuserinvitationrequest available to the
+        current user
+      parameters:
+        - $ref: '#/parameters/tokenParam'
+        - $ref: '#/parameters/requesterParam'
+        - $ref: '#/parameters/dateFormatParam'
+        - $ref: '#/parameters/filterParam'
+      description: ''
+      responses:
+        '200':
+          description: >-
+            Successful operation returning the number of
+            companyuserinvitationrequest corresponding to the queries parameters
+          schema:
+            type: number
+  /companyuserinvitationrequests:
+    get:
+      operationId: getCompanyuserinvitationrequest
+      tags:
+        - Companies
+      summary: >-
+        Return the list of companyuserinvitationrequest available to the current
+        user
+      parameters:
+        - $ref: '#/parameters/tokenParam'
+        - $ref: '#/parameters/requesterParam'
+        - $ref: '#/parameters/dateFormatParam'
+        - $ref: '#/parameters/filterParam'
+        - $ref: '#/parameters/pathtoloadParam'
+      description: ''
+      responses:
+        '200':
+          description: >-
+            Successful operation returning the array of
+            companyuserinvitationrequest corresponding to the queries parameters
+          schema:
+            type: array
+            items:
+              $ref: '#/definitions/CompanyUserInvitationRequest'
+    post:
+      operationId: postCompanyuserinvitationrequest
+      tags:
+        - Companies
+      summary: To create new companyuserinvitationrequest in the cloud APROPLAN
+      parameters:
+        - $ref: '#/parameters/tokenParam'
+        - $ref: '#/parameters/requesterParam'
+        - $ref: '#/parameters/dateFormatParam'
+        - in: body
+          name: body
+          description: >-
+            This is the array of companyuserinvitationrequest to create through
+            the cloud
+          schema:
+            type: array
+            items:
+              $ref: '#/definitions/CompanyUserInvitationRequest'
+      responses:
+        '200':
+          description: >-
+            Successful operation to create new companyuserinvitationrequest
+            array in the cloud
+          schema:
+            type: array
+            items:
+              $ref: '#/definitions/CompanyUserInvitationRequest'
+    put:
+      operationId: putCompanyuserinvitationrequest
+      tags:
+        - Companies
+      summary: To update companyuserinvitationrequest in the cloud APROPLAN
+      parameters:
+        - $ref: '#/parameters/tokenParam'
+        - $ref: '#/parameters/requesterParam'
+        - $ref: '#/parameters/dateFormatParam'
+        - in: body
+          name: body
+          description: >-
+            This is the array of companyuserinvitationrequest to update in the
+            cloud
+          schema:
+            type: array
+            items:
+              $ref: '#/definitions/CompanyUserInvitationRequest'
+      responses:
+        '200':
+          description: >-
+            Successful operation to update array of companyuserinvitationrequest
+            in the cloud
+          schema:
+            type: array
+            items:
+              $ref: '#/definitions/CompanyUserInvitationRequest'
+    delete:
+      operationId: deleteCompanyuserinvitationrequest
+      tags:
+        - Companies
+      summary: To delete items of companyuserinvitationrequest in the cloud APROPLAN
+      parameters:
+        - $ref: '#/parameters/tokenParam'
+        - $ref: '#/parameters/requesterParam'
+        - $ref: '#/parameters/dateFormatParam'
+        - in: body
+          name: body
+          description: Array of companyuserinvitationrequest id to delete from the cloud
+          required: true
+          schema:
+            type: array
+            items:
+              type: string
+            example:
+              - ea5d793f-c795-4311-8344-eb18e8efa065
+              - afff9354-abb3-4a9c-aca5-9810490938ef
+      responses:
+        '200':
+          description: >-
+            Successful operation meaning all specified items of
+            companyuserinvitationrequest corresponding to ids in parameters are
+            deleted from the cloud
+          schema:
+            type: string
+            example: success
+  /companyuserinvitationrequestsids:
+    get:
+      operationId: getCompanyuserinvitationrequestIds
+      tags:
+        - Companies
+      summary: >-
+        Return the list of id corresponding to the companyuserinvitationrequest
+        available to the current user
+      parameters:
+        - $ref: '#/parameters/tokenParam'
+        - $ref: '#/parameters/requesterParam'
+        - $ref: '#/parameters/dateFormatParam'
+        - $ref: '#/parameters/filterParam'
+        - $ref: '#/parameters/pathtoloadParam'
+      description: ''
+      responses:
+        '200':
+          description: >-
+            Successful operation returning the array of id of
+            companyuserinvitationrequest corresponding to the queries parameters
+          schema:
+            type: array
+            items:
+              type: string
+  /projectcount:
+    get:
+      operationId: getProjectCount
+      tags:
+        - Projects
+      summary: Return the count of project available to the current user
+      parameters:
+        - $ref: '#/parameters/tokenParam'
+        - $ref: '#/parameters/requesterParam'
+        - $ref: '#/parameters/dateFormatParam'
+        - $ref: '#/parameters/filterParam'
+      description: ''
+      responses:
+        '200':
+          description: >-
+            Successful operation returning the number of project corresponding
+            to the queries parameters
+          schema:
+            type: number
+  /projects:
+    get:
+      operationId: getProject
+      tags:
+        - Projects
+      summary: Return the list of project available to the current user
+      parameters:
+        - $ref: '#/parameters/tokenParam'
+        - $ref: '#/parameters/requesterParam'
         - $ref: '#/parameters/dateFormatParam'
         - $ref: '#/parameters/filterParam'
         - $ref: '#/parameters/pathtoloadParam'
@@ -179,24 +1330,23 @@ paths:
         '200':
           description: >-
             Successful operation returning the array of project corresponding to
-            the queryparameter
+            the queries parameters
           schema:
             type: array
             items:
               $ref: '#/definitions/Project'
     post:
-      operationId: postProjects
+      operationId: postProject
       tags:
         - Projects
       summary: To create new project in the cloud APROPLAN
       parameters:
         - $ref: '#/parameters/tokenParam'
         - $ref: '#/parameters/requesterParam'
-        - $ref: '#/parameters/versionParam'
         - $ref: '#/parameters/dateFormatParam'
         - in: body
           name: body
-          description: This is the array of projects to create through the cloud
+          description: This is the array of project to create through the cloud
           schema:
             type: array
             items:
@@ -209,42 +1359,40 @@ paths:
             items:
               $ref: '#/definitions/Project'
     put:
-      operationId: putProjects
+      operationId: putProject
       tags:
         - Projects
-      summary: To update projects in the cloud APROPLAN
+      summary: To update project in the cloud APROPLAN
       parameters:
         - $ref: '#/parameters/tokenParam'
         - $ref: '#/parameters/requesterParam'
-        - $ref: '#/parameters/versionParam'
         - $ref: '#/parameters/dateFormatParam'
         - in: body
           name: body
-          description: This is the array of projects to update in the cloud
+          description: This is the array of project to update in the cloud
           schema:
             type: array
             items:
               $ref: '#/definitions/Project'
       responses:
         '200':
-          description: Successful operation to update array of projects in the cloud
+          description: Successful operation to update array of project in the cloud
           schema:
             type: array
             items:
               $ref: '#/definitions/Project'
     delete:
-      operationId: deleteProjects
+      operationId: deleteProject
       tags:
         - Projects
-      summary: To delete projects and all items in the cloud APROPLAN
+      summary: To delete items of project in the cloud APROPLAN
       parameters:
         - $ref: '#/parameters/tokenParam'
         - $ref: '#/parameters/requesterParam'
-        - $ref: '#/parameters/versionParam'
         - $ref: '#/parameters/dateFormatParam'
         - in: body
           name: body
-          description: Array of Project id to delete from the cloud
+          description: Array of project id to delete from the cloud
           required: true
           schema:
             type: array
@@ -256,11 +1404,1445 @@ paths:
       responses:
         '200':
           description: >-
-            Successful operation meaning all specified id of Project are deleted
+            Successful operation meaning all specified items of project
+            corresponding to ids in parameters are deleted from the cloud
+          schema:
+            type: string
+            example: success
+  /projectsids:
+    get:
+      operationId: getProjectIds
+      tags:
+        - Projects
+      summary: >-
+        Return the list of id corresponding to the project available to the
+        current user
+      parameters:
+        - $ref: '#/parameters/tokenParam'
+        - $ref: '#/parameters/requesterParam'
+        - $ref: '#/parameters/dateFormatParam'
+        - $ref: '#/parameters/filterParam'
+        - $ref: '#/parameters/pathtoloadParam'
+      description: ''
+      responses:
+        '200':
+          description: >-
+            Successful operation returning the array of id of project
+            corresponding to the queries parameters
+          schema:
+            type: array
+            items:
+              type: string
+  /chaptercount:
+    get:
+      operationId: getChapterCount
+      tags:
+        - Projects
+      summary: Return the count of chapter available to the current user
+      parameters:
+        - $ref: '#/parameters/tokenParam'
+        - $ref: '#/parameters/requesterParam'
+        - $ref: '#/parameters/dateFormatParam'
+        - $ref: '#/parameters/filterParam'
+      description: ''
+      responses:
+        '200':
+          description: >-
+            Successful operation returning the number of chapter corresponding
+            to the queries parameters
+          schema:
+            type: number
+  /chapters:
+    get:
+      operationId: getChapter
+      tags:
+        - Projects
+      summary: Return the list of chapter available to the current user
+      parameters:
+        - $ref: '#/parameters/tokenParam'
+        - $ref: '#/parameters/requesterParam'
+        - $ref: '#/parameters/dateFormatParam'
+        - $ref: '#/parameters/filterParam'
+        - $ref: '#/parameters/pathtoloadParam'
+      description: ''
+      responses:
+        '200':
+          description: >-
+            Successful operation returning the array of chapter corresponding to
+            the queries parameters
+          schema:
+            type: array
+            items:
+              $ref: '#/definitions/Chapter'
+    post:
+      operationId: postChapter
+      tags:
+        - Projects
+      summary: To create new chapter in the cloud APROPLAN
+      parameters:
+        - $ref: '#/parameters/tokenParam'
+        - $ref: '#/parameters/requesterParam'
+        - $ref: '#/parameters/dateFormatParam'
+        - in: body
+          name: body
+          description: This is the array of chapter to create through the cloud
+          schema:
+            type: array
+            items:
+              $ref: '#/definitions/Chapter'
+      responses:
+        '200':
+          description: Successful operation to create new chapter array in the cloud
+          schema:
+            type: array
+            items:
+              $ref: '#/definitions/Chapter'
+    put:
+      operationId: putChapter
+      tags:
+        - Projects
+      summary: To update chapter in the cloud APROPLAN
+      parameters:
+        - $ref: '#/parameters/tokenParam'
+        - $ref: '#/parameters/requesterParam'
+        - $ref: '#/parameters/dateFormatParam'
+        - in: body
+          name: body
+          description: This is the array of chapter to update in the cloud
+          schema:
+            type: array
+            items:
+              $ref: '#/definitions/Chapter'
+      responses:
+        '200':
+          description: Successful operation to update array of chapter in the cloud
+          schema:
+            type: array
+            items:
+              $ref: '#/definitions/Chapter'
+    delete:
+      operationId: deleteChapter
+      tags:
+        - Projects
+      summary: To delete items of chapter in the cloud APROPLAN
+      parameters:
+        - $ref: '#/parameters/tokenParam'
+        - $ref: '#/parameters/requesterParam'
+        - $ref: '#/parameters/dateFormatParam'
+        - in: body
+          name: body
+          description: Array of chapter id to delete from the cloud
+          required: true
+          schema:
+            type: array
+            items:
+              type: string
+            example:
+              - ea5d793f-c795-4311-8344-eb18e8efa065
+              - afff9354-abb3-4a9c-aca5-9810490938ef
+      responses:
+        '200':
+          description: >-
+            Successful operation meaning all specified items of chapter
+            corresponding to ids in parameters are deleted from the cloud
+          schema:
+            type: string
+            example: success
+  /chaptersids:
+    get:
+      operationId: getChapterIds
+      tags:
+        - Projects
+      summary: >-
+        Return the list of id corresponding to the chapter available to the
+        current user
+      parameters:
+        - $ref: '#/parameters/tokenParam'
+        - $ref: '#/parameters/requesterParam'
+        - $ref: '#/parameters/dateFormatParam'
+        - $ref: '#/parameters/filterParam'
+        - $ref: '#/parameters/pathtoloadParam'
+      description: ''
+      responses:
+        '200':
+          description: >-
+            Successful operation returning the array of id of chapter
+            corresponding to the queries parameters
+          schema:
+            type: array
+            items:
+              type: string
+  /issuetypecount:
+    get:
+      operationId: getIssuetypeCount
+      tags:
+        - Projects
+      summary: Return the count of issuetype available to the current user
+      parameters:
+        - $ref: '#/parameters/tokenParam'
+        - $ref: '#/parameters/requesterParam'
+        - $ref: '#/parameters/dateFormatParam'
+        - $ref: '#/parameters/filterParam'
+      description: ''
+      responses:
+        '200':
+          description: >-
+            Successful operation returning the number of issuetype corresponding
+            to the queries parameters
+          schema:
+            type: number
+  /issuetypes:
+    get:
+      operationId: getIssuetype
+      tags:
+        - Projects
+      summary: Return the list of issuetype available to the current user
+      parameters:
+        - $ref: '#/parameters/tokenParam'
+        - $ref: '#/parameters/requesterParam'
+        - $ref: '#/parameters/dateFormatParam'
+        - $ref: '#/parameters/filterParam'
+        - $ref: '#/parameters/pathtoloadParam'
+      description: ''
+      responses:
+        '200':
+          description: >-
+            Successful operation returning the array of issuetype corresponding
+            to the queries parameters
+          schema:
+            type: array
+            items:
+              $ref: '#/definitions/IssueType'
+    post:
+      operationId: postIssuetype
+      tags:
+        - Projects
+      summary: To create new issuetype in the cloud APROPLAN
+      parameters:
+        - $ref: '#/parameters/tokenParam'
+        - $ref: '#/parameters/requesterParam'
+        - $ref: '#/parameters/dateFormatParam'
+        - in: body
+          name: body
+          description: This is the array of issuetype to create through the cloud
+          schema:
+            type: array
+            items:
+              $ref: '#/definitions/IssueType'
+      responses:
+        '200':
+          description: Successful operation to create new issuetype array in the cloud
+          schema:
+            type: array
+            items:
+              $ref: '#/definitions/IssueType'
+    put:
+      operationId: putIssuetype
+      tags:
+        - Projects
+      summary: To update issuetype in the cloud APROPLAN
+      parameters:
+        - $ref: '#/parameters/tokenParam'
+        - $ref: '#/parameters/requesterParam'
+        - $ref: '#/parameters/dateFormatParam'
+        - in: body
+          name: body
+          description: This is the array of issuetype to update in the cloud
+          schema:
+            type: array
+            items:
+              $ref: '#/definitions/IssueType'
+      responses:
+        '200':
+          description: Successful operation to update array of issuetype in the cloud
+          schema:
+            type: array
+            items:
+              $ref: '#/definitions/IssueType'
+    delete:
+      operationId: deleteIssuetype
+      tags:
+        - Projects
+      summary: To delete items of issuetype in the cloud APROPLAN
+      parameters:
+        - $ref: '#/parameters/tokenParam'
+        - $ref: '#/parameters/requesterParam'
+        - $ref: '#/parameters/dateFormatParam'
+        - in: body
+          name: body
+          description: Array of issuetype id to delete from the cloud
+          required: true
+          schema:
+            type: array
+            items:
+              type: string
+            example:
+              - ea5d793f-c795-4311-8344-eb18e8efa065
+              - afff9354-abb3-4a9c-aca5-9810490938ef
+      responses:
+        '200':
+          description: >-
+            Successful operation meaning all specified items of issuetype
+            corresponding to ids in parameters are deleted from the cloud
+          schema:
+            type: string
+            example: success
+  /issuetypesids:
+    get:
+      operationId: getIssuetypeIds
+      tags:
+        - Projects
+      summary: >-
+        Return the list of id corresponding to the issuetype available to the
+        current user
+      parameters:
+        - $ref: '#/parameters/tokenParam'
+        - $ref: '#/parameters/requesterParam'
+        - $ref: '#/parameters/dateFormatParam'
+        - $ref: '#/parameters/filterParam'
+        - $ref: '#/parameters/pathtoloadParam'
+      description: ''
+      responses:
+        '200':
+          description: >-
+            Successful operation returning the array of id of issuetype
+            corresponding to the queries parameters
+          schema:
+            type: array
+            items:
+              type: string
+  /issuetypenotesubjectcount:
+    get:
+      operationId: getIssuetypenotesubjectCount
+      tags:
+        - Projects
+      summary: Return the count of issuetypenotesubject available to the current user
+      parameters:
+        - $ref: '#/parameters/tokenParam'
+        - $ref: '#/parameters/requesterParam'
+        - $ref: '#/parameters/dateFormatParam'
+        - $ref: '#/parameters/filterParam'
+      description: ''
+      responses:
+        '200':
+          description: >-
+            Successful operation returning the number of issuetypenotesubject
+            corresponding to the queries parameters
+          schema:
+            type: number
+  /issuetypenotesubjects:
+    get:
+      operationId: getIssuetypenotesubject
+      tags:
+        - Projects
+      summary: Return the list of issuetypenotesubject available to the current user
+      parameters:
+        - $ref: '#/parameters/tokenParam'
+        - $ref: '#/parameters/requesterParam'
+        - $ref: '#/parameters/dateFormatParam'
+        - $ref: '#/parameters/filterParam'
+        - $ref: '#/parameters/pathtoloadParam'
+      description: ''
+      responses:
+        '200':
+          description: >-
+            Successful operation returning the array of issuetypenotesubject
+            corresponding to the queries parameters
+          schema:
+            type: array
+            items:
+              $ref: '#/definitions/IssueTypeNoteSubject'
+    post:
+      operationId: postIssuetypenotesubject
+      tags:
+        - Projects
+      summary: To create new issuetypenotesubject in the cloud APROPLAN
+      parameters:
+        - $ref: '#/parameters/tokenParam'
+        - $ref: '#/parameters/requesterParam'
+        - $ref: '#/parameters/dateFormatParam'
+        - in: body
+          name: body
+          description: >-
+            This is the array of issuetypenotesubject to create through the
+            cloud
+          schema:
+            type: array
+            items:
+              $ref: '#/definitions/IssueTypeNoteSubject'
+      responses:
+        '200':
+          description: >-
+            Successful operation to create new issuetypenotesubject array in the
+            cloud
+          schema:
+            type: array
+            items:
+              $ref: '#/definitions/IssueTypeNoteSubject'
+    put:
+      operationId: putIssuetypenotesubject
+      tags:
+        - Projects
+      summary: To update issuetypenotesubject in the cloud APROPLAN
+      parameters:
+        - $ref: '#/parameters/tokenParam'
+        - $ref: '#/parameters/requesterParam'
+        - $ref: '#/parameters/dateFormatParam'
+        - in: body
+          name: body
+          description: This is the array of issuetypenotesubject to update in the cloud
+          schema:
+            type: array
+            items:
+              $ref: '#/definitions/IssueTypeNoteSubject'
+      responses:
+        '200':
+          description: >-
+            Successful operation to update array of issuetypenotesubject in the
+            cloud
+          schema:
+            type: array
+            items:
+              $ref: '#/definitions/IssueTypeNoteSubject'
+    delete:
+      operationId: deleteIssuetypenotesubject
+      tags:
+        - Projects
+      summary: To delete items of issuetypenotesubject in the cloud APROPLAN
+      parameters:
+        - $ref: '#/parameters/tokenParam'
+        - $ref: '#/parameters/requesterParam'
+        - $ref: '#/parameters/dateFormatParam'
+        - in: body
+          name: body
+          description: Array of issuetypenotesubject id to delete from the cloud
+          required: true
+          schema:
+            type: array
+            items:
+              type: string
+            example:
+              - ea5d793f-c795-4311-8344-eb18e8efa065
+              - afff9354-abb3-4a9c-aca5-9810490938ef
+      responses:
+        '200':
+          description: >-
+            Successful operation meaning all specified items of
+            issuetypenotesubject corresponding to ids in parameters are deleted
             from the cloud
           schema:
             type: string
             example: success
+  /issuetypenotesubjectsids:
+    get:
+      operationId: getIssuetypenotesubjectIds
+      tags:
+        - Projects
+      summary: >-
+        Return the list of id corresponding to the issuetypenotesubject
+        available to the current user
+      parameters:
+        - $ref: '#/parameters/tokenParam'
+        - $ref: '#/parameters/requesterParam'
+        - $ref: '#/parameters/dateFormatParam'
+        - $ref: '#/parameters/filterParam'
+        - $ref: '#/parameters/pathtoloadParam'
+      description: ''
+      responses:
+        '200':
+          description: >-
+            Successful operation returning the array of id of
+            issuetypenotesubject corresponding to the queries parameters
+          schema:
+            type: array
+            items:
+              type: string
+  /parentcellcount:
+    get:
+      operationId: getParentcellCount
+      tags:
+        - Projects
+      summary: Return the count of parentcell available to the current user
+      parameters:
+        - $ref: '#/parameters/tokenParam'
+        - $ref: '#/parameters/requesterParam'
+        - $ref: '#/parameters/dateFormatParam'
+        - $ref: '#/parameters/filterParam'
+      description: ''
+      responses:
+        '200':
+          description: >-
+            Successful operation returning the number of parentcell
+            corresponding to the queries parameters
+          schema:
+            type: number
+  /parentcells:
+    get:
+      operationId: getParentcell
+      tags:
+        - Projects
+      summary: Return the list of parentcell available to the current user
+      parameters:
+        - $ref: '#/parameters/tokenParam'
+        - $ref: '#/parameters/requesterParam'
+        - $ref: '#/parameters/dateFormatParam'
+        - $ref: '#/parameters/filterParam'
+        - $ref: '#/parameters/pathtoloadParam'
+      description: ''
+      responses:
+        '200':
+          description: >-
+            Successful operation returning the array of parentcell corresponding
+            to the queries parameters
+          schema:
+            type: array
+            items:
+              $ref: '#/definitions/ParentCell'
+    post:
+      operationId: postParentcell
+      tags:
+        - Projects
+      summary: To create new parentcell in the cloud APROPLAN
+      parameters:
+        - $ref: '#/parameters/tokenParam'
+        - $ref: '#/parameters/requesterParam'
+        - $ref: '#/parameters/dateFormatParam'
+        - in: body
+          name: body
+          description: This is the array of parentcell to create through the cloud
+          schema:
+            type: array
+            items:
+              $ref: '#/definitions/ParentCell'
+      responses:
+        '200':
+          description: Successful operation to create new parentcell array in the cloud
+          schema:
+            type: array
+            items:
+              $ref: '#/definitions/ParentCell'
+    put:
+      operationId: putParentcell
+      tags:
+        - Projects
+      summary: To update parentcell in the cloud APROPLAN
+      parameters:
+        - $ref: '#/parameters/tokenParam'
+        - $ref: '#/parameters/requesterParam'
+        - $ref: '#/parameters/dateFormatParam'
+        - in: body
+          name: body
+          description: This is the array of parentcell to update in the cloud
+          schema:
+            type: array
+            items:
+              $ref: '#/definitions/ParentCell'
+      responses:
+        '200':
+          description: Successful operation to update array of parentcell in the cloud
+          schema:
+            type: array
+            items:
+              $ref: '#/definitions/ParentCell'
+    delete:
+      operationId: deleteParentcell
+      tags:
+        - Projects
+      summary: To delete items of parentcell in the cloud APROPLAN
+      parameters:
+        - $ref: '#/parameters/tokenParam'
+        - $ref: '#/parameters/requesterParam'
+        - $ref: '#/parameters/dateFormatParam'
+        - in: body
+          name: body
+          description: Array of parentcell id to delete from the cloud
+          required: true
+          schema:
+            type: array
+            items:
+              type: string
+            example:
+              - ea5d793f-c795-4311-8344-eb18e8efa065
+              - afff9354-abb3-4a9c-aca5-9810490938ef
+      responses:
+        '200':
+          description: >-
+            Successful operation meaning all specified items of parentcell
+            corresponding to ids in parameters are deleted from the cloud
+          schema:
+            type: string
+            example: success
+  /parentcellsids:
+    get:
+      operationId: getParentcellIds
+      tags:
+        - Projects
+      summary: >-
+        Return the list of id corresponding to the parentcell available to the
+        current user
+      parameters:
+        - $ref: '#/parameters/tokenParam'
+        - $ref: '#/parameters/requesterParam'
+        - $ref: '#/parameters/dateFormatParam'
+        - $ref: '#/parameters/filterParam'
+        - $ref: '#/parameters/pathtoloadParam'
+      description: ''
+      responses:
+        '200':
+          description: >-
+            Successful operation returning the array of id of parentcell
+            corresponding to the queries parameters
+          schema:
+            type: array
+            items:
+              type: string
+  /subcellcount:
+    get:
+      operationId: getSubcellCount
+      tags:
+        - Projects
+      summary: Return the count of subcell available to the current user
+      parameters:
+        - $ref: '#/parameters/tokenParam'
+        - $ref: '#/parameters/requesterParam'
+        - $ref: '#/parameters/dateFormatParam'
+        - $ref: '#/parameters/filterParam'
+      description: ''
+      responses:
+        '200':
+          description: >-
+            Successful operation returning the number of subcell corresponding
+            to the queries parameters
+          schema:
+            type: number
+  /subcells:
+    get:
+      operationId: getSubcell
+      tags:
+        - Projects
+      summary: Return the list of subcell available to the current user
+      parameters:
+        - $ref: '#/parameters/tokenParam'
+        - $ref: '#/parameters/requesterParam'
+        - $ref: '#/parameters/dateFormatParam'
+        - $ref: '#/parameters/filterParam'
+        - $ref: '#/parameters/pathtoloadParam'
+      description: ''
+      responses:
+        '200':
+          description: >-
+            Successful operation returning the array of subcell corresponding to
+            the queries parameters
+          schema:
+            type: array
+            items:
+              $ref: '#/definitions/SubCell'
+    post:
+      operationId: postSubcell
+      tags:
+        - Projects
+      summary: To create new subcell in the cloud APROPLAN
+      parameters:
+        - $ref: '#/parameters/tokenParam'
+        - $ref: '#/parameters/requesterParam'
+        - $ref: '#/parameters/dateFormatParam'
+        - in: body
+          name: body
+          description: This is the array of subcell to create through the cloud
+          schema:
+            type: array
+            items:
+              $ref: '#/definitions/SubCell'
+      responses:
+        '200':
+          description: Successful operation to create new subcell array in the cloud
+          schema:
+            type: array
+            items:
+              $ref: '#/definitions/SubCell'
+    put:
+      operationId: putSubcell
+      tags:
+        - Projects
+      summary: To update subcell in the cloud APROPLAN
+      parameters:
+        - $ref: '#/parameters/tokenParam'
+        - $ref: '#/parameters/requesterParam'
+        - $ref: '#/parameters/dateFormatParam'
+        - in: body
+          name: body
+          description: This is the array of subcell to update in the cloud
+          schema:
+            type: array
+            items:
+              $ref: '#/definitions/SubCell'
+      responses:
+        '200':
+          description: Successful operation to update array of subcell in the cloud
+          schema:
+            type: array
+            items:
+              $ref: '#/definitions/SubCell'
+    delete:
+      operationId: deleteSubcell
+      tags:
+        - Projects
+      summary: To delete items of subcell in the cloud APROPLAN
+      parameters:
+        - $ref: '#/parameters/tokenParam'
+        - $ref: '#/parameters/requesterParam'
+        - $ref: '#/parameters/dateFormatParam'
+        - in: body
+          name: body
+          description: Array of subcell id to delete from the cloud
+          required: true
+          schema:
+            type: array
+            items:
+              type: string
+            example:
+              - ea5d793f-c795-4311-8344-eb18e8efa065
+              - afff9354-abb3-4a9c-aca5-9810490938ef
+      responses:
+        '200':
+          description: >-
+            Successful operation meaning all specified items of subcell
+            corresponding to ids in parameters are deleted from the cloud
+          schema:
+            type: string
+            example: success
+  /subcellsids:
+    get:
+      operationId: getSubcellIds
+      tags:
+        - Projects
+      summary: >-
+        Return the list of id corresponding to the subcell available to the
+        current user
+      parameters:
+        - $ref: '#/parameters/tokenParam'
+        - $ref: '#/parameters/requesterParam'
+        - $ref: '#/parameters/dateFormatParam'
+        - $ref: '#/parameters/filterParam'
+        - $ref: '#/parameters/pathtoloadParam'
+      description: ''
+      responses:
+        '200':
+          description: >-
+            Successful operation returning the array of id of subcell
+            corresponding to the queries parameters
+          schema:
+            type: array
+            items:
+              type: string
+  /noteprojectstatuscount:
+    get:
+      operationId: getNoteprojectstatusCount
+      tags:
+        - Projects
+      summary: Return the count of noteprojectstatus available to the current user
+      parameters:
+        - $ref: '#/parameters/tokenParam'
+        - $ref: '#/parameters/requesterParam'
+        - $ref: '#/parameters/dateFormatParam'
+        - $ref: '#/parameters/filterParam'
+      description: ''
+      responses:
+        '200':
+          description: >-
+            Successful operation returning the number of noteprojectstatus
+            corresponding to the queries parameters
+          schema:
+            type: number
+  /noteprojectstatus:
+    get:
+      operationId: getNoteprojectstatus
+      tags:
+        - Projects
+      summary: Return the list of noteprojectstatus available to the current user
+      parameters:
+        - $ref: '#/parameters/tokenParam'
+        - $ref: '#/parameters/requesterParam'
+        - $ref: '#/parameters/dateFormatParam'
+        - $ref: '#/parameters/filterParam'
+        - $ref: '#/parameters/pathtoloadParam'
+      description: ''
+      responses:
+        '200':
+          description: >-
+            Successful operation returning the array of noteprojectstatus
+            corresponding to the queries parameters
+          schema:
+            type: array
+            items:
+              $ref: '#/definitions/NoteProjectStatus'
+    post:
+      operationId: postNoteprojectstatus
+      tags:
+        - Projects
+      summary: To create new noteprojectstatus in the cloud APROPLAN
+      parameters:
+        - $ref: '#/parameters/tokenParam'
+        - $ref: '#/parameters/requesterParam'
+        - $ref: '#/parameters/dateFormatParam'
+        - in: body
+          name: body
+          description: This is the array of noteprojectstatus to create through the cloud
+          schema:
+            type: array
+            items:
+              $ref: '#/definitions/NoteProjectStatus'
+      responses:
+        '200':
+          description: >-
+            Successful operation to create new noteprojectstatus array in the
+            cloud
+          schema:
+            type: array
+            items:
+              $ref: '#/definitions/NoteProjectStatus'
+    put:
+      operationId: putNoteprojectstatus
+      tags:
+        - Projects
+      summary: To update noteprojectstatus in the cloud APROPLAN
+      parameters:
+        - $ref: '#/parameters/tokenParam'
+        - $ref: '#/parameters/requesterParam'
+        - $ref: '#/parameters/dateFormatParam'
+        - in: body
+          name: body
+          description: This is the array of noteprojectstatus to update in the cloud
+          schema:
+            type: array
+            items:
+              $ref: '#/definitions/NoteProjectStatus'
+      responses:
+        '200':
+          description: >-
+            Successful operation to update array of noteprojectstatus in the
+            cloud
+          schema:
+            type: array
+            items:
+              $ref: '#/definitions/NoteProjectStatus'
+    delete:
+      operationId: deleteNoteprojectstatus
+      tags:
+        - Projects
+      summary: To delete items of noteprojectstatus in the cloud APROPLAN
+      parameters:
+        - $ref: '#/parameters/tokenParam'
+        - $ref: '#/parameters/requesterParam'
+        - $ref: '#/parameters/dateFormatParam'
+        - in: body
+          name: body
+          description: Array of noteprojectstatus id to delete from the cloud
+          required: true
+          schema:
+            type: array
+            items:
+              type: string
+            example:
+              - ea5d793f-c795-4311-8344-eb18e8efa065
+              - afff9354-abb3-4a9c-aca5-9810490938ef
+      responses:
+        '200':
+          description: >-
+            Successful operation meaning all specified items of
+            noteprojectstatus corresponding to ids in parameters are deleted
+            from the cloud
+          schema:
+            type: string
+            example: success
+  /noteprojectstatusids:
+    get:
+      operationId: getNoteprojectstatusIds
+      tags:
+        - Projects
+      summary: >-
+        Return the list of id corresponding to the noteprojectstatus available
+        to the current user
+      parameters:
+        - $ref: '#/parameters/tokenParam'
+        - $ref: '#/parameters/requesterParam'
+        - $ref: '#/parameters/dateFormatParam'
+        - $ref: '#/parameters/filterParam'
+        - $ref: '#/parameters/pathtoloadParam'
+      description: ''
+      responses:
+        '200':
+          description: >-
+            Successful operation returning the array of id of noteprojectstatus
+            corresponding to the queries parameters
+          schema:
+            type: array
+            items:
+              type: string
+  /foldercount:
+    get:
+      operationId: getFolderCount
+      tags:
+        - Projects
+      summary: Return the count of folder available to the current user
+      parameters:
+        - $ref: '#/parameters/tokenParam'
+        - $ref: '#/parameters/requesterParam'
+        - $ref: '#/parameters/dateFormatParam'
+        - $ref: '#/parameters/filterParam'
+      description: ''
+      responses:
+        '200':
+          description: >-
+            Successful operation returning the number of folder corresponding to
+            the queries parameters
+          schema:
+            type: number
+  /folders:
+    get:
+      operationId: getFolder
+      tags:
+        - Projects
+      summary: Return the list of folder available to the current user
+      parameters:
+        - $ref: '#/parameters/tokenParam'
+        - $ref: '#/parameters/requesterParam'
+        - $ref: '#/parameters/dateFormatParam'
+        - $ref: '#/parameters/filterParam'
+        - $ref: '#/parameters/pathtoloadParam'
+      description: ''
+      responses:
+        '200':
+          description: >-
+            Successful operation returning the array of folder corresponding to
+            the queries parameters
+          schema:
+            type: array
+            items:
+              $ref: '#/definitions/Folder'
+    post:
+      operationId: postFolder
+      tags:
+        - Projects
+      summary: To create new folder in the cloud APROPLAN
+      parameters:
+        - $ref: '#/parameters/tokenParam'
+        - $ref: '#/parameters/requesterParam'
+        - $ref: '#/parameters/dateFormatParam'
+        - in: body
+          name: body
+          description: This is the array of folder to create through the cloud
+          schema:
+            type: array
+            items:
+              $ref: '#/definitions/Folder'
+      responses:
+        '200':
+          description: Successful operation to create new folder array in the cloud
+          schema:
+            type: array
+            items:
+              $ref: '#/definitions/Folder'
+    put:
+      operationId: putFolder
+      tags:
+        - Projects
+      summary: To update folder in the cloud APROPLAN
+      parameters:
+        - $ref: '#/parameters/tokenParam'
+        - $ref: '#/parameters/requesterParam'
+        - $ref: '#/parameters/dateFormatParam'
+        - in: body
+          name: body
+          description: This is the array of folder to update in the cloud
+          schema:
+            type: array
+            items:
+              $ref: '#/definitions/Folder'
+      responses:
+        '200':
+          description: Successful operation to update array of folder in the cloud
+          schema:
+            type: array
+            items:
+              $ref: '#/definitions/Folder'
+    delete:
+      operationId: deleteFolder
+      tags:
+        - Projects
+      summary: To delete items of folder in the cloud APROPLAN
+      parameters:
+        - $ref: '#/parameters/tokenParam'
+        - $ref: '#/parameters/requesterParam'
+        - $ref: '#/parameters/dateFormatParam'
+        - in: body
+          name: body
+          description: Array of folder id to delete from the cloud
+          required: true
+          schema:
+            type: array
+            items:
+              type: string
+            example:
+              - ea5d793f-c795-4311-8344-eb18e8efa065
+              - afff9354-abb3-4a9c-aca5-9810490938ef
+      responses:
+        '200':
+          description: >-
+            Successful operation meaning all specified items of folder
+            corresponding to ids in parameters are deleted from the cloud
+          schema:
+            type: string
+            example: success
+  /foldersids:
+    get:
+      operationId: getFolderIds
+      tags:
+        - Projects
+      summary: >-
+        Return the list of id corresponding to the folder available to the
+        current user
+      parameters:
+        - $ref: '#/parameters/tokenParam'
+        - $ref: '#/parameters/requesterParam'
+        - $ref: '#/parameters/dateFormatParam'
+        - $ref: '#/parameters/filterParam'
+        - $ref: '#/parameters/pathtoloadParam'
+      description: ''
+      responses:
+        '200':
+          description: >-
+            Successful operation returning the array of id of folder
+            corresponding to the queries parameters
+          schema:
+            type: array
+            items:
+              type: string
+  /foldervisibilitycount:
+    get:
+      operationId: getFoldervisibilityCount
+      tags:
+        - Projects
+      summary: Return the count of foldervisibility available to the current user
+      parameters:
+        - $ref: '#/parameters/tokenParam'
+        - $ref: '#/parameters/requesterParam'
+        - $ref: '#/parameters/dateFormatParam'
+        - $ref: '#/parameters/filterParam'
+      description: ''
+      responses:
+        '200':
+          description: >-
+            Successful operation returning the number of foldervisibility
+            corresponding to the queries parameters
+          schema:
+            type: number
+  /foldervisibilities:
+    get:
+      operationId: getFoldervisibility
+      tags:
+        - Projects
+      summary: Return the list of foldervisibility available to the current user
+      parameters:
+        - $ref: '#/parameters/tokenParam'
+        - $ref: '#/parameters/requesterParam'
+        - $ref: '#/parameters/dateFormatParam'
+        - $ref: '#/parameters/filterParam'
+        - $ref: '#/parameters/pathtoloadParam'
+      description: ''
+      responses:
+        '200':
+          description: >-
+            Successful operation returning the array of foldervisibility
+            corresponding to the queries parameters
+          schema:
+            type: array
+            items:
+              $ref: '#/definitions/FolderVisibility'
+    post:
+      operationId: postFoldervisibility
+      tags:
+        - Projects
+      summary: To create new foldervisibility in the cloud APROPLAN
+      parameters:
+        - $ref: '#/parameters/tokenParam'
+        - $ref: '#/parameters/requesterParam'
+        - $ref: '#/parameters/dateFormatParam'
+        - in: body
+          name: body
+          description: This is the array of foldervisibility to create through the cloud
+          schema:
+            type: array
+            items:
+              $ref: '#/definitions/FolderVisibility'
+      responses:
+        '200':
+          description: >-
+            Successful operation to create new foldervisibility array in the
+            cloud
+          schema:
+            type: array
+            items:
+              $ref: '#/definitions/FolderVisibility'
+    put:
+      operationId: putFoldervisibility
+      tags:
+        - Projects
+      summary: To update foldervisibility in the cloud APROPLAN
+      parameters:
+        - $ref: '#/parameters/tokenParam'
+        - $ref: '#/parameters/requesterParam'
+        - $ref: '#/parameters/dateFormatParam'
+        - in: body
+          name: body
+          description: This is the array of foldervisibility to update in the cloud
+          schema:
+            type: array
+            items:
+              $ref: '#/definitions/FolderVisibility'
+      responses:
+        '200':
+          description: >-
+            Successful operation to update array of foldervisibility in the
+            cloud
+          schema:
+            type: array
+            items:
+              $ref: '#/definitions/FolderVisibility'
+    delete:
+      operationId: deleteFoldervisibility
+      tags:
+        - Projects
+      summary: To delete items of foldervisibility in the cloud APROPLAN
+      parameters:
+        - $ref: '#/parameters/tokenParam'
+        - $ref: '#/parameters/requesterParam'
+        - $ref: '#/parameters/dateFormatParam'
+        - in: body
+          name: body
+          description: Array of foldervisibility id to delete from the cloud
+          required: true
+          schema:
+            type: array
+            items:
+              type: string
+            example:
+              - ea5d793f-c795-4311-8344-eb18e8efa065
+              - afff9354-abb3-4a9c-aca5-9810490938ef
+      responses:
+        '200':
+          description: >-
+            Successful operation meaning all specified items of foldervisibility
+            corresponding to ids in parameters are deleted from the cloud
+          schema:
+            type: string
+            example: success
+  /foldervisibilitiesids:
+    get:
+      operationId: getFoldervisibilityIds
+      tags:
+        - Projects
+      summary: >-
+        Return the list of id corresponding to the foldervisibility available to
+        the current user
+      parameters:
+        - $ref: '#/parameters/tokenParam'
+        - $ref: '#/parameters/requesterParam'
+        - $ref: '#/parameters/dateFormatParam'
+        - $ref: '#/parameters/filterParam'
+        - $ref: '#/parameters/pathtoloadParam'
+      description: ''
+      responses:
+        '200':
+          description: >-
+            Successful operation returning the array of id of foldervisibility
+            corresponding to the queries parameters
+          schema:
+            type: array
+            items:
+              type: string
+  /contactdetailscount:
+    get:
+      operationId: getContactdetailsCount
+      tags:
+        - Projects
+      summary: Return the count of contactdetails available to the current user
+      parameters:
+        - $ref: '#/parameters/tokenParam'
+        - $ref: '#/parameters/requesterParam'
+        - $ref: '#/parameters/dateFormatParam'
+        - $ref: '#/parameters/filterParam'
+      description: ''
+      responses:
+        '200':
+          description: >-
+            Successful operation returning the number of contactdetails
+            corresponding to the queries parameters
+          schema:
+            type: number
+  /contactdetails:
+    get:
+      operationId: getContactdetails
+      tags:
+        - Projects
+      summary: Return the list of contactdetails available to the current user
+      parameters:
+        - $ref: '#/parameters/tokenParam'
+        - $ref: '#/parameters/requesterParam'
+        - $ref: '#/parameters/dateFormatParam'
+        - $ref: '#/parameters/filterParam'
+        - $ref: '#/parameters/pathtoloadParam'
+      description: ''
+      responses:
+        '200':
+          description: >-
+            Successful operation returning the array of contactdetails
+            corresponding to the queries parameters
+          schema:
+            type: array
+            items:
+              $ref: '#/definitions/ContactDetails'
+    post:
+      operationId: postContactdetails
+      tags:
+        - Projects
+      summary: To create new contactdetails in the cloud APROPLAN
+      parameters:
+        - $ref: '#/parameters/tokenParam'
+        - $ref: '#/parameters/requesterParam'
+        - $ref: '#/parameters/dateFormatParam'
+        - in: body
+          name: body
+          description: This is the array of contactdetails to create through the cloud
+          schema:
+            type: array
+            items:
+              $ref: '#/definitions/ContactDetails'
+      responses:
+        '200':
+          description: Successful operation to create new contactdetails array in the cloud
+          schema:
+            type: array
+            items:
+              $ref: '#/definitions/ContactDetails'
+    put:
+      operationId: putContactdetails
+      tags:
+        - Projects
+      summary: To update contactdetails in the cloud APROPLAN
+      parameters:
+        - $ref: '#/parameters/tokenParam'
+        - $ref: '#/parameters/requesterParam'
+        - $ref: '#/parameters/dateFormatParam'
+        - in: body
+          name: body
+          description: This is the array of contactdetails to update in the cloud
+          schema:
+            type: array
+            items:
+              $ref: '#/definitions/ContactDetails'
+      responses:
+        '200':
+          description: Successful operation to update array of contactdetails in the cloud
+          schema:
+            type: array
+            items:
+              $ref: '#/definitions/ContactDetails'
+    delete:
+      operationId: deleteContactdetails
+      tags:
+        - Projects
+      summary: To delete items of contactdetails in the cloud APROPLAN
+      parameters:
+        - $ref: '#/parameters/tokenParam'
+        - $ref: '#/parameters/requesterParam'
+        - $ref: '#/parameters/dateFormatParam'
+        - in: body
+          name: body
+          description: Array of contactdetails id to delete from the cloud
+          required: true
+          schema:
+            type: array
+            items:
+              type: string
+            example:
+              - ea5d793f-c795-4311-8344-eb18e8efa065
+              - afff9354-abb3-4a9c-aca5-9810490938ef
+      responses:
+        '200':
+          description: >-
+            Successful operation meaning all specified items of contactdetails
+            corresponding to ids in parameters are deleted from the cloud
+          schema:
+            type: string
+            example: success
+  /contactdetailsids:
+    get:
+      operationId: getContactdetailsIds
+      tags:
+        - Projects
+      summary: >-
+        Return the list of id corresponding to the contactdetails available to
+        the current user
+      parameters:
+        - $ref: '#/parameters/tokenParam'
+        - $ref: '#/parameters/requesterParam'
+        - $ref: '#/parameters/dateFormatParam'
+        - $ref: '#/parameters/filterParam'
+        - $ref: '#/parameters/pathtoloadParam'
+      description: ''
+      responses:
+        '200':
+          description: >-
+            Successful operation returning the array of id of contactdetails
+            corresponding to the queries parameters
+          schema:
+            type: array
+            items:
+              type: string
+  /contactissuetypecount:
+    get:
+      operationId: getContactissuetypeCount
+      tags:
+        - Projects
+      summary: Return the count of contactissuetype available to the current user
+      parameters:
+        - $ref: '#/parameters/tokenParam'
+        - $ref: '#/parameters/requesterParam'
+        - $ref: '#/parameters/dateFormatParam'
+        - $ref: '#/parameters/filterParam'
+      description: ''
+      responses:
+        '200':
+          description: >-
+            Successful operation returning the number of contactissuetype
+            corresponding to the queries parameters
+          schema:
+            type: number
+  /contactissuetypes:
+    get:
+      operationId: getContactissuetype
+      tags:
+        - Projects
+      summary: Return the list of contactissuetype available to the current user
+      parameters:
+        - $ref: '#/parameters/tokenParam'
+        - $ref: '#/parameters/requesterParam'
+        - $ref: '#/parameters/dateFormatParam'
+        - $ref: '#/parameters/filterParam'
+        - $ref: '#/parameters/pathtoloadParam'
+      description: ''
+      responses:
+        '200':
+          description: >-
+            Successful operation returning the array of contactissuetype
+            corresponding to the queries parameters
+          schema:
+            type: array
+            items:
+              $ref: '#/definitions/ContactIssueType'
+    post:
+      operationId: postContactissuetype
+      tags:
+        - Projects
+      summary: To create new contactissuetype in the cloud APROPLAN
+      parameters:
+        - $ref: '#/parameters/tokenParam'
+        - $ref: '#/parameters/requesterParam'
+        - $ref: '#/parameters/dateFormatParam'
+        - in: body
+          name: body
+          description: This is the array of contactissuetype to create through the cloud
+          schema:
+            type: array
+            items:
+              $ref: '#/definitions/ContactIssueType'
+      responses:
+        '200':
+          description: >-
+            Successful operation to create new contactissuetype array in the
+            cloud
+          schema:
+            type: array
+            items:
+              $ref: '#/definitions/ContactIssueType'
+    put:
+      operationId: putContactissuetype
+      tags:
+        - Projects
+      summary: To update contactissuetype in the cloud APROPLAN
+      parameters:
+        - $ref: '#/parameters/tokenParam'
+        - $ref: '#/parameters/requesterParam'
+        - $ref: '#/parameters/dateFormatParam'
+        - in: body
+          name: body
+          description: This is the array of contactissuetype to update in the cloud
+          schema:
+            type: array
+            items:
+              $ref: '#/definitions/ContactIssueType'
+      responses:
+        '200':
+          description: >-
+            Successful operation to update array of contactissuetype in the
+            cloud
+          schema:
+            type: array
+            items:
+              $ref: '#/definitions/ContactIssueType'
+    delete:
+      operationId: deleteContactissuetype
+      tags:
+        - Projects
+      summary: To delete items of contactissuetype in the cloud APROPLAN
+      parameters:
+        - $ref: '#/parameters/tokenParam'
+        - $ref: '#/parameters/requesterParam'
+        - $ref: '#/parameters/dateFormatParam'
+        - in: body
+          name: body
+          description: Array of contactissuetype id to delete from the cloud
+          required: true
+          schema:
+            type: array
+            items:
+              type: string
+            example:
+              - ea5d793f-c795-4311-8344-eb18e8efa065
+              - afff9354-abb3-4a9c-aca5-9810490938ef
+      responses:
+        '200':
+          description: >-
+            Successful operation meaning all specified items of contactissuetype
+            corresponding to ids in parameters are deleted from the cloud
+          schema:
+            type: string
+            example: success
+  /contactissuetypesids:
+    get:
+      operationId: getContactissuetypeIds
+      tags:
+        - Projects
+      summary: >-
+        Return the list of id corresponding to the contactissuetype available to
+        the current user
+      parameters:
+        - $ref: '#/parameters/tokenParam'
+        - $ref: '#/parameters/requesterParam'
+        - $ref: '#/parameters/dateFormatParam'
+        - $ref: '#/parameters/filterParam'
+        - $ref: '#/parameters/pathtoloadParam'
+      description: ''
+      responses:
+        '200':
+          description: >-
+            Successful operation returning the array of id of contactissuetype
+            corresponding to the queries parameters
+          schema:
+            type: array
+            items:
+              type: string
   /uploaddocument:
     post:
       operationId: uploadDocuments
@@ -355,6 +2937,1138 @@ paths:
           description: Successful operation to upload a new document/version
           schema:
             $ref: '#/definitions/DocumentBase'
+  /documentcount:
+    get:
+      operationId: getDocumentCount
+      tags:
+        - Documents
+      summary: Return the count of document available to the current user
+      parameters:
+        - $ref: '#/parameters/tokenParam'
+        - $ref: '#/parameters/requesterParam'
+        - $ref: '#/parameters/dateFormatParam'
+        - $ref: '#/parameters/filterParam'
+      description: ''
+      responses:
+        '200':
+          description: >-
+            Successful operation returning the number of document corresponding
+            to the queries parameters
+          schema:
+            type: number
+  /documents:
+    get:
+      operationId: getDocument
+      tags:
+        - Documents
+      summary: Return the list of document available to the current user
+      parameters:
+        - $ref: '#/parameters/tokenParam'
+        - $ref: '#/parameters/requesterParam'
+        - $ref: '#/parameters/dateFormatParam'
+        - $ref: '#/parameters/filterParam'
+        - $ref: '#/parameters/pathtoloadParam'
+      description: ''
+      responses:
+        '200':
+          description: >-
+            Successful operation returning the array of document corresponding
+            to the queries parameters
+          schema:
+            type: array
+            items:
+              $ref: '#/definitions/Document'
+    post:
+      operationId: postDocument
+      tags:
+        - Documents
+      summary: To create new document in the cloud APROPLAN
+      parameters:
+        - $ref: '#/parameters/tokenParam'
+        - $ref: '#/parameters/requesterParam'
+        - $ref: '#/parameters/dateFormatParam'
+        - in: body
+          name: body
+          description: This is the array of document to create through the cloud
+          schema:
+            type: array
+            items:
+              $ref: '#/definitions/Document'
+      responses:
+        '200':
+          description: Successful operation to create new document array in the cloud
+          schema:
+            type: array
+            items:
+              $ref: '#/definitions/Document'
+    put:
+      operationId: putDocument
+      tags:
+        - Documents
+      summary: To update document in the cloud APROPLAN
+      parameters:
+        - $ref: '#/parameters/tokenParam'
+        - $ref: '#/parameters/requesterParam'
+        - $ref: '#/parameters/dateFormatParam'
+        - in: body
+          name: body
+          description: This is the array of document to update in the cloud
+          schema:
+            type: array
+            items:
+              $ref: '#/definitions/Document'
+      responses:
+        '200':
+          description: Successful operation to update array of document in the cloud
+          schema:
+            type: array
+            items:
+              $ref: '#/definitions/Document'
+    delete:
+      operationId: deleteDocument
+      tags:
+        - Documents
+      summary: To delete items of document in the cloud APROPLAN
+      parameters:
+        - $ref: '#/parameters/tokenParam'
+        - $ref: '#/parameters/requesterParam'
+        - $ref: '#/parameters/dateFormatParam'
+        - in: body
+          name: body
+          description: Array of document id to delete from the cloud
+          required: true
+          schema:
+            type: array
+            items:
+              type: string
+            example:
+              - ea5d793f-c795-4311-8344-eb18e8efa065
+              - afff9354-abb3-4a9c-aca5-9810490938ef
+      responses:
+        '200':
+          description: >-
+            Successful operation meaning all specified items of document
+            corresponding to ids in parameters are deleted from the cloud
+          schema:
+            type: string
+            example: success
+  /documentsids:
+    get:
+      operationId: getDocumentIds
+      tags:
+        - Documents
+      summary: >-
+        Return the list of id corresponding to the document available to the
+        current user
+      parameters:
+        - $ref: '#/parameters/tokenParam'
+        - $ref: '#/parameters/requesterParam'
+        - $ref: '#/parameters/dateFormatParam'
+        - $ref: '#/parameters/filterParam'
+        - $ref: '#/parameters/pathtoloadParam'
+      description: ''
+      responses:
+        '200':
+          description: >-
+            Successful operation returning the array of id of document
+            corresponding to the queries parameters
+          schema:
+            type: array
+            items:
+              type: string
+  /versioncount:
+    get:
+      operationId: getVersionCount
+      tags:
+        - Documents
+      summary: Return the count of version available to the current user
+      parameters:
+        - $ref: '#/parameters/tokenParam'
+        - $ref: '#/parameters/requesterParam'
+        - $ref: '#/parameters/dateFormatParam'
+        - $ref: '#/parameters/filterParam'
+      description: ''
+      responses:
+        '200':
+          description: >-
+            Successful operation returning the number of version corresponding
+            to the queries parameters
+          schema:
+            type: number
+  /versions:
+    get:
+      operationId: getVersion
+      tags:
+        - Documents
+      summary: Return the list of version available to the current user
+      parameters:
+        - $ref: '#/parameters/tokenParam'
+        - $ref: '#/parameters/requesterParam'
+        - $ref: '#/parameters/dateFormatParam'
+        - $ref: '#/parameters/filterParam'
+        - $ref: '#/parameters/pathtoloadParam'
+      description: ''
+      responses:
+        '200':
+          description: >-
+            Successful operation returning the array of version corresponding to
+            the queries parameters
+          schema:
+            type: array
+            items:
+              $ref: '#/definitions/Version'
+    post:
+      operationId: postVersion
+      tags:
+        - Documents
+      summary: To create new version in the cloud APROPLAN
+      parameters:
+        - $ref: '#/parameters/tokenParam'
+        - $ref: '#/parameters/requesterParam'
+        - $ref: '#/parameters/dateFormatParam'
+        - in: body
+          name: body
+          description: This is the array of version to create through the cloud
+          schema:
+            type: array
+            items:
+              $ref: '#/definitions/Version'
+      responses:
+        '200':
+          description: Successful operation to create new version array in the cloud
+          schema:
+            type: array
+            items:
+              $ref: '#/definitions/Version'
+    put:
+      operationId: putVersion
+      tags:
+        - Documents
+      summary: To update version in the cloud APROPLAN
+      parameters:
+        - $ref: '#/parameters/tokenParam'
+        - $ref: '#/parameters/requesterParam'
+        - $ref: '#/parameters/dateFormatParam'
+        - in: body
+          name: body
+          description: This is the array of version to update in the cloud
+          schema:
+            type: array
+            items:
+              $ref: '#/definitions/Version'
+      responses:
+        '200':
+          description: Successful operation to update array of version in the cloud
+          schema:
+            type: array
+            items:
+              $ref: '#/definitions/Version'
+    delete:
+      operationId: deleteVersion
+      tags:
+        - Documents
+      summary: To delete items of version in the cloud APROPLAN
+      parameters:
+        - $ref: '#/parameters/tokenParam'
+        - $ref: '#/parameters/requesterParam'
+        - $ref: '#/parameters/dateFormatParam'
+        - in: body
+          name: body
+          description: Array of version id to delete from the cloud
+          required: true
+          schema:
+            type: array
+            items:
+              type: string
+            example:
+              - ea5d793f-c795-4311-8344-eb18e8efa065
+              - afff9354-abb3-4a9c-aca5-9810490938ef
+      responses:
+        '200':
+          description: >-
+            Successful operation meaning all specified items of version
+            corresponding to ids in parameters are deleted from the cloud
+          schema:
+            type: string
+            example: success
+  /versionsids:
+    get:
+      operationId: getVersionIds
+      tags:
+        - Documents
+      summary: >-
+        Return the list of id corresponding to the version available to the
+        current user
+      parameters:
+        - $ref: '#/parameters/tokenParam'
+        - $ref: '#/parameters/requesterParam'
+        - $ref: '#/parameters/dateFormatParam'
+        - $ref: '#/parameters/filterParam'
+        - $ref: '#/parameters/pathtoloadParam'
+      description: ''
+      responses:
+        '200':
+          description: >-
+            Successful operation returning the array of id of version
+            corresponding to the queries parameters
+          schema:
+            type: array
+            items:
+              type: string
+  /meetingcount:
+    get:
+      operationId: getMeetingCount
+      tags:
+        - Lists
+      summary: Return the count of meeting available to the current user
+      parameters:
+        - $ref: '#/parameters/tokenParam'
+        - $ref: '#/parameters/requesterParam'
+        - $ref: '#/parameters/dateFormatParam'
+        - $ref: '#/parameters/filterParam'
+      description: ''
+      responses:
+        '200':
+          description: >-
+            Successful operation returning the number of meeting corresponding
+            to the queries parameters
+          schema:
+            type: number
+  /meetings:
+    get:
+      operationId: getMeeting
+      tags:
+        - Lists
+      summary: Return the list of meeting available to the current user
+      parameters:
+        - $ref: '#/parameters/tokenParam'
+        - $ref: '#/parameters/requesterParam'
+        - $ref: '#/parameters/dateFormatParam'
+        - $ref: '#/parameters/filterParam'
+        - $ref: '#/parameters/pathtoloadParam'
+      description: ''
+      responses:
+        '200':
+          description: >-
+            Successful operation returning the array of meeting corresponding to
+            the queries parameters
+          schema:
+            type: array
+            items:
+              $ref: '#/definitions/Meeting'
+    post:
+      operationId: postMeeting
+      tags:
+        - Lists
+      summary: To create new meeting in the cloud APROPLAN
+      parameters:
+        - $ref: '#/parameters/tokenParam'
+        - $ref: '#/parameters/requesterParam'
+        - $ref: '#/parameters/dateFormatParam'
+        - in: body
+          name: body
+          description: This is the array of meeting to create through the cloud
+          schema:
+            type: array
+            items:
+              $ref: '#/definitions/Meeting'
+      responses:
+        '200':
+          description: Successful operation to create new meeting array in the cloud
+          schema:
+            type: array
+            items:
+              $ref: '#/definitions/Meeting'
+    put:
+      operationId: putMeeting
+      tags:
+        - Lists
+      summary: To update meeting in the cloud APROPLAN
+      parameters:
+        - $ref: '#/parameters/tokenParam'
+        - $ref: '#/parameters/requesterParam'
+        - $ref: '#/parameters/dateFormatParam'
+        - in: body
+          name: body
+          description: This is the array of meeting to update in the cloud
+          schema:
+            type: array
+            items:
+              $ref: '#/definitions/Meeting'
+      responses:
+        '200':
+          description: Successful operation to update array of meeting in the cloud
+          schema:
+            type: array
+            items:
+              $ref: '#/definitions/Meeting'
+    delete:
+      operationId: deleteMeeting
+      tags:
+        - Lists
+      summary: To delete items of meeting in the cloud APROPLAN
+      parameters:
+        - $ref: '#/parameters/tokenParam'
+        - $ref: '#/parameters/requesterParam'
+        - $ref: '#/parameters/dateFormatParam'
+        - in: body
+          name: body
+          description: Array of meeting id to delete from the cloud
+          required: true
+          schema:
+            type: array
+            items:
+              type: string
+            example:
+              - ea5d793f-c795-4311-8344-eb18e8efa065
+              - afff9354-abb3-4a9c-aca5-9810490938ef
+      responses:
+        '200':
+          description: >-
+            Successful operation meaning all specified items of meeting
+            corresponding to ids in parameters are deleted from the cloud
+          schema:
+            type: string
+            example: success
+  /meetingsids:
+    get:
+      operationId: getMeetingIds
+      tags:
+        - Lists
+      summary: >-
+        Return the list of id corresponding to the meeting available to the
+        current user
+      parameters:
+        - $ref: '#/parameters/tokenParam'
+        - $ref: '#/parameters/requesterParam'
+        - $ref: '#/parameters/dateFormatParam'
+        - $ref: '#/parameters/filterParam'
+        - $ref: '#/parameters/pathtoloadParam'
+      description: ''
+      responses:
+        '200':
+          description: >-
+            Successful operation returning the array of id of meeting
+            corresponding to the queries parameters
+          schema:
+            type: array
+            items:
+              type: string
+  /meetingconcerncount:
+    get:
+      operationId: getMeetingconcernCount
+      tags:
+        - Lists
+      summary: Return the count of meetingconcern available to the current user
+      parameters:
+        - $ref: '#/parameters/tokenParam'
+        - $ref: '#/parameters/requesterParam'
+        - $ref: '#/parameters/dateFormatParam'
+        - $ref: '#/parameters/filterParam'
+      description: ''
+      responses:
+        '200':
+          description: >-
+            Successful operation returning the number of meetingconcern
+            corresponding to the queries parameters
+          schema:
+            type: number
+  /meetingconcerns:
+    get:
+      operationId: getMeetingconcern
+      tags:
+        - Lists
+      summary: Return the list of meetingconcern available to the current user
+      parameters:
+        - $ref: '#/parameters/tokenParam'
+        - $ref: '#/parameters/requesterParam'
+        - $ref: '#/parameters/dateFormatParam'
+        - $ref: '#/parameters/filterParam'
+        - $ref: '#/parameters/pathtoloadParam'
+      description: ''
+      responses:
+        '200':
+          description: >-
+            Successful operation returning the array of meetingconcern
+            corresponding to the queries parameters
+          schema:
+            type: array
+            items:
+              $ref: '#/definitions/MeetingConcern'
+    post:
+      operationId: postMeetingconcern
+      tags:
+        - Lists
+      summary: To create new meetingconcern in the cloud APROPLAN
+      parameters:
+        - $ref: '#/parameters/tokenParam'
+        - $ref: '#/parameters/requesterParam'
+        - $ref: '#/parameters/dateFormatParam'
+        - in: body
+          name: body
+          description: This is the array of meetingconcern to create through the cloud
+          schema:
+            type: array
+            items:
+              $ref: '#/definitions/MeetingConcern'
+      responses:
+        '200':
+          description: Successful operation to create new meetingconcern array in the cloud
+          schema:
+            type: array
+            items:
+              $ref: '#/definitions/MeetingConcern'
+    put:
+      operationId: putMeetingconcern
+      tags:
+        - Lists
+      summary: To update meetingconcern in the cloud APROPLAN
+      parameters:
+        - $ref: '#/parameters/tokenParam'
+        - $ref: '#/parameters/requesterParam'
+        - $ref: '#/parameters/dateFormatParam'
+        - in: body
+          name: body
+          description: This is the array of meetingconcern to update in the cloud
+          schema:
+            type: array
+            items:
+              $ref: '#/definitions/MeetingConcern'
+      responses:
+        '200':
+          description: Successful operation to update array of meetingconcern in the cloud
+          schema:
+            type: array
+            items:
+              $ref: '#/definitions/MeetingConcern'
+    delete:
+      operationId: deleteMeetingconcern
+      tags:
+        - Lists
+      summary: To delete items of meetingconcern in the cloud APROPLAN
+      parameters:
+        - $ref: '#/parameters/tokenParam'
+        - $ref: '#/parameters/requesterParam'
+        - $ref: '#/parameters/dateFormatParam'
+        - in: body
+          name: body
+          description: Array of meetingconcern id to delete from the cloud
+          required: true
+          schema:
+            type: array
+            items:
+              type: string
+            example:
+              - ea5d793f-c795-4311-8344-eb18e8efa065
+              - afff9354-abb3-4a9c-aca5-9810490938ef
+      responses:
+        '200':
+          description: >-
+            Successful operation meaning all specified items of meetingconcern
+            corresponding to ids in parameters are deleted from the cloud
+          schema:
+            type: string
+            example: success
+  /meetingconcernsids:
+    get:
+      operationId: getMeetingconcernIds
+      tags:
+        - Lists
+      summary: >-
+        Return the list of id corresponding to the meetingconcern available to
+        the current user
+      parameters:
+        - $ref: '#/parameters/tokenParam'
+        - $ref: '#/parameters/requesterParam'
+        - $ref: '#/parameters/dateFormatParam'
+        - $ref: '#/parameters/filterParam'
+        - $ref: '#/parameters/pathtoloadParam'
+      description: ''
+      responses:
+        '200':
+          description: >-
+            Successful operation returning the array of id of meetingconcern
+            corresponding to the queries parameters
+          schema:
+            type: array
+            items:
+              type: string
+  /meetingdocumentcount:
+    get:
+      operationId: getMeetingdocumentCount
+      tags:
+        - Lists
+      summary: Return the count of meetingdocument available to the current user
+      parameters:
+        - $ref: '#/parameters/tokenParam'
+        - $ref: '#/parameters/requesterParam'
+        - $ref: '#/parameters/dateFormatParam'
+        - $ref: '#/parameters/filterParam'
+      description: ''
+      responses:
+        '200':
+          description: >-
+            Successful operation returning the number of meetingdocument
+            corresponding to the queries parameters
+          schema:
+            type: number
+  /meetingdocuments:
+    get:
+      operationId: getMeetingdocument
+      tags:
+        - Lists
+      summary: Return the list of meetingdocument available to the current user
+      parameters:
+        - $ref: '#/parameters/tokenParam'
+        - $ref: '#/parameters/requesterParam'
+        - $ref: '#/parameters/dateFormatParam'
+        - $ref: '#/parameters/filterParam'
+        - $ref: '#/parameters/pathtoloadParam'
+      description: ''
+      responses:
+        '200':
+          description: >-
+            Successful operation returning the array of meetingdocument
+            corresponding to the queries parameters
+          schema:
+            type: array
+            items:
+              $ref: '#/definitions/MeetingDocument'
+    post:
+      operationId: postMeetingdocument
+      tags:
+        - Lists
+      summary: To create new meetingdocument in the cloud APROPLAN
+      parameters:
+        - $ref: '#/parameters/tokenParam'
+        - $ref: '#/parameters/requesterParam'
+        - $ref: '#/parameters/dateFormatParam'
+        - in: body
+          name: body
+          description: This is the array of meetingdocument to create through the cloud
+          schema:
+            type: array
+            items:
+              $ref: '#/definitions/MeetingDocument'
+      responses:
+        '200':
+          description: >-
+            Successful operation to create new meetingdocument array in the
+            cloud
+          schema:
+            type: array
+            items:
+              $ref: '#/definitions/MeetingDocument'
+    put:
+      operationId: putMeetingdocument
+      tags:
+        - Lists
+      summary: To update meetingdocument in the cloud APROPLAN
+      parameters:
+        - $ref: '#/parameters/tokenParam'
+        - $ref: '#/parameters/requesterParam'
+        - $ref: '#/parameters/dateFormatParam'
+        - in: body
+          name: body
+          description: This is the array of meetingdocument to update in the cloud
+          schema:
+            type: array
+            items:
+              $ref: '#/definitions/MeetingDocument'
+      responses:
+        '200':
+          description: Successful operation to update array of meetingdocument in the cloud
+          schema:
+            type: array
+            items:
+              $ref: '#/definitions/MeetingDocument'
+    delete:
+      operationId: deleteMeetingdocument
+      tags:
+        - Lists
+      summary: To delete items of meetingdocument in the cloud APROPLAN
+      parameters:
+        - $ref: '#/parameters/tokenParam'
+        - $ref: '#/parameters/requesterParam'
+        - $ref: '#/parameters/dateFormatParam'
+        - in: body
+          name: body
+          description: Array of meetingdocument id to delete from the cloud
+          required: true
+          schema:
+            type: array
+            items:
+              type: string
+            example:
+              - ea5d793f-c795-4311-8344-eb18e8efa065
+              - afff9354-abb3-4a9c-aca5-9810490938ef
+      responses:
+        '200':
+          description: >-
+            Successful operation meaning all specified items of meetingdocument
+            corresponding to ids in parameters are deleted from the cloud
+          schema:
+            type: string
+            example: success
+  /meetingdocumentsids:
+    get:
+      operationId: getMeetingdocumentIds
+      tags:
+        - Lists
+      summary: >-
+        Return the list of id corresponding to the meetingdocument available to
+        the current user
+      parameters:
+        - $ref: '#/parameters/tokenParam'
+        - $ref: '#/parameters/requesterParam'
+        - $ref: '#/parameters/dateFormatParam'
+        - $ref: '#/parameters/filterParam'
+        - $ref: '#/parameters/pathtoloadParam'
+      description: ''
+      responses:
+        '200':
+          description: >-
+            Successful operation returning the array of id of meetingdocument
+            corresponding to the queries parameters
+          schema:
+            type: array
+            items:
+              type: string
+  /meetingtransferreddocscount:
+    get:
+      operationId: getMeetingtransferreddocsCount
+      tags:
+        - Lists
+      summary: Return the count of meetingtransferreddocs available to the current user
+      parameters:
+        - $ref: '#/parameters/tokenParam'
+        - $ref: '#/parameters/requesterParam'
+        - $ref: '#/parameters/dateFormatParam'
+        - $ref: '#/parameters/filterParam'
+      description: ''
+      responses:
+        '200':
+          description: >-
+            Successful operation returning the number of meetingtransferreddocs
+            corresponding to the queries parameters
+          schema:
+            type: number
+  /meetingtransferreddocs:
+    get:
+      operationId: getMeetingtransferreddocs
+      tags:
+        - Lists
+      summary: Return the list of meetingtransferreddocs available to the current user
+      parameters:
+        - $ref: '#/parameters/tokenParam'
+        - $ref: '#/parameters/requesterParam'
+        - $ref: '#/parameters/dateFormatParam'
+        - $ref: '#/parameters/filterParam'
+        - $ref: '#/parameters/pathtoloadParam'
+      description: ''
+      responses:
+        '200':
+          description: >-
+            Successful operation returning the array of meetingtransferreddocs
+            corresponding to the queries parameters
+          schema:
+            type: array
+            items:
+              $ref: '#/definitions/MeetingTransferredDocs'
+    post:
+      operationId: postMeetingtransferreddocs
+      tags:
+        - Lists
+      summary: To create new meetingtransferreddocs in the cloud APROPLAN
+      parameters:
+        - $ref: '#/parameters/tokenParam'
+        - $ref: '#/parameters/requesterParam'
+        - $ref: '#/parameters/dateFormatParam'
+        - in: body
+          name: body
+          description: >-
+            This is the array of meetingtransferreddocs to create through the
+            cloud
+          schema:
+            type: array
+            items:
+              $ref: '#/definitions/MeetingTransferredDocs'
+      responses:
+        '200':
+          description: >-
+            Successful operation to create new meetingtransferreddocs array in
+            the cloud
+          schema:
+            type: array
+            items:
+              $ref: '#/definitions/MeetingTransferredDocs'
+    put:
+      operationId: putMeetingtransferreddocs
+      tags:
+        - Lists
+      summary: To update meetingtransferreddocs in the cloud APROPLAN
+      parameters:
+        - $ref: '#/parameters/tokenParam'
+        - $ref: '#/parameters/requesterParam'
+        - $ref: '#/parameters/dateFormatParam'
+        - in: body
+          name: body
+          description: This is the array of meetingtransferreddocs to update in the cloud
+          schema:
+            type: array
+            items:
+              $ref: '#/definitions/MeetingTransferredDocs'
+      responses:
+        '200':
+          description: >-
+            Successful operation to update array of meetingtransferreddocs in
+            the cloud
+          schema:
+            type: array
+            items:
+              $ref: '#/definitions/MeetingTransferredDocs'
+    delete:
+      operationId: deleteMeetingtransferreddocs
+      tags:
+        - Lists
+      summary: To delete items of meetingtransferreddocs in the cloud APROPLAN
+      parameters:
+        - $ref: '#/parameters/tokenParam'
+        - $ref: '#/parameters/requesterParam'
+        - $ref: '#/parameters/dateFormatParam'
+        - in: body
+          name: body
+          description: Array of meetingtransferreddocs id to delete from the cloud
+          required: true
+          schema:
+            type: array
+            items:
+              type: string
+            example:
+              - ea5d793f-c795-4311-8344-eb18e8efa065
+              - afff9354-abb3-4a9c-aca5-9810490938ef
+      responses:
+        '200':
+          description: >-
+            Successful operation meaning all specified items of
+            meetingtransferreddocs corresponding to ids in parameters are
+            deleted from the cloud
+          schema:
+            type: string
+            example: success
+  /meetingtransferreddocsids:
+    get:
+      operationId: getMeetingtransferreddocsIds
+      tags:
+        - Lists
+      summary: >-
+        Return the list of id corresponding to the meetingtransferreddocs
+        available to the current user
+      parameters:
+        - $ref: '#/parameters/tokenParam'
+        - $ref: '#/parameters/requesterParam'
+        - $ref: '#/parameters/dateFormatParam'
+        - $ref: '#/parameters/filterParam'
+        - $ref: '#/parameters/pathtoloadParam'
+      description: ''
+      responses:
+        '200':
+          description: >-
+            Successful operation returning the array of id of
+            meetingtransferreddocs corresponding to the queries parameters
+          schema:
+            type: array
+            items:
+              type: string
+  /meetingtransferreddocstocount:
+    get:
+      operationId: getMeetingtransferreddocstoCount
+      tags:
+        - Lists
+      summary: >-
+        Return the count of meetingtransferreddocsto available to the current
+        user
+      parameters:
+        - $ref: '#/parameters/tokenParam'
+        - $ref: '#/parameters/requesterParam'
+        - $ref: '#/parameters/dateFormatParam'
+        - $ref: '#/parameters/filterParam'
+      description: ''
+      responses:
+        '200':
+          description: >-
+            Successful operation returning the number of
+            meetingtransferreddocsto corresponding to the queries parameters
+          schema:
+            type: number
+  /meetingtransferreddocstos:
+    get:
+      operationId: getMeetingtransferreddocsto
+      tags:
+        - Lists
+      summary: >-
+        Return the list of meetingtransferreddocsto available to the current
+        user
+      parameters:
+        - $ref: '#/parameters/tokenParam'
+        - $ref: '#/parameters/requesterParam'
+        - $ref: '#/parameters/dateFormatParam'
+        - $ref: '#/parameters/filterParam'
+        - $ref: '#/parameters/pathtoloadParam'
+      description: ''
+      responses:
+        '200':
+          description: >-
+            Successful operation returning the array of meetingtransferreddocsto
+            corresponding to the queries parameters
+          schema:
+            type: array
+            items:
+              $ref: '#/definitions/MeetingTransferredDocsTo'
+    post:
+      operationId: postMeetingtransferreddocsto
+      tags:
+        - Lists
+      summary: To create new meetingtransferreddocsto in the cloud APROPLAN
+      parameters:
+        - $ref: '#/parameters/tokenParam'
+        - $ref: '#/parameters/requesterParam'
+        - $ref: '#/parameters/dateFormatParam'
+        - in: body
+          name: body
+          description: >-
+            This is the array of meetingtransferreddocsto to create through the
+            cloud
+          schema:
+            type: array
+            items:
+              $ref: '#/definitions/MeetingTransferredDocsTo'
+      responses:
+        '200':
+          description: >-
+            Successful operation to create new meetingtransferreddocsto array in
+            the cloud
+          schema:
+            type: array
+            items:
+              $ref: '#/definitions/MeetingTransferredDocsTo'
+    put:
+      operationId: putMeetingtransferreddocsto
+      tags:
+        - Lists
+      summary: To update meetingtransferreddocsto in the cloud APROPLAN
+      parameters:
+        - $ref: '#/parameters/tokenParam'
+        - $ref: '#/parameters/requesterParam'
+        - $ref: '#/parameters/dateFormatParam'
+        - in: body
+          name: body
+          description: This is the array of meetingtransferreddocsto to update in the cloud
+          schema:
+            type: array
+            items:
+              $ref: '#/definitions/MeetingTransferredDocsTo'
+      responses:
+        '200':
+          description: >-
+            Successful operation to update array of meetingtransferreddocsto in
+            the cloud
+          schema:
+            type: array
+            items:
+              $ref: '#/definitions/MeetingTransferredDocsTo'
+    delete:
+      operationId: deleteMeetingtransferreddocsto
+      tags:
+        - Lists
+      summary: To delete items of meetingtransferreddocsto in the cloud APROPLAN
+      parameters:
+        - $ref: '#/parameters/tokenParam'
+        - $ref: '#/parameters/requesterParam'
+        - $ref: '#/parameters/dateFormatParam'
+        - in: body
+          name: body
+          description: Array of meetingtransferreddocsto id to delete from the cloud
+          required: true
+          schema:
+            type: array
+            items:
+              type: string
+            example:
+              - ea5d793f-c795-4311-8344-eb18e8efa065
+              - afff9354-abb3-4a9c-aca5-9810490938ef
+      responses:
+        '200':
+          description: >-
+            Successful operation meaning all specified items of
+            meetingtransferreddocsto corresponding to ids in parameters are
+            deleted from the cloud
+          schema:
+            type: string
+            example: success
+  /meetingtransferreddocstosids:
+    get:
+      operationId: getMeetingtransferreddocstoIds
+      tags:
+        - Lists
+      summary: >-
+        Return the list of id corresponding to the meetingtransferreddocsto
+        available to the current user
+      parameters:
+        - $ref: '#/parameters/tokenParam'
+        - $ref: '#/parameters/requesterParam'
+        - $ref: '#/parameters/dateFormatParam'
+        - $ref: '#/parameters/filterParam'
+        - $ref: '#/parameters/pathtoloadParam'
+      description: ''
+      responses:
+        '200':
+          description: >-
+            Successful operation returning the array of id of
+            meetingtransferreddocsto corresponding to the queries parameters
+          schema:
+            type: array
+            items:
+              type: string
+  /meetingreportcount:
+    get:
+      operationId: getMeetingreportCount
+      tags:
+        - Lists
+      summary: Return the count of meetingreport available to the current user
+      parameters:
+        - $ref: '#/parameters/tokenParam'
+        - $ref: '#/parameters/requesterParam'
+        - $ref: '#/parameters/dateFormatParam'
+        - $ref: '#/parameters/filterParam'
+      description: ''
+      responses:
+        '200':
+          description: >-
+            Successful operation returning the number of meetingreport
+            corresponding to the queries parameters
+          schema:
+            type: number
+  /meetingreports:
+    get:
+      operationId: getMeetingreport
+      tags:
+        - Lists
+      summary: Return the list of meetingreport available to the current user
+      parameters:
+        - $ref: '#/parameters/tokenParam'
+        - $ref: '#/parameters/requesterParam'
+        - $ref: '#/parameters/dateFormatParam'
+        - $ref: '#/parameters/filterParam'
+        - $ref: '#/parameters/pathtoloadParam'
+      description: ''
+      responses:
+        '200':
+          description: >-
+            Successful operation returning the array of meetingreport
+            corresponding to the queries parameters
+          schema:
+            type: array
+            items:
+              $ref: '#/definitions/MeetingReport'
+    post:
+      operationId: postMeetingreport
+      tags:
+        - Lists
+      summary: To create new meetingreport in the cloud APROPLAN
+      parameters:
+        - $ref: '#/parameters/tokenParam'
+        - $ref: '#/parameters/requesterParam'
+        - $ref: '#/parameters/dateFormatParam'
+        - in: body
+          name: body
+          description: This is the array of meetingreport to create through the cloud
+          schema:
+            type: array
+            items:
+              $ref: '#/definitions/MeetingReport'
+      responses:
+        '200':
+          description: Successful operation to create new meetingreport array in the cloud
+          schema:
+            type: array
+            items:
+              $ref: '#/definitions/MeetingReport'
+    put:
+      operationId: putMeetingreport
+      tags:
+        - Lists
+      summary: To update meetingreport in the cloud APROPLAN
+      parameters:
+        - $ref: '#/parameters/tokenParam'
+        - $ref: '#/parameters/requesterParam'
+        - $ref: '#/parameters/dateFormatParam'
+        - in: body
+          name: body
+          description: This is the array of meetingreport to update in the cloud
+          schema:
+            type: array
+            items:
+              $ref: '#/definitions/MeetingReport'
+      responses:
+        '200':
+          description: Successful operation to update array of meetingreport in the cloud
+          schema:
+            type: array
+            items:
+              $ref: '#/definitions/MeetingReport'
+    delete:
+      operationId: deleteMeetingreport
+      tags:
+        - Lists
+      summary: To delete items of meetingreport in the cloud APROPLAN
+      parameters:
+        - $ref: '#/parameters/tokenParam'
+        - $ref: '#/parameters/requesterParam'
+        - $ref: '#/parameters/dateFormatParam'
+        - in: body
+          name: body
+          description: Array of meetingreport id to delete from the cloud
+          required: true
+          schema:
+            type: array
+            items:
+              type: string
+            example:
+              - ea5d793f-c795-4311-8344-eb18e8efa065
+              - afff9354-abb3-4a9c-aca5-9810490938ef
+      responses:
+        '200':
+          description: >-
+            Successful operation meaning all specified items of meetingreport
+            corresponding to ids in parameters are deleted from the cloud
+          schema:
+            type: string
+            example: success
+  /meetingreportsids:
+    get:
+      operationId: getMeetingreportIds
+      tags:
+        - Lists
+      summary: >-
+        Return the list of id corresponding to the meetingreport available to
+        the current user
+      parameters:
+        - $ref: '#/parameters/tokenParam'
+        - $ref: '#/parameters/requesterParam'
+        - $ref: '#/parameters/dateFormatParam'
+        - $ref: '#/parameters/filterParam'
+        - $ref: '#/parameters/pathtoloadParam'
+      description: ''
+      responses:
+        '200':
+          description: >-
+            Successful operation returning the array of id of meetingreport
+            corresponding to the queries parameters
+          schema:
+            type: array
+            items:
+              type: string
   /uploadnotedocument:
     post:
       operationId: uploadNoteDocuments
@@ -458,12 +4172,587 @@ paths:
             to a point
           schema:
             $ref: '#/definitions/NoteDocument'
-  /forms:
+  /notecount:
     get:
-      operationId: getForms
+      operationId: getNoteCount
+      tags:
+        - Points
+      summary: Return the count of note available to the current user
+      parameters:
+        - $ref: '#/parameters/tokenParam'
+        - $ref: '#/parameters/requesterParam'
+        - $ref: '#/parameters/dateFormatParam'
+        - $ref: '#/parameters/filterParam'
+      description: ''
+      responses:
+        '200':
+          description: >-
+            Successful operation returning the number of note corresponding to
+            the queries parameters
+          schema:
+            type: number
+  /notes:
+    get:
+      operationId: getNote
+      tags:
+        - Points
+      summary: Return the list of note available to the current user
+      parameters:
+        - $ref: '#/parameters/tokenParam'
+        - $ref: '#/parameters/requesterParam'
+        - $ref: '#/parameters/dateFormatParam'
+        - $ref: '#/parameters/filterParam'
+        - $ref: '#/parameters/pathtoloadParam'
+      description: ''
+      responses:
+        '200':
+          description: >-
+            Successful operation returning the array of note corresponding to
+            the queries parameters
+          schema:
+            type: array
+            items:
+              $ref: '#/definitions/Note'
+    post:
+      operationId: postNote
+      tags:
+        - Points
+      summary: To create new note in the cloud APROPLAN
+      parameters:
+        - $ref: '#/parameters/tokenParam'
+        - $ref: '#/parameters/requesterParam'
+        - $ref: '#/parameters/dateFormatParam'
+        - in: body
+          name: body
+          description: This is the array of note to create through the cloud
+          schema:
+            type: array
+            items:
+              $ref: '#/definitions/Note'
+      responses:
+        '200':
+          description: Successful operation to create new note array in the cloud
+          schema:
+            type: array
+            items:
+              $ref: '#/definitions/Note'
+    put:
+      operationId: putNote
+      tags:
+        - Points
+      summary: To update note in the cloud APROPLAN
+      parameters:
+        - $ref: '#/parameters/tokenParam'
+        - $ref: '#/parameters/requesterParam'
+        - $ref: '#/parameters/dateFormatParam'
+        - in: body
+          name: body
+          description: This is the array of note to update in the cloud
+          schema:
+            type: array
+            items:
+              $ref: '#/definitions/Note'
+      responses:
+        '200':
+          description: Successful operation to update array of note in the cloud
+          schema:
+            type: array
+            items:
+              $ref: '#/definitions/Note'
+    delete:
+      operationId: deleteNote
+      tags:
+        - Points
+      summary: To delete items of note in the cloud APROPLAN
+      parameters:
+        - $ref: '#/parameters/tokenParam'
+        - $ref: '#/parameters/requesterParam'
+        - $ref: '#/parameters/dateFormatParam'
+        - in: body
+          name: body
+          description: Array of note id to delete from the cloud
+          required: true
+          schema:
+            type: array
+            items:
+              type: string
+            example:
+              - ea5d793f-c795-4311-8344-eb18e8efa065
+              - afff9354-abb3-4a9c-aca5-9810490938ef
+      responses:
+        '200':
+          description: >-
+            Successful operation meaning all specified items of note
+            corresponding to ids in parameters are deleted from the cloud
+          schema:
+            type: string
+            example: success
+  /notesids:
+    get:
+      operationId: getNoteIds
+      tags:
+        - Points
+      summary: >-
+        Return the list of id corresponding to the note available to the current
+        user
+      parameters:
+        - $ref: '#/parameters/tokenParam'
+        - $ref: '#/parameters/requesterParam'
+        - $ref: '#/parameters/dateFormatParam'
+        - $ref: '#/parameters/filterParam'
+        - $ref: '#/parameters/pathtoloadParam'
+      description: ''
+      responses:
+        '200':
+          description: >-
+            Successful operation returning the array of id of note corresponding
+            to the queries parameters
+          schema:
+            type: array
+            items:
+              type: string
+  /noteinchargecount:
+    get:
+      operationId: getNoteinchargeCount
+      tags:
+        - Annotations
+      summary: Return the count of noteincharge available to the current user
+      parameters:
+        - $ref: '#/parameters/tokenParam'
+        - $ref: '#/parameters/requesterParam'
+        - $ref: '#/parameters/dateFormatParam'
+        - $ref: '#/parameters/filterParam'
+      description: ''
+      responses:
+        '200':
+          description: >-
+            Successful operation returning the number of noteincharge
+            corresponding to the queries parameters
+          schema:
+            type: number
+  /noteincharges:
+    get:
+      operationId: getNoteincharge
+      tags:
+        - Annotations
+      summary: Return the list of noteincharge available to the current user
+      parameters:
+        - $ref: '#/parameters/tokenParam'
+        - $ref: '#/parameters/requesterParam'
+        - $ref: '#/parameters/dateFormatParam'
+        - $ref: '#/parameters/filterParam'
+        - $ref: '#/parameters/pathtoloadParam'
+      description: ''
+      responses:
+        '200':
+          description: >-
+            Successful operation returning the array of noteincharge
+            corresponding to the queries parameters
+          schema:
+            type: array
+            items:
+              $ref: '#/definitions/NoteInCharge'
+    post:
+      operationId: postNoteincharge
+      tags:
+        - Annotations
+      summary: To create new noteincharge in the cloud APROPLAN
+      parameters:
+        - $ref: '#/parameters/tokenParam'
+        - $ref: '#/parameters/requesterParam'
+        - $ref: '#/parameters/dateFormatParam'
+        - in: body
+          name: body
+          description: This is the array of noteincharge to create through the cloud
+          schema:
+            type: array
+            items:
+              $ref: '#/definitions/NoteInCharge'
+      responses:
+        '200':
+          description: Successful operation to create new noteincharge array in the cloud
+          schema:
+            type: array
+            items:
+              $ref: '#/definitions/NoteInCharge'
+    put:
+      operationId: putNoteincharge
+      tags:
+        - Annotations
+      summary: To update noteincharge in the cloud APROPLAN
+      parameters:
+        - $ref: '#/parameters/tokenParam'
+        - $ref: '#/parameters/requesterParam'
+        - $ref: '#/parameters/dateFormatParam'
+        - in: body
+          name: body
+          description: This is the array of noteincharge to update in the cloud
+          schema:
+            type: array
+            items:
+              $ref: '#/definitions/NoteInCharge'
+      responses:
+        '200':
+          description: Successful operation to update array of noteincharge in the cloud
+          schema:
+            type: array
+            items:
+              $ref: '#/definitions/NoteInCharge'
+    delete:
+      operationId: deleteNoteincharge
+      tags:
+        - Annotations
+      summary: To delete items of noteincharge in the cloud APROPLAN
+      parameters:
+        - $ref: '#/parameters/tokenParam'
+        - $ref: '#/parameters/requesterParam'
+        - $ref: '#/parameters/dateFormatParam'
+        - in: body
+          name: body
+          description: Array of noteincharge id to delete from the cloud
+          required: true
+          schema:
+            type: array
+            items:
+              type: string
+            example:
+              - ea5d793f-c795-4311-8344-eb18e8efa065
+              - afff9354-abb3-4a9c-aca5-9810490938ef
+      responses:
+        '200':
+          description: >-
+            Successful operation meaning all specified items of noteincharge
+            corresponding to ids in parameters are deleted from the cloud
+          schema:
+            type: string
+            example: success
+  /noteinchargesids:
+    get:
+      operationId: getNoteinchargeIds
+      tags:
+        - Annotations
+      summary: >-
+        Return the list of id corresponding to the noteincharge available to the
+        current user
+      parameters:
+        - $ref: '#/parameters/tokenParam'
+        - $ref: '#/parameters/requesterParam'
+        - $ref: '#/parameters/dateFormatParam'
+        - $ref: '#/parameters/filterParam'
+        - $ref: '#/parameters/pathtoloadParam'
+      description: ''
+      responses:
+        '200':
+          description: >-
+            Successful operation returning the array of id of noteincharge
+            corresponding to the queries parameters
+          schema:
+            type: array
+            items:
+              type: string
+  /notecommentcount:
+    get:
+      operationId: getNotecommentCount
+      tags:
+        - Annotations
+      summary: Return the count of notecomment available to the current user
+      parameters:
+        - $ref: '#/parameters/tokenParam'
+        - $ref: '#/parameters/requesterParam'
+        - $ref: '#/parameters/dateFormatParam'
+        - $ref: '#/parameters/filterParam'
+      description: ''
+      responses:
+        '200':
+          description: >-
+            Successful operation returning the number of notecomment
+            corresponding to the queries parameters
+          schema:
+            type: number
+  /notecomments:
+    get:
+      operationId: getNotecomment
+      tags:
+        - Annotations
+      summary: Return the list of notecomment available to the current user
+      parameters:
+        - $ref: '#/parameters/tokenParam'
+        - $ref: '#/parameters/requesterParam'
+        - $ref: '#/parameters/dateFormatParam'
+        - $ref: '#/parameters/filterParam'
+        - $ref: '#/parameters/pathtoloadParam'
+      description: ''
+      responses:
+        '200':
+          description: >-
+            Successful operation returning the array of notecomment
+            corresponding to the queries parameters
+          schema:
+            type: array
+            items:
+              $ref: '#/definitions/NoteComment'
+    post:
+      operationId: postNotecomment
+      tags:
+        - Annotations
+      summary: To create new notecomment in the cloud APROPLAN
+      parameters:
+        - $ref: '#/parameters/tokenParam'
+        - $ref: '#/parameters/requesterParam'
+        - $ref: '#/parameters/dateFormatParam'
+        - in: body
+          name: body
+          description: This is the array of notecomment to create through the cloud
+          schema:
+            type: array
+            items:
+              $ref: '#/definitions/NoteComment'
+      responses:
+        '200':
+          description: Successful operation to create new notecomment array in the cloud
+          schema:
+            type: array
+            items:
+              $ref: '#/definitions/NoteComment'
+    put:
+      operationId: putNotecomment
+      tags:
+        - Annotations
+      summary: To update notecomment in the cloud APROPLAN
+      parameters:
+        - $ref: '#/parameters/tokenParam'
+        - $ref: '#/parameters/requesterParam'
+        - $ref: '#/parameters/dateFormatParam'
+        - in: body
+          name: body
+          description: This is the array of notecomment to update in the cloud
+          schema:
+            type: array
+            items:
+              $ref: '#/definitions/NoteComment'
+      responses:
+        '200':
+          description: Successful operation to update array of notecomment in the cloud
+          schema:
+            type: array
+            items:
+              $ref: '#/definitions/NoteComment'
+    delete:
+      operationId: deleteNotecomment
+      tags:
+        - Annotations
+      summary: To delete items of notecomment in the cloud APROPLAN
+      parameters:
+        - $ref: '#/parameters/tokenParam'
+        - $ref: '#/parameters/requesterParam'
+        - $ref: '#/parameters/dateFormatParam'
+        - in: body
+          name: body
+          description: Array of notecomment id to delete from the cloud
+          required: true
+          schema:
+            type: array
+            items:
+              type: string
+            example:
+              - ea5d793f-c795-4311-8344-eb18e8efa065
+              - afff9354-abb3-4a9c-aca5-9810490938ef
+      responses:
+        '200':
+          description: >-
+            Successful operation meaning all specified items of notecomment
+            corresponding to ids in parameters are deleted from the cloud
+          schema:
+            type: string
+            example: success
+  /notecommentsids:
+    get:
+      operationId: getNotecommentIds
+      tags:
+        - Annotations
+      summary: >-
+        Return the list of id corresponding to the notecomment available to the
+        current user
+      parameters:
+        - $ref: '#/parameters/tokenParam'
+        - $ref: '#/parameters/requesterParam'
+        - $ref: '#/parameters/dateFormatParam'
+        - $ref: '#/parameters/filterParam'
+        - $ref: '#/parameters/pathtoloadParam'
+      description: ''
+      responses:
+        '200':
+          description: >-
+            Successful operation returning the array of id of notecomment
+            corresponding to the queries parameters
+          schema:
+            type: array
+            items:
+              type: string
+  /notedocumentcount:
+    get:
+      operationId: getNotedocumentCount
+      tags:
+        - Annotations
+      summary: Return the count of notedocument available to the current user
+      parameters:
+        - $ref: '#/parameters/tokenParam'
+        - $ref: '#/parameters/requesterParam'
+        - $ref: '#/parameters/dateFormatParam'
+        - $ref: '#/parameters/filterParam'
+      description: ''
+      responses:
+        '200':
+          description: >-
+            Successful operation returning the number of notedocument
+            corresponding to the queries parameters
+          schema:
+            type: number
+  /notedocuments:
+    get:
+      operationId: getNotedocument
+      tags:
+        - Annotations
+      summary: Return the list of notedocument available to the current user
+      parameters:
+        - $ref: '#/parameters/tokenParam'
+        - $ref: '#/parameters/requesterParam'
+        - $ref: '#/parameters/dateFormatParam'
+        - $ref: '#/parameters/filterParam'
+        - $ref: '#/parameters/pathtoloadParam'
+      description: ''
+      responses:
+        '200':
+          description: >-
+            Successful operation returning the array of notedocument
+            corresponding to the queries parameters
+          schema:
+            type: array
+            items:
+              $ref: '#/definitions/NoteDocument'
+    post:
+      operationId: postNotedocument
+      tags:
+        - Annotations
+      summary: To create new notedocument in the cloud APROPLAN
+      parameters:
+        - $ref: '#/parameters/tokenParam'
+        - $ref: '#/parameters/requesterParam'
+        - $ref: '#/parameters/dateFormatParam'
+        - in: body
+          name: body
+          description: This is the array of notedocument to create through the cloud
+          schema:
+            type: array
+            items:
+              $ref: '#/definitions/NoteDocument'
+      responses:
+        '200':
+          description: Successful operation to create new notedocument array in the cloud
+          schema:
+            type: array
+            items:
+              $ref: '#/definitions/NoteDocument'
+    put:
+      operationId: putNotedocument
+      tags:
+        - Annotations
+      summary: To update notedocument in the cloud APROPLAN
+      parameters:
+        - $ref: '#/parameters/tokenParam'
+        - $ref: '#/parameters/requesterParam'
+        - $ref: '#/parameters/dateFormatParam'
+        - in: body
+          name: body
+          description: This is the array of notedocument to update in the cloud
+          schema:
+            type: array
+            items:
+              $ref: '#/definitions/NoteDocument'
+      responses:
+        '200':
+          description: Successful operation to update array of notedocument in the cloud
+          schema:
+            type: array
+            items:
+              $ref: '#/definitions/NoteDocument'
+    delete:
+      operationId: deleteNotedocument
+      tags:
+        - Annotations
+      summary: To delete items of notedocument in the cloud APROPLAN
+      parameters:
+        - $ref: '#/parameters/tokenParam'
+        - $ref: '#/parameters/requesterParam'
+        - $ref: '#/parameters/dateFormatParam'
+        - in: body
+          name: body
+          description: Array of notedocument id to delete from the cloud
+          required: true
+          schema:
+            type: array
+            items:
+              type: string
+            example:
+              - ea5d793f-c795-4311-8344-eb18e8efa065
+              - afff9354-abb3-4a9c-aca5-9810490938ef
+      responses:
+        '200':
+          description: >-
+            Successful operation meaning all specified items of notedocument
+            corresponding to ids in parameters are deleted from the cloud
+          schema:
+            type: string
+            example: success
+  /notedocumentsids:
+    get:
+      operationId: getNotedocumentIds
+      tags:
+        - Annotations
+      summary: >-
+        Return the list of id corresponding to the notedocument available to the
+        current user
+      parameters:
+        - $ref: '#/parameters/tokenParam'
+        - $ref: '#/parameters/requesterParam'
+        - $ref: '#/parameters/dateFormatParam'
+        - $ref: '#/parameters/filterParam'
+        - $ref: '#/parameters/pathtoloadParam'
+      description: ''
+      responses:
+        '200':
+          description: >-
+            Successful operation returning the array of id of notedocument
+            corresponding to the queries parameters
+          schema:
+            type: array
+            items:
+              type: string
+  /formcount:
+    get:
+      operationId: getFormCount
       tags:
         - Forms
-      summary: Return the list of forms available to the current user
+      summary: Return the count of form available to the current user
+      parameters:
+        - $ref: '#/parameters/tokenParam'
+        - $ref: '#/parameters/requesterParam'
+        - $ref: '#/parameters/dateFormatParam'
+        - $ref: '#/parameters/filterParam'
+      description: ''
+      responses:
+        '200':
+          description: >-
+            Successful operation returning the number of form corresponding to
+            the queries parameters
+          schema:
+            type: number
+  /forms:
+    get:
+      operationId: getForm
+      tags:
+        - Forms
+      summary: Return the list of form available to the current user
       parameters:
         - $ref: '#/parameters/tokenParam'
         - $ref: '#/parameters/requesterParam'
@@ -475,13 +4764,13 @@ paths:
         '200':
           description: >-
             Successful operation returning the array of form corresponding to
-            the queryparameter
+            the queries parameters
           schema:
             type: array
             items:
               $ref: '#/definitions/Form'
     post:
-      operationId: postForms
+      operationId: postForm
       tags:
         - Forms
       summary: To create new form in the cloud APROPLAN
@@ -491,7 +4780,7 @@ paths:
         - $ref: '#/parameters/dateFormatParam'
         - in: body
           name: body
-          description: This is the array of forms to create through the cloud
+          description: This is the array of form to create through the cloud
           schema:
             type: array
             items:
@@ -504,40 +4793,40 @@ paths:
             items:
               $ref: '#/definitions/Form'
     put:
-      operationId: putForms
+      operationId: putForm
       tags:
         - Forms
-      summary: To update forms in the cloud APROPLAN
+      summary: To update form in the cloud APROPLAN
       parameters:
         - $ref: '#/parameters/tokenParam'
         - $ref: '#/parameters/requesterParam'
         - $ref: '#/parameters/dateFormatParam'
         - in: body
           name: body
-          description: This is the array of forms to update in the cloud
+          description: This is the array of form to update in the cloud
           schema:
             type: array
             items:
               $ref: '#/definitions/Form'
       responses:
         '200':
-          description: Successful operation to update array of forms in the cloud
+          description: Successful operation to update array of form in the cloud
           schema:
             type: array
             items:
               $ref: '#/definitions/Form'
     delete:
-      operationId: deleteForms
+      operationId: deleteForm
       tags:
         - Forms
-      summary: To delete forms and all items in the cloud APROPLAN
+      summary: To delete items of form in the cloud APROPLAN
       parameters:
         - $ref: '#/parameters/tokenParam'
         - $ref: '#/parameters/requesterParam'
         - $ref: '#/parameters/dateFormatParam'
         - in: body
           name: body
-          description: Array of FormSignature id to delete from the cloud
+          description: Array of form id to delete from the cloud
           required: true
           schema:
             type: array
@@ -549,162 +4838,510 @@ paths:
       responses:
         '200':
           description: >-
-            Successful operation meaning all specified id of Form are deleted
-            from the cloud
+            Successful operation meaning all specified items of form
+            corresponding to ids in parameters are deleted from the cloud
           schema:
             type: string
             example: success
+  /formsids:
+    get:
+      operationId: getFormIds
+      tags:
+        - Forms
+      summary: >-
+        Return the list of id corresponding to the form available to the current
+        user
+      parameters:
+        - $ref: '#/parameters/tokenParam'
+        - $ref: '#/parameters/requesterParam'
+        - $ref: '#/parameters/dateFormatParam'
+        - $ref: '#/parameters/filterParam'
+        - $ref: '#/parameters/pathtoloadParam'
+      description: ''
+      responses:
+        '200':
+          description: >-
+            Successful operation returning the array of id of form corresponding
+            to the queries parameters
+          schema:
+            type: array
+            items:
+              type: string
+  /formitemcount:
+    get:
+      operationId: getFormitemCount
+      tags:
+        - Forms
+      summary: Return the count of formitem available to the current user
+      parameters:
+        - $ref: '#/parameters/tokenParam'
+        - $ref: '#/parameters/requesterParam'
+        - $ref: '#/parameters/dateFormatParam'
+        - $ref: '#/parameters/filterParam'
+      description: ''
+      responses:
+        '200':
+          description: >-
+            Successful operation returning the number of formitem corresponding
+            to the queries parameters
+          schema:
+            type: number
   /formitems:
     get:
-      operationId: getFormItems
+      operationId: getFormitem
       tags:
         - Forms
-      summary: Retrieve items related to a specific form
+      summary: Return the list of formitem available to the current user
       parameters:
         - $ref: '#/parameters/tokenParam'
         - $ref: '#/parameters/requesterParam'
         - $ref: '#/parameters/dateFormatParam'
-        - in: query
-          name: parentEntityId
-          required: true
-          description: This is the parent form for which the item are requested
-          type: string
+        - $ref: '#/parameters/filterParam'
+        - $ref: '#/parameters/pathtoloadParam'
       description: ''
       responses:
         '200':
           description: >-
-            Successful operation returning the array of form item corresponding
-            to a specific form
+            Successful operation returning the array of formitem corresponding
+            to the queries parameters
           schema:
             type: array
             items:
               $ref: '#/definitions/FormItem'
     post:
-      operationId: postFormItems
+      operationId: postFormitem
       tags:
         - Forms
-      summary: Create new items related to a specific form
+      summary: To create new formitem in the cloud APROPLAN
       parameters:
         - $ref: '#/parameters/tokenParam'
         - $ref: '#/parameters/requesterParam'
         - $ref: '#/parameters/dateFormatParam'
         - in: body
           name: body
-          required: true
-          description: This is the array of form's item to create
+          description: This is the array of formitem to create through the cloud
           schema:
             type: array
             items:
               $ref: '#/definitions/FormItem'
-      description: ''
       responses:
         '200':
-          description: Successful operation returning the array of form's items created
+          description: Successful operation to create new formitem array in the cloud
           schema:
             type: array
             items:
               $ref: '#/definitions/FormItem'
     put:
-      operationId: putFormItems
+      operationId: putFormitem
       tags:
         - Forms
-      summary: Update form's items
+      summary: To update formitem in the cloud APROPLAN
       parameters:
         - $ref: '#/parameters/tokenParam'
         - $ref: '#/parameters/requesterParam'
         - $ref: '#/parameters/dateFormatParam'
         - in: body
           name: body
-          required: true
-          description: This is the array of form's item to update
+          description: This is the array of formitem to update in the cloud
           schema:
             type: array
             items:
               $ref: '#/definitions/FormItem'
-      description: ''
       responses:
         '200':
-          description: Successful operation returning the array of form's items updated
+          description: Successful operation to update array of formitem in the cloud
           schema:
             type: array
             items:
               $ref: '#/definitions/FormItem'
-  /formsignatures:
+    delete:
+      operationId: deleteFormitem
+      tags:
+        - Forms
+      summary: To delete items of formitem in the cloud APROPLAN
+      parameters:
+        - $ref: '#/parameters/tokenParam'
+        - $ref: '#/parameters/requesterParam'
+        - $ref: '#/parameters/dateFormatParam'
+        - in: body
+          name: body
+          description: Array of formitem id to delete from the cloud
+          required: true
+          schema:
+            type: array
+            items:
+              type: string
+            example:
+              - ea5d793f-c795-4311-8344-eb18e8efa065
+              - afff9354-abb3-4a9c-aca5-9810490938ef
+      responses:
+        '200':
+          description: >-
+            Successful operation meaning all specified items of formitem
+            corresponding to ids in parameters are deleted from the cloud
+          schema:
+            type: string
+            example: success
+  /formitemsids:
     get:
-      operationId: getFormSignatures
+      operationId: getFormitemIds
       tags:
         - Forms
-      summary: Retrieve the signatures of a specified form
+      summary: >-
+        Return the list of id corresponding to the formitem available to the
+        current user
       parameters:
         - $ref: '#/parameters/tokenParam'
         - $ref: '#/parameters/requesterParam'
         - $ref: '#/parameters/dateFormatParam'
-        - in: query
-          name: parentEntityId
-          required: true
-          description: This is the parent form for which the signature are requested
-          type: string
+        - $ref: '#/parameters/filterParam'
+        - $ref: '#/parameters/pathtoloadParam'
       description: ''
       responses:
         '200':
           description: >-
-            Successful operation returning the array of form signatures
-            corresponding to a specific form
+            Successful operation returning the array of id of formitem
+            corresponding to the queries parameters
           schema:
             type: array
             items:
-              $ref: '#/definitions/FormSignature'
-    put:
-      operationId: putFormSignatures
+              type: string
+  /formtemplatecount:
+    get:
+      operationId: getFormtemplateCount
       tags:
-        - Forms
-      summary: To edit a new signature for the form
+        - Form Template
+      summary: Return the count of formtemplate available to the current user
       parameters:
         - $ref: '#/parameters/tokenParam'
         - $ref: '#/parameters/requesterParam'
         - $ref: '#/parameters/dateFormatParam'
-        - in: body
-          name: body
-          description: Array of formsignatures to edit
-          required: true
-          schema:
-            type: array
-            items:
-              $ref: '#/definitions/FormSignature'
+        - $ref: '#/parameters/filterParam'
+      description: ''
       responses:
         '200':
-          description: 'Successfull update of all signatures. '
+          description: >-
+            Successful operation returning the number of formtemplate
+            corresponding to the queries parameters
+          schema:
+            type: number
+  /formtemplates:
+    get:
+      operationId: getFormtemplate
+      tags:
+        - Form Template
+      summary: Return the list of formtemplate available to the current user
+      parameters:
+        - $ref: '#/parameters/tokenParam'
+        - $ref: '#/parameters/requesterParam'
+        - $ref: '#/parameters/dateFormatParam'
+        - $ref: '#/parameters/filterParam'
+        - $ref: '#/parameters/pathtoloadParam'
+      description: ''
+      responses:
+        '200':
+          description: >-
+            Successful operation returning the array of formtemplate
+            corresponding to the queries parameters
           schema:
             type: array
             items:
-              $ref: '#/definitions/FormSignature'
+              $ref: '#/definitions/FormTemplate'
     post:
-      operationId: postFormSignatures
+      operationId: postFormtemplate
       tags:
         - Forms
-      summary: To create  new signatures for the form
+      summary: To create new formtemplate in the cloud APROPLAN
       parameters:
         - $ref: '#/parameters/tokenParam'
         - $ref: '#/parameters/requesterParam'
         - $ref: '#/parameters/dateFormatParam'
         - in: body
           name: body
-          description: Array of formsignatures to create
+          description: This is the array of formtemplate to create through the cloud
+          schema:
+            type: array
+            items:
+              $ref: '#/definitions/FormTemplate'
+      responses:
+        '200':
+          description: Successful operation to create new formtemplate array in the cloud
+          schema:
+            type: array
+            items:
+              $ref: '#/definitions/FormTemplate'
+    put:
+      operationId: putFormtemplate
+      tags:
+        - Forms
+      summary: To update formtemplate in the cloud APROPLAN
+      parameters:
+        - $ref: '#/parameters/tokenParam'
+        - $ref: '#/parameters/requesterParam'
+        - $ref: '#/parameters/dateFormatParam'
+        - in: body
+          name: body
+          description: This is the array of formtemplate to update in the cloud
+          schema:
+            type: array
+            items:
+              $ref: '#/definitions/FormTemplate'
+      responses:
+        '200':
+          description: Successful operation to update array of formtemplate in the cloud
+          schema:
+            type: array
+            items:
+              $ref: '#/definitions/FormTemplate'
+    delete:
+      operationId: deleteFormtemplate
+      tags:
+        - Forms
+      summary: To delete items of formtemplate in the cloud APROPLAN
+      parameters:
+        - $ref: '#/parameters/tokenParam'
+        - $ref: '#/parameters/requesterParam'
+        - $ref: '#/parameters/dateFormatParam'
+        - in: body
+          name: body
+          description: Array of formtemplate id to delete from the cloud
           required: true
           schema:
             type: array
             items:
-              $ref: '#/definitions/FormSignature'
+              type: string
+            example:
+              - ea5d793f-c795-4311-8344-eb18e8efa065
+              - afff9354-abb3-4a9c-aca5-9810490938ef
       responses:
         '200':
-          description: 'Successfull create of all signatures. '
+          description: >-
+            Successful operation meaning all specified items of formtemplate
+            corresponding to ids in parameters are deleted from the cloud
+          schema:
+            type: string
+            example: success
+  /formtemplatesids:
+    get:
+      operationId: getFormtemplateIds
+      tags:
+        - Form Template
+      summary: >-
+        Return the list of id corresponding to the formtemplate available to the
+        current user
+      parameters:
+        - $ref: '#/parameters/tokenParam'
+        - $ref: '#/parameters/requesterParam'
+        - $ref: '#/parameters/dateFormatParam'
+        - $ref: '#/parameters/filterParam'
+        - $ref: '#/parameters/pathtoloadParam'
+      description: ''
+      responses:
+        '200':
+          description: >-
+            Successful operation returning the array of id of formtemplate
+            corresponding to the queries parameters
           schema:
             type: array
             items:
-              $ref: '#/definitions/FormSignature'
+              type: string
+  /formquestioncount:
+    get:
+      operationId: getFormquestionCount
+      tags:
+        - Form Template
+      summary: Return the count of formquestion available to the current user
+      parameters:
+        - $ref: '#/parameters/tokenParam'
+        - $ref: '#/parameters/requesterParam'
+        - $ref: '#/parameters/dateFormatParam'
+        - $ref: '#/parameters/filterParam'
+      description: ''
+      responses:
+        '200':
+          description: >-
+            Successful operation returning the number of formquestion
+            corresponding to the queries parameters
+          schema:
+            type: number
+  /formquestions:
+    get:
+      operationId: getFormquestion
+      tags:
+        - Form Template
+      summary: Return the list of formquestion available to the current user
+      parameters:
+        - $ref: '#/parameters/tokenParam'
+        - $ref: '#/parameters/requesterParam'
+        - $ref: '#/parameters/dateFormatParam'
+        - $ref: '#/parameters/filterParam'
+        - $ref: '#/parameters/pathtoloadParam'
+      description: ''
+      responses:
+        '200':
+          description: >-
+            Successful operation returning the array of formquestion
+            corresponding to the queries parameters
+          schema:
+            type: array
+            items:
+              $ref: '#/definitions/FormQuestion'
+    post:
+      operationId: postFormquestion
+      tags:
+        - Forms
+      summary: To create new formquestion in the cloud APROPLAN
+      parameters:
+        - $ref: '#/parameters/tokenParam'
+        - $ref: '#/parameters/requesterParam'
+        - $ref: '#/parameters/dateFormatParam'
+        - in: body
+          name: body
+          description: This is the array of formquestion to create through the cloud
+          schema:
+            type: array
+            items:
+              $ref: '#/definitions/FormQuestion'
+      responses:
+        '200':
+          description: Successful operation to create new formquestion array in the cloud
+          schema:
+            type: array
+            items:
+              $ref: '#/definitions/FormQuestion'
+    put:
+      operationId: putFormquestion
+      tags:
+        - Forms
+      summary: To update formquestion in the cloud APROPLAN
+      parameters:
+        - $ref: '#/parameters/tokenParam'
+        - $ref: '#/parameters/requesterParam'
+        - $ref: '#/parameters/dateFormatParam'
+        - in: body
+          name: body
+          description: This is the array of formquestion to update in the cloud
+          schema:
+            type: array
+            items:
+              $ref: '#/definitions/FormQuestion'
+      responses:
+        '200':
+          description: Successful operation to update array of formquestion in the cloud
+          schema:
+            type: array
+            items:
+              $ref: '#/definitions/FormQuestion'
+    delete:
+      operationId: deleteFormquestion
+      tags:
+        - Forms
+      summary: To delete items of formquestion in the cloud APROPLAN
+      parameters:
+        - $ref: '#/parameters/tokenParam'
+        - $ref: '#/parameters/requesterParam'
+        - $ref: '#/parameters/dateFormatParam'
+        - in: body
+          name: body
+          description: Array of formquestion id to delete from the cloud
+          required: true
+          schema:
+            type: array
+            items:
+              type: string
+            example:
+              - ea5d793f-c795-4311-8344-eb18e8efa065
+              - afff9354-abb3-4a9c-aca5-9810490938ef
+      responses:
+        '200':
+          description: >-
+            Successful operation meaning all specified items of formquestion
+            corresponding to ids in parameters are deleted from the cloud
+          schema:
+            type: string
+            example: success
+  /formquestionsids:
+    get:
+      operationId: getFormquestionIds
+      tags:
+        - Form Template
+      summary: >-
+        Return the list of id corresponding to the formquestion available to the
+        current user
+      parameters:
+        - $ref: '#/parameters/tokenParam'
+        - $ref: '#/parameters/requesterParam'
+        - $ref: '#/parameters/dateFormatParam'
+        - $ref: '#/parameters/filterParam'
+        - $ref: '#/parameters/pathtoloadParam'
+      description: ''
+      responses:
+        '200':
+          description: >-
+            Successful operation returning the array of id of formquestion
+            corresponding to the queries parameters
+          schema:
+            type: array
+            items:
+              type: string
+  /formfinalization:
+    put:
+      operationId: putFormFinalization
+      tags:
+        - Forms
+      summary: Finalize a form
+      parameters:
+        - in: body
+          name: FormReportParams
+          description: >-
+            Basic definition of the report that will be generated after the
+            finalization, if successful.
+          schema:
+            $ref: '#/definitions/FormReportParams'
+      responses:
+        '200':
+          description: >-
+            Successful operation. Return the form finalized and the
+            ReportRequest identification
+          schema:
+            $ref: '#/definitions/FormFinalizationResponse'
+  /formsync:
+    get:
+      operationId: getFormSync
+      tags:
+        - Form Synchronization
+      summary: Retrieve form of a user from a specific last datetime synchronization
+      description: ''
+      responses:
+        '200':
+          description: >-
+            Successful operation returning the array of forms updated/deleted
+            from a specific date
+          schema:
+            type: array
+            items:
+              $ref: '#/definitions/Form'
+  /formtemplatesync:
+    get:
+      operationId: getFormTemplateSync
+      tags:
+        - Form Synchronization
+      summary: >-
+        Retrieve form template available to a user from a specific last datetime
+        synchronization
+      description: ''
+      responses:
+        '200':
+          description: >-
+            Successful operation returning the array of forms updated/deleted
+            from a specific date
+          schema:
+            type: array
+            items:
+              $ref: '#/definitions/Form'
   /previewformreport:
     post:
-      operationId: previewFormReport
+      operationId: getPreviewFormReport
       tags:
         - Forms
       summary: To preview the form report
@@ -724,302 +5361,6 @@ paths:
           description: The report request is created with parameter
           schema:
             $ref: '#/definitions/ReportRestIdentification'
-  /formfinalization:
-    put:
-      operationId: formFinalization
-      tags:
-        - Forms
-      summary: Finalize a form
-      parameters:
-        - in: body
-          name: FormReportParams
-          description: >-
-            Basic definition of the report that will be generated after the
-            finalization, if successful.
-          schema:
-            $ref: '#/definitions/FormReportParams'
-      responses:
-        '200':
-          description: >-
-            Successful operation. Return the form finalized and the
-            ReportRequest identification
-          schema:
-            $ref: '#/definitions/FormFinalizationResponse'
-  /formtemplates:
-    get:
-      operationId: getFormTemplates
-      tags:
-        - Form Template
-      summary: Return form template available to the current user
-      parameters:
-        - $ref: '#/parameters/tokenParam'
-        - $ref: '#/parameters/requesterParam'
-        - $ref: '#/parameters/dateFormatParam'
-        - $ref: '#/parameters/filterParam'
-        - $ref: '#/parameters/pathtoloadParam'
-      description: ''
-      responses:
-        '200':
-          description: >-
-            Successful operation returning the array of formtemplate
-            corresponding to the queryparameter
-          schema:
-            type: array
-            items:
-              $ref: '#/definitions/FormTemplate'
-    post:
-      operationId: postFormTemplates
-      tags:
-        - Form Template
-      summary: >-
-        To create new form templates for the company of the current user to
-        APROPLAN
-      description: ''
-      consumes:
-        - application/json
-      produces:
-        - application/json
-      parameters:
-        - $ref: '#/parameters/tokenParam'
-        - $ref: '#/parameters/requesterParam'
-        - $ref: '#/parameters/dateFormatParam'
-        - in: body
-          name: body
-          description: Form object that needs to be added
-          required: true
-          schema:
-            type: array
-            items:
-              $ref: '#/definitions/FormTemplate'
-      responses:
-        '200':
-          description: Successful operation returning the array of formtemplate created
-          schema:
-            type: array
-            items:
-              $ref: '#/definitions/FormTemplate'
-        '405':
-          description: Invalid input
-    put:
-      tags:
-        - Form Template
-      summary: Update a form template available to the current user
-      operationId: updateFormTemplate
-      consumes:
-        - application/json
-      produces:
-        - application/json
-      parameters:
-        - $ref: '#/parameters/tokenParam'
-        - $ref: '#/parameters/requesterParam'
-        - $ref: '#/parameters/dateFormatParam'
-        - in: body
-          name: body
-          description: Form object that needs to be added
-          required: true
-          schema:
-            type: array
-            items:
-              $ref: '#/definitions/FormTemplate'
-      responses:
-        '200':
-          description: OK
-          schema:
-            type: array
-            items:
-              $ref: '#/definitions/FormTemplate'
-        '405':
-          description: Invalid input
-    delete:
-      operationId: deleteFormTemplates
-      tags:
-        - Form Template
-      summary: Delete a form template available to the current user
-      parameters:
-        - $ref: '#/parameters/tokenParam'
-        - $ref: '#/parameters/requesterParam'
-        - $ref: '#/parameters/dateFormatParam'
-        - in: body
-          name: body
-          description: Array of formtemplate id to delete from the cloud
-          required: true
-          schema:
-            type: array
-            items:
-              type: number
-            example:
-              - ea5d793f-c795-4311-8344-eb18e8efa065
-              - afff9354-abb3-4a9c-aca5-9810490938ef
-      responses:
-        '200':
-          description: >-
-            Successful operation meaning all specified id of FormTemplate are
-            deleted with all related questions from the cloud
-          schema:
-            type: string
-            example: success
-  /formquestions:
-    get:
-      operationId: getFormQuestions
-      tags:
-        - Form Template
-      summary: Retrieve questions related to a specific form template
-      parameters:
-        - $ref: '#/parameters/tokenParam'
-        - $ref: '#/parameters/requesterParam'
-        - $ref: '#/parameters/dateFormatParam'
-        - in: query
-          name: parentEntityId
-          required: true
-          description: >-
-            This is the parent form template for which the questions are
-            requested
-          type: string
-      description: ''
-      responses:
-        '200':
-          description: >-
-            Successful operation returning the array of form question
-            corresponding to a specific form
-          schema:
-            type: array
-            items:
-              $ref: '#/definitions/FormQuestion'
-  /formsignaturerules:
-    get:
-      operationId: getFormSignatureRules
-      tags:
-        - Form Template
-      summary: Retrieve the signature rules of a specified form template
-      parameters:
-        - $ref: '#/parameters/tokenParam'
-        - $ref: '#/parameters/requesterParam'
-        - $ref: '#/parameters/dateFormatParam'
-        - in: query
-          name: parentEntityId
-          required: true
-          description: >-
-            This is the parent form template for which the signature rules are
-            requested
-          type: string
-      description: ''
-      responses:
-        '200':
-          description: >-
-            Successful operation returning the array of form signature rule
-            corresponding to a specific form template
-          schema:
-            type: array
-            items:
-              $ref: '#/definitions/FormSignatureRule'
-    put:
-      operationId: putFormSignatureRules
-      tags:
-        - Form Template
-      summary: To edit a new signature rule for the template
-      parameters:
-        - $ref: '#/parameters/tokenParam'
-        - $ref: '#/parameters/requesterParam'
-        - $ref: '#/parameters/dateFormatParam'
-        - in: body
-          name: body
-          description: Array of formsignaturerules to edit
-          required: true
-          schema:
-            type: array
-            items:
-              $ref: '#/definitions/FormSignatureRule'
-      responses:
-        '200':
-          description: 'Successfull update of all signature rules. '
-          schema:
-            type: array
-            items:
-              $ref: '#/definitions/FormSignatureRule'
-    post:
-      operationId: postFormSignatureRules
-      tags:
-        - Form Template
-      summary: To create  new signature rules for the template
-      parameters:
-        - $ref: '#/parameters/tokenParam'
-        - $ref: '#/parameters/requesterParam'
-        - $ref: '#/parameters/dateFormatParam'
-        - in: body
-          name: body
-          description: Array of formsignaturerules to create
-          required: true
-          schema:
-            type: array
-            items:
-              $ref: '#/definitions/FormSignatureRule'
-      responses:
-        '200':
-          description: 'Successfull create of all signature rules. '
-          schema:
-            type: array
-            items:
-              $ref: '#/definitions/FormSignatureRule'
-    delete:
-      tags:
-        - Form Template
-      summary: Delete form signature rules available to the current user
-      operationId: deleteFormSignatureRule
-      parameters:
-        - $ref: '#/parameters/tokenParam'
-        - $ref: '#/parameters/requesterParam'
-        - $ref: '#/parameters/dateFormatParam'
-        - in: body
-          name: body
-          description: Array of formsignaturerule id to delete from the cloud
-          required: true
-          schema:
-            type: array
-            items:
-              type: number
-            example:
-              - ea5d793f-c795-4311-8344-eb18e8efa065
-              - afff9354-abb3-4a9c-aca5-9810490938ef
-      responses:
-        '200':
-          description: >-
-            Successful operation meaning all specified id of FormSignatureRule
-            are deleted
-          schema:
-            type: string
-            example: success
-  /formsync:
-    get:
-      tags:
-        - Form Synchronization
-      summary: Retrieve form of a user from a specific last datetime synchronization
-      description: ''
-      responses:
-        '200':
-          description: >-
-            Successful operation returning the array of forms updated/deleted
-            from a specific date
-          schema:
-            type: array
-            items:
-              $ref: '#/definitions/Form'
-  /formtemplatesync:
-    get:
-      tags:
-        - Form Synchronization
-      summary: >-
-        Retrieve form template available to a user from a specific last datetime
-        synchronization
-      description: ''
-      responses:
-        '200':
-          description: >-
-            Successful operation returning the array of forms updated/deleted
-            from a specific date
-          schema:
-            type: array
-            items:
-              $ref: '#/definitions/Form'
 definitions:
   AliasPass:
     title: AliasPass
@@ -1925,6 +6266,21 @@ definitions:
             type: boolean
           IsArchived:
             type: boolean
+  Version:
+    type: object
+    allOf:
+      - $ref: '#/definitions/Version'
+      - type: object
+      - title: Version
+      - properties:
+          DocumentId:
+            type: string
+          VersionIndex:
+            type: number
+          PhysicalFolderId:
+            type: string
+          PageNbr:
+            type: number
   Meeting:
     type: object
     allOf:

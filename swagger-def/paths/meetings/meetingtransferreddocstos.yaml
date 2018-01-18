@@ -1,32 +1,3 @@
-delete:
-  operationId: deleteMeetingtransferreddocsto
-  tags:
-    - Lists
-  summary: To delete items of meetingtransferreddocsto in the cloud APROPLAN
-  parameters:
-    - $ref: '#/parameters/tokenParam'
-    - $ref: '#/parameters/requesterParam'
-    - $ref: '#/parameters/dateFormatParam'
-    - in: body
-      name: body
-      description: Array of meetingtransferreddocsto id to delete from the cloud
-      required: true
-      schema:
-        type: array
-        items:
-          type: string
-        example:
-          - ea5d793f-c795-4311-8344-eb18e8efa065
-          - afff9354-abb3-4a9c-aca5-9810490938ef
-  responses:
-    '200':
-      description: >-
-        Successful operation meaning all specified items of
-        meetingtransferreddocsto corresponding to ids in parameters are deleted
-        from the cloud
-      schema:
-        type: string
-        example: success
 get:
   operationId: getMeetingtransferreddocsto
   tags:
@@ -100,3 +71,32 @@ put:
         type: array
         items:
           $ref: '#/definitions/MeetingTransferredDocsTo'
+delete:
+  operationId: deleteMeetingtransferreddocsto
+  tags:
+    - Lists
+  summary: To delete items of meetingtransferreddocsto in the cloud APROPLAN
+  parameters:
+    - $ref: '#/parameters/tokenParam'
+    - $ref: '#/parameters/requesterParam'
+    - $ref: '#/parameters/dateFormatParam'
+    - in: body
+      name: body
+      description: Array of meetingtransferreddocsto id to delete from the cloud
+      required: true
+      schema:
+        type: array
+        items:
+          type: string
+        example:
+          - ea5d793f-c795-4311-8344-eb18e8efa065
+          - afff9354-abb3-4a9c-aca5-9810490938ef
+  responses:
+    '200':
+      description: >-
+        Successful operation meaning all specified items of
+        meetingtransferreddocsto corresponding to ids in parameters are deleted
+        from the cloud
+      schema:
+        type: string
+        example: success

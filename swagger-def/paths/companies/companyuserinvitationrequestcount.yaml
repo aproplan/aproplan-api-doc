@@ -3,7 +3,7 @@ get:
   tags:
     - Companies
   summary: >-
-    Return the count of companyuserinvitationrequests available to the current
+    Return the count of companyuserinvitationrequest available to the current
     user
   parameters:
     - $ref: '#/parameters/tokenParam'
@@ -15,6 +15,6 @@ get:
     '200':
       description: >-
         Successful operation returning the number of
-        companyuserinvitationrequests corresponding to the queries parameters
+        companyuserinvitationrequest corresponding to the queries parameters
       schema:
         type: number

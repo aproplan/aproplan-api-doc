@@ -4,30 +4,226 @@
   $ref: ./login/renew-token.yaml
 /users:
   $ref: ./login/users.yaml
+/countrycount:
+  $ref: ./identfiles/countrycount.yaml
+/countries:
+  $ref: ./identfiles/countries.yaml
+/countriesids:
+  $ref: ./identfiles/countriesids.yaml
+/languagecount:
+  $ref: ./identfiles/languagecount.yaml
+/languages:
+  $ref: ./identfiles/languages.yaml
+/languagesids:
+  $ref: ./identfiles/languagesids.yaml
+/professioncount:
+  $ref: ./identfiles/professioncount.yaml
+/professions:
+  $ref: ./identfiles/professions.yaml
+/professionsids:
+  $ref: ./identfiles/professionsids.yaml
+/phonecount:
+  $ref: ./actors/phonecount.yaml
+/phones:
+  $ref: ./actors/phones.yaml
+/phonesids:
+  $ref: ./actors/phonesids.yaml
+/personcount:
+  $ref: ./actors/personcount.yaml
+/persons:
+  $ref: ./actors/persons.yaml
+/personsids:
+  $ref: ./actors/personsids.yaml
+/managedcompanycount:
+  $ref: ./companies/managedcompanycount.yaml
+/managedcompanies:
+  $ref: ./companies/managedcompanies.yaml
+/managedcompaniesids:
+  $ref: ./companies/managedcompaniesids.yaml
+/companyusercount:
+  $ref: ./companies/companyusercount.yaml
+/companyusers:
+  $ref: ./companies/companyusers.yaml
+/companyusersids:
+  $ref: ./companies/companyusersids.yaml
+/companyuserinvitationrequestcount:
+  $ref: ./companies/companyuserinvitationrequestcount.yaml
+/companyuserinvitationrequests:
+  $ref: ./companies/companyuserinvitationrequests.yaml
+/companyuserinvitationrequestsids:
+  $ref: ./companies/companyuserinvitationrequestsids.yaml
+/projectcount:
+  $ref: ./projects/projectcount.yaml
 /projects:
   $ref: ./projects/projects.yaml
+/projectsids:
+  $ref: ./projects/projectsids.yaml
+/chaptercount:
+  $ref: ./projects/chaptercount.yaml
+/chapters:
+  $ref: ./projects/chapters.yaml
+/chaptersids:
+  $ref: ./projects/chaptersids.yaml
+/issuetypecount:
+  $ref: ./projects/issuetypecount.yaml
+/issuetypes:
+  $ref: ./projects/issuetypes.yaml
+/issuetypesids:
+  $ref: ./projects/issuetypesids.yaml
+/issuetypenotesubjectcount:
+  $ref: ./projects/issuetypenotesubjectcount.yaml
+/issuetypenotesubjects:
+  $ref: ./projects/issuetypenotesubjects.yaml
+/issuetypenotesubjectsids:
+  $ref: ./projects/issuetypenotesubjectsids.yaml
+/parentcellcount:
+  $ref: ./projects/parentcellcount.yaml
+/parentcells:
+  $ref: ./projects/parentcells.yaml
+/parentcellsids:
+  $ref: ./projects/parentcellsids.yaml
+/subcellcount:
+  $ref: ./projects/subcellcount.yaml
+/subcells:
+  $ref: ./projects/subcells.yaml
+/subcellsids:
+  $ref: ./projects/subcellsids.yaml
+/noteprojectstatuscount:
+  $ref: ./projects/noteprojectstatuscount.yaml
+/noteprojectstatus:
+  $ref: ./projects/noteprojectstatus.yaml
+/noteprojectstatusids:
+  $ref: ./projects/noteprojectstatusids.yaml
+/foldercount:
+  $ref: ./projects/foldercount.yaml
+/folders:
+  $ref: ./projects/folders.yaml
+/foldersids:
+  $ref: ./projects/foldersids.yaml
+/foldervisibilitycount:
+  $ref: ./projects/foldervisibilitycount.yaml
+/foldervisibilities:
+  $ref: ./projects/foldervisibilities.yaml
+/foldervisibilitiesids:
+  $ref: ./projects/foldervisibilitiesids.yaml
+/contactdetailscount:
+  $ref: ./projects/contactdetailscount.yaml
+/contactdetails:
+  $ref: ./projects/contactdetails.yaml
+/contactdetailsids:
+  $ref: ./projects/contactdetailsids.yaml
+/contactissuetypecount:
+  $ref: ./projects/contactissuetypecount.yaml
+/contactissuetypes:
+  $ref: ./projects/contactissuetypes.yaml
+/contactissuetypesids:
+  $ref: ./projects/contactissuetypesids.yaml
 /uploaddocument:
   $ref: ./documents/uploaddocument.yaml
+/documentcount:
+  $ref: ./documents/documentcount.yaml
+/documents:
+  $ref: ./documents/documents.yaml
+/documentsids:
+  $ref: ./documents/documentsids.yaml
+/versioncount:
+  $ref: ./documents/versioncount.yaml
+/versions:
+  $ref: ./documents/versions.yaml
+/versionsids:
+  $ref: ./documents/versionsids.yaml
+/meetingcount:
+  $ref: ./meetings/meetingcount.yaml
+/meetings:
+  $ref: ./meetings/meetings.yaml
+/meetingsids:
+  $ref: ./meetings/meetingsids.yaml
+/meetingconcerncount:
+  $ref: ./meetings/meetingconcerncount.yaml
+/meetingconcerns:
+  $ref: ./meetings/meetingconcerns.yaml
+/meetingconcernsids:
+  $ref: ./meetings/meetingconcernsids.yaml
+/meetingdocumentcount:
+  $ref: ./meetings/meetingdocumentcount.yaml
+/meetingdocuments:
+  $ref: ./meetings/meetingdocuments.yaml
+/meetingdocumentsids:
+  $ref: ./meetings/meetingdocumentsids.yaml
+/meetingtransferreddocscount:
+  $ref: ./meetings/meetingtransferreddocscount.yaml
+/meetingtransferreddocs:
+  $ref: ./meetings/meetingtransferreddocs.yaml
+/meetingtransferreddocsids:
+  $ref: ./meetings/meetingtransferreddocsids.yaml
+/meetingtransferreddocstocount:
+  $ref: ./meetings/meetingtransferreddocstocount.yaml
+/meetingtransferreddocstos:
+  $ref: ./meetings/meetingtransferreddocstos.yaml
+/meetingtransferreddocstosids:
+  $ref: ./meetings/meetingtransferreddocstosids.yaml
+/meetingreportcount:
+  $ref: ./meetings/meetingreportcount.yaml
+/meetingreports:
+  $ref: ./meetings/meetingreports.yaml
+/meetingreportsids:
+  $ref: ./meetings/meetingreportsids.yaml
 /uploadnotedocument:
   $ref: ./annotations/uploadnotedocument.yaml
+/notecount:
+  $ref: ./annotations/notes/notecount.yaml
+/notes:
+  $ref: ./annotations/notes/notes.yaml
+/notesids:
+  $ref: ./annotations/notes/notesids.yaml
+/noteinchargecount:
+  $ref: ./annotations/noteinchargecount.yaml
+/noteincharges:
+  $ref: ./annotations/noteincharges.yaml
+/noteinchargesids:
+  $ref: ./annotations/noteinchargesids.yaml
+/notecommentcount:
+  $ref: ./annotations/notecommentcount.yaml
+/notecomments:
+  $ref: ./annotations/notecomments.yaml
+/notecommentsids:
+  $ref: ./annotations/notecommentsids.yaml
+/notedocumentcount:
+  $ref: ./annotations/notedocumentcount.yaml
+/notedocuments:
+  $ref: ./annotations/notedocuments.yaml
+/notedocumentsids:
+  $ref: ./annotations/notedocumentsids.yaml
+/formcount:
+  $ref: ./annotations/forms/formcount.yaml
 /forms:
   $ref: ./annotations/forms/forms.yaml
+/formsids:
+  $ref: ./annotations/forms/formsids.yaml
+/formitemcount:
+  $ref: ./annotations/forms/formitemcount.yaml
 /formitems:
   $ref: ./annotations/forms/formitems.yaml
-/formsignatures:
-  $ref: ./annotations/forms/formsignatures.yaml
-/previewformreport:
-  $ref: ./annotations/forms/previewformreport.yaml
-/formfinalization:
-  $ref: ./annotations/forms/formfinalization.yaml
+/formitemsids:
+  $ref: ./annotations/forms/formitemsids.yaml
+/formtemplatecount:
+  $ref: ./annotations/forms/formtemplatecount.yaml
 /formtemplates:
   $ref: ./annotations/forms/formtemplates.yaml
+/formtemplatesids:
+  $ref: ./annotations/forms/formtemplatesids.yaml
+/formquestioncount:
+  $ref: ./annotations/forms/formquestioncount.yaml
 /formquestions:
   $ref: ./annotations/forms/formquestions.yaml
-/formsignaturerules:
-  $ref: ./annotations/forms/formsignaturerules.yaml
+/formquestionsids:
+  $ref: ./annotations/forms/formquestionsids.yaml
+/formfinalization:
+  $ref: ./annotations/forms/formfinalization.yaml
 /formsync:
   $ref: ./annotations/forms/formsync.yaml
 /formtemplatesync:
   $ref: ./annotations/forms/formtemplatesync.yaml
+/previewformreport:
+  $ref: ./annotations/forms/previewformreport.yaml
 

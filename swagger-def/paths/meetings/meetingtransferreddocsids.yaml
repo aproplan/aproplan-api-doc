@@ -1,5 +1,5 @@
 get:
-  operationId: getMeetingtransferreddocIds
+  operationId: getMeetingtransferreddocsIds
   tags:
     - Lists
   summary: >-
@@ -15,7 +15,7 @@ get:
   responses:
     '200':
       description: >-
-        Successful operation returning the array of id of meetingtransferreddoc
+        Successful operation returning the array of id of meetingtransferreddocs
         corresponding to the queries parameters
       schema:
         type: array

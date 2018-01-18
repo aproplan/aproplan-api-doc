@@ -1,9 +1,9 @@
 get:
-  operationId: getForms
+  operationId: getForm
   tags:
     - Forms
-  summary: Return the list of forms available to the current user
-  parameters:  
+  summary: Return the list of form available to the current user
+  parameters:
     - $ref: '#/parameters/tokenParam'
     - $ref: '#/parameters/requesterParam'
     - $ref: '#/parameters/dateFormatParam'
@@ -13,14 +13,14 @@ get:
   responses:
     '200':
       description: >-
-        Successful operation returning the array of form corresponding to
-        the queryparameter
+        Successful operation returning the array of form corresponding to the
+        queries parameters
       schema:
         type: array
         items:
           $ref: '#/definitions/Form'
 post:
-  operationId: postForms
+  operationId: postForm
   tags:
     - Forms
   summary: To create new form in the cloud APROPLAN
@@ -30,7 +30,7 @@ post:
     - $ref: '#/parameters/dateFormatParam'
     - in: body
       name: body
-      description: This is the array of forms to create through the cloud
+      description: This is the array of form to create through the cloud
       schema:
         type: array
         items:
@@ -43,40 +43,40 @@ post:
         items:
           $ref: '#/definitions/Form'
 put:
-  operationId: putForms
+  operationId: putForm
   tags:
     - Forms
-  summary: To update forms in the cloud APROPLAN
+  summary: To update form in the cloud APROPLAN
   parameters:
     - $ref: '#/parameters/tokenParam'
     - $ref: '#/parameters/requesterParam'
     - $ref: '#/parameters/dateFormatParam'
     - in: body
       name: body
-      description: This is the array of forms to update in the cloud
+      description: This is the array of form to update in the cloud
       schema:
         type: array
         items:
           $ref: '#/definitions/Form'
   responses:
     '200':
-      description: Successful operation to update array of forms in the cloud
+      description: Successful operation to update array of form in the cloud
       schema:
         type: array
         items:
           $ref: '#/definitions/Form'
 delete:
-  operationId: deleteForms
+  operationId: deleteForm
   tags:
     - Forms
-  summary: To delete forms and all items in the cloud APROPLAN
+  summary: To delete items of form in the cloud APROPLAN
   parameters:
     - $ref: '#/parameters/tokenParam'
     - $ref: '#/parameters/requesterParam'
     - $ref: '#/parameters/dateFormatParam'
     - in: body
       name: body
-      description: Array of FormSignature id to delete from the cloud
+      description: Array of form id to delete from the cloud
       required: true
       schema:
         type: array
@@ -88,8 +88,8 @@ delete:
   responses:
     '200':
       description: >-
-        Successful operation meaning all specified id of Form are deleted
-        from the cloud
+        Successful operation meaning all specified items of form corresponding
+        to ids in parameters are deleted from the cloud
       schema:
         type: string
         example: success

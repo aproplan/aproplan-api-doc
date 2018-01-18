@@ -2,7 +2,7 @@ get:
   operationId: getLanguageCount
   tags:
     - IdentFiles
-  summary: Return the count of languages available to the current user
+  summary: Return the count of language available to the current user
   parameters:
     - $ref: '#/parameters/tokenParam'
     - $ref: '#/parameters/requesterParam'
@@ -12,7 +12,7 @@ get:
   responses:
     '200':
       description: >-
-        Successful operation returning the number of languages corresponding to
+        Successful operation returning the number of language corresponding to
         the queries parameters
       schema:
         type: number

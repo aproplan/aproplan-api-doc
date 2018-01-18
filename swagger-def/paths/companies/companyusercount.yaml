@@ -2,7 +2,7 @@ get:
   operationId: getCompanyuserCount
   tags:
     - Companies
-  summary: Return the count of companyusers available to the current user
+  summary: Return the count of companyuser available to the current user
   parameters:
     - $ref: '#/parameters/tokenParam'
     - $ref: '#/parameters/requesterParam'
@@ -12,7 +12,7 @@ get:
   responses:
     '200':
       description: >-
-        Successful operation returning the number of companyusers corresponding
+        Successful operation returning the number of companyuser corresponding
         to the queries parameters
       schema:
         type: number

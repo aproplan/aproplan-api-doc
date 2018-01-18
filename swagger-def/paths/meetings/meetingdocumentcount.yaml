@@ -2,7 +2,7 @@ get:
   operationId: getMeetingdocumentCount
   tags:
     - Lists
-  summary: Return the count of meetingdocuments available to the current user
+  summary: Return the count of meetingdocument available to the current user
   parameters:
     - $ref: '#/parameters/tokenParam'
     - $ref: '#/parameters/requesterParam'
@@ -12,7 +12,7 @@ get:
   responses:
     '200':
       description: >-
-        Successful operation returning the number of meetingdocuments
+        Successful operation returning the number of meetingdocument
         corresponding to the queries parameters
       schema:
         type: number

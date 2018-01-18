@@ -2,7 +2,7 @@ get:
   operationId: getManagedcompanyCount
   tags:
     - Companies
-  summary: Return the count of managedcompanies available to the current user
+  summary: Return the count of managedcompany available to the current user
   parameters:
     - $ref: '#/parameters/tokenParam'
     - $ref: '#/parameters/requesterParam'
@@ -12,7 +12,7 @@ get:
   responses:
     '200':
       description: >-
-        Successful operation returning the number of managedcompanies
+        Successful operation returning the number of managedcompany
         corresponding to the queries parameters
       schema:
         type: number

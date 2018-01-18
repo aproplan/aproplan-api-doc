@@ -3,7 +3,7 @@ get:
   tags:
     - Documents
   summary: >-
-    Return the list of id corresponding to the versions available to the current
+    Return the list of id corresponding to the version available to the current
     user
   parameters:
     - $ref: '#/parameters/tokenParam'

@@ -1,5 +1,5 @@
 put:
-  operationId: formFinalization
+  operationId: putFormFinalization
   tags:
     - Forms
   summary: Finalize a form

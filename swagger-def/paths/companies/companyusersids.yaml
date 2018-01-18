@@ -3,7 +3,7 @@ get:
   tags:
     - Companies
   summary: >-
-    Return the list of id corresponding to the companyusers available to the
+    Return the list of id corresponding to the companyuser available to the
     current user
   parameters:
     - $ref: '#/parameters/tokenParam'

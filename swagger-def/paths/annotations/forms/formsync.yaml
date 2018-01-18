@@ -1,4 +1,5 @@
 get:
+  operationId: getFormSync
   tags:
     - Form Synchronization
   summary: Retrieve form of a user from a specific last datetime synchronization

@@ -1,7 +1,7 @@
 get:
   operationId: getFormquestionIds
   tags:
-    - Forms
+    - Form Template
   summary: >-
     Return the list of id corresponding to the formquestion available to the
     current user

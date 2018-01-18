@@ -3,8 +3,8 @@ get:
   tags:
     - Documents
   summary: >-
-    Return the list of id corresponding to the documents available to the
-    current user
+    Return the list of id corresponding to the document available to the current
+    user
   parameters:
     - $ref: '#/parameters/tokenParam'
     - $ref: '#/parameters/requesterParam'

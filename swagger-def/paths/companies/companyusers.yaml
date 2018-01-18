@@ -1,8 +1,75 @@
-delete:
-  operationId: deleteCompanyusers
+get:
+  operationId: getCompanyuser
   tags:
     - Companies
-  summary: To delete items of companyusers in the cloud APROPLAN
+  summary: Return the list of companyuser available to the current user
+  parameters:
+    - $ref: '#/parameters/tokenParam'
+    - $ref: '#/parameters/requesterParam'
+    - $ref: '#/parameters/dateFormatParam'
+    - $ref: '#/parameters/filterParam'
+    - $ref: '#/parameters/pathtoloadParam'
+  description: ''
+  responses:
+    '200':
+      description: >-
+        Successful operation returning the array of companyuser corresponding to
+        the queries parameters
+      schema:
+        type: array
+        items:
+          $ref: '#/definitions/CompanyUser'
+post:
+  operationId: postCompanyuser
+  tags:
+    - Companies
+  summary: To create new companyuser in the cloud APROPLAN
+  parameters:
+    - $ref: '#/parameters/tokenParam'
+    - $ref: '#/parameters/requesterParam'
+    - $ref: '#/parameters/dateFormatParam'
+    - in: body
+      name: body
+      description: This is the array of companyuser to create through the cloud
+      schema:
+        type: array
+        items:
+          $ref: '#/definitions/CompanyUser'
+  responses:
+    '200':
+      description: Successful operation to create new companyuser array in the cloud
+      schema:
+        type: array
+        items:
+          $ref: '#/definitions/CompanyUser'
+put:
+  operationId: putCompanyuser
+  tags:
+    - Companies
+  summary: To update companyuser in the cloud APROPLAN
+  parameters:
+    - $ref: '#/parameters/tokenParam'
+    - $ref: '#/parameters/requesterParam'
+    - $ref: '#/parameters/dateFormatParam'
+    - in: body
+      name: body
+      description: This is the array of companyuser to update in the cloud
+      schema:
+        type: array
+        items:
+          $ref: '#/definitions/CompanyUser'
+  responses:
+    '200':
+      description: Successful operation to update array of companyuser in the cloud
+      schema:
+        type: array
+        items:
+          $ref: '#/definitions/CompanyUser'
+delete:
+  operationId: deleteCompanyuser
+  tags:
+    - Companies
+  summary: To delete items of companyuser in the cloud APROPLAN
   parameters:
     - $ref: '#/parameters/tokenParam'
     - $ref: '#/parameters/requesterParam'
@@ -26,70 +93,3 @@ delete:
       schema:
         type: string
         example: success
-get:
-  operationId: getCompanyusers
-  tags:
-    - Companies
-  summary: Return the list of companyusers available to the current user
-  parameters:
-    - $ref: '#/parameters/tokenParam'
-    - $ref: '#/parameters/requesterParam'
-    - $ref: '#/parameters/dateFormatParam'
-    - $ref: '#/parameters/filterParam'
-    - $ref: '#/parameters/pathtoloadParam'
-  description: ''
-  responses:
-    '200':
-      description: >-
-        Successful operation returning the array of companyusers corresponding
-        to the queries parameters
-      schema:
-        type: array
-        items:
-          $ref: '#/definitions/Companyuser'
-post:
-  operationId: postCompanyusers
-  tags:
-    - Companies
-  summary: To create new companyuser in the cloud APROPLAN
-  parameters:
-    - $ref: '#/parameters/tokenParam'
-    - $ref: '#/parameters/requesterParam'
-    - $ref: '#/parameters/dateFormatParam'
-    - in: body
-      name: body
-      description: This is the array of companyusers to create through the cloud
-      schema:
-        type: array
-        items:
-          $ref: '#/definitions/Companyuser'
-  responses:
-    '200':
-      description: Successful operation to create new companyuser array in the cloud
-      schema:
-        type: array
-        items:
-          $ref: '#/definitions/Companyuser'
-put:
-  operationId: putCompanyusers
-  tags:
-    - Companies
-  summary: To update companyusers in the cloud APROPLAN
-  parameters:
-    - $ref: '#/parameters/tokenParam'
-    - $ref: '#/parameters/requesterParam'
-    - $ref: '#/parameters/dateFormatParam'
-    - in: body
-      name: body
-      description: This is the array of companyusers to update in the cloud
-      schema:
-        type: array
-        items:
-          $ref: '#/definitions/Companyuser'
-  responses:
-    '200':
-      description: Successful operation to update array of companyusers in the cloud
-      schema:
-        type: array
-        items:
-          $ref: '#/definitions/Companyuser'

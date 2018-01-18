@@ -1,8 +1,75 @@
-delete:
-  operationId: deleteCountries
+get:
+  operationId: getCountry
   tags:
     - IdentFiles
-  summary: To delete items of countries in the cloud APROPLAN
+  summary: Return the list of country available to the current user
+  parameters:
+    - $ref: '#/parameters/tokenParam'
+    - $ref: '#/parameters/requesterParam'
+    - $ref: '#/parameters/dateFormatParam'
+    - $ref: '#/parameters/filterParam'
+    - $ref: '#/parameters/pathtoloadParam'
+  description: ''
+  responses:
+    '200':
+      description: >-
+        Successful operation returning the array of country corresponding to the
+        queries parameters
+      schema:
+        type: array
+        items:
+          $ref: '#/definitions/Country'
+post:
+  operationId: postCountry
+  tags:
+    - IdentFiles
+  summary: To create new country in the cloud APROPLAN
+  parameters:
+    - $ref: '#/parameters/tokenParam'
+    - $ref: '#/parameters/requesterParam'
+    - $ref: '#/parameters/dateFormatParam'
+    - in: body
+      name: body
+      description: This is the array of country to create through the cloud
+      schema:
+        type: array
+        items:
+          $ref: '#/definitions/Country'
+  responses:
+    '200':
+      description: Successful operation to create new country array in the cloud
+      schema:
+        type: array
+        items:
+          $ref: '#/definitions/Country'
+put:
+  operationId: putCountry
+  tags:
+    - IdentFiles
+  summary: To update country in the cloud APROPLAN
+  parameters:
+    - $ref: '#/parameters/tokenParam'
+    - $ref: '#/parameters/requesterParam'
+    - $ref: '#/parameters/dateFormatParam'
+    - in: body
+      name: body
+      description: This is the array of country to update in the cloud
+      schema:
+        type: array
+        items:
+          $ref: '#/definitions/Country'
+  responses:
+    '200':
+      description: Successful operation to update array of country in the cloud
+      schema:
+        type: array
+        items:
+          $ref: '#/definitions/Country'
+delete:
+  operationId: deleteCountry
+  tags:
+    - IdentFiles
+  summary: To delete items of country in the cloud APROPLAN
   parameters:
     - $ref: '#/parameters/tokenParam'
     - $ref: '#/parameters/requesterParam'
@@ -26,70 +93,3 @@ delete:
       schema:
         type: string
         example: success
-get:
-  operationId: getCountries
-  tags:
-    - IdentFiles
-  summary: Return the list of countries available to the current user
-  parameters:
-    - $ref: '#/parameters/tokenParam'
-    - $ref: '#/parameters/requesterParam'
-    - $ref: '#/parameters/dateFormatParam'
-    - $ref: '#/parameters/filterParam'
-    - $ref: '#/parameters/pathtoloadParam'
-  description: ''
-  responses:
-    '200':
-      description: >-
-        Successful operation returning the array of countries corresponding to
-        the queries parameters
-      schema:
-        type: array
-        items:
-          $ref: '#/definitions/Country'
-post:
-  operationId: postCountries
-  tags:
-    - IdentFiles
-  summary: To create new country in the cloud APROPLAN
-  parameters:
-    - $ref: '#/parameters/tokenParam'
-    - $ref: '#/parameters/requesterParam'
-    - $ref: '#/parameters/dateFormatParam'
-    - in: body
-      name: body
-      description: This is the array of countries to create through the cloud
-      schema:
-        type: array
-        items:
-          $ref: '#/definitions/Country'
-  responses:
-    '200':
-      description: Successful operation to create new country array in the cloud
-      schema:
-        type: array
-        items:
-          $ref: '#/definitions/Country'
-put:
-  operationId: putCountries
-  tags:
-    - IdentFiles
-  summary: To update countries in the cloud APROPLAN
-  parameters:
-    - $ref: '#/parameters/tokenParam'
-    - $ref: '#/parameters/requesterParam'
-    - $ref: '#/parameters/dateFormatParam'
-    - in: body
-      name: body
-      description: This is the array of countries to update in the cloud
-      schema:
-        type: array
-        items:
-          $ref: '#/definitions/Country'
-  responses:
-    '200':
-      description: Successful operation to update array of countries in the cloud
-      schema:
-        type: array
-        items:
-          $ref: '#/definitions/Country'

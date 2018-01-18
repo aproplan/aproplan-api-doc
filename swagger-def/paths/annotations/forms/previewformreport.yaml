@@ -1,5 +1,5 @@
 post:
-  operationId: previewFormReport
+  operationId: getPreviewFormReport
   tags:
     - Forms
   summary: To preview the form report

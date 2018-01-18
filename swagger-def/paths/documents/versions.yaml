@@ -1,8 +1,75 @@
-delete:
-  operationId: deleteVersions
+get:
+  operationId: getVersion
   tags:
     - Documents
-  summary: To delete items of versions in the cloud APROPLAN
+  summary: Return the list of version available to the current user
+  parameters:
+    - $ref: '#/parameters/tokenParam'
+    - $ref: '#/parameters/requesterParam'
+    - $ref: '#/parameters/dateFormatParam'
+    - $ref: '#/parameters/filterParam'
+    - $ref: '#/parameters/pathtoloadParam'
+  description: ''
+  responses:
+    '200':
+      description: >-
+        Successful operation returning the array of version corresponding to the
+        queries parameters
+      schema:
+        type: array
+        items:
+          $ref: '#/definitions/Version'
+post:
+  operationId: postVersion
+  tags:
+    - Documents
+  summary: To create new version in the cloud APROPLAN
+  parameters:
+    - $ref: '#/parameters/tokenParam'
+    - $ref: '#/parameters/requesterParam'
+    - $ref: '#/parameters/dateFormatParam'
+    - in: body
+      name: body
+      description: This is the array of version to create through the cloud
+      schema:
+        type: array
+        items:
+          $ref: '#/definitions/Version'
+  responses:
+    '200':
+      description: Successful operation to create new version array in the cloud
+      schema:
+        type: array
+        items:
+          $ref: '#/definitions/Version'
+put:
+  operationId: putVersion
+  tags:
+    - Documents
+  summary: To update version in the cloud APROPLAN
+  parameters:
+    - $ref: '#/parameters/tokenParam'
+    - $ref: '#/parameters/requesterParam'
+    - $ref: '#/parameters/dateFormatParam'
+    - in: body
+      name: body
+      description: This is the array of version to update in the cloud
+      schema:
+        type: array
+        items:
+          $ref: '#/definitions/Version'
+  responses:
+    '200':
+      description: Successful operation to update array of version in the cloud
+      schema:
+        type: array
+        items:
+          $ref: '#/definitions/Version'
+delete:
+  operationId: deleteVersion
+  tags:
+    - Documents
+  summary: To delete items of version in the cloud APROPLAN
   parameters:
     - $ref: '#/parameters/tokenParam'
     - $ref: '#/parameters/requesterParam'
@@ -26,70 +93,3 @@ delete:
       schema:
         type: string
         example: success
-get:
-  operationId: getVersions
-  tags:
-    - Documents
-  summary: Return the list of versions available to the current user
-  parameters:
-    - $ref: '#/parameters/tokenParam'
-    - $ref: '#/parameters/requesterParam'
-    - $ref: '#/parameters/dateFormatParam'
-    - $ref: '#/parameters/filterParam'
-    - $ref: '#/parameters/pathtoloadParam'
-  description: ''
-  responses:
-    '200':
-      description: >-
-        Successful operation returning the array of versions corresponding to
-        the queries parameters
-      schema:
-        type: array
-        items:
-          $ref: '#/definitions/Version'
-post:
-  operationId: postVersions
-  tags:
-    - Documents
-  summary: To create new version in the cloud APROPLAN
-  parameters:
-    - $ref: '#/parameters/tokenParam'
-    - $ref: '#/parameters/requesterParam'
-    - $ref: '#/parameters/dateFormatParam'
-    - in: body
-      name: body
-      description: This is the array of versions to create through the cloud
-      schema:
-        type: array
-        items:
-          $ref: '#/definitions/Version'
-  responses:
-    '200':
-      description: Successful operation to create new version array in the cloud
-      schema:
-        type: array
-        items:
-          $ref: '#/definitions/Version'
-put:
-  operationId: putVersions
-  tags:
-    - Documents
-  summary: To update versions in the cloud APROPLAN
-  parameters:
-    - $ref: '#/parameters/tokenParam'
-    - $ref: '#/parameters/requesterParam'
-    - $ref: '#/parameters/dateFormatParam'
-    - in: body
-      name: body
-      description: This is the array of versions to update in the cloud
-      schema:
-        type: array
-        items:
-          $ref: '#/definitions/Version'
-  responses:
-    '200':
-      description: Successful operation to update array of versions in the cloud
-      schema:
-        type: array
-        items:
-          $ref: '#/definitions/Version'

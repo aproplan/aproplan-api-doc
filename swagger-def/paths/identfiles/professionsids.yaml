@@ -3,7 +3,7 @@ get:
   tags:
     - IdentFiles
   summary: >-
-    Return the list of id corresponding to the professions available to the
+    Return the list of id corresponding to the profession available to the
     current user
   parameters:
     - $ref: '#/parameters/tokenParam'

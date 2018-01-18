@@ -10,12 +10,20 @@ tags:
     description: Everything about the Project
   - name: Documents
     description: Everything about the Document
+  - name: Lists
+    description: Everything about the lists
+  - name: Annotations
+    description: Common objects for Points and Forms
   - name: Points
-    description: Everything about the Points
-  - name: Form Template
-    description: Everything about Form Templates
-  - name: Forms
+    description: Everything about the Points  
+  - name: Forms  
     description: Everything about Forms
+  - name: Form Synchronization
+    description: Everything about Forms
+  - name: Form Templates
+    description: Everything about Form Templates
+  - name: Commpanies
+    description: Everything about the managed companies
 schemes:
   - https
 parameters:

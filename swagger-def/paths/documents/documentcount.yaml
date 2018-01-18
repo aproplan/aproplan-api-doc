@@ -2,7 +2,7 @@ get:
   operationId: getDocumentCount
   tags:
     - Documents
-  summary: Return the count of documents available to the current user
+  summary: Return the count of document available to the current user
   parameters:
     - $ref: '#/parameters/tokenParam'
     - $ref: '#/parameters/requesterParam'
@@ -12,7 +12,7 @@ get:
   responses:
     '200':
       description: >-
-        Successful operation returning the number of documents corresponding to
+        Successful operation returning the number of document corresponding to
         the queries parameters
       schema:
         type: number

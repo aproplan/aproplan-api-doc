@@ -1,7 +1,7 @@
 get:
   operationId: getFormtemplateIds
   tags:
-    - Forms
+    - Form Template
   summary: >-
     Return the list of id corresponding to the formtemplate available to the
     current user

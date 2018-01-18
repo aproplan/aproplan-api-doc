@@ -72,6 +72,8 @@ DocumentBase:
   $ref: ./documents/document-base.yaml
 Document:
   $ref: ./documents/document.yaml
+Version:
+  $ref: ./documents/version.yaml
 Meeting:
   $ref: ./meetings/meeting.yaml  
 MeetingAccessRight:

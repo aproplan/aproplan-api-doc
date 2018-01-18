@@ -1,7 +1,7 @@
 get:
   operationId: getFormtemplateCount
   tags:
-    - Forms
+    - Form Template
   summary: Return the count of formtemplate available to the current user
   parameters:
     - $ref: '#/parameters/tokenParam'

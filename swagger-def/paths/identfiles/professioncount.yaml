@@ -2,7 +2,7 @@ get:
   operationId: getProfessionCount
   tags:
     - IdentFiles
-  summary: Return the count of professions available to the current user
+  summary: Return the count of profession available to the current user
   parameters:
     - $ref: '#/parameters/tokenParam'
     - $ref: '#/parameters/requesterParam'
@@ -12,7 +12,7 @@ get:
   responses:
     '200':
       description: >-
-        Successful operation returning the number of professions corresponding
-        to the queries parameters
+        Successful operation returning the number of profession corresponding to
+        the queries parameters
       schema:
         type: number

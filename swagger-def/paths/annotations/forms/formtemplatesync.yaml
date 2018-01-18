@@ -1,4 +1,5 @@
 get:
+  operationId: getFormTemplateSync
   tags:
     - Form Synchronization
   summary: >-

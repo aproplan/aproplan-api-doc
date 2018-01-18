@@ -1,8 +1,75 @@
-delete:
-  operationId: deleteMeetingconcerns
+get:
+  operationId: getMeetingconcern
   tags:
     - Lists
-  summary: To delete items of meetingconcerns in the cloud APROPLAN
+  summary: Return the list of meetingconcern available to the current user
+  parameters:
+    - $ref: '#/parameters/tokenParam'
+    - $ref: '#/parameters/requesterParam'
+    - $ref: '#/parameters/dateFormatParam'
+    - $ref: '#/parameters/filterParam'
+    - $ref: '#/parameters/pathtoloadParam'
+  description: ''
+  responses:
+    '200':
+      description: >-
+        Successful operation returning the array of meetingconcern corresponding
+        to the queries parameters
+      schema:
+        type: array
+        items:
+          $ref: '#/definitions/MeetingConcern'
+post:
+  operationId: postMeetingconcern
+  tags:
+    - Lists
+  summary: To create new meetingconcern in the cloud APROPLAN
+  parameters:
+    - $ref: '#/parameters/tokenParam'
+    - $ref: '#/parameters/requesterParam'
+    - $ref: '#/parameters/dateFormatParam'
+    - in: body
+      name: body
+      description: This is the array of meetingconcern to create through the cloud
+      schema:
+        type: array
+        items:
+          $ref: '#/definitions/MeetingConcern'
+  responses:
+    '200':
+      description: Successful operation to create new meetingconcern array in the cloud
+      schema:
+        type: array
+        items:
+          $ref: '#/definitions/MeetingConcern'
+put:
+  operationId: putMeetingconcern
+  tags:
+    - Lists
+  summary: To update meetingconcern in the cloud APROPLAN
+  parameters:
+    - $ref: '#/parameters/tokenParam'
+    - $ref: '#/parameters/requesterParam'
+    - $ref: '#/parameters/dateFormatParam'
+    - in: body
+      name: body
+      description: This is the array of meetingconcern to update in the cloud
+      schema:
+        type: array
+        items:
+          $ref: '#/definitions/MeetingConcern'
+  responses:
+    '200':
+      description: Successful operation to update array of meetingconcern in the cloud
+      schema:
+        type: array
+        items:
+          $ref: '#/definitions/MeetingConcern'
+delete:
+  operationId: deleteMeetingconcern
+  tags:
+    - Lists
+  summary: To delete items of meetingconcern in the cloud APROPLAN
   parameters:
     - $ref: '#/parameters/tokenParam'
     - $ref: '#/parameters/requesterParam'
@@ -26,70 +93,3 @@ delete:
       schema:
         type: string
         example: success
-get:
-  operationId: getMeetingconcerns
-  tags:
-    - Lists
-  summary: Return the list of meetingconcerns available to the current user
-  parameters:
-    - $ref: '#/parameters/tokenParam'
-    - $ref: '#/parameters/requesterParam'
-    - $ref: '#/parameters/dateFormatParam'
-    - $ref: '#/parameters/filterParam'
-    - $ref: '#/parameters/pathtoloadParam'
-  description: ''
-  responses:
-    '200':
-      description: >-
-        Successful operation returning the array of meetingconcerns
-        corresponding to the queries parameters
-      schema:
-        type: array
-        items:
-          $ref: '#/definitions/Meetingconcern'
-post:
-  operationId: postMeetingconcerns
-  tags:
-    - Lists
-  summary: To create new meetingconcern in the cloud APROPLAN
-  parameters:
-    - $ref: '#/parameters/tokenParam'
-    - $ref: '#/parameters/requesterParam'
-    - $ref: '#/parameters/dateFormatParam'
-    - in: body
-      name: body
-      description: This is the array of meetingconcerns to create through the cloud
-      schema:
-        type: array
-        items:
-          $ref: '#/definitions/Meetingconcern'
-  responses:
-    '200':
-      description: Successful operation to create new meetingconcern array in the cloud
-      schema:
-        type: array
-        items:
-          $ref: '#/definitions/Meetingconcern'
-put:
-  operationId: putMeetingconcerns
-  tags:
-    - Lists
-  summary: To update meetingconcerns in the cloud APROPLAN
-  parameters:
-    - $ref: '#/parameters/tokenParam'
-    - $ref: '#/parameters/requesterParam'
-    - $ref: '#/parameters/dateFormatParam'
-    - in: body
-      name: body
-      description: This is the array of meetingconcerns to update in the cloud
-      schema:
-        type: array
-        items:
-          $ref: '#/definitions/Meetingconcern'
-  responses:
-    '200':
-      description: Successful operation to update array of meetingconcerns in the cloud
-      schema:
-        type: array
-        items:
-          $ref: '#/definitions/Meetingconcern'

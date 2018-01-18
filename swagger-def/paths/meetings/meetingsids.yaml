@@ -3,7 +3,7 @@ get:
   tags:
     - Lists
   summary: >-
-    Return the list of id corresponding to the meetings available to the current
+    Return the list of id corresponding to the meeting available to the current
     user
   parameters:
     - $ref: '#/parameters/tokenParam'

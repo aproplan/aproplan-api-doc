@@ -1,8 +1,83 @@
-delete:
-  operationId: deleteCompanyuserinvitationrequests
+get:
+  operationId: getCompanyuserinvitationrequest
   tags:
     - Companies
-  summary: To delete items of companyuserinvitationrequests in the cloud APROPLAN
+  summary: >-
+    Return the list of companyuserinvitationrequest available to the current
+    user
+  parameters:
+    - $ref: '#/parameters/tokenParam'
+    - $ref: '#/parameters/requesterParam'
+    - $ref: '#/parameters/dateFormatParam'
+    - $ref: '#/parameters/filterParam'
+    - $ref: '#/parameters/pathtoloadParam'
+  description: ''
+  responses:
+    '200':
+      description: >-
+        Successful operation returning the array of companyuserinvitationrequest
+        corresponding to the queries parameters
+      schema:
+        type: array
+        items:
+          $ref: '#/definitions/CompanyUserInvitationRequest'
+post:
+  operationId: postCompanyuserinvitationrequest
+  tags:
+    - Companies
+  summary: To create new companyuserinvitationrequest in the cloud APROPLAN
+  parameters:
+    - $ref: '#/parameters/tokenParam'
+    - $ref: '#/parameters/requesterParam'
+    - $ref: '#/parameters/dateFormatParam'
+    - in: body
+      name: body
+      description: >-
+        This is the array of companyuserinvitationrequest to create through the
+        cloud
+      schema:
+        type: array
+        items:
+          $ref: '#/definitions/CompanyUserInvitationRequest'
+  responses:
+    '200':
+      description: >-
+        Successful operation to create new companyuserinvitationrequest array in
+        the cloud
+      schema:
+        type: array
+        items:
+          $ref: '#/definitions/CompanyUserInvitationRequest'
+put:
+  operationId: putCompanyuserinvitationrequest
+  tags:
+    - Companies
+  summary: To update companyuserinvitationrequest in the cloud APROPLAN
+  parameters:
+    - $ref: '#/parameters/tokenParam'
+    - $ref: '#/parameters/requesterParam'
+    - $ref: '#/parameters/dateFormatParam'
+    - in: body
+      name: body
+      description: This is the array of companyuserinvitationrequest to update in the cloud
+      schema:
+        type: array
+        items:
+          $ref: '#/definitions/CompanyUserInvitationRequest'
+  responses:
+    '200':
+      description: >-
+        Successful operation to update array of companyuserinvitationrequest in
+        the cloud
+      schema:
+        type: array
+        items:
+          $ref: '#/definitions/CompanyUserInvitationRequest'
+delete:
+  operationId: deleteCompanyuserinvitationrequest
+  tags:
+    - Companies
+  summary: To delete items of companyuserinvitationrequest in the cloud APROPLAN
   parameters:
     - $ref: '#/parameters/tokenParam'
     - $ref: '#/parameters/requesterParam'
@@ -27,80 +102,3 @@ delete:
       schema:
         type: string
         example: success
-get:
-  operationId: getCompanyuserinvitationrequests
-  tags:
-    - Companies
-  summary: >-
-    Return the list of companyuserinvitationrequests available to the current
-    user
-  parameters:
-    - $ref: '#/parameters/tokenParam'
-    - $ref: '#/parameters/requesterParam'
-    - $ref: '#/parameters/dateFormatParam'
-    - $ref: '#/parameters/filterParam'
-    - $ref: '#/parameters/pathtoloadParam'
-  description: ''
-  responses:
-    '200':
-      description: >-
-        Successful operation returning the array of
-        companyuserinvitationrequests corresponding to the queries parameters
-      schema:
-        type: array
-        items:
-          $ref: '#/definitions/Companyuserinvitationrequest'
-post:
-  operationId: postCompanyuserinvitationrequests
-  tags:
-    - Companies
-  summary: To create new companyuserinvitationrequest in the cloud APROPLAN
-  parameters:
-    - $ref: '#/parameters/tokenParam'
-    - $ref: '#/parameters/requesterParam'
-    - $ref: '#/parameters/dateFormatParam'
-    - in: body
-      name: body
-      description: >-
-        This is the array of companyuserinvitationrequests to create through the
-        cloud
-      schema:
-        type: array
-        items:
-          $ref: '#/definitions/Companyuserinvitationrequest'
-  responses:
-    '200':
-      description: >-
-        Successful operation to create new companyuserinvitationrequest array in
-        the cloud
-      schema:
-        type: array
-        items:
-          $ref: '#/definitions/Companyuserinvitationrequest'
-put:
-  operationId: putCompanyuserinvitationrequests
-  tags:
-    - Companies
-  summary: To update companyuserinvitationrequests in the cloud APROPLAN
-  parameters:
-    - $ref: '#/parameters/tokenParam'
-    - $ref: '#/parameters/requesterParam'
-    - $ref: '#/parameters/dateFormatParam'
-    - in: body
-      name: body
-      description: >-
-        This is the array of companyuserinvitationrequests to update in the
-        cloud
-      schema:
-        type: array
-        items:
-          $ref: '#/definitions/Companyuserinvitationrequest'
-  responses:
-    '200':
-      description: >-
-        Successful operation to update array of companyuserinvitationrequests in
-        the cloud
-      schema:
-        type: array
-        items:
-          $ref: '#/definitions/Companyuserinvitationrequest'

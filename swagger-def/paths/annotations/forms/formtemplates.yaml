@@ -1,8 +1,8 @@
 get:
-  operationId: getFormTemplates
+  operationId: getFormtemplate
   tags:
     - Form Template
-  summary: Return form template available to the current user
+  summary: Return the list of formtemplate available to the current user
   parameters:
     - $ref: '#/parameters/tokenParam'
     - $ref: '#/parameters/requesterParam'
@@ -13,80 +13,63 @@ get:
   responses:
     '200':
       description: >-
-        Successful operation returning the array of formtemplate
-        corresponding to the queryparameter
+        Successful operation returning the array of formtemplate corresponding
+        to the queries parameters
       schema:
         type: array
         items:
           $ref: '#/definitions/FormTemplate'
 post:
-  operationId: postFormTemplates
+  operationId: postFormtemplate
   tags:
-    - Form Template
-  summary: >-
-    To create new form templates for the company of the current user to
-    APROPLAN
-  description: ''
-  consumes:
-    - application/json
-  produces:
-    - application/json
+    - Forms
+  summary: To create new formtemplate in the cloud APROPLAN
   parameters:
     - $ref: '#/parameters/tokenParam'
     - $ref: '#/parameters/requesterParam'
     - $ref: '#/parameters/dateFormatParam'
     - in: body
       name: body
-      description: Form object that needs to be added
-      required: true
+      description: This is the array of formtemplate to create through the cloud
       schema:
         type: array
         items:
           $ref: '#/definitions/FormTemplate'
   responses:
     '200':
-      description: Successful operation returning the array of formtemplate created
+      description: Successful operation to create new formtemplate array in the cloud
       schema:
         type: array
         items:
           $ref: '#/definitions/FormTemplate'
-    '405':
-      description: Invalid input
 put:
+  operationId: putFormtemplate
   tags:
-    - Form Template
-  summary: Update a form template available to the current user
-  operationId: updateFormTemplate
-  consumes:
-    - application/json
-  produces:
-    - application/json
+    - Forms
+  summary: To update formtemplate in the cloud APROPLAN
   parameters:
     - $ref: '#/parameters/tokenParam'
     - $ref: '#/parameters/requesterParam'
     - $ref: '#/parameters/dateFormatParam'
     - in: body
       name: body
-      description: Form object that needs to be added
-      required: true
+      description: This is the array of formtemplate to update in the cloud
       schema:
         type: array
         items:
           $ref: '#/definitions/FormTemplate'
   responses:
     '200':
-      description: OK
+      description: Successful operation to update array of formtemplate in the cloud
       schema:
         type: array
         items:
           $ref: '#/definitions/FormTemplate'
-    '405':
-      description: Invalid input
 delete:
-  operationId: deleteFormTemplates
+  operationId: deleteFormtemplate
   tags:
-    - Form Template
-  summary: Delete a form template available to the current user
+    - Forms
+  summary: To delete items of formtemplate in the cloud APROPLAN
   parameters:
     - $ref: '#/parameters/tokenParam'
     - $ref: '#/parameters/requesterParam'
@@ -98,15 +81,15 @@ delete:
       schema:
         type: array
         items:
-          type: number
+          type: string
         example:
           - ea5d793f-c795-4311-8344-eb18e8efa065
           - afff9354-abb3-4a9c-aca5-9810490938ef
   responses:
     '200':
       description: >-
-        Successful operation meaning all specified id of FormTemplate are
-        deleted with all related questions from the cloud
+        Successful operation meaning all specified items of formtemplate
+        corresponding to ids in parameters are deleted from the cloud
       schema:
         type: string
         example: success
