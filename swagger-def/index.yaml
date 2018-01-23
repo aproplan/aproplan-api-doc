@@ -22,8 +22,10 @@ tags:
     description: Everything about Forms
   - name: Form Templates
     description: Everything about Form Templates
-  - name: Commpanies
+  - name: Companies
     description: Everything about the managed companies
+  - name: Reports
+    description: Everything about the reports
 schemes:
   - https
 parameters:

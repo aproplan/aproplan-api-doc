@@ -50,6 +50,27 @@ loadfkParam:
   description: >-
     "To specify if it is necessary to load Id of related object. Example:
     You want to load Country with to load the object Language but you want at least to have the Language object created with only the Id property (Country.Language.Id). 
-    In that case, you need to specify this parameter to true
-    "
+    In that case, you need to specify this parameter to true    "
   type: string
+requestedBlockSizeParam: 
+  in: query
+  name: requestedBlockSize
+  type: number
+timestampParam:
+  in: query
+  name: timestamp
+  type: string
+  format: date-time
+formatParam:
+  in: query
+  name: format
+  type: string
+  enum: 
+    - json
+    - excel
+  description: to specify in which format the output must be generated. By default, it is json
+idsParam: 
+  in: query
+  name: ids
+  type: string
+  description: this is the list of entity's ids separated by comma

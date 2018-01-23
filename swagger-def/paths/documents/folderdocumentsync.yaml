@@ -1,9 +1,9 @@
 get:
-  operationId: getFormSync
+  operationId: getFolderDocumentSync
   tags:
-    - Forms
+    - Documents
   summary: >-
-    Return the list of form created, deleted or added from a specific date if
+    Return the list of document created, deleted or added for which the user has the visibility in the project structure from a specific date if
     specified (The CRUD action can be on the entity himself or one of linked
     detail entity).  The collection returned contains all detail entities and
     contains also entities deleted
@@ -17,9 +17,9 @@ get:
   responses:
     '200':
       description: >-
-        Successful operation returning the array of form for which a
+        Successful operation returning the array of note for which a
         modification has been done from the specific date
       schema:
         type: array
         items:
-          $ref: '#/definitions/Form'
+          $ref: '#/definitions/Document'

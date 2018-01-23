@@ -46,6 +46,8 @@
   $ref: ./companies/companyusers.yaml
 /companyusersids:
   $ref: ./companies/companyusersids.yaml
+/companyusersync:
+  $ref: ./companies/companyusersync.yaml
 /companyuserinvitationrequestcount:
   $ref: ./companies/companyuserinvitationrequestcount.yaml
 /companyuserinvitationrequests:
@@ -58,18 +60,24 @@
   $ref: ./projects/projects.yaml
 /projectsids:
   $ref: ./projects/projectsids.yaml
+/projectsync:
+  $ref: ./projects/projectsync.yaml
 /chaptercount:
   $ref: ./projects/chaptercount.yaml
 /chapters:
   $ref: ./projects/chapters.yaml
 /chaptersids:
   $ref: ./projects/chaptersids.yaml
+/chaptersync:
+  $ref: ./projects/chaptersync.yaml
 /issuetypecount:
   $ref: ./projects/issuetypecount.yaml
 /issuetypes:
   $ref: ./projects/issuetypes.yaml
 /issuetypesids:
   $ref: ./projects/issuetypesids.yaml
+/issuetypesync:
+  $ref: ./projects/issuetypesync.yaml
 /issuetypenotesubjectcount:
   $ref: ./projects/issuetypenotesubjectcount.yaml
 /issuetypenotesubjects:
@@ -82,24 +90,32 @@
   $ref: ./projects/parentcells.yaml
 /parentcellsids:
   $ref: ./projects/parentcellsids.yaml
+/parentcellsync:
+  $ref: ./projects/parentcellsync.yaml
 /subcellcount:
   $ref: ./projects/subcellcount.yaml
 /subcells:
   $ref: ./projects/subcells.yaml
 /subcellsids:
   $ref: ./projects/subcellsids.yaml
+/subcellsync:
+  $ref: ./projects/subcellsync.yaml
 /noteprojectstatuscount:
   $ref: ./projects/noteprojectstatuscount.yaml
 /noteprojectstatus:
   $ref: ./projects/noteprojectstatus.yaml
 /noteprojectstatusids:
   $ref: ./projects/noteprojectstatusids.yaml
+/noteprojectstatussync:
+  $ref: ./projects/noteprojectstatussync.yaml
 /foldercount:
   $ref: ./projects/foldercount.yaml
 /folders:
   $ref: ./projects/folders.yaml
 /foldersids:
   $ref: ./projects/foldersids.yaml
+/foldersync:
+  $ref: ./projects/foldersync.yaml
 /foldervisibilitycount:
   $ref: ./projects/foldervisibilitycount.yaml
 /foldervisibilities:
@@ -112,6 +128,8 @@
   $ref: ./projects/contactdetails.yaml
 /contactdetailsids:
   $ref: ./projects/contactdetailsids.yaml
+/contactdetailssync:
+  $ref: ./projects/contactdetailssync.yaml
 /contactissuetypecount:
   $ref: ./projects/contactissuetypecount.yaml
 /contactissuetypes:
@@ -126,6 +144,10 @@
   $ref: ./documents/documents.yaml
 /documentsids:
   $ref: ./documents/documentsids.yaml
+/attachmentdocumentsync:
+  $ref: ./documents/attachmentdocumentsync.yaml
+/folderdocumentsync:
+  $ref: ./documents/folderdocumentsync.yaml
 /versioncount:
   $ref: ./documents/versioncount.yaml
 /versions:
@@ -138,6 +160,8 @@
   $ref: ./meetings/meetings.yaml
 /meetingsids:
   $ref: ./meetings/meetingsids.yaml
+/meetingsync:
+  $ref: ./meetings/meetingsync.yaml
 /meetingconcerncount:
   $ref: ./meetings/meetingconcerncount.yaml
 /meetingconcerns:
@@ -176,6 +200,8 @@
   $ref: ./annotations/notes/notes.yaml
 /notesids:
   $ref: ./annotations/notes/notesids.yaml
+/notesync:
+  $ref: ./annotations/notes/notesync.yaml
 /noteinchargecount:
   $ref: ./annotations/noteinchargecount.yaml
 /noteincharges:
@@ -194,6 +220,12 @@
   $ref: ./annotations/notedocuments.yaml
 /notedocumentsids:
   $ref: ./annotations/notedocumentsids.yaml
+/drawingcount:
+  $ref: ./annotations/drawingcount.yaml
+/drawings:
+  $ref: ./annotations/drawings.yaml
+/drawingsids:
+  $ref: ./annotations/drawingsids.yaml
 /formcount:
   $ref: ./annotations/forms/formcount.yaml
 /forms:
@@ -220,10 +252,17 @@
   $ref: ./annotations/forms/formquestionsids.yaml
 /formfinalization:
   $ref: ./annotations/forms/formfinalization.yaml
+/generateformfromtemplates:
+  $ref: ./annotations/forms/generateformfromtemplates.yaml
 /formsync:
   $ref: ./annotations/forms/formsync.yaml
 /formtemplatesync:
   $ref: ./annotations/forms/formtemplatesync.yaml
 /previewformreport:
   $ref: ./annotations/forms/previewformreport.yaml
+/reportrequests:
+  $ref: ./reports/reportrequests.yaml
+/reportrequestsync:
+  $ref: ./reports/reportrequestsync.yaml
+
 

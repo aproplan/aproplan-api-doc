@@ -1,0 +1,20 @@
+get:
+  operationId: getGenerateFormFromTemplates
+  tags:
+    - Forms
+  summary: >-
+    This method will generate an excel for forms based on template specified in parameters
+  parameters:
+    - $ref: '#/parameters/tokenParam'
+    - $ref: '#/parameters/requesterParam'
+    - $ref: '#/parameters/dateFormatParam'
+    - $ref: '#/parameters/formatParam'
+    - $ref: '#/parameters/idsParam'
+  description: 'the format parameter is required in this case and must be equals to "excel". The ids parameter must contains a list of ids of form template to be the base of the creation of form in an excel file'
+  responses:
+    '200':
+      description: >-
+        Successful operation returning an generated excel file that contains the forms with all columns concerning form template prefilled with the one specified in parameters.
+      schema:
+        type: string
+        format: binary

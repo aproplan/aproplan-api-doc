@@ -1,0 +1,26 @@
+type: object
+allOf:
+  - $ref: '#/definitions/RestEntity'
+  - type: object
+  - title: ReportRequest
+  - properties:
+      DocumentId:
+        type: string
+        description: This is the id of the document created from the report request
+      ReportTitle: 
+        type: string
+        description: This is the title to give to the report to generate
+      Status: 
+        type: string
+        enum: 
+          - New
+          - InProgress
+          - Generated
+          - Error
+          - Deleted
+          - ToGenerateCacheFile
+          - GenerateCacheFileError
+      Date: 
+        type: string
+        format: date-time
+        description: date of the report request

@@ -98,6 +98,8 @@ NoteBase:
   $ref: ./annotations/note-base.yaml
 Note:
   $ref: ./annotations/notes/note.yaml
+Drawing:
+  $ref: ./annotations/drawing.yaml
 FormItemBase:
   $ref: ./annotations/forms/form-item-base.yaml
 Form:
@@ -114,6 +116,8 @@ FormQuestion:
   $ref: ./annotations/forms/form-question.yaml
 FormSignatureRule:
   $ref: ./annotations/forms/form-signature-rule.yaml
+ReportRequest:
+  $ref: ./reports/report-request.yaml
 ReportRestIdentification:
   $ref: ./reports/report-rest-identification.yaml
 FormReportParams:

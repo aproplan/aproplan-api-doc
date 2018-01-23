@@ -31,8 +31,10 @@ tags:
     description: Everything about Forms
   - name: Form Templates
     description: Everything about Form Templates
-  - name: Commpanies
+  - name: Companies
     description: Everything about the managed companies
+  - name: Reports
+    description: Everything about the reports
 schemes:
   - https
 parameters:
@@ -96,8 +98,32 @@ parameters:
       want to load Country with to load the object Language but you want at
       least to have the Language object created with only the Id property
       (Country.Language.Id).  In that case, you need to specify this parameter
-      to true "
+      to true    "
     type: string
+  requestedBlockSizeParam:
+    in: query
+    name: requestedBlockSize
+    type: number
+  timestampParam:
+    in: query
+    name: timestamp
+    type: string
+    format: date-time
+  formatParam:
+    in: query
+    name: format
+    type: string
+    enum:
+      - json
+      - excel
+    description: >-
+      to specify in which format the output must be generated. By default, it is
+      json
+  idsParam:
+    in: query
+    name: ids
+    type: string
+    description: this is the list of entity's ids separated by comma
 paths:
   /loginsecure:
     post:
@@ -1142,6 +1168,32 @@ paths:
             type: array
             items:
               type: string
+  /companyusersync:
+    get:
+      operationId: getCompanyuserSync
+      tags:
+        - Companies
+      summary: >-
+        Return the list of companyuser created, deleted or added from a specific
+        date if specified (The CRUD action can be on the entity himself or one
+        of linked detail entity).  The collection returned contains all detail
+        entities and contains also entities deleted
+      parameters:
+        - $ref: '#/parameters/tokenParam'
+        - $ref: '#/parameters/requesterParam'
+        - $ref: '#/parameters/dateFormatParam'
+        - $ref: '#/parameters/requestedBlockSizeParam'
+        - $ref: '#/parameters/timestampParam'
+      description: ''
+      responses:
+        '200':
+          description: >-
+            Successful operation returning the array of companyuser for which a
+            modification has been done from the specific date
+          schema:
+            type: array
+            items:
+              $ref: '#/definitions/CompanyUser'
   /companyuserinvitationrequestcount:
     get:
       operationId: getCompanyuserinvitationrequestCount
@@ -1433,6 +1485,32 @@ paths:
             type: array
             items:
               type: string
+  /projectsync:
+    get:
+      operationId: getProjectSync
+      tags:
+        - Projects
+      summary: >-
+        Return the list of project created, deleted or added from a specific
+        date if specified (The CRUD action can be on the entity himself or one
+        of linked detail entity).  The collection returned contains all detail
+        entities and contains also entities deleted
+      parameters:
+        - $ref: '#/parameters/tokenParam'
+        - $ref: '#/parameters/requesterParam'
+        - $ref: '#/parameters/dateFormatParam'
+        - $ref: '#/parameters/requestedBlockSizeParam'
+        - $ref: '#/parameters/timestampParam'
+      description: ''
+      responses:
+        '200':
+          description: >-
+            Successful operation returning the array of project for which a
+            modification has been done from the specific date
+          schema:
+            type: array
+            items:
+              $ref: '#/definitions/Project'
   /chaptercount:
     get:
       operationId: getChapterCount
@@ -1572,6 +1650,32 @@ paths:
             type: array
             items:
               type: string
+  /chaptersync:
+    get:
+      operationId: getChapterSync
+      tags:
+        - Projects
+      summary: >-
+        Return the list of chapter created, deleted or added from a specific
+        date if specified (The CRUD action can be on the entity himself or one
+        of linked detail entity).  The collection returned contains all detail
+        entities and contains also entities deleted
+      parameters:
+        - $ref: '#/parameters/tokenParam'
+        - $ref: '#/parameters/requesterParam'
+        - $ref: '#/parameters/dateFormatParam'
+        - $ref: '#/parameters/requestedBlockSizeParam'
+        - $ref: '#/parameters/timestampParam'
+      description: ''
+      responses:
+        '200':
+          description: >-
+            Successful operation returning the array of chapter for which a
+            modification has been done from the specific date
+          schema:
+            type: array
+            items:
+              $ref: '#/definitions/Chapter'
   /issuetypecount:
     get:
       operationId: getIssuetypeCount
@@ -1711,6 +1815,32 @@ paths:
             type: array
             items:
               type: string
+  /issuetypesync:
+    get:
+      operationId: getIssuetypeSync
+      tags:
+        - Projects
+      summary: >-
+        Return the list of issuetype created, deleted or added from a specific
+        date if specified (The CRUD action can be on the entity himself or one
+        of linked detail entity).  The collection returned contains all detail
+        entities and contains also entities deleted
+      parameters:
+        - $ref: '#/parameters/tokenParam'
+        - $ref: '#/parameters/requesterParam'
+        - $ref: '#/parameters/dateFormatParam'
+        - $ref: '#/parameters/requestedBlockSizeParam'
+        - $ref: '#/parameters/timestampParam'
+      description: ''
+      responses:
+        '200':
+          description: >-
+            Successful operation returning the array of issuetype for which a
+            modification has been done from the specific date
+          schema:
+            type: array
+            items:
+              $ref: '#/definitions/IssueType'
   /issuetypenotesubjectcount:
     get:
       operationId: getIssuetypenotesubjectCount
@@ -1996,6 +2126,32 @@ paths:
             type: array
             items:
               type: string
+  /parentcellsync:
+    get:
+      operationId: getParentcellSync
+      tags:
+        - Projects
+      summary: >-
+        Return the list of parentcell created, deleted or added from a specific
+        date if specified (The CRUD action can be on the entity himself or one
+        of linked detail entity).  The collection returned contains all detail
+        entities and contains also entities deleted
+      parameters:
+        - $ref: '#/parameters/tokenParam'
+        - $ref: '#/parameters/requesterParam'
+        - $ref: '#/parameters/dateFormatParam'
+        - $ref: '#/parameters/requestedBlockSizeParam'
+        - $ref: '#/parameters/timestampParam'
+      description: ''
+      responses:
+        '200':
+          description: >-
+            Successful operation returning the array of parentcell for which a
+            modification has been done from the specific date
+          schema:
+            type: array
+            items:
+              $ref: '#/definitions/ParentCell'
   /subcellcount:
     get:
       operationId: getSubcellCount
@@ -2135,6 +2291,32 @@ paths:
             type: array
             items:
               type: string
+  /subcellsync:
+    get:
+      operationId: getSubcellSync
+      tags:
+        - Projects
+      summary: >-
+        Return the list of subcell created, deleted or added from a specific
+        date if specified (The CRUD action can be on the entity himself or one
+        of linked detail entity).  The collection returned contains all detail
+        entities and contains also entities deleted
+      parameters:
+        - $ref: '#/parameters/tokenParam'
+        - $ref: '#/parameters/requesterParam'
+        - $ref: '#/parameters/dateFormatParam'
+        - $ref: '#/parameters/requestedBlockSizeParam'
+        - $ref: '#/parameters/timestampParam'
+      description: ''
+      responses:
+        '200':
+          description: >-
+            Successful operation returning the array of subcell for which a
+            modification has been done from the specific date
+          schema:
+            type: array
+            items:
+              $ref: '#/definitions/SubCell'
   /noteprojectstatuscount:
     get:
       operationId: getNoteprojectstatusCount
@@ -2279,6 +2461,32 @@ paths:
             type: array
             items:
               type: string
+  /noteprojectstatussync:
+    get:
+      operationId: getNoteprojectstatusSync
+      tags:
+        - Projects
+      summary: >-
+        Return the list of noteprojectstatus created, deleted or added from a
+        specific date if specified (The CRUD action can be on the entity himself
+        or one of linked detail entity).  The collection returned contains all
+        detail entities and contains also entities deleted
+      parameters:
+        - $ref: '#/parameters/tokenParam'
+        - $ref: '#/parameters/requesterParam'
+        - $ref: '#/parameters/dateFormatParam'
+        - $ref: '#/parameters/requestedBlockSizeParam'
+        - $ref: '#/parameters/timestampParam'
+      description: ''
+      responses:
+        '200':
+          description: >-
+            Successful operation returning the array of noteprojectstatus for
+            which a modification has been done from the specific date
+          schema:
+            type: array
+            items:
+              $ref: '#/definitions/NoteProjectStatus'
   /foldercount:
     get:
       operationId: getFolderCount
@@ -2418,6 +2626,32 @@ paths:
             type: array
             items:
               type: string
+  /foldersync:
+    get:
+      operationId: getFolderSync
+      tags:
+        - Projects
+      summary: >-
+        Return the list of folder created, deleted or added from a specific date
+        if specified (The CRUD action can be on the entity himself or one of
+        linked detail entity).  The collection returned contains all detail
+        entities and contains also entities deleted
+      parameters:
+        - $ref: '#/parameters/tokenParam'
+        - $ref: '#/parameters/requesterParam'
+        - $ref: '#/parameters/dateFormatParam'
+        - $ref: '#/parameters/requestedBlockSizeParam'
+        - $ref: '#/parameters/timestampParam'
+      description: ''
+      responses:
+        '200':
+          description: >-
+            Successful operation returning the array of folder for which a
+            modification has been done from the specific date
+          schema:
+            type: array
+            items:
+              $ref: '#/definitions/Folder'
   /foldervisibilitycount:
     get:
       operationId: getFoldervisibilityCount
@@ -2700,6 +2934,32 @@ paths:
             type: array
             items:
               type: string
+  /contactdetailssync:
+    get:
+      operationId: getContactdetailsSync
+      tags:
+        - Projects
+      summary: >-
+        Return the list of contactdetails created, deleted or added from a
+        specific date if specified (The CRUD action can be on the entity himself
+        or one of linked detail entity).  The collection returned contains all
+        detail entities and contains also entities deleted
+      parameters:
+        - $ref: '#/parameters/tokenParam'
+        - $ref: '#/parameters/requesterParam'
+        - $ref: '#/parameters/dateFormatParam'
+        - $ref: '#/parameters/requestedBlockSizeParam'
+        - $ref: '#/parameters/timestampParam'
+      description: ''
+      responses:
+        '200':
+          description: >-
+            Successful operation returning the array of contactdetails for which
+            a modification has been done from the specific date
+          schema:
+            type: array
+            items:
+              $ref: '#/definitions/ContactDetails'
   /contactissuetypecount:
     get:
       operationId: getContactissuetypeCount
@@ -3076,6 +3336,60 @@ paths:
             type: array
             items:
               type: string
+  /attachmentdocumentsync:
+    get:
+      operationId: getAttachmentDocumentSync
+      tags:
+        - Documents
+      summary: >-
+        Return the list of document created, deleted or added attached to a
+        point or form for which the user has the visibility from a specific date
+        if specified (The CRUD action can be on the entity himself or one of
+        linked detail entity).  The collection returned contains all detail
+        entities and contains also entities deleted
+      parameters:
+        - $ref: '#/parameters/tokenParam'
+        - $ref: '#/parameters/requesterParam'
+        - $ref: '#/parameters/dateFormatParam'
+        - $ref: '#/parameters/requestedBlockSizeParam'
+        - $ref: '#/parameters/timestampParam'
+      description: ''
+      responses:
+        '200':
+          description: >-
+            Successful operation returning the array of note for which a
+            modification has been done from the specific date
+          schema:
+            type: array
+            items:
+              $ref: '#/definitions/Document'
+  /folderdocumentsync:
+    get:
+      operationId: getFolderDocumentSync
+      tags:
+        - Documents
+      summary: >-
+        Return the list of document created, deleted or added for which the user
+        has the visibility in the project structure from a specific date if
+        specified (The CRUD action can be on the entity himself or one of linked
+        detail entity).  The collection returned contains all detail entities
+        and contains also entities deleted
+      parameters:
+        - $ref: '#/parameters/tokenParam'
+        - $ref: '#/parameters/requesterParam'
+        - $ref: '#/parameters/dateFormatParam'
+        - $ref: '#/parameters/requestedBlockSizeParam'
+        - $ref: '#/parameters/timestampParam'
+      description: ''
+      responses:
+        '200':
+          description: >-
+            Successful operation returning the array of note for which a
+            modification has been done from the specific date
+          schema:
+            type: array
+            items:
+              $ref: '#/definitions/Document'
   /versioncount:
     get:
       operationId: getVersionCount
@@ -3354,6 +3668,32 @@ paths:
             type: array
             items:
               type: string
+  /meetingsync:
+    get:
+      operationId: getMeetingSync
+      tags:
+        - Lists
+      summary: >-
+        Return the list of meeting created, deleted or added from a specific
+        date if specified (The CRUD action can be on the entity himself or one
+        of linked detail entity).  The collection returned contains all detail
+        entities and contains also entities deleted
+      parameters:
+        - $ref: '#/parameters/tokenParam'
+        - $ref: '#/parameters/requesterParam'
+        - $ref: '#/parameters/dateFormatParam'
+        - $ref: '#/parameters/requestedBlockSizeParam'
+        - $ref: '#/parameters/timestampParam'
+      description: ''
+      responses:
+        '200':
+          description: >-
+            Successful operation returning the array of meeting for which a
+            modification has been done from the specific date
+          schema:
+            type: array
+            items:
+              $ref: '#/definitions/Meeting'
   /meetingconcerncount:
     get:
       operationId: getMeetingconcernCount
@@ -4311,6 +4651,32 @@ paths:
             type: array
             items:
               type: string
+  /notesync:
+    get:
+      operationId: getNoteSync
+      tags:
+        - Points
+      summary: >-
+        Return the list of note created, deleted or added from a specific date
+        if specified (The CRUD action can be on the entity himself or one of
+        linked detail entity).  The collection returned contains all detail
+        entities and contains also entities deleted
+      parameters:
+        - $ref: '#/parameters/tokenParam'
+        - $ref: '#/parameters/requesterParam'
+        - $ref: '#/parameters/dateFormatParam'
+        - $ref: '#/parameters/requestedBlockSizeParam'
+        - $ref: '#/parameters/timestampParam'
+      description: ''
+      responses:
+        '200':
+          description: >-
+            Successful operation returning the array of note for which a
+            modification has been done from the specific date
+          schema:
+            type: array
+            items:
+              $ref: '#/definitions/Note'
   /noteinchargecount:
     get:
       operationId: getNoteinchargeCount
@@ -4723,6 +5089,145 @@ paths:
         '200':
           description: >-
             Successful operation returning the array of id of notedocument
+            corresponding to the queries parameters
+          schema:
+            type: array
+            items:
+              type: string
+  /drawingcount:
+    get:
+      operationId: getDrawingCount
+      tags:
+        - Annotations
+      summary: Return the count of drawing available to the current user
+      parameters:
+        - $ref: '#/parameters/tokenParam'
+        - $ref: '#/parameters/requesterParam'
+        - $ref: '#/parameters/dateFormatParam'
+        - $ref: '#/parameters/filterParam'
+      description: ''
+      responses:
+        '200':
+          description: >-
+            Successful operation returning the number of drawing corresponding
+            to the queries parameters
+          schema:
+            type: number
+  /drawings:
+    get:
+      operationId: getDrawing
+      tags:
+        - Annotations
+      summary: Return the list of drawing available to the current user
+      parameters:
+        - $ref: '#/parameters/tokenParam'
+        - $ref: '#/parameters/requesterParam'
+        - $ref: '#/parameters/dateFormatParam'
+        - $ref: '#/parameters/filterParam'
+        - $ref: '#/parameters/pathtoloadParam'
+      description: ''
+      responses:
+        '200':
+          description: >-
+            Successful operation returning the array of drawing corresponding to
+            the queries parameters
+          schema:
+            type: array
+            items:
+              $ref: '#/definitions/Drawing'
+    post:
+      operationId: postDrawing
+      tags:
+        - Annotations
+      summary: To create new drawing in the cloud APROPLAN
+      parameters:
+        - $ref: '#/parameters/tokenParam'
+        - $ref: '#/parameters/requesterParam'
+        - $ref: '#/parameters/dateFormatParam'
+        - in: body
+          name: body
+          description: This is the array of drawing to create through the cloud
+          schema:
+            type: array
+            items:
+              $ref: '#/definitions/Drawing'
+      responses:
+        '200':
+          description: Successful operation to create new drawing array in the cloud
+          schema:
+            type: array
+            items:
+              $ref: '#/definitions/Drawing'
+    put:
+      operationId: putDrawing
+      tags:
+        - Annotations
+      summary: To update drawing in the cloud APROPLAN
+      parameters:
+        - $ref: '#/parameters/tokenParam'
+        - $ref: '#/parameters/requesterParam'
+        - $ref: '#/parameters/dateFormatParam'
+        - in: body
+          name: body
+          description: This is the array of drawing to update in the cloud
+          schema:
+            type: array
+            items:
+              $ref: '#/definitions/Drawing'
+      responses:
+        '200':
+          description: Successful operation to update array of drawing in the cloud
+          schema:
+            type: array
+            items:
+              $ref: '#/definitions/Drawing'
+    delete:
+      operationId: deleteDrawing
+      tags:
+        - Annotations
+      summary: To delete items of drawing in the cloud APROPLAN
+      parameters:
+        - $ref: '#/parameters/tokenParam'
+        - $ref: '#/parameters/requesterParam'
+        - $ref: '#/parameters/dateFormatParam'
+        - in: body
+          name: body
+          description: Array of drawing id to delete from the cloud
+          required: true
+          schema:
+            type: array
+            items:
+              type: string
+            example:
+              - ea5d793f-c795-4311-8344-eb18e8efa065
+              - afff9354-abb3-4a9c-aca5-9810490938ef
+      responses:
+        '200':
+          description: >-
+            Successful operation meaning all specified items of drawing
+            corresponding to ids in parameters are deleted from the cloud
+          schema:
+            type: string
+            example: success
+  /drawingsids:
+    get:
+      operationId: getDrawingIds
+      tags:
+        - Annotations
+      summary: >-
+        Return the list of id corresponding to the drawing available to the
+        current user
+      parameters:
+        - $ref: '#/parameters/tokenParam'
+        - $ref: '#/parameters/requesterParam'
+        - $ref: '#/parameters/dateFormatParam'
+        - $ref: '#/parameters/filterParam'
+        - $ref: '#/parameters/pathtoloadParam'
+      description: ''
+      responses:
+        '200':
+          description: >-
+            Successful operation returning the array of id of drawing
             corresponding to the queries parameters
           schema:
             type: array
@@ -5305,40 +5810,85 @@ paths:
             ReportRequest identification
           schema:
             $ref: '#/definitions/FormFinalizationResponse'
+  /generateformfromtemplates:
+    get:
+      operationId: getGenerateFormFromTemplates
+      tags:
+        - Forms
+      summary: >-
+        This method will generate an excel for forms based on template specified
+        in parameters
+      parameters:
+        - $ref: '#/parameters/tokenParam'
+        - $ref: '#/parameters/requesterParam'
+        - $ref: '#/parameters/dateFormatParam'
+        - $ref: '#/parameters/formatParam'
+        - $ref: '#/parameters/idsParam'
+      description: >-
+        the format parameter is required in this case and must be equals to
+        "excel". The ids parameter must contains a list of ids of form template
+        to be the base of the creation of form in an excel file
+      responses:
+        '200':
+          description: >-
+            Successful operation returning an generated excel file that contains
+            the forms with all columns concerning form template prefilled with
+            the one specified in parameters.
+          schema:
+            type: string
+            format: binary
   /formsync:
     get:
       operationId: getFormSync
       tags:
-        - Form Synchronization
-      summary: Retrieve form of a user from a specific last datetime synchronization
+        - Forms
+      summary: >-
+        Return the list of form created, deleted or added from a specific date
+        if specified (The CRUD action can be on the entity himself or one of
+        linked detail entity).  The collection returned contains all detail
+        entities and contains also entities deleted
+      parameters:
+        - $ref: '#/parameters/tokenParam'
+        - $ref: '#/parameters/requesterParam'
+        - $ref: '#/parameters/dateFormatParam'
+        - $ref: '#/parameters/requestedBlockSizeParam'
+        - $ref: '#/parameters/timestampParam'
       description: ''
       responses:
         '200':
           description: >-
-            Successful operation returning the array of forms updated/deleted
-            from a specific date
+            Successful operation returning the array of form for which a
+            modification has been done from the specific date
           schema:
             type: array
             items:
               $ref: '#/definitions/Form'
   /formtemplatesync:
     get:
-      operationId: getFormTemplateSync
+      operationId: getFormtemplateSync
       tags:
-        - Form Synchronization
+        - Form Templates
       summary: >-
-        Retrieve form template available to a user from a specific last datetime
-        synchronization
+        Return the list of formtemplate created, deleted or added from a
+        specific date if specified (The CRUD action can be on the entity himself
+        or one of linked detail entity).  The collection returned contains all
+        detail entities and contains also entities deleted
+      parameters:
+        - $ref: '#/parameters/tokenParam'
+        - $ref: '#/parameters/requesterParam'
+        - $ref: '#/parameters/dateFormatParam'
+        - $ref: '#/parameters/requestedBlockSizeParam'
+        - $ref: '#/parameters/timestampParam'
       description: ''
       responses:
         '200':
           description: >-
-            Successful operation returning the array of forms updated/deleted
-            from a specific date
+            Successful operation returning the array of formtemplate for which a
+            modification has been done from the specific date
           schema:
             type: array
             items:
-              $ref: '#/definitions/Form'
+              $ref: '#/definitions/FormTemplate'
   /previewformreport:
     post:
       operationId: getPreviewFormReport
@@ -5361,6 +5911,128 @@ paths:
           description: The report request is created with parameter
           schema:
             $ref: '#/definitions/ReportRestIdentification'
+  /reportrequests:
+    get:
+      operationId: getReportrequest
+      tags:
+        - Reports
+      summary: Return the list of reportrequest available to the current user
+      parameters:
+        - $ref: '#/parameters/tokenParam'
+        - $ref: '#/parameters/requesterParam'
+        - $ref: '#/parameters/dateFormatParam'
+        - $ref: '#/parameters/filterParam'
+        - $ref: '#/parameters/pathtoloadParam'
+      description: ''
+      responses:
+        '200':
+          description: >-
+            Successful operation returning the array of reportrequest
+            corresponding to the queries parameters
+          schema:
+            type: array
+            items:
+              $ref: '#/definitions/ReportRequest'
+    post:
+      operationId: postReportrequest
+      tags:
+        - Reports
+      summary: To create new reportrequest in the cloud APROPLAN
+      parameters:
+        - $ref: '#/parameters/tokenParam'
+        - $ref: '#/parameters/requesterParam'
+        - $ref: '#/parameters/dateFormatParam'
+        - in: body
+          name: body
+          description: This is the array of reportrequest to create through the cloud
+          schema:
+            type: array
+            items:
+              $ref: '#/definitions/ReportRequest'
+      responses:
+        '200':
+          description: Successful operation to create new reportrequest array in the cloud
+          schema:
+            type: array
+            items:
+              $ref: '#/definitions/ReportRequest'
+    put:
+      operationId: putReportrequest
+      tags:
+        - Reports
+      summary: To update reportrequest in the cloud APROPLAN
+      parameters:
+        - $ref: '#/parameters/tokenParam'
+        - $ref: '#/parameters/requesterParam'
+        - $ref: '#/parameters/dateFormatParam'
+        - in: body
+          name: body
+          description: This is the array of reportrequest to update in the cloud
+          schema:
+            type: array
+            items:
+              $ref: '#/definitions/ReportRequest'
+      responses:
+        '200':
+          description: Successful operation to update array of reportrequest in the cloud
+          schema:
+            type: array
+            items:
+              $ref: '#/definitions/ReportRequest'
+    delete:
+      operationId: deleteReportrequest
+      tags:
+        - Reports
+      summary: To delete items of reportrequest in the cloud APROPLAN
+      parameters:
+        - $ref: '#/parameters/tokenParam'
+        - $ref: '#/parameters/requesterParam'
+        - $ref: '#/parameters/dateFormatParam'
+        - in: body
+          name: body
+          description: Array of reportrequest id to delete from the cloud
+          required: true
+          schema:
+            type: array
+            items:
+              type: string
+            example:
+              - ea5d793f-c795-4311-8344-eb18e8efa065
+              - afff9354-abb3-4a9c-aca5-9810490938ef
+      responses:
+        '200':
+          description: >-
+            Successful operation meaning all specified items of reportrequest
+            corresponding to ids in parameters are deleted from the cloud
+          schema:
+            type: string
+            example: success
+  /reportrequestsync:
+    get:
+      operationId: getReportrequestSync
+      tags:
+        - Reports
+      summary: >-
+        Return the list of reportrequest created, deleted or added from a
+        specific date if specified (The CRUD action can be on the entity himself
+        or one of linked detail entity).  The collection returned contains all
+        detail entities and contains also entities deleted
+      parameters:
+        - $ref: '#/parameters/tokenParam'
+        - $ref: '#/parameters/requesterParam'
+        - $ref: '#/parameters/dateFormatParam'
+        - $ref: '#/parameters/requestedBlockSizeParam'
+        - $ref: '#/parameters/timestampParam'
+      description: ''
+      responses:
+        '200':
+          description: >-
+            Successful operation returning the array of reportrequest for which
+            a modification has been done from the specific date
+          schema:
+            type: array
+            items:
+              $ref: '#/definitions/ReportRequest'
 definitions:
   AliasPass:
     title: AliasPass
@@ -6811,6 +7483,53 @@ definitions:
               the note was created
           Status:
             $ref: '#/definitions/NoteProjectStatus'
+  Drawing:
+    type: object
+    description: >-
+      This is the class that will contains the drawings done on a document with
+      a point/form. A drawing is a collection of shape done on a specific page
+      of the document
+    allOf:
+      - $ref: '#/definitions/RestEntity'
+      - type: object
+      - title: Drawing
+      - properties:
+          NoteCommentId:
+            type: string
+            description: This is the id of the comment on which the drawing is linked
+          NoteDocumentId:
+            type: string
+            description: This is the document on which the drawing is done
+          Left:
+            type: number
+          Top:
+            type: number
+          Width:
+            type: number
+          Height:
+            type: number
+          Scale:
+            type: number
+          RenderCenterX:
+            type: number
+          RenderCenterY:
+            type: number
+          PrintScale:
+            type: number
+          PrintRenderCenterX:
+            type: number
+          PrintRenderCenterY:
+            type: number
+          HasRectangle:
+            type: boolean
+          PageIndex:
+            type: number
+            description: to know on which page of the document the drawing is related
+          DrawingShapesXml:
+            type: string
+            description: >-
+              This is an xml representing all shapes of the drawing done on the
+              document
   FormItemBase:
     type: object
     allOf:
@@ -7060,6 +7779,33 @@ definitions:
             description: >-
               If the question is archived, this is the date when the archive has
               been done
+  ReportRequest:
+    type: object
+    allOf:
+      - $ref: '#/definitions/RestEntity'
+      - type: object
+      - title: ReportRequest
+      - properties:
+          DocumentId:
+            type: string
+            description: This is the id of the document created from the report request
+          ReportTitle:
+            type: string
+            description: This is the title to give to the report to generate
+          Status:
+            type: string
+            enum:
+              - New
+              - InProgress
+              - Generated
+              - Error
+              - Deleted
+              - ToGenerateCacheFile
+              - GenerateCacheFileError
+          Date:
+            type: string
+            format: date-time
+            description: date of the report request
   ReportRestIdentification:
     type: object
     description: Information returned by the server about the requested report
