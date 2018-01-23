@@ -23,3 +23,9 @@ allOf:
         type: string
       ConformityRules:
         type: string
+      AllowAttachPicture: 
+        type: boolean
+        description: To know if the user can add attachment to his answer
+      AllowAttachComment:
+        type: boolean
+        description: To know if the user can add comments to his answer

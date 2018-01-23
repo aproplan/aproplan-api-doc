@@ -6674,6 +6674,11 @@ definitions:
             type: integer
           MeetingPointNumber:
             type: string
+          FormItemId:
+            type: string
+            description: >-
+              If the comment is linked to a form, it can be also linked to a
+              specific answer. This is the id of the form item
   NoteDocument:
     type: object
     description: To attach document on annotation
@@ -6689,6 +6694,11 @@ definitions:
             description: This is the id of the Note on which the document is linked
           DisplayOrder:
             type: integer
+          FormItemId:
+            type: string
+            description: >-
+              If the attachment is linked to a form, it can be also linked to a
+              specific answer. This is the id of the form item
   NoteInCharge:
     type: object
     allOf:
@@ -6827,6 +6837,12 @@ definitions:
             type: string
           ConformityRules:
             type: string
+          AllowAttachPicture:
+            type: boolean
+            description: To know if the user can add attachment to his answer
+          AllowAttachComment:
+            type: boolean
+            description: To know if the user can add comments to his answer
   Form:
     type: object
     description: This is a Form created from a FormTemplate
@@ -6952,6 +6968,11 @@ definitions:
             description: >-
               When the answer is given and there are rule of conformity. This
               value is computed regarding the value and conformity rules
+          NoteDocuments:
+            type: array
+            items:
+              - $ref: '#/definitions/NoteDocument'
+            description: This is the list of attachments added to the answer
   FormTemplate:
     type: object
     description: This is a template of Form

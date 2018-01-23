@@ -12,3 +12,6 @@ allOf:
         description: This is the id of the Note on which the document is linked
       DisplayOrder:
         type: integer
+      FormItemId: 
+        type: string
+        description: If the attachment is linked to a form, it can be also linked to a specific answer. This is the id of the form item      

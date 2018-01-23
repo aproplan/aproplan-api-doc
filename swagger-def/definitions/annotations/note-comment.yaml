@@ -40,3 +40,6 @@ allOf:
         type: integer
       MeetingPointNumber:
         type: string
+      FormItemId: 
+        type: string
+        description: If the comment is linked to a form, it can be also linked to a specific answer. This is the id of the form item

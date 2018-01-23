@@ -37,3 +37,8 @@ allOf:
         description: >-
           When the answer is given and there are rule of conformity. This
           value is computed regarding the value and conformity rules
+      NoteDocuments:
+        type: array
+        items: 
+          - $ref: '#/definitions/NoteDocument'
+        description: This is the list of attachments added to the answer
