@@ -1,0 +1,43 @@
+type: object
+description: >-
+  This is the class that will contains the drawings done on a document with a point/form. A drawing is a collection of shape done on a specific page of the document
+allOf:
+  - $ref: '#/definitions/RestEntity'
+  - type: object
+  - title: Drawing
+  - properties:
+      NoteCommentId:
+        type: string
+        description: This is the id of the comment on which the drawing is linked
+      NoteDocumentId: 
+        type: string
+        description: This is the document on which the drawing is done
+      Left:
+        type: number
+      Top:
+        type: number
+      Width:
+        type: number
+      Height:
+        type: number
+      Scale:
+        type: number
+      RenderCenterX:
+        type: number
+      RenderCenterY:
+        type: number
+      PrintScale:
+        type: number
+      PrintRenderCenterX:
+        type: number
+      PrintRenderCenterY:
+        type: number
+      HasRectangle:
+        type: boolean
+      PageIndex: 
+        type: number
+        description: to know on which page of the document the drawing is related
+      DrawingShapesXml: 
+        type: string 
+        description: This is an xml representing all shapes of the drawing done on the document
+

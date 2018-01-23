@@ -1,0 +1,95 @@
+get:
+  operationId: getReportrequest
+  tags:
+    - Reports
+  summary: Return the list of reportrequest available to the current user
+  parameters:
+    - $ref: '#/parameters/tokenParam'
+    - $ref: '#/parameters/requesterParam'
+    - $ref: '#/parameters/dateFormatParam'
+    - $ref: '#/parameters/filterParam'
+    - $ref: '#/parameters/pathtoloadParam'
+  description: ''
+  responses:
+    '200':
+      description: >-
+        Successful operation returning the array of reportrequest corresponding
+        to the queries parameters
+      schema:
+        type: array
+        items:
+          $ref: '#/definitions/ReportRequest'
+post:
+  operationId: postReportrequest
+  tags:
+    - Reports
+  summary: To create new reportrequest in the cloud APROPLAN
+  parameters:
+    - $ref: '#/parameters/tokenParam'
+    - $ref: '#/parameters/requesterParam'
+    - $ref: '#/parameters/dateFormatParam'
+    - in: body
+      name: body
+      description: This is the array of reportrequest to create through the cloud
+      schema:
+        type: array
+        items:
+          $ref: '#/definitions/ReportRequest'
+  responses:
+    '200':
+      description: Successful operation to create new reportrequest array in the cloud
+      schema:
+        type: array
+        items:
+          $ref: '#/definitions/ReportRequest'
+put:
+  operationId: putReportrequest
+  tags:
+    - Reports
+  summary: To update reportrequest in the cloud APROPLAN
+  parameters:
+    - $ref: '#/parameters/tokenParam'
+    - $ref: '#/parameters/requesterParam'
+    - $ref: '#/parameters/dateFormatParam'
+    - in: body
+      name: body
+      description: This is the array of reportrequest to update in the cloud
+      schema:
+        type: array
+        items:
+          $ref: '#/definitions/ReportRequest'
+  responses:
+    '200':
+      description: Successful operation to update array of reportrequest in the cloud
+      schema:
+        type: array
+        items:
+          $ref: '#/definitions/ReportRequest'
+delete:
+  operationId: deleteReportrequest
+  tags:
+    - Reports
+  summary: To delete items of reportrequest in the cloud APROPLAN
+  parameters:
+    - $ref: '#/parameters/tokenParam'
+    - $ref: '#/parameters/requesterParam'
+    - $ref: '#/parameters/dateFormatParam'
+    - in: body
+      name: body
+      description: Array of reportrequest id to delete from the cloud
+      required: true
+      schema:
+        type: array
+        items:
+          type: string
+        example:
+          - ea5d793f-c795-4311-8344-eb18e8efa065
+          - afff9354-abb3-4a9c-aca5-9810490938ef
+  responses:
+    '200':
+      description: >-
+        Successful operation meaning all specified items of reportrequest
+        corresponding to ids in parameters are deleted from the cloud
+      schema:
+        type: string
+        example: success

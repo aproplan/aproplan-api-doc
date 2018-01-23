@@ -1,0 +1,25 @@
+get:
+  operationId: getReportrequestSync
+  tags:
+    - Reports
+  summary: >-
+    Return the list of reportrequest created, deleted or added from a specific
+    date if specified (The CRUD action can be on the entity himself or one of
+    linked detail entity).  The collection returned contains all detail entities
+    and contains also entities deleted
+  parameters:
+    - $ref: '#/parameters/tokenParam'
+    - $ref: '#/parameters/requesterParam'
+    - $ref: '#/parameters/dateFormatParam'
+    - $ref: '#/parameters/requestedBlockSizeParam'
+    - $ref: '#/parameters/timestampParam'
+  description: ''
+  responses:
+    '200':
+      description: >-
+        Successful operation returning the array of reportrequest for which a
+        modification has been done from the specific date
+      schema:
+        type: array
+        items:
+          $ref: '#/definitions/ReportRequest'
