@@ -1,0 +1,78 @@
+get:
+  operationId: getAccountData
+  tags:
+    - Actors
+  summary: Return account information with optional additional information.
+  parameters:
+    - in: path
+      name: usagepackage
+      schema:
+        type: boolean
+      required: false
+      description: Includes usage package information, if any.
+    - in: path
+      name: license
+      schema:
+        type: boolean
+      required: false
+      description: Includes license information, if any.
+    - in: path
+      name: licenseaccess
+      schema:
+        type: boolean
+      required: false
+      description: Includes license access information, if any.
+    - in: path
+      name: userpreferences
+      schema:
+        type: boolean
+      required: false
+      description: Includes user preferences information, if any.
+    - in: path
+      name: massexportconfiguration
+      schema:
+        type: boolean
+      required: false
+      description: Includes mass export configuration information, if any.
+    - in: path
+      name: documentsoriginalsize
+      schema:
+        type: boolean
+      required: false
+      description: Includes the orignal size documents, if any.
+    - in: path
+      name: information
+      schema:
+        type: boolean
+      required: false
+      description: Includes detailed information, if any.
+    - in: path
+      name: tutorialcodes
+      schema:
+        type: boolean
+      required: false
+      description: Includes the various followed tutorials, if any.
+    - in: path
+      name: phones
+      schema:
+        type: boolean
+      required: false
+      description: Includes phones information, if any.
+    - in: path
+      name: emails
+      schema:
+        type: boolean
+      required: false
+      description: Includes emails information, if any.
+    - in: path
+      name: companyinfo
+      schema:
+        type: boolean
+      required: false
+      description: Includes company information, if any.
+  description: ''
+  responses:
+    '200':
+      description: Successful operation
+      schema:
+        $ref: '#/definitions/User'
