@@ -1,7 +1,7 @@
 post:
   operationId: simpleLoginSecure
   tags:
-    - SimpleLogin
+    - Login
   summary: Low cost user authentication in order to be able to use further endpoints.
   parameters:
     - $ref: '#/parameters/requesterParam'

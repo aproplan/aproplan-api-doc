@@ -167,6 +167,28 @@ paths:
             valid token to use
           schema:
             $ref: '#/definitions/TokenInfo'
+  /simpleloginsecure:
+    post:
+      operationId: simpleLoginSecure
+      tags:
+        - Login
+      summary: >-
+        Low cost user authentication in order to be able to use further
+        endpoints.
+      parameters:
+        - $ref: '#/parameters/requesterParam'
+        - $ref: '#/parameters/dateFormatParam'
+        - in: body
+          name: body
+          schema:
+            $ref: '#/definitions/AliasPass'
+      responses:
+        '200':
+          description: >-
+            Successful operation returning a new TokenInfo object with the new
+            valid token to use.
+          schema:
+            $ref: '#/definitions/TokenInfo'
   /users:
     post:
       operationId: createUser
@@ -612,6 +634,64 @@ paths:
             type: array
             items:
               type: string
+  /accountdata:
+    get:
+      operationId: getAccountData
+      tags:
+        - Actors
+      summary: Return account information with optional additional information.
+      parameters:
+        - in: query
+          name: usagepackage
+          type: boolean
+          description: 'Includes usage package information, if any.'
+        - in: query
+          name: license
+          type: boolean
+          description: 'Includes license information, if any.'
+        - in: query
+          name: licenseaccess
+          type: boolean
+          description: 'Includes license access information, if any.'
+        - in: query
+          name: userpreferences
+          type: boolean
+          description: 'Includes user preferences information, if any.'
+        - in: query
+          name: massexportconfiguration
+          type: boolean
+          description: 'Includes mass export configuration information, if any.'
+        - in: query
+          name: documentsoriginalsize
+          type: boolean
+          required: false
+          description: 'Includes the orignal size documents, if any.'
+        - in: query
+          name: information
+          type: boolean
+          description: 'Includes detailed information, if any.'
+        - in: query
+          name: tutorialcodes
+          type: boolean
+          description: 'Includes the various followed tutorials, if any.'
+        - in: query
+          name: phones
+          type: boolean
+          description: 'Includes phones information, if any.'
+        - in: query
+          name: emails
+          type: boolean
+          description: 'Includes emails information, if any.'
+        - in: query
+          name: companyinfo
+          type: boolean
+          description: 'Includes company information, if any.'
+      description: ''
+      responses:
+        '200':
+          description: Successful operation
+          schema:
+            $ref: '#/definitions/User'
   /phonecount:
     get:
       operationId: getPhoneCount

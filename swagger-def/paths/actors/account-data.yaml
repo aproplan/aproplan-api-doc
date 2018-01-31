@@ -4,71 +4,50 @@ get:
     - Actors
   summary: Return account information with optional additional information.
   parameters:
-    - in: path
+    - in: query
       name: usagepackage
-      schema:
-        type: boolean
-      required: false
+      type: boolean
       description: Includes usage package information, if any.
-    - in: path
+    - in: query
       name: license
-      schema:
-        type: boolean
-      required: false
+      type: boolean
       description: Includes license information, if any.
-    - in: path
+    - in: query
       name: licenseaccess
-      schema:
-        type: boolean
-      required: false
+      type: boolean
       description: Includes license access information, if any.
-    - in: path
+    - in: query
       name: userpreferences
-      schema:
-        type: boolean
-      required: false
+      type: boolean
       description: Includes user preferences information, if any.
-    - in: path
+    - in: query
       name: massexportconfiguration
-      schema:
-        type: boolean
-      required: false
+      type: boolean
       description: Includes mass export configuration information, if any.
-    - in: path
+    - in: query
       name: documentsoriginalsize
-      schema:
-        type: boolean
+      type: boolean
       required: false
       description: Includes the orignal size documents, if any.
-    - in: path
+    - in: query
       name: information
-      schema:
-        type: boolean
-      required: false
+      type: boolean
       description: Includes detailed information, if any.
-    - in: path
+    - in: query
       name: tutorialcodes
-      schema:
-        type: boolean
-      required: false
+      type: boolean
       description: Includes the various followed tutorials, if any.
-    - in: path
+    - in: query
       name: phones
-      schema:
-        type: boolean
-      required: false
+      type: boolean
       description: Includes phones information, if any.
-    - in: path
+    - in: query
       name: emails
-      schema:
-        type: boolean
-      required: false
+      type: boolean
       description: Includes emails information, if any.
-    - in: path
+    - in: query
       name: companyinfo
-      schema:
-        type: boolean
-      required: false
+      type: boolean
       description: Includes company information, if any.
   description: ''
   responses:
