@@ -260,6 +260,8 @@
   $ref: ./annotations/forms/formtemplatesync.yaml
 /previewformreport:
   $ref: ./annotations/forms/previewformreport.yaml
+/usercommentids:
+  $ref: ./annotations/usercommentsids.yaml
 /reportrequests:
   $ref: ./reports/reportrequests.yaml
 /reportrequestsync:

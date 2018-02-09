@@ -1,0 +1,93 @@
+get:
+  operationId: getUserCommentIds
+  tags:
+    - Annotations
+  summary: >-
+    Return the list of ids corresponding to the search of Forms or Points. 
+  parameters:
+    - $ref: '#/parameters/tokenParam'
+    - $ref: '#/parameters/requesterParam'
+    - $ref: '#/parameters/dateFormatParam'
+    - in: query
+      name: notetypes
+      type: string
+      enum: 
+        - Note
+        - Form
+      required: true
+      description: 'The type of object to retrieve - Point or Form'
+    - in: query
+      name: groupby
+      type: string
+      enum: 
+        - None
+        - Date
+        - PunchListItem
+        - Room
+        - Status
+        - DueDate
+        - CodeNum
+        - InCharge
+        - IsArchived
+        - Plan
+      required: true
+      description: 'To specify how data must be group. This is the first sort it will be applied'
+    - in: query
+      name: projectid
+      type: string
+      description: To retrieve only points/forms of a specific project
+    - in: query
+      name: meeting
+      type: string
+      description: To retrieve only points/forms of a specific project
+    - in: query
+      name: planid
+      type: string
+      description: To retrieve only points/forms linked to a specific document    
+    - in: query
+      name: parentnotebaseid
+      type: string
+      description: To retrieve only points/forms linked to a parent point/form corresponding to the id
+    - in: query
+      name: userisauthor
+      type: boolean
+      description: To retrieve only points/forms created by the user
+    - in: query
+      name: isarchived
+      type: boolean
+      description: to retrieve all points/forms no need to specify this parameter but if it is necessary to retrieve only archived or active items use this parameter
+    - in: query
+      name: isdone
+      type: boolean
+      description: if this parameter is defined, it is to filter on points where status is flagged as isdone or istodo
+    - in: query
+      name: IsNoneGroupLast
+      type: boolean
+      description: to specify that id of points/forms that are in the "none" must be placed at the end of the list and not at the beginning
+    - in: query
+      name: isurgent
+      type: boolean
+      description: to retrieve all points/forms flagged as urgent/important
+    - in: query
+      name: notebasetype
+      type: string
+      enum: 
+        - Note
+        - Form
+      description: to specify which kind of entity needs to be retrieved - Form or Point - by default, it is for point then, "Note"
+  description: >-
+        This method returns a list of ids of points or forms. The id returns can corresponds to different kind object. To know the kind of the object, the id must be decompose: 36 first characters is the id, the end part is to specify the kind of the object 
+          * 0, -4: Id of NoteComment 
+          * 1, -1: Id of Note/Form 
+          * 2, -2: Id of NoteInCharge 
+          * 3, -3: Id of NoteDocument 
+          
+          If the value is negative, it means the related point/form is archived
+  responses:
+    '200':
+      description: >-
+        Successful operation returning the array of id computed with the type of the object related to the id
+      schema:
+        type: array
+        items:
+          type: string
