@@ -15,4 +15,4 @@ post:
       description: >-
         Successful operation returning a new TokenInfo object with the new valid token to use.
       schema:
-        $ref: '#/definitions/TokenInfo'
+        $ref: '#/definitions/User'

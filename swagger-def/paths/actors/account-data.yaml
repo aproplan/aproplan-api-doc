@@ -4,6 +4,9 @@ get:
     - Actors
   summary: Return account information with optional additional information.
   parameters:
+    - $ref: '#/parameters/tokenParam'
+    - $ref: '#/parameters/requesterParam'
+    - $ref: '#/parameters/versionParam'
     - in: query
       name: usagepackage
       type: boolean

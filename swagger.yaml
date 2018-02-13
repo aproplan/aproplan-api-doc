@@ -188,7 +188,7 @@ paths:
             Successful operation returning a new TokenInfo object with the new
             valid token to use.
           schema:
-            $ref: '#/definitions/TokenInfo'
+            $ref: '#/definitions/User'
   /users:
     post:
       operationId: createUser
@@ -641,6 +641,9 @@ paths:
         - Actors
       summary: Return account information with optional additional information.
       parameters:
+        - $ref: '#/parameters/tokenParam'
+        - $ref: '#/parameters/requesterParam'
+        - $ref: '#/parameters/versionParam'
         - in: query
           name: usagepackage
           type: boolean
