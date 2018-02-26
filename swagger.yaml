@@ -5911,7 +5911,7 @@ paths:
           description: The report request is created with parameter
           schema:
             $ref: '#/definitions/ReportRestIdentification'
-  /usercommentids:
+  /usercommentsids:
     get:
       operationId: getUserCommentIds
       tags:
