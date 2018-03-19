@@ -5,6 +5,7 @@ get:
   summary: Return the list of issuetypenotesubject available to the current user
   parameters:
     - $ref: '#/parameters/tokenParam'
+    - $ref: '#/parameters/versionParam'
     - $ref: '#/parameters/requesterParam'
     - $ref: '#/parameters/dateFormatParam'
     - $ref: '#/parameters/filterParam'
@@ -26,6 +27,7 @@ post:
   summary: To create new issuetypenotesubject in the cloud APROPLAN
   parameters:
     - $ref: '#/parameters/tokenParam'
+    - $ref: '#/parameters/versionParam'
     - $ref: '#/parameters/requesterParam'
     - $ref: '#/parameters/dateFormatParam'
     - in: body
@@ -51,6 +53,7 @@ put:
   summary: To update issuetypenotesubject in the cloud APROPLAN
   parameters:
     - $ref: '#/parameters/tokenParam'
+    - $ref: '#/parameters/versionParam'
     - $ref: '#/parameters/requesterParam'
     - $ref: '#/parameters/dateFormatParam'
     - in: body
@@ -76,6 +79,7 @@ delete:
   summary: To delete items of issuetypenotesubject in the cloud APROPLAN
   parameters:
     - $ref: '#/parameters/tokenParam'
+    - $ref: '#/parameters/versionParam'
     - $ref: '#/parameters/requesterParam'
     - $ref: '#/parameters/dateFormatParam'
     - in: body

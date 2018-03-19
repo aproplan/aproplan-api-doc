@@ -5,6 +5,7 @@ post:
   summary: to identify a user and then, to be able to make other call in the api
   parameters:
     - $ref: '#/parameters/requesterParam'
+    - $ref: '#/parameters/versionParam'
     - $ref: '#/parameters/dateFormatParam'
     - in: body
       name: body

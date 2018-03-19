@@ -7,6 +7,7 @@ get:
     user
   parameters:
     - $ref: '#/parameters/tokenParam'
+    - $ref: '#/parameters/versionParam'
     - $ref: '#/parameters/requesterParam'
     - $ref: '#/parameters/dateFormatParam'
     - $ref: '#/parameters/filterParam'
@@ -28,6 +29,7 @@ post:
   summary: To create new companyuserinvitationrequest in the cloud APROPLAN
   parameters:
     - $ref: '#/parameters/tokenParam'
+    - $ref: '#/parameters/versionParam'
     - $ref: '#/parameters/requesterParam'
     - $ref: '#/parameters/dateFormatParam'
     - in: body
@@ -55,6 +57,7 @@ put:
   summary: To update companyuserinvitationrequest in the cloud APROPLAN
   parameters:
     - $ref: '#/parameters/tokenParam'
+    - $ref: '#/parameters/versionParam'
     - $ref: '#/parameters/requesterParam'
     - $ref: '#/parameters/dateFormatParam'
     - in: body
@@ -80,6 +83,7 @@ delete:
   summary: To delete items of companyuserinvitationrequest in the cloud APROPLAN
   parameters:
     - $ref: '#/parameters/tokenParam'
+    - $ref: '#/parameters/versionParam'
     - $ref: '#/parameters/requesterParam'
     - $ref: '#/parameters/dateFormatParam'
     - in: body

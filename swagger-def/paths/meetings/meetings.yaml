@@ -5,6 +5,7 @@ get:
   summary: Return the list of meeting available to the current user
   parameters:
     - $ref: '#/parameters/tokenParam'
+    - $ref: '#/parameters/versionParam'
     - $ref: '#/parameters/requesterParam'
     - $ref: '#/parameters/dateFormatParam'
     - $ref: '#/parameters/filterParam'
@@ -26,6 +27,7 @@ post:
   summary: To create new meeting in the cloud APROPLAN
   parameters:
     - $ref: '#/parameters/tokenParam'
+    - $ref: '#/parameters/versionParam'
     - $ref: '#/parameters/requesterParam'
     - $ref: '#/parameters/dateFormatParam'
     - in: body
@@ -49,6 +51,7 @@ put:
   summary: To update meeting in the cloud APROPLAN
   parameters:
     - $ref: '#/parameters/tokenParam'
+    - $ref: '#/parameters/versionParam'
     - $ref: '#/parameters/requesterParam'
     - $ref: '#/parameters/dateFormatParam'
     - in: body
@@ -72,6 +75,7 @@ delete:
   summary: To delete items of meeting in the cloud APROPLAN
   parameters:
     - $ref: '#/parameters/tokenParam'
+    - $ref: '#/parameters/versionParam'
     - $ref: '#/parameters/requesterParam'
     - $ref: '#/parameters/dateFormatParam'
     - in: body

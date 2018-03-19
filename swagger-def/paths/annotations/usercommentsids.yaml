@@ -6,6 +6,7 @@ get:
     Return the list of ids corresponding to the search of Forms or Points. 
   parameters:
     - $ref: '#/parameters/tokenParam'
+    - $ref: '#/parameters/versionParam'
     - $ref: '#/parameters/requesterParam'
     - $ref: '#/parameters/dateFormatParam'
     - in: query

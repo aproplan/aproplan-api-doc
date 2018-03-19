@@ -5,6 +5,7 @@ post:
   summary: To preview the form report
   parameters:
     - $ref: '#/parameters/tokenParam'
+    - $ref: '#/parameters/versionParam'
     - $ref: '#/parameters/requesterParam'
     - $ref: '#/parameters/dateFormatParam'
     - in: body

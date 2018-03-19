@@ -4,6 +4,7 @@ get:
     - Login
   summary: Permit to request a new token to identify the user before the current one becomes invalidate.
   parameters: 
+    - $ref: '#/parameters/versionParam'
     - in: query
       name: t
       description: the current valid token received at the login or a previous renew token

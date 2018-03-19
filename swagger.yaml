@@ -133,6 +133,7 @@ paths:
       summary: 'to identify a user and then, to be able to make other call in the api'
       parameters:
         - $ref: '#/parameters/requesterParam'
+        - $ref: '#/parameters/versionParam'
         - $ref: '#/parameters/dateFormatParam'
         - in: body
           name: body
@@ -154,6 +155,7 @@ paths:
         Permit to request a new token to identify the user before the current
         one becomes invalidate.
       parameters:
+        - $ref: '#/parameters/versionParam'
         - in: query
           name: t
           description: >-
@@ -185,6 +187,7 @@ paths:
             * Id
         * LanguageCode
       parameters:
+        - $ref: '#/parameters/versionParam'
         - in: body
           name: body
           description: 'Need an object with 2 properties: User and Pass'
@@ -203,6 +206,7 @@ paths:
       summary: Return the count of country available to the current user
       parameters:
         - $ref: '#/parameters/tokenParam'
+        - $ref: '#/parameters/versionParam'
         - $ref: '#/parameters/requesterParam'
         - $ref: '#/parameters/dateFormatParam'
         - $ref: '#/parameters/filterParam'
@@ -222,6 +226,7 @@ paths:
       summary: Return the list of country available to the current user
       parameters:
         - $ref: '#/parameters/tokenParam'
+        - $ref: '#/parameters/versionParam'
         - $ref: '#/parameters/requesterParam'
         - $ref: '#/parameters/dateFormatParam'
         - $ref: '#/parameters/filterParam'
@@ -243,6 +248,7 @@ paths:
       summary: To create new country in the cloud APROPLAN
       parameters:
         - $ref: '#/parameters/tokenParam'
+        - $ref: '#/parameters/versionParam'
         - $ref: '#/parameters/requesterParam'
         - $ref: '#/parameters/dateFormatParam'
         - in: body
@@ -266,6 +272,7 @@ paths:
       summary: To update country in the cloud APROPLAN
       parameters:
         - $ref: '#/parameters/tokenParam'
+        - $ref: '#/parameters/versionParam'
         - $ref: '#/parameters/requesterParam'
         - $ref: '#/parameters/dateFormatParam'
         - in: body
@@ -289,6 +296,7 @@ paths:
       summary: To delete items of country in the cloud APROPLAN
       parameters:
         - $ref: '#/parameters/tokenParam'
+        - $ref: '#/parameters/versionParam'
         - $ref: '#/parameters/requesterParam'
         - $ref: '#/parameters/dateFormatParam'
         - in: body
@@ -320,6 +328,7 @@ paths:
         current user
       parameters:
         - $ref: '#/parameters/tokenParam'
+        - $ref: '#/parameters/versionParam'
         - $ref: '#/parameters/requesterParam'
         - $ref: '#/parameters/dateFormatParam'
         - $ref: '#/parameters/filterParam'
@@ -342,6 +351,7 @@ paths:
       summary: Return the count of language available to the current user
       parameters:
         - $ref: '#/parameters/tokenParam'
+        - $ref: '#/parameters/versionParam'
         - $ref: '#/parameters/requesterParam'
         - $ref: '#/parameters/dateFormatParam'
         - $ref: '#/parameters/filterParam'
@@ -361,6 +371,7 @@ paths:
       summary: Return the list of language available to the current user
       parameters:
         - $ref: '#/parameters/tokenParam'
+        - $ref: '#/parameters/versionParam'
         - $ref: '#/parameters/requesterParam'
         - $ref: '#/parameters/dateFormatParam'
         - $ref: '#/parameters/filterParam'
@@ -382,6 +393,7 @@ paths:
       summary: To create new language in the cloud APROPLAN
       parameters:
         - $ref: '#/parameters/tokenParam'
+        - $ref: '#/parameters/versionParam'
         - $ref: '#/parameters/requesterParam'
         - $ref: '#/parameters/dateFormatParam'
         - in: body
@@ -405,6 +417,7 @@ paths:
       summary: To update language in the cloud APROPLAN
       parameters:
         - $ref: '#/parameters/tokenParam'
+        - $ref: '#/parameters/versionParam'
         - $ref: '#/parameters/requesterParam'
         - $ref: '#/parameters/dateFormatParam'
         - in: body
@@ -428,6 +441,7 @@ paths:
       summary: To delete items of language in the cloud APROPLAN
       parameters:
         - $ref: '#/parameters/tokenParam'
+        - $ref: '#/parameters/versionParam'
         - $ref: '#/parameters/requesterParam'
         - $ref: '#/parameters/dateFormatParam'
         - in: body
@@ -459,6 +473,7 @@ paths:
         current user
       parameters:
         - $ref: '#/parameters/tokenParam'
+        - $ref: '#/parameters/versionParam'
         - $ref: '#/parameters/requesterParam'
         - $ref: '#/parameters/dateFormatParam'
         - $ref: '#/parameters/filterParam'
@@ -481,6 +496,7 @@ paths:
       summary: Return the count of profession available to the current user
       parameters:
         - $ref: '#/parameters/tokenParam'
+        - $ref: '#/parameters/versionParam'
         - $ref: '#/parameters/requesterParam'
         - $ref: '#/parameters/dateFormatParam'
         - $ref: '#/parameters/filterParam'
@@ -500,6 +516,7 @@ paths:
       summary: Return the list of profession available to the current user
       parameters:
         - $ref: '#/parameters/tokenParam'
+        - $ref: '#/parameters/versionParam'
         - $ref: '#/parameters/requesterParam'
         - $ref: '#/parameters/dateFormatParam'
         - $ref: '#/parameters/filterParam'
@@ -521,6 +538,7 @@ paths:
       summary: To create new profession in the cloud APROPLAN
       parameters:
         - $ref: '#/parameters/tokenParam'
+        - $ref: '#/parameters/versionParam'
         - $ref: '#/parameters/requesterParam'
         - $ref: '#/parameters/dateFormatParam'
         - in: body
@@ -544,6 +562,7 @@ paths:
       summary: To update profession in the cloud APROPLAN
       parameters:
         - $ref: '#/parameters/tokenParam'
+        - $ref: '#/parameters/versionParam'
         - $ref: '#/parameters/requesterParam'
         - $ref: '#/parameters/dateFormatParam'
         - in: body
@@ -567,6 +586,7 @@ paths:
       summary: To delete items of profession in the cloud APROPLAN
       parameters:
         - $ref: '#/parameters/tokenParam'
+        - $ref: '#/parameters/versionParam'
         - $ref: '#/parameters/requesterParam'
         - $ref: '#/parameters/dateFormatParam'
         - in: body
@@ -598,6 +618,7 @@ paths:
         current user
       parameters:
         - $ref: '#/parameters/tokenParam'
+        - $ref: '#/parameters/versionParam'
         - $ref: '#/parameters/requesterParam'
         - $ref: '#/parameters/dateFormatParam'
         - $ref: '#/parameters/filterParam'
@@ -620,6 +641,7 @@ paths:
       summary: Return the count of phone available to the current user
       parameters:
         - $ref: '#/parameters/tokenParam'
+        - $ref: '#/parameters/versionParam'
         - $ref: '#/parameters/requesterParam'
         - $ref: '#/parameters/dateFormatParam'
         - $ref: '#/parameters/filterParam'
@@ -639,6 +661,7 @@ paths:
       summary: Return the list of phone available to the current user
       parameters:
         - $ref: '#/parameters/tokenParam'
+        - $ref: '#/parameters/versionParam'
         - $ref: '#/parameters/requesterParam'
         - $ref: '#/parameters/dateFormatParam'
         - $ref: '#/parameters/filterParam'
@@ -660,6 +683,7 @@ paths:
       summary: To create new phone in the cloud APROPLAN
       parameters:
         - $ref: '#/parameters/tokenParam'
+        - $ref: '#/parameters/versionParam'
         - $ref: '#/parameters/requesterParam'
         - $ref: '#/parameters/dateFormatParam'
         - in: body
@@ -683,6 +707,7 @@ paths:
       summary: To update phone in the cloud APROPLAN
       parameters:
         - $ref: '#/parameters/tokenParam'
+        - $ref: '#/parameters/versionParam'
         - $ref: '#/parameters/requesterParam'
         - $ref: '#/parameters/dateFormatParam'
         - in: body
@@ -706,6 +731,7 @@ paths:
       summary: To delete items of phone in the cloud APROPLAN
       parameters:
         - $ref: '#/parameters/tokenParam'
+        - $ref: '#/parameters/versionParam'
         - $ref: '#/parameters/requesterParam'
         - $ref: '#/parameters/dateFormatParam'
         - in: body
@@ -737,6 +763,7 @@ paths:
         current user
       parameters:
         - $ref: '#/parameters/tokenParam'
+        - $ref: '#/parameters/versionParam'
         - $ref: '#/parameters/requesterParam'
         - $ref: '#/parameters/dateFormatParam'
         - $ref: '#/parameters/filterParam'
@@ -759,6 +786,7 @@ paths:
       summary: Return the count of person available to the current user
       parameters:
         - $ref: '#/parameters/tokenParam'
+        - $ref: '#/parameters/versionParam'
         - $ref: '#/parameters/requesterParam'
         - $ref: '#/parameters/dateFormatParam'
         - $ref: '#/parameters/filterParam'
@@ -778,6 +806,7 @@ paths:
       summary: Return the list of person available to the current user
       parameters:
         - $ref: '#/parameters/tokenParam'
+        - $ref: '#/parameters/versionParam'
         - $ref: '#/parameters/requesterParam'
         - $ref: '#/parameters/dateFormatParam'
         - $ref: '#/parameters/filterParam'
@@ -799,6 +828,7 @@ paths:
       summary: To create new person in the cloud APROPLAN
       parameters:
         - $ref: '#/parameters/tokenParam'
+        - $ref: '#/parameters/versionParam'
         - $ref: '#/parameters/requesterParam'
         - $ref: '#/parameters/dateFormatParam'
         - in: body
@@ -822,6 +852,7 @@ paths:
       summary: To update person in the cloud APROPLAN
       parameters:
         - $ref: '#/parameters/tokenParam'
+        - $ref: '#/parameters/versionParam'
         - $ref: '#/parameters/requesterParam'
         - $ref: '#/parameters/dateFormatParam'
         - in: body
@@ -845,6 +876,7 @@ paths:
       summary: To delete items of person in the cloud APROPLAN
       parameters:
         - $ref: '#/parameters/tokenParam'
+        - $ref: '#/parameters/versionParam'
         - $ref: '#/parameters/requesterParam'
         - $ref: '#/parameters/dateFormatParam'
         - in: body
@@ -876,6 +908,7 @@ paths:
         current user
       parameters:
         - $ref: '#/parameters/tokenParam'
+        - $ref: '#/parameters/versionParam'
         - $ref: '#/parameters/requesterParam'
         - $ref: '#/parameters/dateFormatParam'
         - $ref: '#/parameters/filterParam'
@@ -898,6 +931,7 @@ paths:
       summary: Return the count of managedcompany available to the current user
       parameters:
         - $ref: '#/parameters/tokenParam'
+        - $ref: '#/parameters/versionParam'
         - $ref: '#/parameters/requesterParam'
         - $ref: '#/parameters/dateFormatParam'
         - $ref: '#/parameters/filterParam'
@@ -917,6 +951,7 @@ paths:
       summary: Return the list of managedcompany available to the current user
       parameters:
         - $ref: '#/parameters/tokenParam'
+        - $ref: '#/parameters/versionParam'
         - $ref: '#/parameters/requesterParam'
         - $ref: '#/parameters/dateFormatParam'
         - $ref: '#/parameters/filterParam'
@@ -938,6 +973,7 @@ paths:
       summary: To create new managedcompany in the cloud APROPLAN
       parameters:
         - $ref: '#/parameters/tokenParam'
+        - $ref: '#/parameters/versionParam'
         - $ref: '#/parameters/requesterParam'
         - $ref: '#/parameters/dateFormatParam'
         - in: body
@@ -961,6 +997,7 @@ paths:
       summary: To update managedcompany in the cloud APROPLAN
       parameters:
         - $ref: '#/parameters/tokenParam'
+        - $ref: '#/parameters/versionParam'
         - $ref: '#/parameters/requesterParam'
         - $ref: '#/parameters/dateFormatParam'
         - in: body
@@ -984,6 +1021,7 @@ paths:
       summary: To delete items of managedcompany in the cloud APROPLAN
       parameters:
         - $ref: '#/parameters/tokenParam'
+        - $ref: '#/parameters/versionParam'
         - $ref: '#/parameters/requesterParam'
         - $ref: '#/parameters/dateFormatParam'
         - in: body
@@ -1015,6 +1053,7 @@ paths:
         the current user
       parameters:
         - $ref: '#/parameters/tokenParam'
+        - $ref: '#/parameters/versionParam'
         - $ref: '#/parameters/requesterParam'
         - $ref: '#/parameters/dateFormatParam'
         - $ref: '#/parameters/filterParam'
@@ -1037,6 +1076,7 @@ paths:
       summary: Return the count of companyuser available to the current user
       parameters:
         - $ref: '#/parameters/tokenParam'
+        - $ref: '#/parameters/versionParam'
         - $ref: '#/parameters/requesterParam'
         - $ref: '#/parameters/dateFormatParam'
         - $ref: '#/parameters/filterParam'
@@ -1056,6 +1096,7 @@ paths:
       summary: Return the list of companyuser available to the current user
       parameters:
         - $ref: '#/parameters/tokenParam'
+        - $ref: '#/parameters/versionParam'
         - $ref: '#/parameters/requesterParam'
         - $ref: '#/parameters/dateFormatParam'
         - $ref: '#/parameters/filterParam'
@@ -1077,6 +1118,7 @@ paths:
       summary: To create new companyuser in the cloud APROPLAN
       parameters:
         - $ref: '#/parameters/tokenParam'
+        - $ref: '#/parameters/versionParam'
         - $ref: '#/parameters/requesterParam'
         - $ref: '#/parameters/dateFormatParam'
         - in: body
@@ -1100,6 +1142,7 @@ paths:
       summary: To update companyuser in the cloud APROPLAN
       parameters:
         - $ref: '#/parameters/tokenParam'
+        - $ref: '#/parameters/versionParam'
         - $ref: '#/parameters/requesterParam'
         - $ref: '#/parameters/dateFormatParam'
         - in: body
@@ -1123,6 +1166,7 @@ paths:
       summary: To delete items of companyuser in the cloud APROPLAN
       parameters:
         - $ref: '#/parameters/tokenParam'
+        - $ref: '#/parameters/versionParam'
         - $ref: '#/parameters/requesterParam'
         - $ref: '#/parameters/dateFormatParam'
         - in: body
@@ -1154,6 +1198,7 @@ paths:
         current user
       parameters:
         - $ref: '#/parameters/tokenParam'
+        - $ref: '#/parameters/versionParam'
         - $ref: '#/parameters/requesterParam'
         - $ref: '#/parameters/dateFormatParam'
         - $ref: '#/parameters/filterParam'
@@ -1180,6 +1225,7 @@ paths:
         entities and contains also entities deleted
       parameters:
         - $ref: '#/parameters/tokenParam'
+        - $ref: '#/parameters/versionParam'
         - $ref: '#/parameters/requesterParam'
         - $ref: '#/parameters/dateFormatParam'
         - $ref: '#/parameters/requestedBlockSizeParam'
@@ -1204,6 +1250,7 @@ paths:
         current user
       parameters:
         - $ref: '#/parameters/tokenParam'
+        - $ref: '#/parameters/versionParam'
         - $ref: '#/parameters/requesterParam'
         - $ref: '#/parameters/dateFormatParam'
         - $ref: '#/parameters/filterParam'
@@ -1225,6 +1272,7 @@ paths:
         user
       parameters:
         - $ref: '#/parameters/tokenParam'
+        - $ref: '#/parameters/versionParam'
         - $ref: '#/parameters/requesterParam'
         - $ref: '#/parameters/dateFormatParam'
         - $ref: '#/parameters/filterParam'
@@ -1246,6 +1294,7 @@ paths:
       summary: To create new companyuserinvitationrequest in the cloud APROPLAN
       parameters:
         - $ref: '#/parameters/tokenParam'
+        - $ref: '#/parameters/versionParam'
         - $ref: '#/parameters/requesterParam'
         - $ref: '#/parameters/dateFormatParam'
         - in: body
@@ -1273,6 +1322,7 @@ paths:
       summary: To update companyuserinvitationrequest in the cloud APROPLAN
       parameters:
         - $ref: '#/parameters/tokenParam'
+        - $ref: '#/parameters/versionParam'
         - $ref: '#/parameters/requesterParam'
         - $ref: '#/parameters/dateFormatParam'
         - in: body
@@ -1300,6 +1350,7 @@ paths:
       summary: To delete items of companyuserinvitationrequest in the cloud APROPLAN
       parameters:
         - $ref: '#/parameters/tokenParam'
+        - $ref: '#/parameters/versionParam'
         - $ref: '#/parameters/requesterParam'
         - $ref: '#/parameters/dateFormatParam'
         - in: body
@@ -1332,6 +1383,7 @@ paths:
         available to the current user
       parameters:
         - $ref: '#/parameters/tokenParam'
+        - $ref: '#/parameters/versionParam'
         - $ref: '#/parameters/requesterParam'
         - $ref: '#/parameters/dateFormatParam'
         - $ref: '#/parameters/filterParam'
@@ -1354,6 +1406,7 @@ paths:
       summary: Return the count of project available to the current user
       parameters:
         - $ref: '#/parameters/tokenParam'
+        - $ref: '#/parameters/versionParam'
         - $ref: '#/parameters/requesterParam'
         - $ref: '#/parameters/dateFormatParam'
         - $ref: '#/parameters/filterParam'
@@ -1373,6 +1426,7 @@ paths:
       summary: Return the list of project available to the current user
       parameters:
         - $ref: '#/parameters/tokenParam'
+        - $ref: '#/parameters/versionParam'
         - $ref: '#/parameters/requesterParam'
         - $ref: '#/parameters/dateFormatParam'
         - $ref: '#/parameters/filterParam'
@@ -1394,6 +1448,7 @@ paths:
       summary: To create new project in the cloud APROPLAN
       parameters:
         - $ref: '#/parameters/tokenParam'
+        - $ref: '#/parameters/versionParam'
         - $ref: '#/parameters/requesterParam'
         - $ref: '#/parameters/dateFormatParam'
         - in: body
@@ -1417,6 +1472,7 @@ paths:
       summary: To update project in the cloud APROPLAN
       parameters:
         - $ref: '#/parameters/tokenParam'
+        - $ref: '#/parameters/versionParam'
         - $ref: '#/parameters/requesterParam'
         - $ref: '#/parameters/dateFormatParam'
         - in: body
@@ -1440,6 +1496,7 @@ paths:
       summary: To delete items of project in the cloud APROPLAN
       parameters:
         - $ref: '#/parameters/tokenParam'
+        - $ref: '#/parameters/versionParam'
         - $ref: '#/parameters/requesterParam'
         - $ref: '#/parameters/dateFormatParam'
         - in: body
@@ -1471,6 +1528,7 @@ paths:
         current user
       parameters:
         - $ref: '#/parameters/tokenParam'
+        - $ref: '#/parameters/versionParam'
         - $ref: '#/parameters/requesterParam'
         - $ref: '#/parameters/dateFormatParam'
         - $ref: '#/parameters/filterParam'
@@ -1497,6 +1555,7 @@ paths:
         entities and contains also entities deleted
       parameters:
         - $ref: '#/parameters/tokenParam'
+        - $ref: '#/parameters/versionParam'
         - $ref: '#/parameters/requesterParam'
         - $ref: '#/parameters/dateFormatParam'
         - $ref: '#/parameters/requestedBlockSizeParam'
@@ -1519,6 +1578,7 @@ paths:
       summary: Return the count of chapter available to the current user
       parameters:
         - $ref: '#/parameters/tokenParam'
+        - $ref: '#/parameters/versionParam'
         - $ref: '#/parameters/requesterParam'
         - $ref: '#/parameters/dateFormatParam'
         - $ref: '#/parameters/filterParam'
@@ -1538,6 +1598,7 @@ paths:
       summary: Return the list of chapter available to the current user
       parameters:
         - $ref: '#/parameters/tokenParam'
+        - $ref: '#/parameters/versionParam'
         - $ref: '#/parameters/requesterParam'
         - $ref: '#/parameters/dateFormatParam'
         - $ref: '#/parameters/filterParam'
@@ -1559,6 +1620,7 @@ paths:
       summary: To create new chapter in the cloud APROPLAN
       parameters:
         - $ref: '#/parameters/tokenParam'
+        - $ref: '#/parameters/versionParam'
         - $ref: '#/parameters/requesterParam'
         - $ref: '#/parameters/dateFormatParam'
         - in: body
@@ -1582,6 +1644,7 @@ paths:
       summary: To update chapter in the cloud APROPLAN
       parameters:
         - $ref: '#/parameters/tokenParam'
+        - $ref: '#/parameters/versionParam'
         - $ref: '#/parameters/requesterParam'
         - $ref: '#/parameters/dateFormatParam'
         - in: body
@@ -1605,6 +1668,7 @@ paths:
       summary: To delete items of chapter in the cloud APROPLAN
       parameters:
         - $ref: '#/parameters/tokenParam'
+        - $ref: '#/parameters/versionParam'
         - $ref: '#/parameters/requesterParam'
         - $ref: '#/parameters/dateFormatParam'
         - in: body
@@ -1636,6 +1700,7 @@ paths:
         current user
       parameters:
         - $ref: '#/parameters/tokenParam'
+        - $ref: '#/parameters/versionParam'
         - $ref: '#/parameters/requesterParam'
         - $ref: '#/parameters/dateFormatParam'
         - $ref: '#/parameters/filterParam'
@@ -1662,6 +1727,7 @@ paths:
         entities and contains also entities deleted
       parameters:
         - $ref: '#/parameters/tokenParam'
+        - $ref: '#/parameters/versionParam'
         - $ref: '#/parameters/requesterParam'
         - $ref: '#/parameters/dateFormatParam'
         - $ref: '#/parameters/requestedBlockSizeParam'
@@ -1684,6 +1750,7 @@ paths:
       summary: Return the count of issuetype available to the current user
       parameters:
         - $ref: '#/parameters/tokenParam'
+        - $ref: '#/parameters/versionParam'
         - $ref: '#/parameters/requesterParam'
         - $ref: '#/parameters/dateFormatParam'
         - $ref: '#/parameters/filterParam'
@@ -1703,6 +1770,7 @@ paths:
       summary: Return the list of issuetype available to the current user
       parameters:
         - $ref: '#/parameters/tokenParam'
+        - $ref: '#/parameters/versionParam'
         - $ref: '#/parameters/requesterParam'
         - $ref: '#/parameters/dateFormatParam'
         - $ref: '#/parameters/filterParam'
@@ -1724,6 +1792,7 @@ paths:
       summary: To create new issuetype in the cloud APROPLAN
       parameters:
         - $ref: '#/parameters/tokenParam'
+        - $ref: '#/parameters/versionParam'
         - $ref: '#/parameters/requesterParam'
         - $ref: '#/parameters/dateFormatParam'
         - in: body
@@ -1747,6 +1816,7 @@ paths:
       summary: To update issuetype in the cloud APROPLAN
       parameters:
         - $ref: '#/parameters/tokenParam'
+        - $ref: '#/parameters/versionParam'
         - $ref: '#/parameters/requesterParam'
         - $ref: '#/parameters/dateFormatParam'
         - in: body
@@ -1770,6 +1840,7 @@ paths:
       summary: To delete items of issuetype in the cloud APROPLAN
       parameters:
         - $ref: '#/parameters/tokenParam'
+        - $ref: '#/parameters/versionParam'
         - $ref: '#/parameters/requesterParam'
         - $ref: '#/parameters/dateFormatParam'
         - in: body
@@ -1801,6 +1872,7 @@ paths:
         current user
       parameters:
         - $ref: '#/parameters/tokenParam'
+        - $ref: '#/parameters/versionParam'
         - $ref: '#/parameters/requesterParam'
         - $ref: '#/parameters/dateFormatParam'
         - $ref: '#/parameters/filterParam'
@@ -1827,6 +1899,7 @@ paths:
         entities and contains also entities deleted
       parameters:
         - $ref: '#/parameters/tokenParam'
+        - $ref: '#/parameters/versionParam'
         - $ref: '#/parameters/requesterParam'
         - $ref: '#/parameters/dateFormatParam'
         - $ref: '#/parameters/requestedBlockSizeParam'
@@ -1849,6 +1922,7 @@ paths:
       summary: Return the count of issuetypenotesubject available to the current user
       parameters:
         - $ref: '#/parameters/tokenParam'
+        - $ref: '#/parameters/versionParam'
         - $ref: '#/parameters/requesterParam'
         - $ref: '#/parameters/dateFormatParam'
         - $ref: '#/parameters/filterParam'
@@ -1868,6 +1942,7 @@ paths:
       summary: Return the list of issuetypenotesubject available to the current user
       parameters:
         - $ref: '#/parameters/tokenParam'
+        - $ref: '#/parameters/versionParam'
         - $ref: '#/parameters/requesterParam'
         - $ref: '#/parameters/dateFormatParam'
         - $ref: '#/parameters/filterParam'
@@ -1889,6 +1964,7 @@ paths:
       summary: To create new issuetypenotesubject in the cloud APROPLAN
       parameters:
         - $ref: '#/parameters/tokenParam'
+        - $ref: '#/parameters/versionParam'
         - $ref: '#/parameters/requesterParam'
         - $ref: '#/parameters/dateFormatParam'
         - in: body
@@ -1916,6 +1992,7 @@ paths:
       summary: To update issuetypenotesubject in the cloud APROPLAN
       parameters:
         - $ref: '#/parameters/tokenParam'
+        - $ref: '#/parameters/versionParam'
         - $ref: '#/parameters/requesterParam'
         - $ref: '#/parameters/dateFormatParam'
         - in: body
@@ -1941,6 +2018,7 @@ paths:
       summary: To delete items of issuetypenotesubject in the cloud APROPLAN
       parameters:
         - $ref: '#/parameters/tokenParam'
+        - $ref: '#/parameters/versionParam'
         - $ref: '#/parameters/requesterParam'
         - $ref: '#/parameters/dateFormatParam'
         - in: body
@@ -1973,6 +2051,7 @@ paths:
         available to the current user
       parameters:
         - $ref: '#/parameters/tokenParam'
+        - $ref: '#/parameters/versionParam'
         - $ref: '#/parameters/requesterParam'
         - $ref: '#/parameters/dateFormatParam'
         - $ref: '#/parameters/filterParam'
@@ -1995,6 +2074,7 @@ paths:
       summary: Return the count of parentcell available to the current user
       parameters:
         - $ref: '#/parameters/tokenParam'
+        - $ref: '#/parameters/versionParam'
         - $ref: '#/parameters/requesterParam'
         - $ref: '#/parameters/dateFormatParam'
         - $ref: '#/parameters/filterParam'
@@ -2014,6 +2094,7 @@ paths:
       summary: Return the list of parentcell available to the current user
       parameters:
         - $ref: '#/parameters/tokenParam'
+        - $ref: '#/parameters/versionParam'
         - $ref: '#/parameters/requesterParam'
         - $ref: '#/parameters/dateFormatParam'
         - $ref: '#/parameters/filterParam'
@@ -2035,6 +2116,7 @@ paths:
       summary: To create new parentcell in the cloud APROPLAN
       parameters:
         - $ref: '#/parameters/tokenParam'
+        - $ref: '#/parameters/versionParam'
         - $ref: '#/parameters/requesterParam'
         - $ref: '#/parameters/dateFormatParam'
         - in: body
@@ -2058,6 +2140,7 @@ paths:
       summary: To update parentcell in the cloud APROPLAN
       parameters:
         - $ref: '#/parameters/tokenParam'
+        - $ref: '#/parameters/versionParam'
         - $ref: '#/parameters/requesterParam'
         - $ref: '#/parameters/dateFormatParam'
         - in: body
@@ -2081,6 +2164,7 @@ paths:
       summary: To delete items of parentcell in the cloud APROPLAN
       parameters:
         - $ref: '#/parameters/tokenParam'
+        - $ref: '#/parameters/versionParam'
         - $ref: '#/parameters/requesterParam'
         - $ref: '#/parameters/dateFormatParam'
         - in: body
@@ -2112,6 +2196,7 @@ paths:
         current user
       parameters:
         - $ref: '#/parameters/tokenParam'
+        - $ref: '#/parameters/versionParam'
         - $ref: '#/parameters/requesterParam'
         - $ref: '#/parameters/dateFormatParam'
         - $ref: '#/parameters/filterParam'
@@ -2138,6 +2223,7 @@ paths:
         entities and contains also entities deleted
       parameters:
         - $ref: '#/parameters/tokenParam'
+        - $ref: '#/parameters/versionParam'
         - $ref: '#/parameters/requesterParam'
         - $ref: '#/parameters/dateFormatParam'
         - $ref: '#/parameters/requestedBlockSizeParam'
@@ -2160,6 +2246,7 @@ paths:
       summary: Return the count of subcell available to the current user
       parameters:
         - $ref: '#/parameters/tokenParam'
+        - $ref: '#/parameters/versionParam'
         - $ref: '#/parameters/requesterParam'
         - $ref: '#/parameters/dateFormatParam'
         - $ref: '#/parameters/filterParam'
@@ -2179,6 +2266,7 @@ paths:
       summary: Return the list of subcell available to the current user
       parameters:
         - $ref: '#/parameters/tokenParam'
+        - $ref: '#/parameters/versionParam'
         - $ref: '#/parameters/requesterParam'
         - $ref: '#/parameters/dateFormatParam'
         - $ref: '#/parameters/filterParam'
@@ -2200,6 +2288,7 @@ paths:
       summary: To create new subcell in the cloud APROPLAN
       parameters:
         - $ref: '#/parameters/tokenParam'
+        - $ref: '#/parameters/versionParam'
         - $ref: '#/parameters/requesterParam'
         - $ref: '#/parameters/dateFormatParam'
         - in: body
@@ -2223,6 +2312,7 @@ paths:
       summary: To update subcell in the cloud APROPLAN
       parameters:
         - $ref: '#/parameters/tokenParam'
+        - $ref: '#/parameters/versionParam'
         - $ref: '#/parameters/requesterParam'
         - $ref: '#/parameters/dateFormatParam'
         - in: body
@@ -2246,6 +2336,7 @@ paths:
       summary: To delete items of subcell in the cloud APROPLAN
       parameters:
         - $ref: '#/parameters/tokenParam'
+        - $ref: '#/parameters/versionParam'
         - $ref: '#/parameters/requesterParam'
         - $ref: '#/parameters/dateFormatParam'
         - in: body
@@ -2277,6 +2368,7 @@ paths:
         current user
       parameters:
         - $ref: '#/parameters/tokenParam'
+        - $ref: '#/parameters/versionParam'
         - $ref: '#/parameters/requesterParam'
         - $ref: '#/parameters/dateFormatParam'
         - $ref: '#/parameters/filterParam'
@@ -2303,6 +2395,7 @@ paths:
         entities and contains also entities deleted
       parameters:
         - $ref: '#/parameters/tokenParam'
+        - $ref: '#/parameters/versionParam'
         - $ref: '#/parameters/requesterParam'
         - $ref: '#/parameters/dateFormatParam'
         - $ref: '#/parameters/requestedBlockSizeParam'
@@ -2325,6 +2418,7 @@ paths:
       summary: Return the count of noteprojectstatus available to the current user
       parameters:
         - $ref: '#/parameters/tokenParam'
+        - $ref: '#/parameters/versionParam'
         - $ref: '#/parameters/requesterParam'
         - $ref: '#/parameters/dateFormatParam'
         - $ref: '#/parameters/filterParam'
@@ -2344,6 +2438,7 @@ paths:
       summary: Return the list of noteprojectstatus available to the current user
       parameters:
         - $ref: '#/parameters/tokenParam'
+        - $ref: '#/parameters/versionParam'
         - $ref: '#/parameters/requesterParam'
         - $ref: '#/parameters/dateFormatParam'
         - $ref: '#/parameters/filterParam'
@@ -2365,6 +2460,7 @@ paths:
       summary: To create new noteprojectstatus in the cloud APROPLAN
       parameters:
         - $ref: '#/parameters/tokenParam'
+        - $ref: '#/parameters/versionParam'
         - $ref: '#/parameters/requesterParam'
         - $ref: '#/parameters/dateFormatParam'
         - in: body
@@ -2390,6 +2486,7 @@ paths:
       summary: To update noteprojectstatus in the cloud APROPLAN
       parameters:
         - $ref: '#/parameters/tokenParam'
+        - $ref: '#/parameters/versionParam'
         - $ref: '#/parameters/requesterParam'
         - $ref: '#/parameters/dateFormatParam'
         - in: body
@@ -2415,6 +2512,7 @@ paths:
       summary: To delete items of noteprojectstatus in the cloud APROPLAN
       parameters:
         - $ref: '#/parameters/tokenParam'
+        - $ref: '#/parameters/versionParam'
         - $ref: '#/parameters/requesterParam'
         - $ref: '#/parameters/dateFormatParam'
         - in: body
@@ -2447,6 +2545,7 @@ paths:
         to the current user
       parameters:
         - $ref: '#/parameters/tokenParam'
+        - $ref: '#/parameters/versionParam'
         - $ref: '#/parameters/requesterParam'
         - $ref: '#/parameters/dateFormatParam'
         - $ref: '#/parameters/filterParam'
@@ -2473,6 +2572,7 @@ paths:
         detail entities and contains also entities deleted
       parameters:
         - $ref: '#/parameters/tokenParam'
+        - $ref: '#/parameters/versionParam'
         - $ref: '#/parameters/requesterParam'
         - $ref: '#/parameters/dateFormatParam'
         - $ref: '#/parameters/requestedBlockSizeParam'
@@ -2495,6 +2595,7 @@ paths:
       summary: Return the count of folder available to the current user
       parameters:
         - $ref: '#/parameters/tokenParam'
+        - $ref: '#/parameters/versionParam'
         - $ref: '#/parameters/requesterParam'
         - $ref: '#/parameters/dateFormatParam'
         - $ref: '#/parameters/filterParam'
@@ -2514,6 +2615,7 @@ paths:
       summary: Return the list of folder available to the current user
       parameters:
         - $ref: '#/parameters/tokenParam'
+        - $ref: '#/parameters/versionParam'
         - $ref: '#/parameters/requesterParam'
         - $ref: '#/parameters/dateFormatParam'
         - $ref: '#/parameters/filterParam'
@@ -2535,6 +2637,7 @@ paths:
       summary: To create new folder in the cloud APROPLAN
       parameters:
         - $ref: '#/parameters/tokenParam'
+        - $ref: '#/parameters/versionParam'
         - $ref: '#/parameters/requesterParam'
         - $ref: '#/parameters/dateFormatParam'
         - in: body
@@ -2558,6 +2661,7 @@ paths:
       summary: To update folder in the cloud APROPLAN
       parameters:
         - $ref: '#/parameters/tokenParam'
+        - $ref: '#/parameters/versionParam'
         - $ref: '#/parameters/requesterParam'
         - $ref: '#/parameters/dateFormatParam'
         - in: body
@@ -2581,6 +2685,7 @@ paths:
       summary: To delete items of folder in the cloud APROPLAN
       parameters:
         - $ref: '#/parameters/tokenParam'
+        - $ref: '#/parameters/versionParam'
         - $ref: '#/parameters/requesterParam'
         - $ref: '#/parameters/dateFormatParam'
         - in: body
@@ -2612,6 +2717,7 @@ paths:
         current user
       parameters:
         - $ref: '#/parameters/tokenParam'
+        - $ref: '#/parameters/versionParam'
         - $ref: '#/parameters/requesterParam'
         - $ref: '#/parameters/dateFormatParam'
         - $ref: '#/parameters/filterParam'
@@ -2638,6 +2744,7 @@ paths:
         entities and contains also entities deleted
       parameters:
         - $ref: '#/parameters/tokenParam'
+        - $ref: '#/parameters/versionParam'
         - $ref: '#/parameters/requesterParam'
         - $ref: '#/parameters/dateFormatParam'
         - $ref: '#/parameters/requestedBlockSizeParam'
@@ -2660,6 +2767,7 @@ paths:
       summary: Return the count of foldervisibility available to the current user
       parameters:
         - $ref: '#/parameters/tokenParam'
+        - $ref: '#/parameters/versionParam'
         - $ref: '#/parameters/requesterParam'
         - $ref: '#/parameters/dateFormatParam'
         - $ref: '#/parameters/filterParam'
@@ -2679,6 +2787,7 @@ paths:
       summary: Return the list of foldervisibility available to the current user
       parameters:
         - $ref: '#/parameters/tokenParam'
+        - $ref: '#/parameters/versionParam'
         - $ref: '#/parameters/requesterParam'
         - $ref: '#/parameters/dateFormatParam'
         - $ref: '#/parameters/filterParam'
@@ -2700,6 +2809,7 @@ paths:
       summary: To create new foldervisibility in the cloud APROPLAN
       parameters:
         - $ref: '#/parameters/tokenParam'
+        - $ref: '#/parameters/versionParam'
         - $ref: '#/parameters/requesterParam'
         - $ref: '#/parameters/dateFormatParam'
         - in: body
@@ -2725,6 +2835,7 @@ paths:
       summary: To update foldervisibility in the cloud APROPLAN
       parameters:
         - $ref: '#/parameters/tokenParam'
+        - $ref: '#/parameters/versionParam'
         - $ref: '#/parameters/requesterParam'
         - $ref: '#/parameters/dateFormatParam'
         - in: body
@@ -2750,6 +2861,7 @@ paths:
       summary: To delete items of foldervisibility in the cloud APROPLAN
       parameters:
         - $ref: '#/parameters/tokenParam'
+        - $ref: '#/parameters/versionParam'
         - $ref: '#/parameters/requesterParam'
         - $ref: '#/parameters/dateFormatParam'
         - in: body
@@ -2781,6 +2893,7 @@ paths:
         the current user
       parameters:
         - $ref: '#/parameters/tokenParam'
+        - $ref: '#/parameters/versionParam'
         - $ref: '#/parameters/requesterParam'
         - $ref: '#/parameters/dateFormatParam'
         - $ref: '#/parameters/filterParam'
@@ -2803,6 +2916,7 @@ paths:
       summary: Return the count of contactdetails available to the current user
       parameters:
         - $ref: '#/parameters/tokenParam'
+        - $ref: '#/parameters/versionParam'
         - $ref: '#/parameters/requesterParam'
         - $ref: '#/parameters/dateFormatParam'
         - $ref: '#/parameters/filterParam'
@@ -2822,6 +2936,7 @@ paths:
       summary: Return the list of contactdetails available to the current user
       parameters:
         - $ref: '#/parameters/tokenParam'
+        - $ref: '#/parameters/versionParam'
         - $ref: '#/parameters/requesterParam'
         - $ref: '#/parameters/dateFormatParam'
         - $ref: '#/parameters/filterParam'
@@ -2843,6 +2958,7 @@ paths:
       summary: To create new contactdetails in the cloud APROPLAN
       parameters:
         - $ref: '#/parameters/tokenParam'
+        - $ref: '#/parameters/versionParam'
         - $ref: '#/parameters/requesterParam'
         - $ref: '#/parameters/dateFormatParam'
         - in: body
@@ -2866,6 +2982,7 @@ paths:
       summary: To update contactdetails in the cloud APROPLAN
       parameters:
         - $ref: '#/parameters/tokenParam'
+        - $ref: '#/parameters/versionParam'
         - $ref: '#/parameters/requesterParam'
         - $ref: '#/parameters/dateFormatParam'
         - in: body
@@ -2889,6 +3006,7 @@ paths:
       summary: To delete items of contactdetails in the cloud APROPLAN
       parameters:
         - $ref: '#/parameters/tokenParam'
+        - $ref: '#/parameters/versionParam'
         - $ref: '#/parameters/requesterParam'
         - $ref: '#/parameters/dateFormatParam'
         - in: body
@@ -2920,6 +3038,7 @@ paths:
         the current user
       parameters:
         - $ref: '#/parameters/tokenParam'
+        - $ref: '#/parameters/versionParam'
         - $ref: '#/parameters/requesterParam'
         - $ref: '#/parameters/dateFormatParam'
         - $ref: '#/parameters/filterParam'
@@ -2946,6 +3065,7 @@ paths:
         detail entities and contains also entities deleted
       parameters:
         - $ref: '#/parameters/tokenParam'
+        - $ref: '#/parameters/versionParam'
         - $ref: '#/parameters/requesterParam'
         - $ref: '#/parameters/dateFormatParam'
         - $ref: '#/parameters/requestedBlockSizeParam'
@@ -2968,6 +3088,7 @@ paths:
       summary: Return the count of contactissuetype available to the current user
       parameters:
         - $ref: '#/parameters/tokenParam'
+        - $ref: '#/parameters/versionParam'
         - $ref: '#/parameters/requesterParam'
         - $ref: '#/parameters/dateFormatParam'
         - $ref: '#/parameters/filterParam'
@@ -2987,6 +3108,7 @@ paths:
       summary: Return the list of contactissuetype available to the current user
       parameters:
         - $ref: '#/parameters/tokenParam'
+        - $ref: '#/parameters/versionParam'
         - $ref: '#/parameters/requesterParam'
         - $ref: '#/parameters/dateFormatParam'
         - $ref: '#/parameters/filterParam'
@@ -3008,6 +3130,7 @@ paths:
       summary: To create new contactissuetype in the cloud APROPLAN
       parameters:
         - $ref: '#/parameters/tokenParam'
+        - $ref: '#/parameters/versionParam'
         - $ref: '#/parameters/requesterParam'
         - $ref: '#/parameters/dateFormatParam'
         - in: body
@@ -3033,6 +3156,7 @@ paths:
       summary: To update contactissuetype in the cloud APROPLAN
       parameters:
         - $ref: '#/parameters/tokenParam'
+        - $ref: '#/parameters/versionParam'
         - $ref: '#/parameters/requesterParam'
         - $ref: '#/parameters/dateFormatParam'
         - in: body
@@ -3058,6 +3182,7 @@ paths:
       summary: To delete items of contactissuetype in the cloud APROPLAN
       parameters:
         - $ref: '#/parameters/tokenParam'
+        - $ref: '#/parameters/versionParam'
         - $ref: '#/parameters/requesterParam'
         - $ref: '#/parameters/dateFormatParam'
         - in: body
@@ -3089,6 +3214,7 @@ paths:
         the current user
       parameters:
         - $ref: '#/parameters/tokenParam'
+        - $ref: '#/parameters/versionParam'
         - $ref: '#/parameters/requesterParam'
         - $ref: '#/parameters/dateFormatParam'
         - $ref: '#/parameters/filterParam'
@@ -3205,6 +3331,7 @@ paths:
       summary: Return the count of document available to the current user
       parameters:
         - $ref: '#/parameters/tokenParam'
+        - $ref: '#/parameters/versionParam'
         - $ref: '#/parameters/requesterParam'
         - $ref: '#/parameters/dateFormatParam'
         - $ref: '#/parameters/filterParam'
@@ -3224,6 +3351,7 @@ paths:
       summary: Return the list of document available to the current user
       parameters:
         - $ref: '#/parameters/tokenParam'
+        - $ref: '#/parameters/versionParam'
         - $ref: '#/parameters/requesterParam'
         - $ref: '#/parameters/dateFormatParam'
         - $ref: '#/parameters/filterParam'
@@ -3245,6 +3373,7 @@ paths:
       summary: To create new document in the cloud APROPLAN
       parameters:
         - $ref: '#/parameters/tokenParam'
+        - $ref: '#/parameters/versionParam'
         - $ref: '#/parameters/requesterParam'
         - $ref: '#/parameters/dateFormatParam'
         - in: body
@@ -3268,6 +3397,7 @@ paths:
       summary: To update document in the cloud APROPLAN
       parameters:
         - $ref: '#/parameters/tokenParam'
+        - $ref: '#/parameters/versionParam'
         - $ref: '#/parameters/requesterParam'
         - $ref: '#/parameters/dateFormatParam'
         - in: body
@@ -3291,6 +3421,7 @@ paths:
       summary: To delete items of document in the cloud APROPLAN
       parameters:
         - $ref: '#/parameters/tokenParam'
+        - $ref: '#/parameters/versionParam'
         - $ref: '#/parameters/requesterParam'
         - $ref: '#/parameters/dateFormatParam'
         - in: body
@@ -3322,6 +3453,7 @@ paths:
         current user
       parameters:
         - $ref: '#/parameters/tokenParam'
+        - $ref: '#/parameters/versionParam'
         - $ref: '#/parameters/requesterParam'
         - $ref: '#/parameters/dateFormatParam'
         - $ref: '#/parameters/filterParam'
@@ -3398,6 +3530,7 @@ paths:
       summary: Return the count of version available to the current user
       parameters:
         - $ref: '#/parameters/tokenParam'
+        - $ref: '#/parameters/versionParam'
         - $ref: '#/parameters/requesterParam'
         - $ref: '#/parameters/dateFormatParam'
         - $ref: '#/parameters/filterParam'
@@ -3417,6 +3550,7 @@ paths:
       summary: Return the list of version available to the current user
       parameters:
         - $ref: '#/parameters/tokenParam'
+        - $ref: '#/parameters/versionParam'
         - $ref: '#/parameters/requesterParam'
         - $ref: '#/parameters/dateFormatParam'
         - $ref: '#/parameters/filterParam'
@@ -3438,6 +3572,7 @@ paths:
       summary: To create new version in the cloud APROPLAN
       parameters:
         - $ref: '#/parameters/tokenParam'
+        - $ref: '#/parameters/versionParam'
         - $ref: '#/parameters/requesterParam'
         - $ref: '#/parameters/dateFormatParam'
         - in: body
@@ -3461,6 +3596,7 @@ paths:
       summary: To update version in the cloud APROPLAN
       parameters:
         - $ref: '#/parameters/tokenParam'
+        - $ref: '#/parameters/versionParam'
         - $ref: '#/parameters/requesterParam'
         - $ref: '#/parameters/dateFormatParam'
         - in: body
@@ -3484,6 +3620,7 @@ paths:
       summary: To delete items of version in the cloud APROPLAN
       parameters:
         - $ref: '#/parameters/tokenParam'
+        - $ref: '#/parameters/versionParam'
         - $ref: '#/parameters/requesterParam'
         - $ref: '#/parameters/dateFormatParam'
         - in: body
@@ -3515,6 +3652,7 @@ paths:
         current user
       parameters:
         - $ref: '#/parameters/tokenParam'
+        - $ref: '#/parameters/versionParam'
         - $ref: '#/parameters/requesterParam'
         - $ref: '#/parameters/dateFormatParam'
         - $ref: '#/parameters/filterParam'
@@ -3537,6 +3675,7 @@ paths:
       summary: Return the count of meeting available to the current user
       parameters:
         - $ref: '#/parameters/tokenParam'
+        - $ref: '#/parameters/versionParam'
         - $ref: '#/parameters/requesterParam'
         - $ref: '#/parameters/dateFormatParam'
         - $ref: '#/parameters/filterParam'
@@ -3556,6 +3695,7 @@ paths:
       summary: Return the list of meeting available to the current user
       parameters:
         - $ref: '#/parameters/tokenParam'
+        - $ref: '#/parameters/versionParam'
         - $ref: '#/parameters/requesterParam'
         - $ref: '#/parameters/dateFormatParam'
         - $ref: '#/parameters/filterParam'
@@ -3577,6 +3717,7 @@ paths:
       summary: To create new meeting in the cloud APROPLAN
       parameters:
         - $ref: '#/parameters/tokenParam'
+        - $ref: '#/parameters/versionParam'
         - $ref: '#/parameters/requesterParam'
         - $ref: '#/parameters/dateFormatParam'
         - in: body
@@ -3600,6 +3741,7 @@ paths:
       summary: To update meeting in the cloud APROPLAN
       parameters:
         - $ref: '#/parameters/tokenParam'
+        - $ref: '#/parameters/versionParam'
         - $ref: '#/parameters/requesterParam'
         - $ref: '#/parameters/dateFormatParam'
         - in: body
@@ -3623,6 +3765,7 @@ paths:
       summary: To delete items of meeting in the cloud APROPLAN
       parameters:
         - $ref: '#/parameters/tokenParam'
+        - $ref: '#/parameters/versionParam'
         - $ref: '#/parameters/requesterParam'
         - $ref: '#/parameters/dateFormatParam'
         - in: body
@@ -3654,6 +3797,7 @@ paths:
         current user
       parameters:
         - $ref: '#/parameters/tokenParam'
+        - $ref: '#/parameters/versionParam'
         - $ref: '#/parameters/requesterParam'
         - $ref: '#/parameters/dateFormatParam'
         - $ref: '#/parameters/filterParam'
@@ -3680,6 +3824,7 @@ paths:
         entities and contains also entities deleted
       parameters:
         - $ref: '#/parameters/tokenParam'
+        - $ref: '#/parameters/versionParam'
         - $ref: '#/parameters/requesterParam'
         - $ref: '#/parameters/dateFormatParam'
         - $ref: '#/parameters/requestedBlockSizeParam'
@@ -3702,6 +3847,7 @@ paths:
       summary: Return the count of meetingconcern available to the current user
       parameters:
         - $ref: '#/parameters/tokenParam'
+        - $ref: '#/parameters/versionParam'
         - $ref: '#/parameters/requesterParam'
         - $ref: '#/parameters/dateFormatParam'
         - $ref: '#/parameters/filterParam'
@@ -3721,6 +3867,7 @@ paths:
       summary: Return the list of meetingconcern available to the current user
       parameters:
         - $ref: '#/parameters/tokenParam'
+        - $ref: '#/parameters/versionParam'
         - $ref: '#/parameters/requesterParam'
         - $ref: '#/parameters/dateFormatParam'
         - $ref: '#/parameters/filterParam'
@@ -3742,6 +3889,7 @@ paths:
       summary: To create new meetingconcern in the cloud APROPLAN
       parameters:
         - $ref: '#/parameters/tokenParam'
+        - $ref: '#/parameters/versionParam'
         - $ref: '#/parameters/requesterParam'
         - $ref: '#/parameters/dateFormatParam'
         - in: body
@@ -3765,6 +3913,7 @@ paths:
       summary: To update meetingconcern in the cloud APROPLAN
       parameters:
         - $ref: '#/parameters/tokenParam'
+        - $ref: '#/parameters/versionParam'
         - $ref: '#/parameters/requesterParam'
         - $ref: '#/parameters/dateFormatParam'
         - in: body
@@ -3788,6 +3937,7 @@ paths:
       summary: To delete items of meetingconcern in the cloud APROPLAN
       parameters:
         - $ref: '#/parameters/tokenParam'
+        - $ref: '#/parameters/versionParam'
         - $ref: '#/parameters/requesterParam'
         - $ref: '#/parameters/dateFormatParam'
         - in: body
@@ -3819,6 +3969,7 @@ paths:
         the current user
       parameters:
         - $ref: '#/parameters/tokenParam'
+        - $ref: '#/parameters/versionParam'
         - $ref: '#/parameters/requesterParam'
         - $ref: '#/parameters/dateFormatParam'
         - $ref: '#/parameters/filterParam'
@@ -3841,6 +3992,7 @@ paths:
       summary: Return the count of meetingdocument available to the current user
       parameters:
         - $ref: '#/parameters/tokenParam'
+        - $ref: '#/parameters/versionParam'
         - $ref: '#/parameters/requesterParam'
         - $ref: '#/parameters/dateFormatParam'
         - $ref: '#/parameters/filterParam'
@@ -3860,6 +4012,7 @@ paths:
       summary: Return the list of meetingdocument available to the current user
       parameters:
         - $ref: '#/parameters/tokenParam'
+        - $ref: '#/parameters/versionParam'
         - $ref: '#/parameters/requesterParam'
         - $ref: '#/parameters/dateFormatParam'
         - $ref: '#/parameters/filterParam'
@@ -3881,6 +4034,7 @@ paths:
       summary: To create new meetingdocument in the cloud APROPLAN
       parameters:
         - $ref: '#/parameters/tokenParam'
+        - $ref: '#/parameters/versionParam'
         - $ref: '#/parameters/requesterParam'
         - $ref: '#/parameters/dateFormatParam'
         - in: body
@@ -3906,6 +4060,7 @@ paths:
       summary: To update meetingdocument in the cloud APROPLAN
       parameters:
         - $ref: '#/parameters/tokenParam'
+        - $ref: '#/parameters/versionParam'
         - $ref: '#/parameters/requesterParam'
         - $ref: '#/parameters/dateFormatParam'
         - in: body
@@ -3929,6 +4084,7 @@ paths:
       summary: To delete items of meetingdocument in the cloud APROPLAN
       parameters:
         - $ref: '#/parameters/tokenParam'
+        - $ref: '#/parameters/versionParam'
         - $ref: '#/parameters/requesterParam'
         - $ref: '#/parameters/dateFormatParam'
         - in: body
@@ -3960,6 +4116,7 @@ paths:
         the current user
       parameters:
         - $ref: '#/parameters/tokenParam'
+        - $ref: '#/parameters/versionParam'
         - $ref: '#/parameters/requesterParam'
         - $ref: '#/parameters/dateFormatParam'
         - $ref: '#/parameters/filterParam'
@@ -3982,6 +4139,7 @@ paths:
       summary: Return the count of meetingtransferreddocs available to the current user
       parameters:
         - $ref: '#/parameters/tokenParam'
+        - $ref: '#/parameters/versionParam'
         - $ref: '#/parameters/requesterParam'
         - $ref: '#/parameters/dateFormatParam'
         - $ref: '#/parameters/filterParam'
@@ -4001,6 +4159,7 @@ paths:
       summary: Return the list of meetingtransferreddocs available to the current user
       parameters:
         - $ref: '#/parameters/tokenParam'
+        - $ref: '#/parameters/versionParam'
         - $ref: '#/parameters/requesterParam'
         - $ref: '#/parameters/dateFormatParam'
         - $ref: '#/parameters/filterParam'
@@ -4022,6 +4181,7 @@ paths:
       summary: To create new meetingtransferreddocs in the cloud APROPLAN
       parameters:
         - $ref: '#/parameters/tokenParam'
+        - $ref: '#/parameters/versionParam'
         - $ref: '#/parameters/requesterParam'
         - $ref: '#/parameters/dateFormatParam'
         - in: body
@@ -4049,6 +4209,7 @@ paths:
       summary: To update meetingtransferreddocs in the cloud APROPLAN
       parameters:
         - $ref: '#/parameters/tokenParam'
+        - $ref: '#/parameters/versionParam'
         - $ref: '#/parameters/requesterParam'
         - $ref: '#/parameters/dateFormatParam'
         - in: body
@@ -4074,6 +4235,7 @@ paths:
       summary: To delete items of meetingtransferreddocs in the cloud APROPLAN
       parameters:
         - $ref: '#/parameters/tokenParam'
+        - $ref: '#/parameters/versionParam'
         - $ref: '#/parameters/requesterParam'
         - $ref: '#/parameters/dateFormatParam'
         - in: body
@@ -4106,6 +4268,7 @@ paths:
         available to the current user
       parameters:
         - $ref: '#/parameters/tokenParam'
+        - $ref: '#/parameters/versionParam'
         - $ref: '#/parameters/requesterParam'
         - $ref: '#/parameters/dateFormatParam'
         - $ref: '#/parameters/filterParam'
@@ -4130,6 +4293,7 @@ paths:
         user
       parameters:
         - $ref: '#/parameters/tokenParam'
+        - $ref: '#/parameters/versionParam'
         - $ref: '#/parameters/requesterParam'
         - $ref: '#/parameters/dateFormatParam'
         - $ref: '#/parameters/filterParam'
@@ -4151,6 +4315,7 @@ paths:
         user
       parameters:
         - $ref: '#/parameters/tokenParam'
+        - $ref: '#/parameters/versionParam'
         - $ref: '#/parameters/requesterParam'
         - $ref: '#/parameters/dateFormatParam'
         - $ref: '#/parameters/filterParam'
@@ -4172,6 +4337,7 @@ paths:
       summary: To create new meetingtransferreddocsto in the cloud APROPLAN
       parameters:
         - $ref: '#/parameters/tokenParam'
+        - $ref: '#/parameters/versionParam'
         - $ref: '#/parameters/requesterParam'
         - $ref: '#/parameters/dateFormatParam'
         - in: body
@@ -4199,6 +4365,7 @@ paths:
       summary: To update meetingtransferreddocsto in the cloud APROPLAN
       parameters:
         - $ref: '#/parameters/tokenParam'
+        - $ref: '#/parameters/versionParam'
         - $ref: '#/parameters/requesterParam'
         - $ref: '#/parameters/dateFormatParam'
         - in: body
@@ -4224,6 +4391,7 @@ paths:
       summary: To delete items of meetingtransferreddocsto in the cloud APROPLAN
       parameters:
         - $ref: '#/parameters/tokenParam'
+        - $ref: '#/parameters/versionParam'
         - $ref: '#/parameters/requesterParam'
         - $ref: '#/parameters/dateFormatParam'
         - in: body
@@ -4256,6 +4424,7 @@ paths:
         available to the current user
       parameters:
         - $ref: '#/parameters/tokenParam'
+        - $ref: '#/parameters/versionParam'
         - $ref: '#/parameters/requesterParam'
         - $ref: '#/parameters/dateFormatParam'
         - $ref: '#/parameters/filterParam'
@@ -4278,6 +4447,7 @@ paths:
       summary: Return the count of meetingreport available to the current user
       parameters:
         - $ref: '#/parameters/tokenParam'
+        - $ref: '#/parameters/versionParam'
         - $ref: '#/parameters/requesterParam'
         - $ref: '#/parameters/dateFormatParam'
         - $ref: '#/parameters/filterParam'
@@ -4297,6 +4467,7 @@ paths:
       summary: Return the list of meetingreport available to the current user
       parameters:
         - $ref: '#/parameters/tokenParam'
+        - $ref: '#/parameters/versionParam'
         - $ref: '#/parameters/requesterParam'
         - $ref: '#/parameters/dateFormatParam'
         - $ref: '#/parameters/filterParam'
@@ -4318,6 +4489,7 @@ paths:
       summary: To create new meetingreport in the cloud APROPLAN
       parameters:
         - $ref: '#/parameters/tokenParam'
+        - $ref: '#/parameters/versionParam'
         - $ref: '#/parameters/requesterParam'
         - $ref: '#/parameters/dateFormatParam'
         - in: body
@@ -4341,6 +4513,7 @@ paths:
       summary: To update meetingreport in the cloud APROPLAN
       parameters:
         - $ref: '#/parameters/tokenParam'
+        - $ref: '#/parameters/versionParam'
         - $ref: '#/parameters/requesterParam'
         - $ref: '#/parameters/dateFormatParam'
         - in: body
@@ -4364,6 +4537,7 @@ paths:
       summary: To delete items of meetingreport in the cloud APROPLAN
       parameters:
         - $ref: '#/parameters/tokenParam'
+        - $ref: '#/parameters/versionParam'
         - $ref: '#/parameters/requesterParam'
         - $ref: '#/parameters/dateFormatParam'
         - in: body
@@ -4395,6 +4569,7 @@ paths:
         the current user
       parameters:
         - $ref: '#/parameters/tokenParam'
+        - $ref: '#/parameters/versionParam'
         - $ref: '#/parameters/requesterParam'
         - $ref: '#/parameters/dateFormatParam'
         - $ref: '#/parameters/filterParam'
@@ -4685,6 +4860,7 @@ paths:
       summary: Return the count of noteincharge available to the current user
       parameters:
         - $ref: '#/parameters/tokenParam'
+        - $ref: '#/parameters/versionParam'
         - $ref: '#/parameters/requesterParam'
         - $ref: '#/parameters/dateFormatParam'
         - $ref: '#/parameters/filterParam'
@@ -4704,6 +4880,7 @@ paths:
       summary: Return the list of noteincharge available to the current user
       parameters:
         - $ref: '#/parameters/tokenParam'
+        - $ref: '#/parameters/versionParam'
         - $ref: '#/parameters/requesterParam'
         - $ref: '#/parameters/dateFormatParam'
         - $ref: '#/parameters/filterParam'
@@ -4725,6 +4902,7 @@ paths:
       summary: To create new noteincharge in the cloud APROPLAN
       parameters:
         - $ref: '#/parameters/tokenParam'
+        - $ref: '#/parameters/versionParam'
         - $ref: '#/parameters/requesterParam'
         - $ref: '#/parameters/dateFormatParam'
         - in: body
@@ -4748,6 +4926,7 @@ paths:
       summary: To update noteincharge in the cloud APROPLAN
       parameters:
         - $ref: '#/parameters/tokenParam'
+        - $ref: '#/parameters/versionParam'
         - $ref: '#/parameters/requesterParam'
         - $ref: '#/parameters/dateFormatParam'
         - in: body
@@ -4771,6 +4950,7 @@ paths:
       summary: To delete items of noteincharge in the cloud APROPLAN
       parameters:
         - $ref: '#/parameters/tokenParam'
+        - $ref: '#/parameters/versionParam'
         - $ref: '#/parameters/requesterParam'
         - $ref: '#/parameters/dateFormatParam'
         - in: body
@@ -4802,6 +4982,7 @@ paths:
         current user
       parameters:
         - $ref: '#/parameters/tokenParam'
+        - $ref: '#/parameters/versionParam'
         - $ref: '#/parameters/requesterParam'
         - $ref: '#/parameters/dateFormatParam'
         - $ref: '#/parameters/filterParam'
@@ -4824,6 +5005,7 @@ paths:
       summary: Return the count of notecomment available to the current user
       parameters:
         - $ref: '#/parameters/tokenParam'
+        - $ref: '#/parameters/versionParam'
         - $ref: '#/parameters/requesterParam'
         - $ref: '#/parameters/dateFormatParam'
         - $ref: '#/parameters/filterParam'
@@ -4843,6 +5025,7 @@ paths:
       summary: Return the list of notecomment available to the current user
       parameters:
         - $ref: '#/parameters/tokenParam'
+        - $ref: '#/parameters/versionParam'
         - $ref: '#/parameters/requesterParam'
         - $ref: '#/parameters/dateFormatParam'
         - $ref: '#/parameters/filterParam'
@@ -4864,6 +5047,7 @@ paths:
       summary: To create new notecomment in the cloud APROPLAN
       parameters:
         - $ref: '#/parameters/tokenParam'
+        - $ref: '#/parameters/versionParam'
         - $ref: '#/parameters/requesterParam'
         - $ref: '#/parameters/dateFormatParam'
         - in: body
@@ -4887,6 +5071,7 @@ paths:
       summary: To update notecomment in the cloud APROPLAN
       parameters:
         - $ref: '#/parameters/tokenParam'
+        - $ref: '#/parameters/versionParam'
         - $ref: '#/parameters/requesterParam'
         - $ref: '#/parameters/dateFormatParam'
         - in: body
@@ -4910,6 +5095,7 @@ paths:
       summary: To delete items of notecomment in the cloud APROPLAN
       parameters:
         - $ref: '#/parameters/tokenParam'
+        - $ref: '#/parameters/versionParam'
         - $ref: '#/parameters/requesterParam'
         - $ref: '#/parameters/dateFormatParam'
         - in: body
@@ -4941,6 +5127,7 @@ paths:
         current user
       parameters:
         - $ref: '#/parameters/tokenParam'
+        - $ref: '#/parameters/versionParam'
         - $ref: '#/parameters/requesterParam'
         - $ref: '#/parameters/dateFormatParam'
         - $ref: '#/parameters/filterParam'
@@ -4963,6 +5150,7 @@ paths:
       summary: Return the count of notedocument available to the current user
       parameters:
         - $ref: '#/parameters/tokenParam'
+        - $ref: '#/parameters/versionParam'
         - $ref: '#/parameters/requesterParam'
         - $ref: '#/parameters/dateFormatParam'
         - $ref: '#/parameters/filterParam'
@@ -4982,6 +5170,7 @@ paths:
       summary: Return the list of notedocument available to the current user
       parameters:
         - $ref: '#/parameters/tokenParam'
+        - $ref: '#/parameters/versionParam'
         - $ref: '#/parameters/requesterParam'
         - $ref: '#/parameters/dateFormatParam'
         - $ref: '#/parameters/filterParam'
@@ -5003,6 +5192,7 @@ paths:
       summary: To create new notedocument in the cloud APROPLAN
       parameters:
         - $ref: '#/parameters/tokenParam'
+        - $ref: '#/parameters/versionParam'
         - $ref: '#/parameters/requesterParam'
         - $ref: '#/parameters/dateFormatParam'
         - in: body
@@ -5026,6 +5216,7 @@ paths:
       summary: To update notedocument in the cloud APROPLAN
       parameters:
         - $ref: '#/parameters/tokenParam'
+        - $ref: '#/parameters/versionParam'
         - $ref: '#/parameters/requesterParam'
         - $ref: '#/parameters/dateFormatParam'
         - in: body
@@ -5049,6 +5240,7 @@ paths:
       summary: To delete items of notedocument in the cloud APROPLAN
       parameters:
         - $ref: '#/parameters/tokenParam'
+        - $ref: '#/parameters/versionParam'
         - $ref: '#/parameters/requesterParam'
         - $ref: '#/parameters/dateFormatParam'
         - in: body
@@ -5080,6 +5272,7 @@ paths:
         current user
       parameters:
         - $ref: '#/parameters/tokenParam'
+        - $ref: '#/parameters/versionParam'
         - $ref: '#/parameters/requesterParam'
         - $ref: '#/parameters/dateFormatParam'
         - $ref: '#/parameters/filterParam'
@@ -5102,6 +5295,7 @@ paths:
       summary: Return the count of drawing available to the current user
       parameters:
         - $ref: '#/parameters/tokenParam'
+        - $ref: '#/parameters/versionParam'
         - $ref: '#/parameters/requesterParam'
         - $ref: '#/parameters/dateFormatParam'
         - $ref: '#/parameters/filterParam'
@@ -5121,6 +5315,7 @@ paths:
       summary: Return the list of drawing available to the current user
       parameters:
         - $ref: '#/parameters/tokenParam'
+        - $ref: '#/parameters/versionParam'
         - $ref: '#/parameters/requesterParam'
         - $ref: '#/parameters/dateFormatParam'
         - $ref: '#/parameters/filterParam'
@@ -5142,6 +5337,7 @@ paths:
       summary: To create new drawing in the cloud APROPLAN
       parameters:
         - $ref: '#/parameters/tokenParam'
+        - $ref: '#/parameters/versionParam'
         - $ref: '#/parameters/requesterParam'
         - $ref: '#/parameters/dateFormatParam'
         - in: body
@@ -5165,6 +5361,7 @@ paths:
       summary: To update drawing in the cloud APROPLAN
       parameters:
         - $ref: '#/parameters/tokenParam'
+        - $ref: '#/parameters/versionParam'
         - $ref: '#/parameters/requesterParam'
         - $ref: '#/parameters/dateFormatParam'
         - in: body
@@ -5188,6 +5385,7 @@ paths:
       summary: To delete items of drawing in the cloud APROPLAN
       parameters:
         - $ref: '#/parameters/tokenParam'
+        - $ref: '#/parameters/versionParam'
         - $ref: '#/parameters/requesterParam'
         - $ref: '#/parameters/dateFormatParam'
         - in: body
@@ -5219,6 +5417,7 @@ paths:
         current user
       parameters:
         - $ref: '#/parameters/tokenParam'
+        - $ref: '#/parameters/versionParam'
         - $ref: '#/parameters/requesterParam'
         - $ref: '#/parameters/dateFormatParam'
         - $ref: '#/parameters/filterParam'
@@ -5241,6 +5440,7 @@ paths:
       summary: Return the count of form available to the current user
       parameters:
         - $ref: '#/parameters/tokenParam'
+        - $ref: '#/parameters/versionParam'
         - $ref: '#/parameters/requesterParam'
         - $ref: '#/parameters/dateFormatParam'
         - $ref: '#/parameters/filterParam'
@@ -5260,6 +5460,7 @@ paths:
       summary: Return the list of form available to the current user
       parameters:
         - $ref: '#/parameters/tokenParam'
+        - $ref: '#/parameters/versionParam'
         - $ref: '#/parameters/requesterParam'
         - $ref: '#/parameters/dateFormatParam'
         - $ref: '#/parameters/filterParam'
@@ -5281,6 +5482,7 @@ paths:
       summary: To create new form in the cloud APROPLAN
       parameters:
         - $ref: '#/parameters/tokenParam'
+        - $ref: '#/parameters/versionParam'
         - $ref: '#/parameters/requesterParam'
         - $ref: '#/parameters/dateFormatParam'
         - in: body
@@ -5304,6 +5506,7 @@ paths:
       summary: To update form in the cloud APROPLAN
       parameters:
         - $ref: '#/parameters/tokenParam'
+        - $ref: '#/parameters/versionParam'
         - $ref: '#/parameters/requesterParam'
         - $ref: '#/parameters/dateFormatParam'
         - in: body
@@ -5327,6 +5530,7 @@ paths:
       summary: To delete items of form in the cloud APROPLAN
       parameters:
         - $ref: '#/parameters/tokenParam'
+        - $ref: '#/parameters/versionParam'
         - $ref: '#/parameters/requesterParam'
         - $ref: '#/parameters/dateFormatParam'
         - in: body
@@ -5358,6 +5562,7 @@ paths:
         user
       parameters:
         - $ref: '#/parameters/tokenParam'
+        - $ref: '#/parameters/versionParam'
         - $ref: '#/parameters/requesterParam'
         - $ref: '#/parameters/dateFormatParam'
         - $ref: '#/parameters/filterParam'
@@ -5380,6 +5585,7 @@ paths:
       summary: Return the count of formitem available to the current user
       parameters:
         - $ref: '#/parameters/tokenParam'
+        - $ref: '#/parameters/versionParam'
         - $ref: '#/parameters/requesterParam'
         - $ref: '#/parameters/dateFormatParam'
         - $ref: '#/parameters/filterParam'
@@ -5399,6 +5605,7 @@ paths:
       summary: Return the list of formitem available to the current user
       parameters:
         - $ref: '#/parameters/tokenParam'
+        - $ref: '#/parameters/versionParam'
         - $ref: '#/parameters/requesterParam'
         - $ref: '#/parameters/dateFormatParam'
         - $ref: '#/parameters/filterParam'
@@ -5420,6 +5627,7 @@ paths:
       summary: To create new formitem in the cloud APROPLAN
       parameters:
         - $ref: '#/parameters/tokenParam'
+        - $ref: '#/parameters/versionParam'
         - $ref: '#/parameters/requesterParam'
         - $ref: '#/parameters/dateFormatParam'
         - in: body
@@ -5443,6 +5651,7 @@ paths:
       summary: To update formitem in the cloud APROPLAN
       parameters:
         - $ref: '#/parameters/tokenParam'
+        - $ref: '#/parameters/versionParam'
         - $ref: '#/parameters/requesterParam'
         - $ref: '#/parameters/dateFormatParam'
         - in: body
@@ -5466,6 +5675,7 @@ paths:
       summary: To delete items of formitem in the cloud APROPLAN
       parameters:
         - $ref: '#/parameters/tokenParam'
+        - $ref: '#/parameters/versionParam'
         - $ref: '#/parameters/requesterParam'
         - $ref: '#/parameters/dateFormatParam'
         - in: body
@@ -5497,6 +5707,7 @@ paths:
         current user
       parameters:
         - $ref: '#/parameters/tokenParam'
+        - $ref: '#/parameters/versionParam'
         - $ref: '#/parameters/requesterParam'
         - $ref: '#/parameters/dateFormatParam'
         - $ref: '#/parameters/filterParam'
@@ -5515,10 +5726,11 @@ paths:
     get:
       operationId: getFormtemplateCount
       tags:
-        - Form Template
+        - Form Templates
       summary: Return the count of formtemplate available to the current user
       parameters:
         - $ref: '#/parameters/tokenParam'
+        - $ref: '#/parameters/versionParam'
         - $ref: '#/parameters/requesterParam'
         - $ref: '#/parameters/dateFormatParam'
         - $ref: '#/parameters/filterParam'
@@ -5534,10 +5746,11 @@ paths:
     get:
       operationId: getFormtemplate
       tags:
-        - Form Template
+        - Form Templates
       summary: Return the list of formtemplate available to the current user
       parameters:
         - $ref: '#/parameters/tokenParam'
+        - $ref: '#/parameters/versionParam'
         - $ref: '#/parameters/requesterParam'
         - $ref: '#/parameters/dateFormatParam'
         - $ref: '#/parameters/filterParam'
@@ -5555,10 +5768,11 @@ paths:
     post:
       operationId: postFormtemplate
       tags:
-        - Forms
+        - Form Templates
       summary: To create new formtemplate in the cloud APROPLAN
       parameters:
         - $ref: '#/parameters/tokenParam'
+        - $ref: '#/parameters/versionParam'
         - $ref: '#/parameters/requesterParam'
         - $ref: '#/parameters/dateFormatParam'
         - in: body
@@ -5578,10 +5792,11 @@ paths:
     put:
       operationId: putFormtemplate
       tags:
-        - Forms
+        - Form Templates
       summary: To update formtemplate in the cloud APROPLAN
       parameters:
         - $ref: '#/parameters/tokenParam'
+        - $ref: '#/parameters/versionParam'
         - $ref: '#/parameters/requesterParam'
         - $ref: '#/parameters/dateFormatParam'
         - in: body
@@ -5601,10 +5816,11 @@ paths:
     delete:
       operationId: deleteFormtemplate
       tags:
-        - Forms
+        - Form Templates
       summary: To delete items of formtemplate in the cloud APROPLAN
       parameters:
         - $ref: '#/parameters/tokenParam'
+        - $ref: '#/parameters/versionParam'
         - $ref: '#/parameters/requesterParam'
         - $ref: '#/parameters/dateFormatParam'
         - in: body
@@ -5630,12 +5846,13 @@ paths:
     get:
       operationId: getFormtemplateIds
       tags:
-        - Form Template
+        - Form Templates
       summary: >-
         Return the list of id corresponding to the formtemplate available to the
         current user
       parameters:
         - $ref: '#/parameters/tokenParam'
+        - $ref: '#/parameters/versionParam'
         - $ref: '#/parameters/requesterParam'
         - $ref: '#/parameters/dateFormatParam'
         - $ref: '#/parameters/filterParam'
@@ -5654,10 +5871,11 @@ paths:
     get:
       operationId: getFormquestionCount
       tags:
-        - Form Template
+        - Form Templates
       summary: Return the count of formquestion available to the current user
       parameters:
         - $ref: '#/parameters/tokenParam'
+        - $ref: '#/parameters/versionParam'
         - $ref: '#/parameters/requesterParam'
         - $ref: '#/parameters/dateFormatParam'
         - $ref: '#/parameters/filterParam'
@@ -5673,10 +5891,11 @@ paths:
     get:
       operationId: getFormquestion
       tags:
-        - Form Template
+        - Form Templates
       summary: Return the list of formquestion available to the current user
       parameters:
         - $ref: '#/parameters/tokenParam'
+        - $ref: '#/parameters/versionParam'
         - $ref: '#/parameters/requesterParam'
         - $ref: '#/parameters/dateFormatParam'
         - $ref: '#/parameters/filterParam'
@@ -5694,10 +5913,11 @@ paths:
     post:
       operationId: postFormquestion
       tags:
-        - Forms
+        - Form Templates
       summary: To create new formquestion in the cloud APROPLAN
       parameters:
         - $ref: '#/parameters/tokenParam'
+        - $ref: '#/parameters/versionParam'
         - $ref: '#/parameters/requesterParam'
         - $ref: '#/parameters/dateFormatParam'
         - in: body
@@ -5717,10 +5937,11 @@ paths:
     put:
       operationId: putFormquestion
       tags:
-        - Forms
+        - Form Templates
       summary: To update formquestion in the cloud APROPLAN
       parameters:
         - $ref: '#/parameters/tokenParam'
+        - $ref: '#/parameters/versionParam'
         - $ref: '#/parameters/requesterParam'
         - $ref: '#/parameters/dateFormatParam'
         - in: body
@@ -5740,10 +5961,11 @@ paths:
     delete:
       operationId: deleteFormquestion
       tags:
-        - Forms
+        - Form Templates
       summary: To delete items of formquestion in the cloud APROPLAN
       parameters:
         - $ref: '#/parameters/tokenParam'
+        - $ref: '#/parameters/versionParam'
         - $ref: '#/parameters/requesterParam'
         - $ref: '#/parameters/dateFormatParam'
         - in: body
@@ -5769,12 +5991,13 @@ paths:
     get:
       operationId: getFormquestionIds
       tags:
-        - Form Template
+        - Form Templates
       summary: >-
         Return the list of id corresponding to the formquestion available to the
         current user
       parameters:
         - $ref: '#/parameters/tokenParam'
+        - $ref: '#/parameters/versionParam'
         - $ref: '#/parameters/requesterParam'
         - $ref: '#/parameters/dateFormatParam'
         - $ref: '#/parameters/filterParam'
@@ -5796,6 +6019,7 @@ paths:
         - Forms
       summary: Finalize a form
       parameters:
+        - $ref: '#/parameters/versionParam'
         - in: body
           name: FormReportParams
           description: >-
@@ -5820,6 +6044,7 @@ paths:
         in parameters
       parameters:
         - $ref: '#/parameters/tokenParam'
+        - $ref: '#/parameters/versionParam'
         - $ref: '#/parameters/requesterParam'
         - $ref: '#/parameters/dateFormatParam'
         - $ref: '#/parameters/formatParam'
@@ -5849,6 +6074,7 @@ paths:
         entities and contains also entities deleted
       parameters:
         - $ref: '#/parameters/tokenParam'
+        - $ref: '#/parameters/versionParam'
         - $ref: '#/parameters/requesterParam'
         - $ref: '#/parameters/dateFormatParam'
         - $ref: '#/parameters/requestedBlockSizeParam'
@@ -5875,6 +6101,7 @@ paths:
         detail entities and contains also entities deleted
       parameters:
         - $ref: '#/parameters/tokenParam'
+        - $ref: '#/parameters/versionParam'
         - $ref: '#/parameters/requesterParam'
         - $ref: '#/parameters/dateFormatParam'
         - $ref: '#/parameters/requestedBlockSizeParam'
@@ -5897,6 +6124,7 @@ paths:
       summary: To preview the form report
       parameters:
         - $ref: '#/parameters/tokenParam'
+        - $ref: '#/parameters/versionParam'
         - $ref: '#/parameters/requesterParam'
         - $ref: '#/parameters/dateFormatParam'
         - in: body
@@ -5919,6 +6147,7 @@ paths:
       summary: 'Return the list of ids corresponding to the search of Forms or Points. '
       parameters:
         - $ref: '#/parameters/tokenParam'
+        - $ref: '#/parameters/versionParam'
         - $ref: '#/parameters/requesterParam'
         - $ref: '#/parameters/dateFormatParam'
         - in: query
@@ -6029,6 +6258,7 @@ paths:
       summary: Return the list of reportrequest available to the current user
       parameters:
         - $ref: '#/parameters/tokenParam'
+        - $ref: '#/parameters/versionParam'
         - $ref: '#/parameters/requesterParam'
         - $ref: '#/parameters/dateFormatParam'
         - $ref: '#/parameters/filterParam'
@@ -6050,6 +6280,7 @@ paths:
       summary: To create new reportrequest in the cloud APROPLAN
       parameters:
         - $ref: '#/parameters/tokenParam'
+        - $ref: '#/parameters/versionParam'
         - $ref: '#/parameters/requesterParam'
         - $ref: '#/parameters/dateFormatParam'
         - in: body
@@ -6073,6 +6304,7 @@ paths:
       summary: To update reportrequest in the cloud APROPLAN
       parameters:
         - $ref: '#/parameters/tokenParam'
+        - $ref: '#/parameters/versionParam'
         - $ref: '#/parameters/requesterParam'
         - $ref: '#/parameters/dateFormatParam'
         - in: body
@@ -6096,6 +6328,7 @@ paths:
       summary: To delete items of reportrequest in the cloud APROPLAN
       parameters:
         - $ref: '#/parameters/tokenParam'
+        - $ref: '#/parameters/versionParam'
         - $ref: '#/parameters/requesterParam'
         - $ref: '#/parameters/dateFormatParam'
         - in: body
@@ -6129,6 +6362,7 @@ paths:
         detail entities and contains also entities deleted
       parameters:
         - $ref: '#/parameters/tokenParam'
+        - $ref: '#/parameters/versionParam'
         - $ref: '#/parameters/requesterParam'
         - $ref: '#/parameters/dateFormatParam'
         - $ref: '#/parameters/requestedBlockSizeParam'

@@ -18,6 +18,7 @@ post:
     * LanguageCode
     
   parameters:
+    - $ref: '#/parameters/versionParam'
     - in: body
       name: body
       description: "Need an object with 2 properties: User and Pass"

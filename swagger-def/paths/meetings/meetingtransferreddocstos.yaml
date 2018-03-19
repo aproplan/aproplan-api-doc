@@ -5,6 +5,7 @@ get:
   summary: Return the list of meetingtransferreddocsto available to the current user
   parameters:
     - $ref: '#/parameters/tokenParam'
+    - $ref: '#/parameters/versionParam'
     - $ref: '#/parameters/requesterParam'
     - $ref: '#/parameters/dateFormatParam'
     - $ref: '#/parameters/filterParam'
@@ -26,6 +27,7 @@ post:
   summary: To create new meetingtransferreddocsto in the cloud APROPLAN
   parameters:
     - $ref: '#/parameters/tokenParam'
+    - $ref: '#/parameters/versionParam'
     - $ref: '#/parameters/requesterParam'
     - $ref: '#/parameters/dateFormatParam'
     - in: body
@@ -53,6 +55,7 @@ put:
   summary: To update meetingtransferreddocsto in the cloud APROPLAN
   parameters:
     - $ref: '#/parameters/tokenParam'
+    - $ref: '#/parameters/versionParam'
     - $ref: '#/parameters/requesterParam'
     - $ref: '#/parameters/dateFormatParam'
     - in: body
@@ -78,6 +81,7 @@ delete:
   summary: To delete items of meetingtransferreddocsto in the cloud APROPLAN
   parameters:
     - $ref: '#/parameters/tokenParam'
+    - $ref: '#/parameters/versionParam'
     - $ref: '#/parameters/requesterParam'
     - $ref: '#/parameters/dateFormatParam'
     - in: body

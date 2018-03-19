@@ -1,10 +1,11 @@
 get:
   operationId: getFormtemplate
   tags:
-    - Form Template
+    - Form Templates
   summary: Return the list of formtemplate available to the current user
   parameters:
     - $ref: '#/parameters/tokenParam'
+    - $ref: '#/parameters/versionParam'
     - $ref: '#/parameters/requesterParam'
     - $ref: '#/parameters/dateFormatParam'
     - $ref: '#/parameters/filterParam'
@@ -22,10 +23,11 @@ get:
 post:
   operationId: postFormtemplate
   tags:
-    - Forms
+    - Form Templates
   summary: To create new formtemplate in the cloud APROPLAN
   parameters:
     - $ref: '#/parameters/tokenParam'
+    - $ref: '#/parameters/versionParam'
     - $ref: '#/parameters/requesterParam'
     - $ref: '#/parameters/dateFormatParam'
     - in: body
@@ -45,10 +47,11 @@ post:
 put:
   operationId: putFormtemplate
   tags:
-    - Forms
+    - Form Templates
   summary: To update formtemplate in the cloud APROPLAN
   parameters:
     - $ref: '#/parameters/tokenParam'
+    - $ref: '#/parameters/versionParam'
     - $ref: '#/parameters/requesterParam'
     - $ref: '#/parameters/dateFormatParam'
     - in: body
@@ -68,10 +71,11 @@ put:
 delete:
   operationId: deleteFormtemplate
   tags:
-    - Forms
+    - Form Templates
   summary: To delete items of formtemplate in the cloud APROPLAN
   parameters:
     - $ref: '#/parameters/tokenParam'
+    - $ref: '#/parameters/versionParam'
     - $ref: '#/parameters/requesterParam'
     - $ref: '#/parameters/dateFormatParam'
     - in: body

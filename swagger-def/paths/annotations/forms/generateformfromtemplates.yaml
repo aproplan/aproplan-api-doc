@@ -6,6 +6,7 @@ get:
     This method will generate an excel for forms based on template specified in parameters
   parameters:
     - $ref: '#/parameters/tokenParam'
+    - $ref: '#/parameters/versionParam'
     - $ref: '#/parameters/requesterParam'
     - $ref: '#/parameters/dateFormatParam'
     - $ref: '#/parameters/formatParam'

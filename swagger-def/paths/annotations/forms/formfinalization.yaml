@@ -4,6 +4,7 @@ put:
     - Forms
   summary: Finalize a form
   parameters:
+    - $ref: '#/parameters/versionParam'
     - in: body
       name: FormReportParams
       description: >-

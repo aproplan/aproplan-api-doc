@@ -1,12 +1,13 @@
 get:
   operationId: getFormquestionIds
   tags:
-    - Form Template
+    - Form Templates
   summary: >-
     Return the list of id corresponding to the formquestion available to the
     current user
   parameters:
     - $ref: '#/parameters/tokenParam'
+    - $ref: '#/parameters/versionParam'
     - $ref: '#/parameters/requesterParam'
     - $ref: '#/parameters/dateFormatParam'
     - $ref: '#/parameters/filterParam'
