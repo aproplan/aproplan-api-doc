@@ -1,0 +1,10 @@
+type: object
+allOf:
+  - $ref: '#/definitions/FormSectionBase'
+  - type: object
+  - title: FormSectionRule
+  - properties:      
+      FormTemplateId:
+        type: string
+        description: this is the id of the FormTemplate owner of the section
+        example: f230aeb4-7d72-435b-8e12-b9240156e098

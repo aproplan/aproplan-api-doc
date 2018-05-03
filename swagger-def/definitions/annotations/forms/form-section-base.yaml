@@ -1,0 +1,9 @@
+type: object
+allOf:
+  - $ref: '#/definitions/FormElementBase'
+  - type: object
+  - title: FormSectionBase
+  - properties:      
+      ItemsCount:
+        type: number
+        description: Specify how many items are defined in the sections

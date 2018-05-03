@@ -1,0 +1,22 @@
+get:
+  operationId: getFormsection
+  tags:
+    - Forms
+  summary: Return the list of formsection available to the current user
+  parameters:
+    - $ref: '#/parameters/tokenParam'
+    - $ref: '#/parameters/versionParam'
+    - $ref: '#/parameters/requesterParam'
+    - $ref: '#/parameters/dateFormatParam'
+    - $ref: '#/parameters/filterParam'
+    - $ref: '#/parameters/pathtoloadParam'
+  description: ''
+  responses:
+    '200':
+      description: >-
+        Successful operation returning the array of formsection corresponding to
+        the queries parameters
+      schema:
+        type: array
+        items:
+          $ref: '#/definitions/FormSection'

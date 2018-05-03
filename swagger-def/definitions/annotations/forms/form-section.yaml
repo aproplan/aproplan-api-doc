@@ -1,0 +1,15 @@
+type: object
+allOf:
+  - $ref: '#/definitions/FormSectionBase'
+  - type: object
+  - title: FormSection
+  - properties:      
+      FormId:
+        type: string
+        description: This is the id of the form owner of the item
+        example: f230aeb4-7d72-435b-8e12-b9240156e098
+      SectionRuleId:
+        type: string
+        description: >-
+          This is the id of the section rule from where the section has been
+          created

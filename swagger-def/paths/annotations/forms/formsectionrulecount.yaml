@@ -1,0 +1,19 @@
+get:
+  operationId: getFormsectionruleCount
+  tags:
+    - Forms
+  summary: Return the count of formsectionrule available to the current user
+  parameters:
+    - $ref: '#/parameters/tokenParam'
+    - $ref: '#/parameters/versionParam'
+    - $ref: '#/parameters/requesterParam'
+    - $ref: '#/parameters/dateFormatParam'
+    - $ref: '#/parameters/filterParam'
+  description: ''
+  responses:
+    '200':
+      description: >-
+        Successful operation returning the number of formsectionrule
+        corresponding to the queries parameters
+      schema:
+        type: number
