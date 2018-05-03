@@ -100,10 +100,16 @@ Note:
   $ref: ./annotations/notes/note.yaml
 Drawing:
   $ref: ./annotations/drawing.yaml
+FormElementBase:
+  $ref: ./annotations/forms/form-element-base.yaml
+FormSectionBase:
+  $ref: ./annotations/forms/form-section-base.yaml
 FormItemBase:
   $ref: ./annotations/forms/form-item-base.yaml
 Form:
   $ref: ./annotations/forms/form.yaml
+FormSection:
+  $ref: ./annotations/forms/form-section.yaml
 FormSignature:
   $ref: ./annotations/forms/form-signature.yaml
 FormFinalizationResponse:
@@ -112,6 +118,8 @@ FormItem:
   $ref: ./annotations/forms/form-item.yaml
 FormTemplate:
   $ref: ./annotations/forms/form-template.yaml
+FormSectionRule:
+  $ref: ./annotations/forms/form-section-rule.yaml
 FormQuestion:
   $ref: ./annotations/forms/form-question.yaml
 FormSignatureRule:

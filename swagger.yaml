@@ -5577,6 +5577,74 @@ paths:
             type: array
             items:
               type: string
+  /formsectioncount:
+    get:
+      operationId: getFormsectionCount
+      tags:
+        - Forms
+      summary: Return the count of formsection available to the current user
+      parameters:
+        - $ref: '#/parameters/tokenParam'
+        - $ref: '#/parameters/versionParam'
+        - $ref: '#/parameters/requesterParam'
+        - $ref: '#/parameters/dateFormatParam'
+        - $ref: '#/parameters/filterParam'
+      description: ''
+      responses:
+        '200':
+          description: >-
+            Successful operation returning the number of formsection
+            corresponding to the queries parameters
+          schema:
+            type: number
+  /formsections:
+    get:
+      operationId: getFormsection
+      tags:
+        - Forms
+      summary: Return the list of formsection available to the current user
+      parameters:
+        - $ref: '#/parameters/tokenParam'
+        - $ref: '#/parameters/versionParam'
+        - $ref: '#/parameters/requesterParam'
+        - $ref: '#/parameters/dateFormatParam'
+        - $ref: '#/parameters/filterParam'
+        - $ref: '#/parameters/pathtoloadParam'
+      description: ''
+      responses:
+        '200':
+          description: >-
+            Successful operation returning the array of formsection
+            corresponding to the queries parameters
+          schema:
+            type: array
+            items:
+              $ref: '#/definitions/FormSection'
+  /formsectionsids:
+    get:
+      operationId: getFormsectionIds
+      tags:
+        - Forms
+      summary: >-
+        Return the list of id corresponding to the formsection available to the
+        current user
+      parameters:
+        - $ref: '#/parameters/tokenParam'
+        - $ref: '#/parameters/versionParam'
+        - $ref: '#/parameters/requesterParam'
+        - $ref: '#/parameters/dateFormatParam'
+        - $ref: '#/parameters/filterParam'
+        - $ref: '#/parameters/pathtoloadParam'
+      description: ''
+      responses:
+        '200':
+          description: >-
+            Successful operation returning the array of id of formsection
+            corresponding to the queries parameters
+          schema:
+            type: array
+            items:
+              type: string
   /formitemcount:
     get:
       operationId: getFormitemCount
@@ -5862,6 +5930,153 @@ paths:
         '200':
           description: >-
             Successful operation returning the array of id of formtemplate
+            corresponding to the queries parameters
+          schema:
+            type: array
+            items:
+              type: string
+  /formsectionrulecount:
+    get:
+      operationId: getFormsectionruleCount
+      tags:
+        - Forms
+      summary: Return the count of formsectionrule available to the current user
+      parameters:
+        - $ref: '#/parameters/tokenParam'
+        - $ref: '#/parameters/versionParam'
+        - $ref: '#/parameters/requesterParam'
+        - $ref: '#/parameters/dateFormatParam'
+        - $ref: '#/parameters/filterParam'
+      description: ''
+      responses:
+        '200':
+          description: >-
+            Successful operation returning the number of formsectionrule
+            corresponding to the queries parameters
+          schema:
+            type: number
+  /formsectionrules:
+    get:
+      operationId: getFormsectionrule
+      tags:
+        - Forms
+      summary: Return the list of formsectionrule available to the current user
+      parameters:
+        - $ref: '#/parameters/tokenParam'
+        - $ref: '#/parameters/versionParam'
+        - $ref: '#/parameters/requesterParam'
+        - $ref: '#/parameters/dateFormatParam'
+        - $ref: '#/parameters/filterParam'
+        - $ref: '#/parameters/pathtoloadParam'
+      description: ''
+      responses:
+        '200':
+          description: >-
+            Successful operation returning the array of formsectionrule
+            corresponding to the queries parameters
+          schema:
+            type: array
+            items:
+              $ref: '#/definitions/FormSectionRule'
+    post:
+      operationId: postFormsectionrule
+      tags:
+        - Forms
+      summary: To create new formsectionrule in the cloud APROPLAN
+      parameters:
+        - $ref: '#/parameters/tokenParam'
+        - $ref: '#/parameters/versionParam'
+        - $ref: '#/parameters/requesterParam'
+        - $ref: '#/parameters/dateFormatParam'
+        - in: body
+          name: body
+          description: This is the array of formsectionrule to create through the cloud
+          schema:
+            type: array
+            items:
+              $ref: '#/definitions/FormSectionRule'
+      responses:
+        '200':
+          description: >-
+            Successful operation to create new formsectionrule array in the
+            cloud
+          schema:
+            type: array
+            items:
+              $ref: '#/definitions/FormSectionRule'
+    put:
+      operationId: putFormsectionrule
+      tags:
+        - Forms
+      summary: To update formsectionrule in the cloud APROPLAN
+      parameters:
+        - $ref: '#/parameters/tokenParam'
+        - $ref: '#/parameters/versionParam'
+        - $ref: '#/parameters/requesterParam'
+        - $ref: '#/parameters/dateFormatParam'
+        - in: body
+          name: body
+          description: This is the array of formsectionrule to update in the cloud
+          schema:
+            type: array
+            items:
+              $ref: '#/definitions/FormSectionRule'
+      responses:
+        '200':
+          description: Successful operation to update array of formsectionrule in the cloud
+          schema:
+            type: array
+            items:
+              $ref: '#/definitions/FormSectionRule'
+    delete:
+      operationId: deleteFormsectionrule
+      tags:
+        - Forms
+      summary: To delete items of formsectionrule in the cloud APROPLAN
+      parameters:
+        - $ref: '#/parameters/tokenParam'
+        - $ref: '#/parameters/versionParam'
+        - $ref: '#/parameters/requesterParam'
+        - $ref: '#/parameters/dateFormatParam'
+        - in: body
+          name: body
+          description: Array of formsectionrule id to delete from the cloud
+          required: true
+          schema:
+            type: array
+            items:
+              type: string
+            example:
+              - ea5d793f-c795-4311-8344-eb18e8efa065
+              - afff9354-abb3-4a9c-aca5-9810490938ef
+      responses:
+        '200':
+          description: >-
+            Successful operation meaning all specified items of formsectionrule
+            corresponding to ids in parameters are deleted from the cloud
+          schema:
+            type: string
+            example: success
+  /formsectionrulesids:
+    get:
+      operationId: getFormsectionruleIds
+      tags:
+        - Forms
+      summary: >-
+        Return the list of id corresponding to the formsectionrule available to
+        the current user
+      parameters:
+        - $ref: '#/parameters/tokenParam'
+        - $ref: '#/parameters/versionParam'
+        - $ref: '#/parameters/requesterParam'
+        - $ref: '#/parameters/dateFormatParam'
+        - $ref: '#/parameters/filterParam'
+        - $ref: '#/parameters/pathtoloadParam'
+      description: ''
+      responses:
+        '200':
+          description: >-
+            Successful operation returning the array of id of formsectionrule
             corresponding to the queries parameters
           schema:
             type: array
@@ -7874,13 +8089,17 @@ definitions:
             description: >-
               This is an xml representing all shapes of the drawing done on the
               document
-  FormItemBase:
+  FormElementBase:
     type: object
     allOf:
       - $ref: '#/definitions/RestEntity'
       - type: object
-      - title: FormItemBase
+      - title: FormElementBase
+      - required:
+          - Code
       - properties:
+          Code:
+            type: string
           DisplayOrder:
             type: integer
             format: int32
@@ -7890,6 +8109,23 @@ definitions:
             type: string
           Description:
             type: string
+  FormSectionBase:
+    type: object
+    allOf:
+      - $ref: '#/definitions/FormElementBase'
+      - type: object
+      - title: FormSectionBase
+      - properties:
+          ItemsCount:
+            type: number
+            description: Specify how many items are defined in the sections
+  FormItemBase:
+    type: object
+    allOf:
+      - $ref: '#/definitions/FormElementBase'
+      - type: object
+      - title: FormItemBase
+      - properties:
           ItemType:
             type: string
             enum:
@@ -7949,6 +8185,22 @@ definitions:
             type: boolean
           Report:
             $ref: '#/definitions/Document'
+  FormSection:
+    type: object
+    allOf:
+      - $ref: '#/definitions/FormSectionBase'
+      - type: object
+      - title: FormSection
+      - properties:
+          FormId:
+            type: string
+            description: This is the id of the form owner of the item
+            example: f230aeb4-7d72-435b-8e12-b9240156e098
+          SectionRuleId:
+            type: string
+            description: >-
+              This is the id of the section rule from where the section has been
+              created
   FormSignature:
     type: object
     description: This is the signature wanted for the Form
@@ -8010,6 +8262,9 @@ definitions:
             description: >-
               This is the id of the question from where the item has been
               created
+          SectionId:
+            type: string
+            description: This is the id of the section from where the item belongs to
           User:
             description: >-
               This is the user who answered to the question. This parameter is
@@ -8079,6 +8334,17 @@ definitions:
             type: array
             items:
               $ref: '#/definitions/FormSignatureRule'
+  FormSectionRule:
+    type: object
+    allOf:
+      - $ref: '#/definitions/FormSectionBase'
+      - type: object
+      - title: FormSectionRule
+      - properties:
+          FormTemplateId:
+            type: string
+            description: this is the id of the FormTemplate owner of the section
+            example: f230aeb4-7d72-435b-8e12-b9240156e098
   FormQuestion:
     description: To represent template for question in a form template
     type: object
@@ -8091,6 +8357,10 @@ definitions:
             type: string
             description: this is the id of the FormTemplate owner of the question
             example: f230aeb4-7d72-435b-8e12-b9240156e098
+          SectionRuleId:
+            type: string
+            description: this is the id of the SectionRule where the question is placed
+            example: C63D8A4E-2960-4CCC-8F88-9F591814C079
           IsArchived:
             type: boolean
             description: To know if the question has been archived or not

@@ -9,6 +9,10 @@ allOf:
         type: string
         description: this is the id of the FormTemplate owner of the question
         example: f230aeb4-7d72-435b-8e12-b9240156e098
+      SectionRuleId: 
+        type: string
+        description: this is the id of the SectionRule where the question is placed
+        example: C63D8A4E-2960-4CCC-8F88-9F591814C079
       IsArchived:
         type: boolean
         description: To know if the question has been archived or not

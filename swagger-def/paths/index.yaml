@@ -232,6 +232,12 @@
   $ref: ./annotations/forms/forms.yaml
 /formsids:
   $ref: ./annotations/forms/formsids.yaml
+/formsectioncount:
+  $ref: ./annotations/forms/formsectioncount.yaml
+/formsections:
+  $ref: ./annotations/forms/formsections.yaml
+/formsectionsids:
+  $ref: ./annotations/forms/formsectionsids.yaml
 /formitemcount:
   $ref: ./annotations/forms/formitemcount.yaml
 /formitems:
@@ -244,6 +250,12 @@
   $ref: ./annotations/forms/formtemplates.yaml
 /formtemplatesids:
   $ref: ./annotations/forms/formtemplatesids.yaml
+/formsectionrulecount:
+  $ref: ./annotations/forms/formsectionrulecount.yaml
+/formsectionrules:
+  $ref: ./annotations/forms/formsectionrules.yaml
+/formsectionrulesids:
+  $ref: ./annotations/forms/formsectionrulesids.yaml
 /formquestioncount:
   $ref: ./annotations/forms/formquestioncount.yaml
 /formquestions:

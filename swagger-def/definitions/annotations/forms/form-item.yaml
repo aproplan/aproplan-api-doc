@@ -16,6 +16,10 @@ allOf:
         description: >-
           This is the id of the question from where the item has been
           created
+      SectionId:
+        type: string
+        description: >-
+          This is the id of the section from where the item belongs to
       User:
         description: >-
           This is the user who answered to the question. This parameter is
