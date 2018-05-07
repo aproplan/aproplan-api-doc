@@ -8173,6 +8173,11 @@ definitions:
             description: >-
               This is the id of the template from where the form has been
               created
+          MustDisplayElementsCode:
+            type: boolean
+            description: >-
+              This is a parameter to know if the UI must display the code of
+              element (item, section) or not
           Signatures:
             type: array
             items:
@@ -8181,6 +8186,10 @@ definitions:
             type: array
             items:
               - $ref: '#/definitions/FormItem'
+          Sections:
+            type: array
+            items:
+              - $ref: '#/definitions/FormSection'
           IsConform:
             type: boolean
           Report:
@@ -8326,10 +8335,19 @@ definitions:
             type: string
             description: This is the id of the company owner of the template
             example: 91cb89f2-79a0-415c-9f47-77f22193b420
+          MustDisplayElementsCode:
+            type: boolean
+            description: >-
+              This is a parameter to know if the UI must display the code of
+              element (question, section rule) or not
           Questions:
             type: array
             items:
               $ref: '#/definitions/FormQuestion'
+          SectionRules:
+            type: array
+            items:
+              $ref: '#/definitions/FormSectionRule'
           SignatureRules:
             type: array
             items:

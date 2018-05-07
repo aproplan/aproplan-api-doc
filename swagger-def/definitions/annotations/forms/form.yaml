@@ -28,6 +28,9 @@ allOf:
         description: >-
           This is the id of the template from where the form has been
           created
+      MustDisplayElementsCode:
+        type: boolean
+        description: This is a parameter to know if the UI must display the code of element (item, section) or not
       Signatures:
         type: array
         items:
@@ -36,6 +39,10 @@ allOf:
         type: array
         items:
           - $ref: '#/definitions/FormItem'
+      Sections:
+        type: array
+        items:
+          - $ref: '#/definitions/FormSection'
       IsConform:
         type: boolean
       Report:
