@@ -1,7 +1,7 @@
 swagger: '2.0'
 info:
   description: This is a sample of APROPLAN API.
-  version: 1.11.0
+  version: 1.7.0
   title: APROPLAN API
   termsOfService: 'http://swagger.io/terms/'
   contact:
