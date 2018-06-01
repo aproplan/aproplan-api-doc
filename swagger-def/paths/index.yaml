@@ -2,6 +2,8 @@
   $ref: ./login/login-secure.yaml
 /renewtoken:
   $ref: ./login/renew-token.yaml
+/simpleloginsecure:
+  $ref: ./login/simple-login-secure.yaml
 /users:
   $ref: ./login/users.yaml
 /countrycount:
@@ -22,6 +24,8 @@
   $ref: ./identfiles/professions.yaml
 /professionsids:
   $ref: ./identfiles/professionsids.yaml
+/accountdata:
+  $ref: ./actors/account-data.yaml
 /phonecount:
   $ref: ./actors/phonecount.yaml
 /phones:
@@ -266,5 +270,3 @@
   $ref: ./reports/reportrequests.yaml
 /reportrequestsync:
   $ref: ./reports/reportrequestsync.yaml
-
-
