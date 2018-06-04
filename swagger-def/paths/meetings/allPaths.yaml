@@ -1,0 +1,38 @@
+/meetingcount:
+  $ref: ./meetings/meetingcount.yaml
+/meetings:
+  $ref: ./meetings/meetings.yaml
+/meetingsids:
+  $ref: ./meetings/meetingsids.yaml
+/meetingsync:
+  $ref: ./meetings/meetingsync.yaml
+/meetingconcerncount:
+  $ref: ./meetings/meetingconcerncount.yaml
+/meetingconcerns:
+  $ref: ./meetings/meetingconcerns.yaml
+/meetingconcernsids:
+  $ref: ./meetings/meetingconcernsids.yaml
+/meetingdocumentcount:
+  $ref: ./meetings/meetingdocumentcount.yaml
+/meetingdocuments:
+  $ref: ./meetings/meetingdocuments.yaml
+/meetingdocumentsids:
+  $ref: ./meetings/meetingdocumentsids.yaml
+/meetingtransferreddocscount:
+  $ref: ./meetings/meetingtransferreddocscount.yaml
+/meetingtransferreddocs:
+  $ref: ./meetings/meetingtransferreddocs.yaml
+/meetingtransferreddocsids:
+  $ref: ./meetings/meetingtransferreddocsids.yaml
+/meetingtransferreddocstocount:
+  $ref: ./meetings/meetingtransferreddocstocount.yaml
+/meetingtransferreddocstos:
+  $ref: ./meetings/meetingtransferreddocstos.yaml
+/meetingtransferreddocstosids:
+  $ref: ./meetings/meetingtransferreddocstosids.yaml
+/meetingreportcount:
+  $ref: ./meetings/meetingreportcount.yaml
+/meetingreports:
+  $ref: ./meetings/meetingreports.yaml
+/meetingreportsids:
+  $ref: ./meetings/meetingreportsids.yaml

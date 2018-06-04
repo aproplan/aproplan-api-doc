@@ -1,0 +1,24 @@
+/noteinchargecount:
+  $ref: ./annotations/noteinchargecount.yaml
+/noteincharges:
+  $ref: ./annotations/noteincharges.yaml
+/noteinchargesids:
+  $ref: ./annotations/noteinchargesids.yaml
+/notecommentcount:
+  $ref: ./annotations/notecommentcount.yaml
+/notecomments:
+  $ref: ./annotations/notecomments.yaml
+/notecommentsids:
+  $ref: ./annotations/notecommentsids.yaml
+/notedocumentcount:
+  $ref: ./annotations/notedocumentcount.yaml
+/notedocuments:
+  $ref: ./annotations/notedocuments.yaml
+/notedocumentsids:
+  $ref: ./annotations/notedocumentsids.yaml
+/drawingcount:
+  $ref: ./annotations/drawingcount.yaml
+/drawings:
+  $ref: ./annotations/drawings.yaml
+/drawingsids:
+  $ref: ./annotations/drawingsids.yaml

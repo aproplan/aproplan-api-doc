@@ -1,0 +1,18 @@
+/countrycount:
+  $ref: ./identfiles/countrycount.yaml
+/countries:
+  $ref: ./identfiles/countries.yaml
+/countriesids:
+  $ref: ./identfiles/countriesids.yaml
+/languagecount:
+  $ref: ./identfiles/languagecount.yaml
+/languages:
+  $ref: ./identfiles/languages.yaml
+/languagesids:
+  $ref: ./identfiles/languagesids.yaml
+/professioncount:
+  $ref: ./identfiles/professioncount.yaml
+/professions:
+  $ref: ./identfiles/professions.yaml
+/professionsids:
+  $ref: ./identfiles/professionsids.yaml

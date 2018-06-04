@@ -68,6 +68,13 @@ parameters:
     description: >-
       this is the token you received from aproplan to identify as a user of the
       APROPLAN API
+  projectIdParam:
+    name: projectId
+    in: query
+    required: true
+    type: string
+    format: uuid
+    description: The project Id on which the entity depends.
   filterParam:
     in: query
     name: filter
@@ -227,10 +234,9 @@ paths:
         - IdentFiles
       summary: Return the count of country available to the current user
       parameters:
-        - $ref: '#/parameters/tokenParam'
         - $ref: '#/parameters/versionParam'
         - $ref: '#/parameters/requesterParam'
-        - $ref: '#/parameters/dateFormatParam'
+        - $ref: '#/parameters/projectIdParam'
         - $ref: '#/parameters/filterParam'
       description: ''
       responses:
@@ -247,10 +253,9 @@ paths:
         - IdentFiles
       summary: Return the list of country available to the current user
       parameters:
-        - $ref: '#/parameters/tokenParam'
         - $ref: '#/parameters/versionParam'
         - $ref: '#/parameters/requesterParam'
-        - $ref: '#/parameters/dateFormatParam'
+        - $ref: '#/parameters/projectIdParam'
         - $ref: '#/parameters/filterParam'
         - $ref: '#/parameters/pathtoloadParam'
       description: ''
@@ -269,10 +274,9 @@ paths:
         - IdentFiles
       summary: To create new country in the cloud APROPLAN
       parameters:
-        - $ref: '#/parameters/tokenParam'
         - $ref: '#/parameters/versionParam'
         - $ref: '#/parameters/requesterParam'
-        - $ref: '#/parameters/dateFormatParam'
+        - $ref: '#/parameters/projectIdParam'
         - in: body
           name: body
           description: This is the array of country to create through the cloud
@@ -293,10 +297,9 @@ paths:
         - IdentFiles
       summary: To update country in the cloud APROPLAN
       parameters:
-        - $ref: '#/parameters/tokenParam'
         - $ref: '#/parameters/versionParam'
         - $ref: '#/parameters/requesterParam'
-        - $ref: '#/parameters/dateFormatParam'
+        - $ref: '#/parameters/projectIdParam'
         - in: body
           name: body
           description: This is the array of country to update in the cloud
@@ -317,10 +320,9 @@ paths:
         - IdentFiles
       summary: To delete items of country in the cloud APROPLAN
       parameters:
-        - $ref: '#/parameters/tokenParam'
         - $ref: '#/parameters/versionParam'
         - $ref: '#/parameters/requesterParam'
-        - $ref: '#/parameters/dateFormatParam'
+        - $ref: '#/parameters/projectIdParam'
         - in: body
           name: body
           description: Array of country id to delete from the cloud
@@ -349,10 +351,9 @@ paths:
         Return the list of id corresponding to the country available to the
         current user
       parameters:
-        - $ref: '#/parameters/tokenParam'
         - $ref: '#/parameters/versionParam'
         - $ref: '#/parameters/requesterParam'
-        - $ref: '#/parameters/dateFormatParam'
+        - $ref: '#/parameters/projectIdParam'
         - $ref: '#/parameters/filterParam'
         - $ref: '#/parameters/pathtoloadParam'
       description: ''
@@ -1663,6 +1664,7 @@ paths:
         - $ref: '#/parameters/tokenParam'
         - $ref: '#/parameters/versionParam'
         - $ref: '#/parameters/requesterParam'
+        - $ref: '#/parameters/projectIdParam'
         - $ref: '#/parameters/dateFormatParam'
         - $ref: '#/parameters/filterParam'
       description: ''
@@ -1683,6 +1685,7 @@ paths:
         - $ref: '#/parameters/tokenParam'
         - $ref: '#/parameters/versionParam'
         - $ref: '#/parameters/requesterParam'
+        - $ref: '#/parameters/projectIdParam'
         - $ref: '#/parameters/dateFormatParam'
         - $ref: '#/parameters/filterParam'
         - $ref: '#/parameters/pathtoloadParam'
@@ -1705,6 +1708,7 @@ paths:
         - $ref: '#/parameters/tokenParam'
         - $ref: '#/parameters/versionParam'
         - $ref: '#/parameters/requesterParam'
+        - $ref: '#/parameters/projectIdParam'
         - $ref: '#/parameters/dateFormatParam'
         - in: body
           name: body
@@ -1729,6 +1733,7 @@ paths:
         - $ref: '#/parameters/tokenParam'
         - $ref: '#/parameters/versionParam'
         - $ref: '#/parameters/requesterParam'
+        - $ref: '#/parameters/projectIdParam'
         - $ref: '#/parameters/dateFormatParam'
         - in: body
           name: body
@@ -1753,6 +1758,7 @@ paths:
         - $ref: '#/parameters/tokenParam'
         - $ref: '#/parameters/versionParam'
         - $ref: '#/parameters/requesterParam'
+        - $ref: '#/parameters/projectIdParam'
         - $ref: '#/parameters/dateFormatParam'
         - in: body
           name: body
@@ -1785,6 +1791,7 @@ paths:
         - $ref: '#/parameters/tokenParam'
         - $ref: '#/parameters/versionParam'
         - $ref: '#/parameters/requesterParam'
+        - $ref: '#/parameters/projectIdParam'
         - $ref: '#/parameters/dateFormatParam'
         - $ref: '#/parameters/filterParam'
         - $ref: '#/parameters/pathtoloadParam'
@@ -1812,6 +1819,7 @@ paths:
         - $ref: '#/parameters/tokenParam'
         - $ref: '#/parameters/versionParam'
         - $ref: '#/parameters/requesterParam'
+        - $ref: '#/parameters/projectIdParam'
         - $ref: '#/parameters/dateFormatParam'
         - $ref: '#/parameters/requestedBlockSizeParam'
         - $ref: '#/parameters/timestampParam'
@@ -1835,6 +1843,7 @@ paths:
         - $ref: '#/parameters/tokenParam'
         - $ref: '#/parameters/versionParam'
         - $ref: '#/parameters/requesterParam'
+        - $ref: '#/parameters/projectIdParam'
         - $ref: '#/parameters/dateFormatParam'
         - $ref: '#/parameters/filterParam'
       description: ''
@@ -1855,6 +1864,7 @@ paths:
         - $ref: '#/parameters/tokenParam'
         - $ref: '#/parameters/versionParam'
         - $ref: '#/parameters/requesterParam'
+        - $ref: '#/parameters/projectIdParam'
         - $ref: '#/parameters/dateFormatParam'
         - $ref: '#/parameters/filterParam'
         - $ref: '#/parameters/pathtoloadParam'
@@ -1877,6 +1887,7 @@ paths:
         - $ref: '#/parameters/tokenParam'
         - $ref: '#/parameters/versionParam'
         - $ref: '#/parameters/requesterParam'
+        - $ref: '#/parameters/projectIdParam'
         - $ref: '#/parameters/dateFormatParam'
         - in: body
           name: body
@@ -1901,6 +1912,7 @@ paths:
         - $ref: '#/parameters/tokenParam'
         - $ref: '#/parameters/versionParam'
         - $ref: '#/parameters/requesterParam'
+        - $ref: '#/parameters/projectIdParam'
         - $ref: '#/parameters/dateFormatParam'
         - in: body
           name: body
@@ -1925,6 +1937,7 @@ paths:
         - $ref: '#/parameters/tokenParam'
         - $ref: '#/parameters/versionParam'
         - $ref: '#/parameters/requesterParam'
+        - $ref: '#/parameters/projectIdParam'
         - $ref: '#/parameters/dateFormatParam'
         - in: body
           name: body
@@ -1957,6 +1970,7 @@ paths:
         - $ref: '#/parameters/tokenParam'
         - $ref: '#/parameters/versionParam'
         - $ref: '#/parameters/requesterParam'
+        - $ref: '#/parameters/projectIdParam'
         - $ref: '#/parameters/dateFormatParam'
         - $ref: '#/parameters/filterParam'
         - $ref: '#/parameters/pathtoloadParam'
@@ -1984,6 +1998,7 @@ paths:
         - $ref: '#/parameters/tokenParam'
         - $ref: '#/parameters/versionParam'
         - $ref: '#/parameters/requesterParam'
+        - $ref: '#/parameters/projectIdParam'
         - $ref: '#/parameters/dateFormatParam'
         - $ref: '#/parameters/requestedBlockSizeParam'
         - $ref: '#/parameters/timestampParam'
@@ -2007,6 +2022,7 @@ paths:
         - $ref: '#/parameters/tokenParam'
         - $ref: '#/parameters/versionParam'
         - $ref: '#/parameters/requesterParam'
+        - $ref: '#/parameters/projectIdParam'
         - $ref: '#/parameters/dateFormatParam'
         - $ref: '#/parameters/filterParam'
       description: ''
@@ -2027,6 +2043,7 @@ paths:
         - $ref: '#/parameters/tokenParam'
         - $ref: '#/parameters/versionParam'
         - $ref: '#/parameters/requesterParam'
+        - $ref: '#/parameters/projectIdParam'
         - $ref: '#/parameters/dateFormatParam'
         - $ref: '#/parameters/filterParam'
         - $ref: '#/parameters/pathtoloadParam'
@@ -2049,6 +2066,7 @@ paths:
         - $ref: '#/parameters/tokenParam'
         - $ref: '#/parameters/versionParam'
         - $ref: '#/parameters/requesterParam'
+        - $ref: '#/parameters/projectIdParam'
         - $ref: '#/parameters/dateFormatParam'
         - in: body
           name: body
@@ -2077,6 +2095,7 @@ paths:
         - $ref: '#/parameters/tokenParam'
         - $ref: '#/parameters/versionParam'
         - $ref: '#/parameters/requesterParam'
+        - $ref: '#/parameters/projectIdParam'
         - $ref: '#/parameters/dateFormatParam'
         - in: body
           name: body
@@ -2103,6 +2122,7 @@ paths:
         - $ref: '#/parameters/tokenParam'
         - $ref: '#/parameters/versionParam'
         - $ref: '#/parameters/requesterParam'
+        - $ref: '#/parameters/projectIdParam'
         - $ref: '#/parameters/dateFormatParam'
         - in: body
           name: body
@@ -2136,6 +2156,7 @@ paths:
         - $ref: '#/parameters/tokenParam'
         - $ref: '#/parameters/versionParam'
         - $ref: '#/parameters/requesterParam'
+        - $ref: '#/parameters/projectIdParam'
         - $ref: '#/parameters/dateFormatParam'
         - $ref: '#/parameters/filterParam'
         - $ref: '#/parameters/pathtoloadParam'
@@ -2159,6 +2180,7 @@ paths:
         - $ref: '#/parameters/tokenParam'
         - $ref: '#/parameters/versionParam'
         - $ref: '#/parameters/requesterParam'
+        - $ref: '#/parameters/projectIdParam'
         - $ref: '#/parameters/dateFormatParam'
         - $ref: '#/parameters/filterParam'
       description: ''
@@ -2179,6 +2201,7 @@ paths:
         - $ref: '#/parameters/tokenParam'
         - $ref: '#/parameters/versionParam'
         - $ref: '#/parameters/requesterParam'
+        - $ref: '#/parameters/projectIdParam'
         - $ref: '#/parameters/dateFormatParam'
         - $ref: '#/parameters/filterParam'
         - $ref: '#/parameters/pathtoloadParam'
@@ -2201,6 +2224,7 @@ paths:
         - $ref: '#/parameters/tokenParam'
         - $ref: '#/parameters/versionParam'
         - $ref: '#/parameters/requesterParam'
+        - $ref: '#/parameters/projectIdParam'
         - $ref: '#/parameters/dateFormatParam'
         - in: body
           name: body
@@ -2225,6 +2249,7 @@ paths:
         - $ref: '#/parameters/tokenParam'
         - $ref: '#/parameters/versionParam'
         - $ref: '#/parameters/requesterParam'
+        - $ref: '#/parameters/projectIdParam'
         - $ref: '#/parameters/dateFormatParam'
         - in: body
           name: body
@@ -2249,6 +2274,7 @@ paths:
         - $ref: '#/parameters/tokenParam'
         - $ref: '#/parameters/versionParam'
         - $ref: '#/parameters/requesterParam'
+        - $ref: '#/parameters/projectIdParam'
         - $ref: '#/parameters/dateFormatParam'
         - in: body
           name: body
@@ -2281,6 +2307,7 @@ paths:
         - $ref: '#/parameters/tokenParam'
         - $ref: '#/parameters/versionParam'
         - $ref: '#/parameters/requesterParam'
+        - $ref: '#/parameters/projectIdParam'
         - $ref: '#/parameters/dateFormatParam'
         - $ref: '#/parameters/filterParam'
         - $ref: '#/parameters/pathtoloadParam'
@@ -2308,6 +2335,7 @@ paths:
         - $ref: '#/parameters/tokenParam'
         - $ref: '#/parameters/versionParam'
         - $ref: '#/parameters/requesterParam'
+        - $ref: '#/parameters/projectIdParam'
         - $ref: '#/parameters/dateFormatParam'
         - $ref: '#/parameters/requestedBlockSizeParam'
         - $ref: '#/parameters/timestampParam'
@@ -2331,6 +2359,7 @@ paths:
         - $ref: '#/parameters/tokenParam'
         - $ref: '#/parameters/versionParam'
         - $ref: '#/parameters/requesterParam'
+        - $ref: '#/parameters/projectIdParam'
         - $ref: '#/parameters/dateFormatParam'
         - $ref: '#/parameters/filterParam'
       description: ''
@@ -2351,6 +2380,7 @@ paths:
         - $ref: '#/parameters/tokenParam'
         - $ref: '#/parameters/versionParam'
         - $ref: '#/parameters/requesterParam'
+        - $ref: '#/parameters/projectIdParam'
         - $ref: '#/parameters/dateFormatParam'
         - $ref: '#/parameters/filterParam'
         - $ref: '#/parameters/pathtoloadParam'
@@ -2373,6 +2403,7 @@ paths:
         - $ref: '#/parameters/tokenParam'
         - $ref: '#/parameters/versionParam'
         - $ref: '#/parameters/requesterParam'
+        - $ref: '#/parameters/projectIdParam'
         - $ref: '#/parameters/dateFormatParam'
         - in: body
           name: body
@@ -2397,6 +2428,7 @@ paths:
         - $ref: '#/parameters/tokenParam'
         - $ref: '#/parameters/versionParam'
         - $ref: '#/parameters/requesterParam'
+        - $ref: '#/parameters/projectIdParam'
         - $ref: '#/parameters/dateFormatParam'
         - in: body
           name: body
@@ -2421,6 +2453,7 @@ paths:
         - $ref: '#/parameters/tokenParam'
         - $ref: '#/parameters/versionParam'
         - $ref: '#/parameters/requesterParam'
+        - $ref: '#/parameters/projectIdParam'
         - $ref: '#/parameters/dateFormatParam'
         - in: body
           name: body
@@ -2453,6 +2486,7 @@ paths:
         - $ref: '#/parameters/tokenParam'
         - $ref: '#/parameters/versionParam'
         - $ref: '#/parameters/requesterParam'
+        - $ref: '#/parameters/projectIdParam'
         - $ref: '#/parameters/dateFormatParam'
         - $ref: '#/parameters/filterParam'
         - $ref: '#/parameters/pathtoloadParam'
@@ -2480,6 +2514,7 @@ paths:
         - $ref: '#/parameters/tokenParam'
         - $ref: '#/parameters/versionParam'
         - $ref: '#/parameters/requesterParam'
+        - $ref: '#/parameters/projectIdParam'
         - $ref: '#/parameters/dateFormatParam'
         - $ref: '#/parameters/requestedBlockSizeParam'
         - $ref: '#/parameters/timestampParam'
@@ -2503,6 +2538,7 @@ paths:
         - $ref: '#/parameters/tokenParam'
         - $ref: '#/parameters/versionParam'
         - $ref: '#/parameters/requesterParam'
+        - $ref: '#/parameters/projectIdParam'
         - $ref: '#/parameters/dateFormatParam'
         - $ref: '#/parameters/filterParam'
       description: ''
@@ -2523,6 +2559,7 @@ paths:
         - $ref: '#/parameters/tokenParam'
         - $ref: '#/parameters/versionParam'
         - $ref: '#/parameters/requesterParam'
+        - $ref: '#/parameters/projectIdParam'
         - $ref: '#/parameters/dateFormatParam'
         - $ref: '#/parameters/filterParam'
         - $ref: '#/parameters/pathtoloadParam'
@@ -2545,6 +2582,7 @@ paths:
         - $ref: '#/parameters/tokenParam'
         - $ref: '#/parameters/versionParam'
         - $ref: '#/parameters/requesterParam'
+        - $ref: '#/parameters/projectIdParam'
         - $ref: '#/parameters/dateFormatParam'
         - in: body
           name: body
@@ -2571,6 +2609,7 @@ paths:
         - $ref: '#/parameters/tokenParam'
         - $ref: '#/parameters/versionParam'
         - $ref: '#/parameters/requesterParam'
+        - $ref: '#/parameters/projectIdParam'
         - $ref: '#/parameters/dateFormatParam'
         - in: body
           name: body
@@ -2597,6 +2636,7 @@ paths:
         - $ref: '#/parameters/tokenParam'
         - $ref: '#/parameters/versionParam'
         - $ref: '#/parameters/requesterParam'
+        - $ref: '#/parameters/projectIdParam'
         - $ref: '#/parameters/dateFormatParam'
         - in: body
           name: body
@@ -2630,6 +2670,7 @@ paths:
         - $ref: '#/parameters/tokenParam'
         - $ref: '#/parameters/versionParam'
         - $ref: '#/parameters/requesterParam'
+        - $ref: '#/parameters/projectIdParam'
         - $ref: '#/parameters/dateFormatParam'
         - $ref: '#/parameters/filterParam'
         - $ref: '#/parameters/pathtoloadParam'
@@ -2657,6 +2698,7 @@ paths:
         - $ref: '#/parameters/tokenParam'
         - $ref: '#/parameters/versionParam'
         - $ref: '#/parameters/requesterParam'
+        - $ref: '#/parameters/projectIdParam'
         - $ref: '#/parameters/dateFormatParam'
         - $ref: '#/parameters/requestedBlockSizeParam'
         - $ref: '#/parameters/timestampParam'
@@ -2680,6 +2722,7 @@ paths:
         - $ref: '#/parameters/tokenParam'
         - $ref: '#/parameters/versionParam'
         - $ref: '#/parameters/requesterParam'
+        - $ref: '#/parameters/projectIdParam'
         - $ref: '#/parameters/dateFormatParam'
         - $ref: '#/parameters/filterParam'
       description: ''
@@ -2700,6 +2743,7 @@ paths:
         - $ref: '#/parameters/tokenParam'
         - $ref: '#/parameters/versionParam'
         - $ref: '#/parameters/requesterParam'
+        - $ref: '#/parameters/projectIdParam'
         - $ref: '#/parameters/dateFormatParam'
         - $ref: '#/parameters/filterParam'
         - $ref: '#/parameters/pathtoloadParam'
@@ -2722,6 +2766,7 @@ paths:
         - $ref: '#/parameters/tokenParam'
         - $ref: '#/parameters/versionParam'
         - $ref: '#/parameters/requesterParam'
+        - $ref: '#/parameters/projectIdParam'
         - $ref: '#/parameters/dateFormatParam'
         - in: body
           name: body
@@ -2746,6 +2791,7 @@ paths:
         - $ref: '#/parameters/tokenParam'
         - $ref: '#/parameters/versionParam'
         - $ref: '#/parameters/requesterParam'
+        - $ref: '#/parameters/projectIdParam'
         - $ref: '#/parameters/dateFormatParam'
         - in: body
           name: body
@@ -2770,6 +2816,7 @@ paths:
         - $ref: '#/parameters/tokenParam'
         - $ref: '#/parameters/versionParam'
         - $ref: '#/parameters/requesterParam'
+        - $ref: '#/parameters/projectIdParam'
         - $ref: '#/parameters/dateFormatParam'
         - in: body
           name: body
@@ -2802,6 +2849,7 @@ paths:
         - $ref: '#/parameters/tokenParam'
         - $ref: '#/parameters/versionParam'
         - $ref: '#/parameters/requesterParam'
+        - $ref: '#/parameters/projectIdParam'
         - $ref: '#/parameters/dateFormatParam'
         - $ref: '#/parameters/filterParam'
         - $ref: '#/parameters/pathtoloadParam'
@@ -2829,6 +2877,7 @@ paths:
         - $ref: '#/parameters/tokenParam'
         - $ref: '#/parameters/versionParam'
         - $ref: '#/parameters/requesterParam'
+        - $ref: '#/parameters/projectIdParam'
         - $ref: '#/parameters/dateFormatParam'
         - $ref: '#/parameters/requestedBlockSizeParam'
         - $ref: '#/parameters/timestampParam'
@@ -2852,6 +2901,7 @@ paths:
         - $ref: '#/parameters/tokenParam'
         - $ref: '#/parameters/versionParam'
         - $ref: '#/parameters/requesterParam'
+        - $ref: '#/parameters/projectIdParam'
         - $ref: '#/parameters/dateFormatParam'
         - $ref: '#/parameters/filterParam'
       description: ''
@@ -2872,6 +2922,7 @@ paths:
         - $ref: '#/parameters/tokenParam'
         - $ref: '#/parameters/versionParam'
         - $ref: '#/parameters/requesterParam'
+        - $ref: '#/parameters/projectIdParam'
         - $ref: '#/parameters/dateFormatParam'
         - $ref: '#/parameters/filterParam'
         - $ref: '#/parameters/pathtoloadParam'
@@ -2894,6 +2945,7 @@ paths:
         - $ref: '#/parameters/tokenParam'
         - $ref: '#/parameters/versionParam'
         - $ref: '#/parameters/requesterParam'
+        - $ref: '#/parameters/projectIdParam'
         - $ref: '#/parameters/dateFormatParam'
         - in: body
           name: body
@@ -2920,6 +2972,7 @@ paths:
         - $ref: '#/parameters/tokenParam'
         - $ref: '#/parameters/versionParam'
         - $ref: '#/parameters/requesterParam'
+        - $ref: '#/parameters/projectIdParam'
         - $ref: '#/parameters/dateFormatParam'
         - in: body
           name: body
@@ -2946,6 +2999,7 @@ paths:
         - $ref: '#/parameters/tokenParam'
         - $ref: '#/parameters/versionParam'
         - $ref: '#/parameters/requesterParam'
+        - $ref: '#/parameters/projectIdParam'
         - $ref: '#/parameters/dateFormatParam'
         - in: body
           name: body
@@ -2978,6 +3032,7 @@ paths:
         - $ref: '#/parameters/tokenParam'
         - $ref: '#/parameters/versionParam'
         - $ref: '#/parameters/requesterParam'
+        - $ref: '#/parameters/projectIdParam'
         - $ref: '#/parameters/dateFormatParam'
         - $ref: '#/parameters/filterParam'
         - $ref: '#/parameters/pathtoloadParam'
@@ -3001,6 +3056,7 @@ paths:
         - $ref: '#/parameters/tokenParam'
         - $ref: '#/parameters/versionParam'
         - $ref: '#/parameters/requesterParam'
+        - $ref: '#/parameters/projectIdParam'
         - $ref: '#/parameters/dateFormatParam'
         - $ref: '#/parameters/filterParam'
       description: ''
@@ -3021,6 +3077,7 @@ paths:
         - $ref: '#/parameters/tokenParam'
         - $ref: '#/parameters/versionParam'
         - $ref: '#/parameters/requesterParam'
+        - $ref: '#/parameters/projectIdParam'
         - $ref: '#/parameters/dateFormatParam'
         - $ref: '#/parameters/filterParam'
         - $ref: '#/parameters/pathtoloadParam'
@@ -3043,6 +3100,7 @@ paths:
         - $ref: '#/parameters/tokenParam'
         - $ref: '#/parameters/versionParam'
         - $ref: '#/parameters/requesterParam'
+        - $ref: '#/parameters/projectIdParam'
         - $ref: '#/parameters/dateFormatParam'
         - in: body
           name: body
@@ -3067,6 +3125,7 @@ paths:
         - $ref: '#/parameters/tokenParam'
         - $ref: '#/parameters/versionParam'
         - $ref: '#/parameters/requesterParam'
+        - $ref: '#/parameters/projectIdParam'
         - $ref: '#/parameters/dateFormatParam'
         - in: body
           name: body
@@ -3091,6 +3150,7 @@ paths:
         - $ref: '#/parameters/tokenParam'
         - $ref: '#/parameters/versionParam'
         - $ref: '#/parameters/requesterParam'
+        - $ref: '#/parameters/projectIdParam'
         - $ref: '#/parameters/dateFormatParam'
         - in: body
           name: body
@@ -3123,6 +3183,7 @@ paths:
         - $ref: '#/parameters/tokenParam'
         - $ref: '#/parameters/versionParam'
         - $ref: '#/parameters/requesterParam'
+        - $ref: '#/parameters/projectIdParam'
         - $ref: '#/parameters/dateFormatParam'
         - $ref: '#/parameters/filterParam'
         - $ref: '#/parameters/pathtoloadParam'
@@ -3150,6 +3211,7 @@ paths:
         - $ref: '#/parameters/tokenParam'
         - $ref: '#/parameters/versionParam'
         - $ref: '#/parameters/requesterParam'
+        - $ref: '#/parameters/projectIdParam'
         - $ref: '#/parameters/dateFormatParam'
         - $ref: '#/parameters/requestedBlockSizeParam'
         - $ref: '#/parameters/timestampParam'
@@ -3173,6 +3235,7 @@ paths:
         - $ref: '#/parameters/tokenParam'
         - $ref: '#/parameters/versionParam'
         - $ref: '#/parameters/requesterParam'
+        - $ref: '#/parameters/projectIdParam'
         - $ref: '#/parameters/dateFormatParam'
         - $ref: '#/parameters/filterParam'
       description: ''
@@ -3193,6 +3256,7 @@ paths:
         - $ref: '#/parameters/tokenParam'
         - $ref: '#/parameters/versionParam'
         - $ref: '#/parameters/requesterParam'
+        - $ref: '#/parameters/projectIdParam'
         - $ref: '#/parameters/dateFormatParam'
         - $ref: '#/parameters/filterParam'
         - $ref: '#/parameters/pathtoloadParam'
@@ -3215,6 +3279,7 @@ paths:
         - $ref: '#/parameters/tokenParam'
         - $ref: '#/parameters/versionParam'
         - $ref: '#/parameters/requesterParam'
+        - $ref: '#/parameters/projectIdParam'
         - $ref: '#/parameters/dateFormatParam'
         - in: body
           name: body
@@ -3241,6 +3306,7 @@ paths:
         - $ref: '#/parameters/tokenParam'
         - $ref: '#/parameters/versionParam'
         - $ref: '#/parameters/requesterParam'
+        - $ref: '#/parameters/projectIdParam'
         - $ref: '#/parameters/dateFormatParam'
         - in: body
           name: body
@@ -3267,6 +3333,7 @@ paths:
         - $ref: '#/parameters/tokenParam'
         - $ref: '#/parameters/versionParam'
         - $ref: '#/parameters/requesterParam'
+        - $ref: '#/parameters/projectIdParam'
         - $ref: '#/parameters/dateFormatParam'
         - in: body
           name: body
@@ -3299,6 +3366,7 @@ paths:
         - $ref: '#/parameters/tokenParam'
         - $ref: '#/parameters/versionParam'
         - $ref: '#/parameters/requesterParam'
+        - $ref: '#/parameters/projectIdParam'
         - $ref: '#/parameters/dateFormatParam'
         - $ref: '#/parameters/filterParam'
         - $ref: '#/parameters/pathtoloadParam'
@@ -3416,6 +3484,7 @@ paths:
         - $ref: '#/parameters/tokenParam'
         - $ref: '#/parameters/versionParam'
         - $ref: '#/parameters/requesterParam'
+        - $ref: '#/parameters/projectIdParam'
         - $ref: '#/parameters/dateFormatParam'
         - $ref: '#/parameters/filterParam'
       description: ''
@@ -3436,6 +3505,7 @@ paths:
         - $ref: '#/parameters/tokenParam'
         - $ref: '#/parameters/versionParam'
         - $ref: '#/parameters/requesterParam'
+        - $ref: '#/parameters/projectIdParam'
         - $ref: '#/parameters/dateFormatParam'
         - $ref: '#/parameters/filterParam'
         - $ref: '#/parameters/pathtoloadParam'
@@ -3458,6 +3528,7 @@ paths:
         - $ref: '#/parameters/tokenParam'
         - $ref: '#/parameters/versionParam'
         - $ref: '#/parameters/requesterParam'
+        - $ref: '#/parameters/projectIdParam'
         - $ref: '#/parameters/dateFormatParam'
         - in: body
           name: body
@@ -3482,6 +3553,7 @@ paths:
         - $ref: '#/parameters/tokenParam'
         - $ref: '#/parameters/versionParam'
         - $ref: '#/parameters/requesterParam'
+        - $ref: '#/parameters/projectIdParam'
         - $ref: '#/parameters/dateFormatParam'
         - in: body
           name: body
@@ -3506,6 +3578,7 @@ paths:
         - $ref: '#/parameters/tokenParam'
         - $ref: '#/parameters/versionParam'
         - $ref: '#/parameters/requesterParam'
+        - $ref: '#/parameters/projectIdParam'
         - $ref: '#/parameters/dateFormatParam'
         - in: body
           name: body
@@ -3538,6 +3611,7 @@ paths:
         - $ref: '#/parameters/tokenParam'
         - $ref: '#/parameters/versionParam'
         - $ref: '#/parameters/requesterParam'
+        - $ref: '#/parameters/projectIdParam'
         - $ref: '#/parameters/dateFormatParam'
         - $ref: '#/parameters/filterParam'
         - $ref: '#/parameters/pathtoloadParam'
@@ -3615,6 +3689,7 @@ paths:
         - $ref: '#/parameters/tokenParam'
         - $ref: '#/parameters/versionParam'
         - $ref: '#/parameters/requesterParam'
+        - $ref: '#/parameters/projectIdParam'
         - $ref: '#/parameters/dateFormatParam'
         - $ref: '#/parameters/filterParam'
       description: ''
@@ -3635,6 +3710,7 @@ paths:
         - $ref: '#/parameters/tokenParam'
         - $ref: '#/parameters/versionParam'
         - $ref: '#/parameters/requesterParam'
+        - $ref: '#/parameters/projectIdParam'
         - $ref: '#/parameters/dateFormatParam'
         - $ref: '#/parameters/filterParam'
         - $ref: '#/parameters/pathtoloadParam'
@@ -3657,6 +3733,7 @@ paths:
         - $ref: '#/parameters/tokenParam'
         - $ref: '#/parameters/versionParam'
         - $ref: '#/parameters/requesterParam'
+        - $ref: '#/parameters/projectIdParam'
         - $ref: '#/parameters/dateFormatParam'
         - in: body
           name: body
@@ -3681,6 +3758,7 @@ paths:
         - $ref: '#/parameters/tokenParam'
         - $ref: '#/parameters/versionParam'
         - $ref: '#/parameters/requesterParam'
+        - $ref: '#/parameters/projectIdParam'
         - $ref: '#/parameters/dateFormatParam'
         - in: body
           name: body
@@ -3705,6 +3783,7 @@ paths:
         - $ref: '#/parameters/tokenParam'
         - $ref: '#/parameters/versionParam'
         - $ref: '#/parameters/requesterParam'
+        - $ref: '#/parameters/projectIdParam'
         - $ref: '#/parameters/dateFormatParam'
         - in: body
           name: body
@@ -3737,6 +3816,7 @@ paths:
         - $ref: '#/parameters/tokenParam'
         - $ref: '#/parameters/versionParam'
         - $ref: '#/parameters/requesterParam'
+        - $ref: '#/parameters/projectIdParam'
         - $ref: '#/parameters/dateFormatParam'
         - $ref: '#/parameters/filterParam'
         - $ref: '#/parameters/pathtoloadParam'
@@ -3760,6 +3840,7 @@ paths:
         - $ref: '#/parameters/tokenParam'
         - $ref: '#/parameters/versionParam'
         - $ref: '#/parameters/requesterParam'
+        - $ref: '#/parameters/projectIdParam'
         - $ref: '#/parameters/dateFormatParam'
         - $ref: '#/parameters/filterParam'
       description: ''
@@ -3780,6 +3861,7 @@ paths:
         - $ref: '#/parameters/tokenParam'
         - $ref: '#/parameters/versionParam'
         - $ref: '#/parameters/requesterParam'
+        - $ref: '#/parameters/projectIdParam'
         - $ref: '#/parameters/dateFormatParam'
         - $ref: '#/parameters/filterParam'
         - $ref: '#/parameters/pathtoloadParam'
@@ -3802,6 +3884,7 @@ paths:
         - $ref: '#/parameters/tokenParam'
         - $ref: '#/parameters/versionParam'
         - $ref: '#/parameters/requesterParam'
+        - $ref: '#/parameters/projectIdParam'
         - $ref: '#/parameters/dateFormatParam'
         - in: body
           name: body
@@ -3826,6 +3909,7 @@ paths:
         - $ref: '#/parameters/tokenParam'
         - $ref: '#/parameters/versionParam'
         - $ref: '#/parameters/requesterParam'
+        - $ref: '#/parameters/projectIdParam'
         - $ref: '#/parameters/dateFormatParam'
         - in: body
           name: body
@@ -3850,6 +3934,7 @@ paths:
         - $ref: '#/parameters/tokenParam'
         - $ref: '#/parameters/versionParam'
         - $ref: '#/parameters/requesterParam'
+        - $ref: '#/parameters/projectIdParam'
         - $ref: '#/parameters/dateFormatParam'
         - in: body
           name: body
@@ -3882,6 +3967,7 @@ paths:
         - $ref: '#/parameters/tokenParam'
         - $ref: '#/parameters/versionParam'
         - $ref: '#/parameters/requesterParam'
+        - $ref: '#/parameters/projectIdParam'
         - $ref: '#/parameters/dateFormatParam'
         - $ref: '#/parameters/filterParam'
         - $ref: '#/parameters/pathtoloadParam'
@@ -3909,6 +3995,7 @@ paths:
         - $ref: '#/parameters/tokenParam'
         - $ref: '#/parameters/versionParam'
         - $ref: '#/parameters/requesterParam'
+        - $ref: '#/parameters/projectIdParam'
         - $ref: '#/parameters/dateFormatParam'
         - $ref: '#/parameters/requestedBlockSizeParam'
         - $ref: '#/parameters/timestampParam'
@@ -3932,6 +4019,7 @@ paths:
         - $ref: '#/parameters/tokenParam'
         - $ref: '#/parameters/versionParam'
         - $ref: '#/parameters/requesterParam'
+        - $ref: '#/parameters/projectIdParam'
         - $ref: '#/parameters/dateFormatParam'
         - $ref: '#/parameters/filterParam'
       description: ''
@@ -3952,6 +4040,7 @@ paths:
         - $ref: '#/parameters/tokenParam'
         - $ref: '#/parameters/versionParam'
         - $ref: '#/parameters/requesterParam'
+        - $ref: '#/parameters/projectIdParam'
         - $ref: '#/parameters/dateFormatParam'
         - $ref: '#/parameters/filterParam'
         - $ref: '#/parameters/pathtoloadParam'
@@ -3974,6 +4063,7 @@ paths:
         - $ref: '#/parameters/tokenParam'
         - $ref: '#/parameters/versionParam'
         - $ref: '#/parameters/requesterParam'
+        - $ref: '#/parameters/projectIdParam'
         - $ref: '#/parameters/dateFormatParam'
         - in: body
           name: body
@@ -3998,6 +4088,7 @@ paths:
         - $ref: '#/parameters/tokenParam'
         - $ref: '#/parameters/versionParam'
         - $ref: '#/parameters/requesterParam'
+        - $ref: '#/parameters/projectIdParam'
         - $ref: '#/parameters/dateFormatParam'
         - in: body
           name: body
@@ -4022,6 +4113,7 @@ paths:
         - $ref: '#/parameters/tokenParam'
         - $ref: '#/parameters/versionParam'
         - $ref: '#/parameters/requesterParam'
+        - $ref: '#/parameters/projectIdParam'
         - $ref: '#/parameters/dateFormatParam'
         - in: body
           name: body
@@ -4054,6 +4146,7 @@ paths:
         - $ref: '#/parameters/tokenParam'
         - $ref: '#/parameters/versionParam'
         - $ref: '#/parameters/requesterParam'
+        - $ref: '#/parameters/projectIdParam'
         - $ref: '#/parameters/dateFormatParam'
         - $ref: '#/parameters/filterParam'
         - $ref: '#/parameters/pathtoloadParam'
@@ -4077,6 +4170,7 @@ paths:
         - $ref: '#/parameters/tokenParam'
         - $ref: '#/parameters/versionParam'
         - $ref: '#/parameters/requesterParam'
+        - $ref: '#/parameters/projectIdParam'
         - $ref: '#/parameters/dateFormatParam'
         - $ref: '#/parameters/filterParam'
       description: ''
@@ -4097,6 +4191,7 @@ paths:
         - $ref: '#/parameters/tokenParam'
         - $ref: '#/parameters/versionParam'
         - $ref: '#/parameters/requesterParam'
+        - $ref: '#/parameters/projectIdParam'
         - $ref: '#/parameters/dateFormatParam'
         - $ref: '#/parameters/filterParam'
         - $ref: '#/parameters/pathtoloadParam'
@@ -4119,6 +4214,7 @@ paths:
         - $ref: '#/parameters/tokenParam'
         - $ref: '#/parameters/versionParam'
         - $ref: '#/parameters/requesterParam'
+        - $ref: '#/parameters/projectIdParam'
         - $ref: '#/parameters/dateFormatParam'
         - in: body
           name: body
@@ -4145,6 +4241,7 @@ paths:
         - $ref: '#/parameters/tokenParam'
         - $ref: '#/parameters/versionParam'
         - $ref: '#/parameters/requesterParam'
+        - $ref: '#/parameters/projectIdParam'
         - $ref: '#/parameters/dateFormatParam'
         - in: body
           name: body
@@ -4169,6 +4266,7 @@ paths:
         - $ref: '#/parameters/tokenParam'
         - $ref: '#/parameters/versionParam'
         - $ref: '#/parameters/requesterParam'
+        - $ref: '#/parameters/projectIdParam'
         - $ref: '#/parameters/dateFormatParam'
         - in: body
           name: body
@@ -4201,6 +4299,7 @@ paths:
         - $ref: '#/parameters/tokenParam'
         - $ref: '#/parameters/versionParam'
         - $ref: '#/parameters/requesterParam'
+        - $ref: '#/parameters/projectIdParam'
         - $ref: '#/parameters/dateFormatParam'
         - $ref: '#/parameters/filterParam'
         - $ref: '#/parameters/pathtoloadParam'
@@ -4224,6 +4323,7 @@ paths:
         - $ref: '#/parameters/tokenParam'
         - $ref: '#/parameters/versionParam'
         - $ref: '#/parameters/requesterParam'
+        - $ref: '#/parameters/projectIdParam'
         - $ref: '#/parameters/dateFormatParam'
         - $ref: '#/parameters/filterParam'
       description: ''
@@ -4244,6 +4344,7 @@ paths:
         - $ref: '#/parameters/tokenParam'
         - $ref: '#/parameters/versionParam'
         - $ref: '#/parameters/requesterParam'
+        - $ref: '#/parameters/projectIdParam'
         - $ref: '#/parameters/dateFormatParam'
         - $ref: '#/parameters/filterParam'
         - $ref: '#/parameters/pathtoloadParam'
@@ -4266,6 +4367,7 @@ paths:
         - $ref: '#/parameters/tokenParam'
         - $ref: '#/parameters/versionParam'
         - $ref: '#/parameters/requesterParam'
+        - $ref: '#/parameters/projectIdParam'
         - $ref: '#/parameters/dateFormatParam'
         - in: body
           name: body
@@ -4294,6 +4396,7 @@ paths:
         - $ref: '#/parameters/tokenParam'
         - $ref: '#/parameters/versionParam'
         - $ref: '#/parameters/requesterParam'
+        - $ref: '#/parameters/projectIdParam'
         - $ref: '#/parameters/dateFormatParam'
         - in: body
           name: body
@@ -4320,6 +4423,7 @@ paths:
         - $ref: '#/parameters/tokenParam'
         - $ref: '#/parameters/versionParam'
         - $ref: '#/parameters/requesterParam'
+        - $ref: '#/parameters/projectIdParam'
         - $ref: '#/parameters/dateFormatParam'
         - in: body
           name: body
@@ -4353,6 +4457,7 @@ paths:
         - $ref: '#/parameters/tokenParam'
         - $ref: '#/parameters/versionParam'
         - $ref: '#/parameters/requesterParam'
+        - $ref: '#/parameters/projectIdParam'
         - $ref: '#/parameters/dateFormatParam'
         - $ref: '#/parameters/filterParam'
         - $ref: '#/parameters/pathtoloadParam'
@@ -4378,6 +4483,7 @@ paths:
         - $ref: '#/parameters/tokenParam'
         - $ref: '#/parameters/versionParam'
         - $ref: '#/parameters/requesterParam'
+        - $ref: '#/parameters/projectIdParam'
         - $ref: '#/parameters/dateFormatParam'
         - $ref: '#/parameters/filterParam'
       description: ''
@@ -4400,6 +4506,7 @@ paths:
         - $ref: '#/parameters/tokenParam'
         - $ref: '#/parameters/versionParam'
         - $ref: '#/parameters/requesterParam'
+        - $ref: '#/parameters/projectIdParam'
         - $ref: '#/parameters/dateFormatParam'
         - $ref: '#/parameters/filterParam'
         - $ref: '#/parameters/pathtoloadParam'
@@ -4422,6 +4529,7 @@ paths:
         - $ref: '#/parameters/tokenParam'
         - $ref: '#/parameters/versionParam'
         - $ref: '#/parameters/requesterParam'
+        - $ref: '#/parameters/projectIdParam'
         - $ref: '#/parameters/dateFormatParam'
         - in: body
           name: body
@@ -4450,6 +4558,7 @@ paths:
         - $ref: '#/parameters/tokenParam'
         - $ref: '#/parameters/versionParam'
         - $ref: '#/parameters/requesterParam'
+        - $ref: '#/parameters/projectIdParam'
         - $ref: '#/parameters/dateFormatParam'
         - in: body
           name: body
@@ -4476,6 +4585,7 @@ paths:
         - $ref: '#/parameters/tokenParam'
         - $ref: '#/parameters/versionParam'
         - $ref: '#/parameters/requesterParam'
+        - $ref: '#/parameters/projectIdParam'
         - $ref: '#/parameters/dateFormatParam'
         - in: body
           name: body
@@ -4509,6 +4619,7 @@ paths:
         - $ref: '#/parameters/tokenParam'
         - $ref: '#/parameters/versionParam'
         - $ref: '#/parameters/requesterParam'
+        - $ref: '#/parameters/projectIdParam'
         - $ref: '#/parameters/dateFormatParam'
         - $ref: '#/parameters/filterParam'
         - $ref: '#/parameters/pathtoloadParam'
@@ -4532,6 +4643,7 @@ paths:
         - $ref: '#/parameters/tokenParam'
         - $ref: '#/parameters/versionParam'
         - $ref: '#/parameters/requesterParam'
+        - $ref: '#/parameters/projectIdParam'
         - $ref: '#/parameters/dateFormatParam'
         - $ref: '#/parameters/filterParam'
       description: ''
@@ -4552,6 +4664,7 @@ paths:
         - $ref: '#/parameters/tokenParam'
         - $ref: '#/parameters/versionParam'
         - $ref: '#/parameters/requesterParam'
+        - $ref: '#/parameters/projectIdParam'
         - $ref: '#/parameters/dateFormatParam'
         - $ref: '#/parameters/filterParam'
         - $ref: '#/parameters/pathtoloadParam'
@@ -4574,6 +4687,7 @@ paths:
         - $ref: '#/parameters/tokenParam'
         - $ref: '#/parameters/versionParam'
         - $ref: '#/parameters/requesterParam'
+        - $ref: '#/parameters/projectIdParam'
         - $ref: '#/parameters/dateFormatParam'
         - in: body
           name: body
@@ -4598,6 +4712,7 @@ paths:
         - $ref: '#/parameters/tokenParam'
         - $ref: '#/parameters/versionParam'
         - $ref: '#/parameters/requesterParam'
+        - $ref: '#/parameters/projectIdParam'
         - $ref: '#/parameters/dateFormatParam'
         - in: body
           name: body
@@ -4622,6 +4737,7 @@ paths:
         - $ref: '#/parameters/tokenParam'
         - $ref: '#/parameters/versionParam'
         - $ref: '#/parameters/requesterParam'
+        - $ref: '#/parameters/projectIdParam'
         - $ref: '#/parameters/dateFormatParam'
         - in: body
           name: body
@@ -4654,6 +4770,7 @@ paths:
         - $ref: '#/parameters/tokenParam'
         - $ref: '#/parameters/versionParam'
         - $ref: '#/parameters/requesterParam'
+        - $ref: '#/parameters/projectIdParam'
         - $ref: '#/parameters/dateFormatParam'
         - $ref: '#/parameters/filterParam'
         - $ref: '#/parameters/pathtoloadParam'
@@ -4778,7 +4895,9 @@ paths:
       summary: Return the count of note available to the current user
       parameters:
         - $ref: '#/parameters/tokenParam'
+        - $ref: '#/parameters/versionParam'
         - $ref: '#/parameters/requesterParam'
+        - $ref: '#/parameters/projectIdParam'
         - $ref: '#/parameters/dateFormatParam'
         - $ref: '#/parameters/filterParam'
       description: ''
@@ -4797,7 +4916,9 @@ paths:
       summary: Return the list of note available to the current user
       parameters:
         - $ref: '#/parameters/tokenParam'
+        - $ref: '#/parameters/versionParam'
         - $ref: '#/parameters/requesterParam'
+        - $ref: '#/parameters/projectIdParam'
         - $ref: '#/parameters/dateFormatParam'
         - $ref: '#/parameters/filterParam'
         - $ref: '#/parameters/pathtoloadParam'
@@ -4818,7 +4939,9 @@ paths:
       summary: To create new note in the cloud APROPLAN
       parameters:
         - $ref: '#/parameters/tokenParam'
+        - $ref: '#/parameters/versionParam'
         - $ref: '#/parameters/requesterParam'
+        - $ref: '#/parameters/projectIdParam'
         - $ref: '#/parameters/dateFormatParam'
         - in: body
           name: body
@@ -4841,7 +4964,9 @@ paths:
       summary: To update note in the cloud APROPLAN
       parameters:
         - $ref: '#/parameters/tokenParam'
+        - $ref: '#/parameters/versionParam'
         - $ref: '#/parameters/requesterParam'
+        - $ref: '#/parameters/projectIdParam'
         - $ref: '#/parameters/dateFormatParam'
         - in: body
           name: body
@@ -4864,7 +4989,9 @@ paths:
       summary: To delete items of note in the cloud APROPLAN
       parameters:
         - $ref: '#/parameters/tokenParam'
+        - $ref: '#/parameters/versionParam'
         - $ref: '#/parameters/requesterParam'
+        - $ref: '#/parameters/projectIdParam'
         - $ref: '#/parameters/dateFormatParam'
         - in: body
           name: body
@@ -4895,7 +5022,9 @@ paths:
         user
       parameters:
         - $ref: '#/parameters/tokenParam'
+        - $ref: '#/parameters/versionParam'
         - $ref: '#/parameters/requesterParam'
+        - $ref: '#/parameters/projectIdParam'
         - $ref: '#/parameters/dateFormatParam'
         - $ref: '#/parameters/filterParam'
         - $ref: '#/parameters/pathtoloadParam'
@@ -4921,7 +5050,9 @@ paths:
         entities and contains also entities deleted
       parameters:
         - $ref: '#/parameters/tokenParam'
+        - $ref: '#/parameters/versionParam'
         - $ref: '#/parameters/requesterParam'
+        - $ref: '#/parameters/projectIdParam'
         - $ref: '#/parameters/dateFormatParam'
         - $ref: '#/parameters/requestedBlockSizeParam'
         - $ref: '#/parameters/timestampParam'
@@ -4945,6 +5076,7 @@ paths:
         - $ref: '#/parameters/tokenParam'
         - $ref: '#/parameters/versionParam'
         - $ref: '#/parameters/requesterParam'
+        - $ref: '#/parameters/projectIdParam'
         - $ref: '#/parameters/dateFormatParam'
         - $ref: '#/parameters/filterParam'
       description: ''
@@ -4965,6 +5097,7 @@ paths:
         - $ref: '#/parameters/tokenParam'
         - $ref: '#/parameters/versionParam'
         - $ref: '#/parameters/requesterParam'
+        - $ref: '#/parameters/projectIdParam'
         - $ref: '#/parameters/dateFormatParam'
         - $ref: '#/parameters/filterParam'
         - $ref: '#/parameters/pathtoloadParam'
@@ -4987,6 +5120,7 @@ paths:
         - $ref: '#/parameters/tokenParam'
         - $ref: '#/parameters/versionParam'
         - $ref: '#/parameters/requesterParam'
+        - $ref: '#/parameters/projectIdParam'
         - $ref: '#/parameters/dateFormatParam'
         - in: body
           name: body
@@ -5011,6 +5145,7 @@ paths:
         - $ref: '#/parameters/tokenParam'
         - $ref: '#/parameters/versionParam'
         - $ref: '#/parameters/requesterParam'
+        - $ref: '#/parameters/projectIdParam'
         - $ref: '#/parameters/dateFormatParam'
         - in: body
           name: body
@@ -5035,6 +5170,7 @@ paths:
         - $ref: '#/parameters/tokenParam'
         - $ref: '#/parameters/versionParam'
         - $ref: '#/parameters/requesterParam'
+        - $ref: '#/parameters/projectIdParam'
         - $ref: '#/parameters/dateFormatParam'
         - in: body
           name: body
@@ -5067,6 +5203,7 @@ paths:
         - $ref: '#/parameters/tokenParam'
         - $ref: '#/parameters/versionParam'
         - $ref: '#/parameters/requesterParam'
+        - $ref: '#/parameters/projectIdParam'
         - $ref: '#/parameters/dateFormatParam'
         - $ref: '#/parameters/filterParam'
         - $ref: '#/parameters/pathtoloadParam'
@@ -5090,6 +5227,7 @@ paths:
         - $ref: '#/parameters/tokenParam'
         - $ref: '#/parameters/versionParam'
         - $ref: '#/parameters/requesterParam'
+        - $ref: '#/parameters/projectIdParam'
         - $ref: '#/parameters/dateFormatParam'
         - $ref: '#/parameters/filterParam'
       description: ''
@@ -5110,6 +5248,7 @@ paths:
         - $ref: '#/parameters/tokenParam'
         - $ref: '#/parameters/versionParam'
         - $ref: '#/parameters/requesterParam'
+        - $ref: '#/parameters/projectIdParam'
         - $ref: '#/parameters/dateFormatParam'
         - $ref: '#/parameters/filterParam'
         - $ref: '#/parameters/pathtoloadParam'
@@ -5132,6 +5271,7 @@ paths:
         - $ref: '#/parameters/tokenParam'
         - $ref: '#/parameters/versionParam'
         - $ref: '#/parameters/requesterParam'
+        - $ref: '#/parameters/projectIdParam'
         - $ref: '#/parameters/dateFormatParam'
         - in: body
           name: body
@@ -5156,6 +5296,7 @@ paths:
         - $ref: '#/parameters/tokenParam'
         - $ref: '#/parameters/versionParam'
         - $ref: '#/parameters/requesterParam'
+        - $ref: '#/parameters/projectIdParam'
         - $ref: '#/parameters/dateFormatParam'
         - in: body
           name: body
@@ -5180,6 +5321,7 @@ paths:
         - $ref: '#/parameters/tokenParam'
         - $ref: '#/parameters/versionParam'
         - $ref: '#/parameters/requesterParam'
+        - $ref: '#/parameters/projectIdParam'
         - $ref: '#/parameters/dateFormatParam'
         - in: body
           name: body
@@ -5212,6 +5354,7 @@ paths:
         - $ref: '#/parameters/tokenParam'
         - $ref: '#/parameters/versionParam'
         - $ref: '#/parameters/requesterParam'
+        - $ref: '#/parameters/projectIdParam'
         - $ref: '#/parameters/dateFormatParam'
         - $ref: '#/parameters/filterParam'
         - $ref: '#/parameters/pathtoloadParam'
@@ -5235,6 +5378,7 @@ paths:
         - $ref: '#/parameters/tokenParam'
         - $ref: '#/parameters/versionParam'
         - $ref: '#/parameters/requesterParam'
+        - $ref: '#/parameters/projectIdParam'
         - $ref: '#/parameters/dateFormatParam'
         - $ref: '#/parameters/filterParam'
       description: ''
@@ -5255,6 +5399,7 @@ paths:
         - $ref: '#/parameters/tokenParam'
         - $ref: '#/parameters/versionParam'
         - $ref: '#/parameters/requesterParam'
+        - $ref: '#/parameters/projectIdParam'
         - $ref: '#/parameters/dateFormatParam'
         - $ref: '#/parameters/filterParam'
         - $ref: '#/parameters/pathtoloadParam'
@@ -5277,6 +5422,7 @@ paths:
         - $ref: '#/parameters/tokenParam'
         - $ref: '#/parameters/versionParam'
         - $ref: '#/parameters/requesterParam'
+        - $ref: '#/parameters/projectIdParam'
         - $ref: '#/parameters/dateFormatParam'
         - in: body
           name: body
@@ -5301,6 +5447,7 @@ paths:
         - $ref: '#/parameters/tokenParam'
         - $ref: '#/parameters/versionParam'
         - $ref: '#/parameters/requesterParam'
+        - $ref: '#/parameters/projectIdParam'
         - $ref: '#/parameters/dateFormatParam'
         - in: body
           name: body
@@ -5325,6 +5472,7 @@ paths:
         - $ref: '#/parameters/tokenParam'
         - $ref: '#/parameters/versionParam'
         - $ref: '#/parameters/requesterParam'
+        - $ref: '#/parameters/projectIdParam'
         - $ref: '#/parameters/dateFormatParam'
         - in: body
           name: body
@@ -5357,6 +5505,7 @@ paths:
         - $ref: '#/parameters/tokenParam'
         - $ref: '#/parameters/versionParam'
         - $ref: '#/parameters/requesterParam'
+        - $ref: '#/parameters/projectIdParam'
         - $ref: '#/parameters/dateFormatParam'
         - $ref: '#/parameters/filterParam'
         - $ref: '#/parameters/pathtoloadParam'
@@ -5380,6 +5529,7 @@ paths:
         - $ref: '#/parameters/tokenParam'
         - $ref: '#/parameters/versionParam'
         - $ref: '#/parameters/requesterParam'
+        - $ref: '#/parameters/projectIdParam'
         - $ref: '#/parameters/dateFormatParam'
         - $ref: '#/parameters/filterParam'
       description: ''
@@ -5400,6 +5550,7 @@ paths:
         - $ref: '#/parameters/tokenParam'
         - $ref: '#/parameters/versionParam'
         - $ref: '#/parameters/requesterParam'
+        - $ref: '#/parameters/projectIdParam'
         - $ref: '#/parameters/dateFormatParam'
         - $ref: '#/parameters/filterParam'
         - $ref: '#/parameters/pathtoloadParam'
@@ -5422,6 +5573,7 @@ paths:
         - $ref: '#/parameters/tokenParam'
         - $ref: '#/parameters/versionParam'
         - $ref: '#/parameters/requesterParam'
+        - $ref: '#/parameters/projectIdParam'
         - $ref: '#/parameters/dateFormatParam'
         - in: body
           name: body
@@ -5446,6 +5598,7 @@ paths:
         - $ref: '#/parameters/tokenParam'
         - $ref: '#/parameters/versionParam'
         - $ref: '#/parameters/requesterParam'
+        - $ref: '#/parameters/projectIdParam'
         - $ref: '#/parameters/dateFormatParam'
         - in: body
           name: body
@@ -5470,6 +5623,7 @@ paths:
         - $ref: '#/parameters/tokenParam'
         - $ref: '#/parameters/versionParam'
         - $ref: '#/parameters/requesterParam'
+        - $ref: '#/parameters/projectIdParam'
         - $ref: '#/parameters/dateFormatParam'
         - in: body
           name: body
@@ -5502,6 +5656,7 @@ paths:
         - $ref: '#/parameters/tokenParam'
         - $ref: '#/parameters/versionParam'
         - $ref: '#/parameters/requesterParam'
+        - $ref: '#/parameters/projectIdParam'
         - $ref: '#/parameters/dateFormatParam'
         - $ref: '#/parameters/filterParam'
         - $ref: '#/parameters/pathtoloadParam'
@@ -5525,6 +5680,7 @@ paths:
         - $ref: '#/parameters/tokenParam'
         - $ref: '#/parameters/versionParam'
         - $ref: '#/parameters/requesterParam'
+        - $ref: '#/parameters/projectIdParam'
         - $ref: '#/parameters/dateFormatParam'
         - $ref: '#/parameters/filterParam'
       description: ''
@@ -5545,6 +5701,7 @@ paths:
         - $ref: '#/parameters/tokenParam'
         - $ref: '#/parameters/versionParam'
         - $ref: '#/parameters/requesterParam'
+        - $ref: '#/parameters/projectIdParam'
         - $ref: '#/parameters/dateFormatParam'
         - $ref: '#/parameters/filterParam'
         - $ref: '#/parameters/pathtoloadParam'
@@ -5567,6 +5724,7 @@ paths:
         - $ref: '#/parameters/tokenParam'
         - $ref: '#/parameters/versionParam'
         - $ref: '#/parameters/requesterParam'
+        - $ref: '#/parameters/projectIdParam'
         - $ref: '#/parameters/dateFormatParam'
         - in: body
           name: body
@@ -5591,6 +5749,7 @@ paths:
         - $ref: '#/parameters/tokenParam'
         - $ref: '#/parameters/versionParam'
         - $ref: '#/parameters/requesterParam'
+        - $ref: '#/parameters/projectIdParam'
         - $ref: '#/parameters/dateFormatParam'
         - in: body
           name: body
@@ -5615,6 +5774,7 @@ paths:
         - $ref: '#/parameters/tokenParam'
         - $ref: '#/parameters/versionParam'
         - $ref: '#/parameters/requesterParam'
+        - $ref: '#/parameters/projectIdParam'
         - $ref: '#/parameters/dateFormatParam'
         - in: body
           name: body
@@ -5647,6 +5807,7 @@ paths:
         - $ref: '#/parameters/tokenParam'
         - $ref: '#/parameters/versionParam'
         - $ref: '#/parameters/requesterParam'
+        - $ref: '#/parameters/projectIdParam'
         - $ref: '#/parameters/dateFormatParam'
         - $ref: '#/parameters/filterParam'
         - $ref: '#/parameters/pathtoloadParam'
@@ -5670,6 +5831,7 @@ paths:
         - $ref: '#/parameters/tokenParam'
         - $ref: '#/parameters/versionParam'
         - $ref: '#/parameters/requesterParam'
+        - $ref: '#/parameters/projectIdParam'
         - $ref: '#/parameters/dateFormatParam'
         - $ref: '#/parameters/filterParam'
       description: ''
@@ -5690,6 +5852,7 @@ paths:
         - $ref: '#/parameters/tokenParam'
         - $ref: '#/parameters/versionParam'
         - $ref: '#/parameters/requesterParam'
+        - $ref: '#/parameters/projectIdParam'
         - $ref: '#/parameters/dateFormatParam'
         - $ref: '#/parameters/filterParam'
         - $ref: '#/parameters/pathtoloadParam'
@@ -5712,6 +5875,7 @@ paths:
         - $ref: '#/parameters/tokenParam'
         - $ref: '#/parameters/versionParam'
         - $ref: '#/parameters/requesterParam'
+        - $ref: '#/parameters/projectIdParam'
         - $ref: '#/parameters/dateFormatParam'
         - in: body
           name: body
@@ -5736,6 +5900,7 @@ paths:
         - $ref: '#/parameters/tokenParam'
         - $ref: '#/parameters/versionParam'
         - $ref: '#/parameters/requesterParam'
+        - $ref: '#/parameters/projectIdParam'
         - $ref: '#/parameters/dateFormatParam'
         - in: body
           name: body
@@ -5760,6 +5925,7 @@ paths:
         - $ref: '#/parameters/tokenParam'
         - $ref: '#/parameters/versionParam'
         - $ref: '#/parameters/requesterParam'
+        - $ref: '#/parameters/projectIdParam'
         - $ref: '#/parameters/dateFormatParam'
         - in: body
           name: body
@@ -5792,6 +5958,7 @@ paths:
         - $ref: '#/parameters/tokenParam'
         - $ref: '#/parameters/versionParam'
         - $ref: '#/parameters/requesterParam'
+        - $ref: '#/parameters/projectIdParam'
         - $ref: '#/parameters/dateFormatParam'
         - $ref: '#/parameters/filterParam'
         - $ref: '#/parameters/pathtoloadParam'
@@ -6159,6 +6326,7 @@ paths:
         - $ref: '#/parameters/tokenParam'
         - $ref: '#/parameters/versionParam'
         - $ref: '#/parameters/requesterParam'
+        - $ref: '#/parameters/projectIdParam'
         - $ref: '#/parameters/dateFormatParam'
         - $ref: '#/parameters/requestedBlockSizeParam'
         - $ref: '#/parameters/timestampParam'
@@ -6343,6 +6511,7 @@ paths:
         - $ref: '#/parameters/tokenParam'
         - $ref: '#/parameters/versionParam'
         - $ref: '#/parameters/requesterParam'
+        - $ref: '#/parameters/projectIdParam'
         - $ref: '#/parameters/dateFormatParam'
         - $ref: '#/parameters/filterParam'
         - $ref: '#/parameters/pathtoloadParam'
@@ -6365,6 +6534,7 @@ paths:
         - $ref: '#/parameters/tokenParam'
         - $ref: '#/parameters/versionParam'
         - $ref: '#/parameters/requesterParam'
+        - $ref: '#/parameters/projectIdParam'
         - $ref: '#/parameters/dateFormatParam'
         - in: body
           name: body
@@ -6389,6 +6559,7 @@ paths:
         - $ref: '#/parameters/tokenParam'
         - $ref: '#/parameters/versionParam'
         - $ref: '#/parameters/requesterParam'
+        - $ref: '#/parameters/projectIdParam'
         - $ref: '#/parameters/dateFormatParam'
         - in: body
           name: body
@@ -6413,6 +6584,7 @@ paths:
         - $ref: '#/parameters/tokenParam'
         - $ref: '#/parameters/versionParam'
         - $ref: '#/parameters/requesterParam'
+        - $ref: '#/parameters/projectIdParam'
         - $ref: '#/parameters/dateFormatParam'
         - in: body
           name: body
@@ -6447,6 +6619,7 @@ paths:
         - $ref: '#/parameters/tokenParam'
         - $ref: '#/parameters/versionParam'
         - $ref: '#/parameters/requesterParam'
+        - $ref: '#/parameters/projectIdParam'
         - $ref: '#/parameters/dateFormatParam'
         - $ref: '#/parameters/requestedBlockSizeParam'
         - $ref: '#/parameters/timestampParam'
