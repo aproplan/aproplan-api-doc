@@ -24,6 +24,13 @@ requesterParam:
   required: true
   type: string
   description: this is the token you received from aproplan to identify as a user of the APROPLAN API
+projectIdParam:
+  name: projectId
+  in: query
+  required: true
+  type: string
+  format: uuid
+  description: The project Id on which the entity depends.
 filterParam:
   in: query
   name: filter
