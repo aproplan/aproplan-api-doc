@@ -1,4 +1,0 @@
-/reportrequests:
-  $ref: ./reports/reportrequests.yaml
-/reportrequestsync:
-  $ref: ./reports/reportrequestsync.yaml

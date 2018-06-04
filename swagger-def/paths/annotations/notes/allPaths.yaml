@@ -1,8 +1,0 @@
-/notecount:
-  $ref: ./annotations/notes/notecount.yaml
-/notes:
-  $ref: ./annotations/notes/notes.yaml
-/notesids:
-  $ref: ./annotations/notes/notesids.yaml
-/notesync:
-  $ref: ./annotations/notes/notesync.yaml
