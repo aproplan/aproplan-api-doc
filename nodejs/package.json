@@ -22,6 +22,7 @@
   },
   "dependencies": {
     "mime-types": "^2.1.17",
-    "prompt": "^1.0.0"
+    "prompt": "^1.0.0",
+    "request-promise": "^4.2.2"
   }
 }
