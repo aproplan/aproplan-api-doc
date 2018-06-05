@@ -17,3 +17,5 @@ allOf:
         type: string
       Description:
         type: string
+      VisibleCondition:
+        $ref: '#/definitions/FormFilterCondition'

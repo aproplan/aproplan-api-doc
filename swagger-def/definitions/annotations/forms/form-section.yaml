@@ -13,3 +13,7 @@ allOf:
         description: >-
           This is the id of the section rule from where the section has been
           created
+      IsVisible:
+        type: boolean
+        example: true
+        description: This is a boolean to know if the section is visible depending of conditional

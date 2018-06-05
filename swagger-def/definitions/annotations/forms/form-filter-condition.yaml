@@ -1,0 +1,5 @@
+type: object
+allOf:
+  - $ref: '#/definitions/RestEntity'
+  - type: object
+  - title: FormFilterCondition  

@@ -68,6 +68,13 @@ parameters:
     description: >-
       this is the token you received from aproplan to identify as a user of the
       APROPLAN API
+  projectIdParam:
+    name: projectId
+    in: query
+    required: true
+    type: string
+    format: uuid
+    description: The project Id on which the entity depends.
   filterParam:
     in: query
     name: filter
@@ -8036,6 +8043,52 @@ definitions:
             type: string
           Description:
             type: string
+          VisibleCondition:
+            $ref: '#/definitions/FormFilterCondition'
+  FormFilterCondition:
+    type: object
+    allOf:
+      - $ref: '#/definitions/RestEntity'
+      - type: object
+      - title: FormFilterCondition
+  FilterCombination:
+    type: object
+    allOf:
+      - $ref: '#/definitions/FormFilterCondition'
+      - type: object
+      - title: FilterCombination
+      - properties:
+          Type:
+            type: string
+            enum:
+              - And
+              - Or
+            description: >-
+              to specify the kind of combination to apply between left and right
+              filter
+          RightFilter:
+            $ref: '#/definitions/FormFilterCondition'
+          LeftFilter:
+            $ref: '#/definitions/FormFilterCondition'
+  FilterProperty:
+    type: object
+    allOf:
+      - $ref: '#/definitions/FormFilterCondition'
+      - type: object
+      - title: FilterProperty
+      - properties:
+          NotApplicable:
+            type: boolean
+            description: the condition is to check if the item has not applicable as answer
+          IsConform:
+            type: boolean
+            description: The condition is to check if the item is conform or not
+          Value:
+            type: string
+            description: It is necessary to compare the answer with this value
+          FormItemBaseId:
+            type: string
+            pattern: '^{[A-Z0-9]{8}-([A-Z0-9]{4}-){3}[A-Z0-9]{12}}$'
   FormSectionBase:
     type: object
     allOf:
@@ -8137,6 +8190,12 @@ definitions:
             description: >-
               This is the id of the section rule from where the section has been
               created
+          IsVisible:
+            type: boolean
+            example: true
+            description: >-
+              This is a boolean to know if the section is visible depending of
+              conditional
   FormSignature:
     type: object
     description: This is the signature wanted for the Form
@@ -8227,6 +8286,12 @@ definitions:
             items:
               - $ref: '#/definitions/NoteDocument'
             description: This is the list of attachments added to the answer
+          NeedAnswer:
+            type: boolean
+            example: true
+            description: >-
+              This is a boolean to know if an answer is expected for this item
+              depending of conditional
   FormTemplate:
     type: object
     description: This is a template of Form
