@@ -68,6 +68,13 @@ parameters:
     description: >-
       this is the token you received from aproplan to identify as a user of the
       APROPLAN API
+  projectIdParam:
+    name: projectId
+    in: query
+    required: true
+    type: string
+    format: uuid
+    description: The project Id on which the entity depends.
   filterParam:
     in: query
     name: filter
@@ -8290,6 +8297,15 @@ definitions:
             type: string
             description: this is the id of the FormTemplate owner of the section
             example: f230aeb4-7d72-435b-8e12-b9240156e098
+          IsArchived:
+            type: boolean
+            description: To know if the question has been archived or not
+          ArchivedDate:
+            type: string
+            format: date-time
+            description: >-
+              If the question is archived, this is the date when the archive has
+              been done
   FormQuestion:
     description: To represent template for question in a form template
     type: object
