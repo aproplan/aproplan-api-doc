@@ -10,6 +10,7 @@ get:
   parameters:
     - $ref: '#/parameters/tokenParam'
     - $ref: '#/parameters/requesterParam'
+    - $ref: '#/parameters/projectIdParam'
     - $ref: '#/parameters/dateFormatParam'
     - $ref: '#/parameters/requestedBlockSizeParam'
     - $ref: '#/parameters/timestampParam'

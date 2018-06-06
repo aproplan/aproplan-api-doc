@@ -4,10 +4,9 @@ get:
     - IdentFiles
   summary: Return the count of country available to the current user
   parameters:
-    - $ref: '#/parameters/tokenParam'
     - $ref: '#/parameters/versionParam'
     - $ref: '#/parameters/requesterParam'
-    - $ref: '#/parameters/dateFormatParam'
+    - $ref: '#/parameters/projectIdParam'
     - $ref: '#/parameters/filterParam'
   description: ''
   responses:
