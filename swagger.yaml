@@ -8051,6 +8051,12 @@ definitions:
       - $ref: '#/definitions/RestEntity'
       - type: object
       - title: FormFilterCondition
+      - properties:
+          FormElementId:
+            type: string
+            description: >-
+              This is the Section or Item of the template/form on which a
+              condition is applied
   FilterCombination:
     type: object
     allOf:
@@ -8086,9 +8092,10 @@ definitions:
           Value:
             type: string
             description: It is necessary to compare the answer with this value
-          FormItemBaseId:
+          ItemId:
             type: string
             pattern: '^{[A-Z0-9]{8}-([A-Z0-9]{4}-){3}[A-Z0-9]{12}}$'
+            description: this is the id of the item for which the value must be compared
   FormSectionBase:
     type: object
     allOf:
@@ -8109,9 +8116,12 @@ definitions:
           ItemType:
             type: string
             enum:
-              - string
-              - number
-              - array
+              - FreeText
+              - FreeNumber
+              - DateTime
+              - PredefinedString
+              - PredefinedNumber
+              - MultipleChoice
           Template:
             type: string
           ConformityRules:

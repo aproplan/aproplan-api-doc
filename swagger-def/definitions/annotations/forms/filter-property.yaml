@@ -13,6 +13,7 @@ allOf:
       Value:
         type: string
         description: It is necessary to compare the answer with this value
-      FormItemBaseId: 
+      ItemId: 
         type: string
         pattern: '^{[A-Z0-9]{8}-([A-Z0-9]{4}-){3}[A-Z0-9]{12}}$'
+        description: this is the id of the item for which the value must be compared

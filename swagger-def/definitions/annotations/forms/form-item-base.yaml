@@ -7,9 +7,12 @@ allOf:
       ItemType:
         type: string
         enum:
-          - string
-          - number
-          - array
+          - FreeText
+          - FreeNumber
+          - DateTime
+          - PredefinedString
+          - PredefinedNumber
+          - MultipleChoice
       Template:
         type: string
       ConformityRules:
