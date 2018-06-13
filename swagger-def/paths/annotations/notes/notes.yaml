@@ -5,7 +5,9 @@ get:
   summary: Return the list of note available to the current user
   parameters:
     - $ref: '#/parameters/tokenParam'
+    - $ref: '#/parameters/versionParam'
     - $ref: '#/parameters/requesterParam'
+    - $ref: '#/parameters/projectIdParam'
     - $ref: '#/parameters/dateFormatParam'
     - $ref: '#/parameters/filterParam'
     - $ref: '#/parameters/pathtoloadParam'
@@ -26,7 +28,9 @@ post:
   summary: To create new note in the cloud APROPLAN
   parameters:
     - $ref: '#/parameters/tokenParam'
+    - $ref: '#/parameters/versionParam'
     - $ref: '#/parameters/requesterParam'
+    - $ref: '#/parameters/projectIdParam'
     - $ref: '#/parameters/dateFormatParam'
     - in: body
       name: body
@@ -49,7 +53,9 @@ put:
   summary: To update note in the cloud APROPLAN
   parameters:
     - $ref: '#/parameters/tokenParam'
+    - $ref: '#/parameters/versionParam'
     - $ref: '#/parameters/requesterParam'
+    - $ref: '#/parameters/projectIdParam'
     - $ref: '#/parameters/dateFormatParam'
     - in: body
       name: body
@@ -72,7 +78,9 @@ delete:
   summary: To delete items of note in the cloud APROPLAN
   parameters:
     - $ref: '#/parameters/tokenParam'
+    - $ref: '#/parameters/versionParam'
     - $ref: '#/parameters/requesterParam'
+    - $ref: '#/parameters/projectIdParam'
     - $ref: '#/parameters/dateFormatParam'
     - in: body
       name: body
