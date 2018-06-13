@@ -7,3 +7,10 @@ allOf:
       FormElementId:
         type: string
         description: This is the Section or Item of the template/form on which a condition is applied
+      EntityDiscriminator:
+        type: string
+        enum: 
+          - FilterProperty
+          - FilterCombination
+        description: "To know the concrete type of this class. FilterProperty or FilterCombination"
+      
