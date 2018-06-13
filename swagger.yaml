@@ -3397,6 +3397,7 @@ paths:
         - $ref: '#/parameters/tokenParam'
         - $ref: '#/parameters/requesterParam'
         - $ref: '#/parameters/versionParam'
+        - $ref: '#/parameters/projectIdParam'
         - $ref: '#/parameters/dateFormatParam'
         - in: query
           name: file
@@ -3640,6 +3641,7 @@ paths:
         - $ref: '#/parameters/tokenParam'
         - $ref: '#/parameters/requesterParam'
         - $ref: '#/parameters/dateFormatParam'
+        - $ref: '#/parameters/projectIdParam'
         - $ref: '#/parameters/requestedBlockSizeParam'
         - $ref: '#/parameters/timestampParam'
       description: ''
@@ -3666,6 +3668,7 @@ paths:
       parameters:
         - $ref: '#/parameters/tokenParam'
         - $ref: '#/parameters/requesterParam'
+        - $ref: '#/parameters/projectIdParam'
         - $ref: '#/parameters/dateFormatParam'
         - $ref: '#/parameters/requestedBlockSizeParam'
         - $ref: '#/parameters/timestampParam'
@@ -7498,10 +7501,11 @@ definitions:
           AccessRightLevel:
             type: string
             enum:
-              - Admin
-              - Manager
-              - Contributor
-              - Guest
+              - Subcontractor = 0 (available only for meeting access right)
+              - Guest = 1
+              - Contributor = 2
+              - Manager = 3
+              - Admin = 4
             description: >-
               this is the level of access right of the participant in the
               project
