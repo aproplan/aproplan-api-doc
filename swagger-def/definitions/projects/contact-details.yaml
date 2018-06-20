@@ -46,11 +46,12 @@ allOf:
           $ref: '#/definitions/ContactIssueType'
       AccessRightLevel:
         type: string
-        enum: 
-          - Admin
-          - Manager
-          - Contributor
-          - Guest
+        enum:
+          - Subcontractor = 0 (available only for meeting access right)
+          - Guest = 1
+          - Contributor = 2
+          - Manager = 3
+          - Admin = 4
         description: this is the level of access right of the participant in the project
       IsInvited: 
         type: boolean

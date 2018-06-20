@@ -9,7 +9,9 @@ get:
     contains also entities deleted
   parameters:
     - $ref: '#/parameters/tokenParam'
+    - $ref: '#/parameters/versionParam'
     - $ref: '#/parameters/requesterParam'
+    - $ref: '#/parameters/projectIdParam'
     - $ref: '#/parameters/dateFormatParam'
     - $ref: '#/parameters/requestedBlockSizeParam'
     - $ref: '#/parameters/timestampParam'

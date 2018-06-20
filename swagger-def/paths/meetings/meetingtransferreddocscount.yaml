@@ -7,6 +7,7 @@ get:
     - $ref: '#/parameters/tokenParam'
     - $ref: '#/parameters/versionParam'
     - $ref: '#/parameters/requesterParam'
+    - $ref: '#/parameters/projectIdParam'
     - $ref: '#/parameters/dateFormatParam'
     - $ref: '#/parameters/filterParam'
   description: ''
