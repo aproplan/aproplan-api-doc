@@ -48,6 +48,6 @@ When you use APROPLAN API it is better to make first your test on the following 
 Before to use the API, you need to have a **requesterid** supplied by us. To get one requester, please contact the support. When you have it, you can start to call the APROPLAN API.
 For each call of the API, you need to have 3 mandatory parameters:
 
-* **v** specifying the version of the API to use. Actual version = 6 (v=6)
+* **v** specifying the version of the API to use. Actual version = 13 (v=13)
 * **requesterid** to specify your requester id
 * **t** to specify the token your receive while you call the **loginsecure** method to identify the user making the call. This parameter is not always mandatory, some calls doet not require to be authentified.
