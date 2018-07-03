@@ -8469,12 +8469,12 @@ definitions:
             example: f230aeb4-7d72-435b-8e12-b9240156e098
           IsArchived:
             type: boolean
-            description: To know if the question has been archived or not
+            description: To know if the section has been archived or not
           ArchivedDate:
             type: string
             format: date-time
             description: >-
-              If the question is archived, this is the date when the archive has
+              If the section is archived, this is the date when the archive has
               been done
   FormQuestion:
     description: To represent template for question in a form template
