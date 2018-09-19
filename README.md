@@ -51,3 +51,7 @@ For each call of the API, you need to have 3 mandatory parameters:
 * **v** specifying the version of the API to use. Actual version = 12 (v=12)
 * **requesterid** to specify your requester id
 * **t** to specify the token your receive while you call the **loginsecure** method to identify the user making the call. This parameter is not always mandatory, some calls doet not require to be authentified.
+
+For all call on entities linked to a project, it is necessary to add the following mandatory parameter:
+
+* **projectid** specifying the project id linked to the entities for which your are making the request
