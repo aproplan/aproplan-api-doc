@@ -1,0 +1,6 @@
+type: object
+description: >-
+  When a form is reopened, it contains information about the form with new status and data
+properties:
+  Form:
+    $ref: '#/definitions/Form'

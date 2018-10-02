@@ -1,0 +1,19 @@
+put:
+  operationId: putFormReopen
+  tags:
+    - Forms
+  summary: Reopen a form
+  parameters:
+    - $ref: '#/parameters/versionParam'
+    - in: body
+      name: FormReopenParams
+      description: >-
+        The guid of the form we want to reopen
+      schema:
+        $ref: '#/definitions/FormReopenParams'
+  responses:
+    '200':
+      description: >-
+        Successful operation. Return the form reopened
+      schema:
+        $ref: '#/definitions/FormReopenResponse'
