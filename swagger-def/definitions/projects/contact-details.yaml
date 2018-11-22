@@ -56,5 +56,8 @@ allOf:
       IsInvited: 
         type: boolean
         example: Specify if the user can see or not the project through APROPLAN
+      InvitationDate:
+        type: DateTime?
+        description: Date of when the projectvisibility with same projectid & userid was created
 
       

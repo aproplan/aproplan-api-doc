@@ -11,6 +11,7 @@ get:
     - $ref: '#/parameters/dateFormatParam'
     - $ref: '#/parameters/filterParam'
     - $ref: '#/parameters/pathtoloadParam'
+    - $ref: '#/parameters/sortorderParam'
   description: ''
   responses:
     '200':
