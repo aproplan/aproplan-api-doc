@@ -58,6 +58,6 @@ allOf:
         example: Specify if the user can see or not the project through APROPLAN
       InvitationDate:
         type: DateTime?
-        description: Date of when the projectvisibility with same projectid & userid was created
+        description: This is the date when the user has been invited to the project and can access to it
 
       
