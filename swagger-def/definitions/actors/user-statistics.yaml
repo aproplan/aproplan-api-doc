@@ -7,31 +7,31 @@ allOf:
       User: 
         $ref: '#/definitions/User'
       NbRemarksCreated: 
-        type: number
+        type: integer
       NbMeetingPointsCreated: 
-        type: number
+        type: integer
       NbFormsCreated: 
-        type: number
+        type: integer
       NbPicturesUploaded: 
-        type: number
+        type: integer
       NbDocumentsUploaded: 
-        type: number
+        type: integer
       NbReportsUploaded: 
-        type: number
+        type: integer
       NbMeetingCreated: 
-        type: number
+        type: integer
       NbProjectCreated: 
-        type: number
+        type: integer
       NbUserInvited: 
-        type: number
+        type: integer
       NbHtmlLogin: 
-        type: number
+        type: integer
       NbIosLogin: 
-        type: number
+        type: integer
       NbSilverlightLogin: 
-        type: number
+        type: integer
       NbTotalLogin: 
-        type: number
+        type: integer
       MonthlyStatistics:
         type: array
         items:
