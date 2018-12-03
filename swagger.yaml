@@ -1007,6 +1007,148 @@ paths:
             type: array
             items:
               type: string
+  /userstatisticscount:
+    get:
+      operationId: getUserstatisticsCount
+      tags:
+        - Actors
+      summary: Return the count of userstatistics available to the current user
+      parameters:
+        - $ref: '#/parameters/tokenParam'
+        - $ref: '#/parameters/versionParam'
+        - $ref: '#/parameters/requesterParam'
+        - $ref: '#/parameters/projectIdParam'
+        - $ref: '#/parameters/dateFormatParam'
+        - $ref: '#/parameters/filterParam'
+      description: ''
+      responses:
+        '200':
+          description: >-
+            Successful operation returning the number of userstatistics
+            corresponding to the queries parameters
+          schema:
+            type: number
+  /userstatistics:
+    get:
+      operationId: getUserstatistics
+      tags:
+        - Actors
+      summary: Return the list of userstatistics available to the current user
+      parameters:
+        - $ref: '#/parameters/tokenParam'
+        - $ref: '#/parameters/versionParam'
+        - $ref: '#/parameters/requesterParam'
+        - $ref: '#/parameters/projectIdParam'
+        - $ref: '#/parameters/dateFormatParam'
+        - $ref: '#/parameters/filterParam'
+        - $ref: '#/parameters/pathtoloadParam'
+      description: ''
+      responses:
+        '200':
+          description: >-
+            Successful operation returning the array of userstatistics
+            corresponding to the queries parameters
+          schema:
+            type: array
+            items:
+              $ref: '#/definitions/UserStatistics'
+  /userstatisticsids:
+    get:
+      operationId: getUserstatisticsIds
+      tags:
+        - Actors
+      summary: >-
+        Return the list of id corresponding to the userstatistics available to
+        the current user
+      parameters:
+        - $ref: '#/parameters/tokenParam'
+        - $ref: '#/parameters/versionParam'
+        - $ref: '#/parameters/requesterParam'
+        - $ref: '#/parameters/projectIdParam'
+        - $ref: '#/parameters/dateFormatParam'
+        - $ref: '#/parameters/filterParam'
+        - $ref: '#/parameters/pathtoloadParam'
+      description: ''
+      responses:
+        '200':
+          description: >-
+            Successful operation returning the array of id of userstatistics
+            corresponding to the queries parameters
+          schema:
+            type: array
+            items:
+              type: string
+  /monthlystatisticscount:
+    get:
+      operationId: getMonthlystatisticsCount
+      tags:
+        - Actors
+      summary: Return the count of monthlystatistics available to the current user
+      parameters:
+        - $ref: '#/parameters/tokenParam'
+        - $ref: '#/parameters/versionParam'
+        - $ref: '#/parameters/requesterParam'
+        - $ref: '#/parameters/projectIdParam'
+        - $ref: '#/parameters/dateFormatParam'
+        - $ref: '#/parameters/filterParam'
+      description: ''
+      responses:
+        '200':
+          description: >-
+            Successful operation returning the number of monthlystatistics
+            corresponding to the queries parameters
+          schema:
+            type: number
+  /monthlystatistics:
+    get:
+      operationId: getMonthlystatistics
+      tags:
+        - Actors
+      summary: Return the list of monthlystatistics available to the current user
+      parameters:
+        - $ref: '#/parameters/tokenParam'
+        - $ref: '#/parameters/versionParam'
+        - $ref: '#/parameters/requesterParam'
+        - $ref: '#/parameters/projectIdParam'
+        - $ref: '#/parameters/dateFormatParam'
+        - $ref: '#/parameters/filterParam'
+        - $ref: '#/parameters/pathtoloadParam'
+      description: ''
+      responses:
+        '200':
+          description: >-
+            Successful operation returning the array of monthlystatistics
+            corresponding to the queries parameters
+          schema:
+            type: array
+            items:
+              $ref: '#/definitions/MonthlyStatistics'
+  /monthlystatisticsids:
+    get:
+      operationId: getMonthlystatisticsIds
+      tags:
+        - Actors
+      summary: >-
+        Return the list of id corresponding to the monthlystatistics available
+        to the current user
+      parameters:
+        - $ref: '#/parameters/tokenParam'
+        - $ref: '#/parameters/versionParam'
+        - $ref: '#/parameters/requesterParam'
+        - $ref: '#/parameters/projectIdParam'
+        - $ref: '#/parameters/dateFormatParam'
+        - $ref: '#/parameters/filterParam'
+        - $ref: '#/parameters/pathtoloadParam'
+      description: ''
+      responses:
+        '200':
+          description: >-
+            Successful operation returning the array of id of monthlystatistics
+            corresponding to the queries parameters
+          schema:
+            type: array
+            items:
+              type: string
   /managedcompanycount:
     get:
       operationId: getManagedcompanyCount
@@ -3081,6 +3223,7 @@ paths:
         - $ref: '#/parameters/dateFormatParam'
         - $ref: '#/parameters/filterParam'
         - $ref: '#/parameters/pathtoloadParam'
+        - $ref: '#/parameters/sortorderParam'
       description: ''
       responses:
         '200':
@@ -3187,6 +3330,7 @@ paths:
         - $ref: '#/parameters/dateFormatParam'
         - $ref: '#/parameters/filterParam'
         - $ref: '#/parameters/pathtoloadParam'
+        - $ref: '#/parameters/sortorderParam'
       description: ''
       responses:
         '200':
@@ -6909,6 +7053,74 @@ definitions:
       - properties:
           SpellCheckLanguage:
             $ref: '#/definitions/Language'
+  UserStatistics:
+    type: object
+    allOf:
+      - $ref: '#/definitions/RestEntity'
+      - type: object
+      - title: UserStatistics
+      - properties:
+          User:
+            $ref: '#/definitions/User'
+          NbRemarksCreated:
+            type: number
+          NbMeetingPointsCreated:
+            type: number
+          NbFormsCreated:
+            type: number
+          NbPicturesUploaded:
+            type: number
+          NbDocumentsUploaded:
+            type: number
+          NbReportsUploaded:
+            type: number
+          NbMeetingCreated:
+            type: number
+          NbProjectCreated:
+            type: number
+          NbUserInvited:
+            type: number
+          NbHtmlLogin:
+            type: number
+          NbIosLogin:
+            type: number
+          NbSilverlightLogin:
+            type: number
+          NbTotalLogin:
+            type: number
+          MonthlyStatistics:
+            type: array
+            items:
+              $ref: '#/definitions/MonthlyStatistics'
+  MonthlyStatistics:
+    type: object
+    allOf:
+      - $ref: '#/definitions/RestEntity'
+      - type: object
+      - title: MonthlyStatistics
+      - properties:
+          UserStatistics:
+            $ref: '#/definitions/MonthlyStatistics'
+          Month:
+            type: number
+          Year:
+            type: number
+          NbRemarksCreated:
+            type: number
+          NbMeetingPointsCreated:
+            type: number
+          NbFormsCreated:
+            type: number
+          NbPicturesUploaded:
+            type: number
+          NbDocumentsUploaded:
+            type: number
+          NbReportsUploaded:
+            type: number
+          NbMeetingCreated:
+            type: number
+          NbProjectCreated:
+            type: number
   CompanyUserInvitationRequest:
     type: object
     allOf:
@@ -7512,6 +7724,12 @@ definitions:
           IsInvited:
             type: boolean
             example: Specify if the user can see or not the project through APROPLAN
+          InvitationDate:
+            type: string
+            format: date-time
+            description: >-
+              This is the date when the user has been invited to the project and
+              can access to it
   ContactIssueType:
     description: >-
       To represent the relation between a subcategory and a participant of a

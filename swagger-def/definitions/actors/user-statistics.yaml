@@ -1,0 +1,38 @@
+type: object
+allOf: 
+  - $ref: '#/definitions/RestEntity'
+  - type: object
+  - title: UserStatistics
+  - properties: 
+      User: 
+        $ref: '#/definitions/User'
+      NbRemarksCreated: 
+        type: number
+      NbMeetingPointsCreated: 
+        type: number
+      NbFormsCreated: 
+        type: number
+      NbPicturesUploaded: 
+        type: number
+      NbDocumentsUploaded: 
+        type: number
+      NbReportsUploaded: 
+        type: number
+      NbMeetingCreated: 
+        type: number
+      NbProjectCreated: 
+        type: number
+      NbUserInvited: 
+        type: number
+      NbHtmlLogin: 
+        type: number
+      NbIosLogin: 
+        type: number
+      NbSilverlightLogin: 
+        type: number
+      NbTotalLogin: 
+        type: number
+      MonthlyStatistics:
+        type: array
+        items:
+          $ref: '#/definitions/MonthlyStatistics'

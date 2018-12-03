@@ -1,0 +1,28 @@
+type: object
+allOf: 
+  - $ref: '#/definitions/RestEntity'
+  - type: object
+  - title: MonthlyStatistics
+  - properties: 
+      UserStatistics: 
+        $ref: '#/definitions/MonthlyStatistics'
+      Month: 
+        type: number
+      Year: 
+        type: number
+      NbRemarksCreated:
+        type: number
+      NbMeetingPointsCreated:
+        type: number
+      NbFormsCreated: 
+        type: number
+      NbPicturesUploaded: 
+        type: number
+      NbDocumentsUploaded: 
+        type: number
+      NbReportsUploaded: 
+        type: number
+      NbMeetingCreated: 
+        type: number
+      NbProjectCreated: 
+        type: number
