@@ -7102,25 +7102,27 @@ definitions:
           UserStatistics:
             $ref: '#/definitions/MonthlyStatistics'
           Month:
-            type: number
+            type: integer
           Year:
-            type: number
+            type: integer
           NbRemarksCreated:
-            type: number
+            type: integer
           NbMeetingPointsCreated:
-            type: number
+            type: integer
           NbFormsCreated:
-            type: number
+            type: integer
           NbPicturesUploaded:
-            type: number
+            type: integer
           NbDocumentsUploaded:
-            type: number
+            type: integer
           NbReportsUploaded:
-            type: number
+            type: integer
           NbMeetingCreated:
-            type: number
+            type: integer
           NbProjectCreated:
-            type: number
+            type: integer
+          NbLogins:
+            type: integer
   CompanyUserInvitationRequest:
     type: object
     allOf:

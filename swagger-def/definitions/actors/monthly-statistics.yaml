@@ -26,3 +26,5 @@ allOf:
         type: integer
       NbProjectCreated: 
         type: integer
+      NbLogins: 
+        type: integer
