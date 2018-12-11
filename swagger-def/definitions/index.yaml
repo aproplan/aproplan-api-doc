@@ -101,7 +101,13 @@ Note:
 Drawing:
   $ref: ./annotations/drawing.yaml
 FormElementBase:
-  $ref: ./annotations/forms/form-element-base.yaml
+  $ref: ./annotations/forms/form-element-base.yaml  
+FormFilterCondition:
+  $ref: ./annotations/forms/form-filter-condition.yaml
+FilterCombination:
+  $ref: ./annotations/forms/filter-combination.yaml
+FilterProperty:
+  $ref: ./annotations/forms/filter-property.yaml
 FormSectionBase:
   $ref: ./annotations/forms/form-section-base.yaml
 FormItemBase:

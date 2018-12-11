@@ -1,0 +1,19 @@
+type: object
+allOf:
+  - $ref: '#/definitions/FormFilterCondition'
+  - type: object
+  - title: FilterProperty
+  - properties:
+      NotApplicable:
+        type: boolean
+        description: the condition is to check if the item has not applicable as answer
+      IsConform:
+        type: boolean
+        description: The condition is to check if the item is conform or not
+      Value:
+        type: string
+        description: It is necessary to compare the answer with this value
+      ItemId: 
+        type: string
+        pattern: '^{[A-Z0-9]{8}-([A-Z0-9]{4}-){3}[A-Z0-9]{12}}$'
+        description: this is the id of the item for which the value must be compared
