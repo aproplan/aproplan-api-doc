@@ -26,3 +26,9 @@ allOf:
         type: array
         items:
           $ref: '#/definitions/Folder'
+      Name:
+        type: string
+          description: this is the name of the folder
+      FolderVisibilityNumber:
+        type: number
+          description: this is a calculated property, to specify in the pathtoload. This property gives the count of FolderVisibility when the folder is not public 
