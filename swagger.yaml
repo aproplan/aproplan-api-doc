@@ -3081,6 +3081,7 @@ paths:
         - $ref: '#/parameters/dateFormatParam'
         - $ref: '#/parameters/filterParam'
         - $ref: '#/parameters/pathtoloadParam'
+        - $ref: '#/parameters/sortorderParam'
       description: ''
       responses:
         '200':
@@ -3187,6 +3188,7 @@ paths:
         - $ref: '#/parameters/dateFormatParam'
         - $ref: '#/parameters/filterParam'
         - $ref: '#/parameters/pathtoloadParam'
+        - $ref: '#/parameters/sortorderParam'
       description: ''
       responses:
         '200':
@@ -7512,6 +7514,11 @@ definitions:
           IsInvited:
             type: boolean
             example: Specify if the user can see or not the project through APROPLAN
+          InvitationDate:
+            type: DateTime?
+            description: >-
+              This is the date when the user has been invited to the project and
+              can access to it
   ContactIssueType:
     description: >-
       To represent the relation between a subcategory and a participant of a
@@ -8213,6 +8220,67 @@ definitions:
             type: string
           Description:
             type: string
+          VisibleCondition:
+            $ref: '#/definitions/FormFilterCondition'
+  FormFilterCondition:
+    type: object
+    allOf:
+      - $ref: '#/definitions/RestEntity'
+      - type: object
+      - title: FormFilterCondition
+      - properties:
+          FormElementId:
+            type: string
+            description: >-
+              This is the Section or Item of the template/form on which a
+              condition is applied
+          EntityDiscriminator:
+            type: string
+            enum:
+              - FilterProperty
+              - FilterCombination
+            description: >-
+              To know the concrete type of this class. FilterProperty or
+              FilterCombination
+  FilterCombination:
+    type: object
+    allOf:
+      - $ref: '#/definitions/FormFilterCondition'
+      - type: object
+      - title: FilterCombination
+      - properties:
+          Type:
+            type: string
+            enum:
+              - And
+              - Or
+            description: >-
+              to specify the kind of combination to apply between left and right
+              filter
+          RightFilter:
+            $ref: '#/definitions/FormFilterCondition'
+          LeftFilter:
+            $ref: '#/definitions/FormFilterCondition'
+  FilterProperty:
+    type: object
+    allOf:
+      - $ref: '#/definitions/FormFilterCondition'
+      - type: object
+      - title: FilterProperty
+      - properties:
+          NotApplicable:
+            type: boolean
+            description: the condition is to check if the item has not applicable as answer
+          IsConform:
+            type: boolean
+            description: The condition is to check if the item is conform or not
+          Value:
+            type: string
+            description: It is necessary to compare the answer with this value
+          ItemId:
+            type: string
+            pattern: '^{[A-Z0-9]{8}-([A-Z0-9]{4}-){3}[A-Z0-9]{12}}$'
+            description: this is the id of the item for which the value must be compared
   FormSectionBase:
     type: object
     allOf:
@@ -8233,9 +8301,12 @@ definitions:
           ItemType:
             type: string
             enum:
-              - string
-              - number
-              - array
+              - FreeText
+              - FreeNumber
+              - DateTime
+              - PredefinedString
+              - PredefinedNumber
+              - MultipleChoice
           Template:
             type: string
           ConformityRules:
@@ -8314,6 +8385,12 @@ definitions:
             description: >-
               This is the id of the section rule from where the section has been
               created
+          IsVisible:
+            type: boolean
+            example: true
+            description: >-
+              This is a boolean to know if the section is visible depending of
+              conditional
   FormSignature:
     type: object
     description: This is the signature wanted for the Form
@@ -8404,6 +8481,12 @@ definitions:
             items:
               - $ref: '#/definitions/NoteDocument'
             description: This is the list of attachments added to the answer
+          NeedAnswer:
+            type: boolean
+            example: true
+            description: >-
+              This is a boolean to know if an answer is expected for this item
+              depending of conditional
   FormTemplate:
     type: object
     description: This is a template of Form
