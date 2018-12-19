@@ -7218,7 +7218,7 @@ definitions:
   Folder:
     type: object
     allOf:
-      - $ref: '#/definitions/Folder'
+      - $ref: '#/definitions/RestEntity'
       - type: object
       - title: Folder
       - properties:
@@ -7250,6 +7250,15 @@ definitions:
             type: array
             items:
               $ref: '#/definitions/Folder'
+          Name:
+            type: string
+            description: this is the name of the folder
+          FolderVisibilityNumber:
+            type: number
+            description: >-
+              this is a calculated property, to specify in the pathtoload. This
+              property gives the count of FolderVisibility when the folder is
+              not public
   FolderVisibility:
     type: object
     allOf:
@@ -7515,7 +7524,8 @@ definitions:
             type: boolean
             example: Specify if the user can see or not the project through APROPLAN
           InvitationDate:
-            type: DateTime?
+            type: string
+            format: date-time
             description: >-
               This is the date when the user has been invited to the project and
               can access to it
@@ -7657,7 +7667,7 @@ definitions:
   Version:
     type: object
     allOf:
-      - $ref: '#/definitions/Version'
+      - $ref: '#/definitions/DocumentBase'
       - type: object
       - title: Version
       - properties:
@@ -8353,10 +8363,6 @@ definitions:
             description: >-
               This is a parameter to know if the UI must display the code of
               element (item, section) or not
-          Signatures:
-            type: array
-            items:
-              - $ref: '#/definitions/FormSignature'
           Items:
             type: array
             items:
@@ -8391,38 +8397,6 @@ definitions:
             description: >-
               This is a boolean to know if the section is visible depending of
               conditional
-  FormSignature:
-    type: object
-    description: This is the signature wanted for the Form
-    allOf:
-      - $ref: '#/definitions/RestEntity'
-      - type: object
-      - title: FormSignature
-      - properties:
-          FormId:
-            type: number
-            description: This is the id of the parent form
-          SignatureRuleId:
-            type: string
-            description: >-
-              This is the id of the signature rule from where the signature has
-              been created
-          Title:
-            type: string
-            description: This is the title to display for the signature
-            example: User who fill the form
-          Signature:
-            type: string
-            description: This is the list of point (coordinate) necessary to draw signature
-            example: '62,75,54,71,52,71,51,71,50,71,50,70,52,62,62,48'
-          Date:
-            type: string
-            format: date-time
-            description: >-
-              If a signature was done, this is the date time when the signature
-              was done
-          SignatureUser:
-            $ref: '#/definitions/User'
   FormFinalizationResponse:
     type: object
     description: >-
@@ -8535,10 +8509,6 @@ definitions:
             type: array
             items:
               $ref: '#/definitions/FormSectionRule'
-          SignatureRules:
-            type: array
-            items:
-              $ref: '#/definitions/FormSignatureRule'
   FormSectionRule:
     type: object
     allOf:
@@ -8575,29 +8545,6 @@ definitions:
             type: string
             description: this is the id of the SectionRule where the question is placed
             example: C63D8A4E-2960-4CCC-8F88-9F591814C079
-          IsArchived:
-            type: boolean
-            description: To know if the question has been archived or not
-          ArchivedDate:
-            type: string
-            format: date-time
-            description: >-
-              If the question is archived, this is the date when the archive has
-              been done
-  FormSignatureRule:
-    type: object
-    allOf:
-      - $ref: '#/definitions/RestEntity'
-      - type: object
-      - title: FormSignatureRule
-      - properties:
-          Title:
-            type: string
-            description: this is the title to display for the wanted signature
-            example: User who fill the form
-          FormTemplateId:
-            type: number
-            description: This is the id of the parent template
           IsArchived:
             type: boolean
             description: To know if the question has been archived or not

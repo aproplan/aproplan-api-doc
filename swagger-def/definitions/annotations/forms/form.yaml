@@ -31,10 +31,6 @@ allOf:
       MustDisplayElementsCode:
         type: boolean
         description: This is a parameter to know if the UI must display the code of element (item, section) or not
-      Signatures:
-        type: array
-        items:
-          - $ref: '#/definitions/FormSignature'
       Items:
         type: array
         items:
