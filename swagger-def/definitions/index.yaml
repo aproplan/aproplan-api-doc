@@ -116,8 +116,6 @@ Form:
   $ref: ./annotations/forms/form.yaml
 FormSection:
   $ref: ./annotations/forms/form-section.yaml
-FormSignature:
-  $ref: ./annotations/forms/form-signature.yaml
 FormFinalizationResponse:
   $ref: ./annotations/forms/form-finalization-response.yaml
 FormItem:
@@ -128,8 +126,6 @@ FormSectionRule:
   $ref: ./annotations/forms/form-section-rule.yaml
 FormQuestion:
   $ref: ./annotations/forms/form-question.yaml
-FormSignatureRule:
-  $ref: ./annotations/forms/form-signature-rule.yaml
 ReportRequest:
   $ref: ./reports/report-request.yaml
 ReportRestIdentification:
