@@ -1,6 +1,6 @@
 type: object
 allOf:
-  - $ref: '#/definitions/Version'
+  - $ref: '#/definitions/DocumentBase'
   - type: object
   - title: Version
   - properties:

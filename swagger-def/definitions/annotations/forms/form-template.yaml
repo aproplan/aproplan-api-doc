@@ -42,8 +42,4 @@ allOf:
       SectionRules:
         type: array
         items:
-          $ref: '#/definitions/FormSectionRule'          
-      SignatureRules:
-        type: array
-        items:
-          $ref: '#/definitions/FormSignatureRule'
+          $ref: '#/definitions/FormSectionRule'

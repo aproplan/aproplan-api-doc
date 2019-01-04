@@ -7430,7 +7430,7 @@ definitions:
   Folder:
     type: object
     allOf:
-      - $ref: '#/definitions/Folder'
+      - $ref: '#/definitions/RestEntity'
       - type: object
       - title: Folder
       - properties:
@@ -7462,6 +7462,15 @@ definitions:
             type: array
             items:
               $ref: '#/definitions/Folder'
+          Name:
+            type: string
+            description: this is the name of the folder
+          FolderVisibilityNumber:
+            type: number
+            description: >-
+              this is a calculated property, to specify in the pathtoload. This
+              property gives the count of FolderVisibility when the folder is
+              not public
   FolderVisibility:
     type: object
     allOf:
@@ -7870,7 +7879,7 @@ definitions:
   Version:
     type: object
     allOf:
-      - $ref: '#/definitions/Version'
+      - $ref: '#/definitions/DocumentBase'
       - type: object
       - title: Version
       - properties:
@@ -8433,6 +8442,67 @@ definitions:
             type: string
           Description:
             type: string
+          VisibleCondition:
+            $ref: '#/definitions/FormFilterCondition'
+  FormFilterCondition:
+    type: object
+    allOf:
+      - $ref: '#/definitions/RestEntity'
+      - type: object
+      - title: FormFilterCondition
+      - properties:
+          FormElementId:
+            type: string
+            description: >-
+              This is the Section or Item of the template/form on which a
+              condition is applied
+          EntityDiscriminator:
+            type: string
+            enum:
+              - FilterProperty
+              - FilterCombination
+            description: >-
+              To know the concrete type of this class. FilterProperty or
+              FilterCombination
+  FilterCombination:
+    type: object
+    allOf:
+      - $ref: '#/definitions/FormFilterCondition'
+      - type: object
+      - title: FilterCombination
+      - properties:
+          Type:
+            type: string
+            enum:
+              - And
+              - Or
+            description: >-
+              to specify the kind of combination to apply between left and right
+              filter
+          RightFilter:
+            $ref: '#/definitions/FormFilterCondition'
+          LeftFilter:
+            $ref: '#/definitions/FormFilterCondition'
+  FilterProperty:
+    type: object
+    allOf:
+      - $ref: '#/definitions/FormFilterCondition'
+      - type: object
+      - title: FilterProperty
+      - properties:
+          NotApplicable:
+            type: boolean
+            description: the condition is to check if the item has not applicable as answer
+          IsConform:
+            type: boolean
+            description: The condition is to check if the item is conform or not
+          Value:
+            type: string
+            description: It is necessary to compare the answer with this value
+          ItemId:
+            type: string
+            pattern: '^{[A-Z0-9]{8}-([A-Z0-9]{4}-){3}[A-Z0-9]{12}}$'
+            description: this is the id of the item for which the value must be compared
   FormSectionBase:
     type: object
     allOf:
@@ -8453,9 +8523,12 @@ definitions:
           ItemType:
             type: string
             enum:
-              - string
-              - number
-              - array
+              - FreeText
+              - FreeNumber
+              - DateTime
+              - PredefinedString
+              - PredefinedNumber
+              - MultipleChoice
           Template:
             type: string
           ConformityRules:
@@ -8502,10 +8575,6 @@ definitions:
             description: >-
               This is a parameter to know if the UI must display the code of
               element (item, section) or not
-          Signatures:
-            type: array
-            items:
-              - $ref: '#/definitions/FormSignature'
           Items:
             type: array
             items:
@@ -8534,38 +8603,12 @@ definitions:
             description: >-
               This is the id of the section rule from where the section has been
               created
-  FormSignature:
-    type: object
-    description: This is the signature wanted for the Form
-    allOf:
-      - $ref: '#/definitions/RestEntity'
-      - type: object
-      - title: FormSignature
-      - properties:
-          FormId:
-            type: number
-            description: This is the id of the parent form
-          SignatureRuleId:
-            type: string
+          IsVisible:
+            type: boolean
+            example: true
             description: >-
-              This is the id of the signature rule from where the signature has
-              been created
-          Title:
-            type: string
-            description: This is the title to display for the signature
-            example: User who fill the form
-          Signature:
-            type: string
-            description: This is the list of point (coordinate) necessary to draw signature
-            example: '62,75,54,71,52,71,51,71,50,71,50,70,52,62,62,48'
-          Date:
-            type: string
-            format: date-time
-            description: >-
-              If a signature was done, this is the date time when the signature
-              was done
-          SignatureUser:
-            $ref: '#/definitions/User'
+              This is a boolean to know if the section is visible depending of
+              conditional
   FormFinalizationResponse:
     type: object
     description: >-
@@ -8624,6 +8667,12 @@ definitions:
             items:
               - $ref: '#/definitions/NoteDocument'
             description: This is the list of attachments added to the answer
+          NeedAnswer:
+            type: boolean
+            example: true
+            description: >-
+              This is a boolean to know if an answer is expected for this item
+              depending of conditional
   FormTemplate:
     type: object
     description: This is a template of Form
@@ -8672,10 +8721,6 @@ definitions:
             type: array
             items:
               $ref: '#/definitions/FormSectionRule'
-          SignatureRules:
-            type: array
-            items:
-              $ref: '#/definitions/FormSignatureRule'
   FormSectionRule:
     type: object
     allOf:
@@ -8712,29 +8757,6 @@ definitions:
             type: string
             description: this is the id of the SectionRule where the question is placed
             example: C63D8A4E-2960-4CCC-8F88-9F591814C079
-          IsArchived:
-            type: boolean
-            description: To know if the question has been archived or not
-          ArchivedDate:
-            type: string
-            format: date-time
-            description: >-
-              If the question is archived, this is the date when the archive has
-              been done
-  FormSignatureRule:
-    type: object
-    allOf:
-      - $ref: '#/definitions/RestEntity'
-      - type: object
-      - title: FormSignatureRule
-      - properties:
-          Title:
-            type: string
-            description: this is the title to display for the wanted signature
-            example: User who fill the form
-          FormTemplateId:
-            type: number
-            description: This is the id of the parent template
           IsArchived:
             type: boolean
             description: To know if the question has been archived or not
