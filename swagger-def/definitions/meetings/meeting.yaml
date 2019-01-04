@@ -32,7 +32,8 @@ allOf:
         enum:
           - Meeting
           - Handover
-          - Security
+          - QualityControl
+          - SiteDiary
       NumberingType:
         type: string
         enum:
