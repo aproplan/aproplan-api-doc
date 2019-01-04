@@ -22,6 +22,10 @@ Party:
   $ref: ./actors/party.yaml
 Person:
   $ref: ./actors/person.yaml
+UserStatistics:
+  $ref: ./actors/user-statistics.yaml
+MonthlyStatistics:
+  $ref: ./actors/monthly-statistics.yaml  
 CompanyUserInvitationRequest: 
   $ref: ./actors/company-user-invitation-request.yaml
 CompanyUser: 

@@ -1,0 +1,25 @@
+get:
+  operationId: getMonthlystatisticsIds
+  tags:
+    - Actors
+  summary: >-
+    Return the list of id corresponding to the monthlystatistics available to
+    the current user
+  parameters:
+    - $ref: '#/parameters/tokenParam'
+    - $ref: '#/parameters/versionParam'
+    - $ref: '#/parameters/requesterParam'
+    - $ref: '#/parameters/projectIdParam'
+    - $ref: '#/parameters/dateFormatParam'
+    - $ref: '#/parameters/filterParam'
+    - $ref: '#/parameters/pathtoloadParam'
+  description: ''
+  responses:
+    '200':
+      description: >-
+        Successful operation returning the array of id of monthlystatistics
+        corresponding to the queries parameters
+      schema:
+        type: array
+        items:
+          type: string
