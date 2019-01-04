@@ -22,6 +22,10 @@ Party:
   $ref: ./actors/party.yaml
 Person:
   $ref: ./actors/person.yaml
+UserStatistics:
+  $ref: ./actors/user-statistics.yaml
+MonthlyStatistics:
+  $ref: ./actors/monthly-statistics.yaml  
 CompanyUserInvitationRequest: 
   $ref: ./actors/company-user-invitation-request.yaml
 CompanyUser: 
@@ -101,7 +105,13 @@ Note:
 Drawing:
   $ref: ./annotations/drawing.yaml
 FormElementBase:
-  $ref: ./annotations/forms/form-element-base.yaml
+  $ref: ./annotations/forms/form-element-base.yaml  
+FormFilterCondition:
+  $ref: ./annotations/forms/form-filter-condition.yaml
+FilterCombination:
+  $ref: ./annotations/forms/filter-combination.yaml
+FilterProperty:
+  $ref: ./annotations/forms/filter-property.yaml
 FormSectionBase:
   $ref: ./annotations/forms/form-section-base.yaml
 FormItemBase:
@@ -110,8 +120,6 @@ Form:
   $ref: ./annotations/forms/form.yaml
 FormSection:
   $ref: ./annotations/forms/form-section.yaml
-FormSignature:
-  $ref: ./annotations/forms/form-signature.yaml
 FormFinalizationResponse:
   $ref: ./annotations/forms/form-finalization-response.yaml
 FormItem:
@@ -122,8 +130,6 @@ FormSectionRule:
   $ref: ./annotations/forms/form-section-rule.yaml
 FormQuestion:
   $ref: ./annotations/forms/form-question.yaml
-FormSignatureRule:
-  $ref: ./annotations/forms/form-signature-rule.yaml
 ReportRequest:
   $ref: ./reports/report-request.yaml
 ReportRestIdentification:

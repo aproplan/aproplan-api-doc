@@ -1,10 +1,8 @@
 get:
-  operationId: getContactdetailsIds
+  operationId: getUserstatisticsCount
   tags:
-    - Projects
-  summary: >-
-    Return the list of id corresponding to the contactdetails available to the
-    current user
+    - Actors
+  summary: Return the count of userstatistics available to the current user
   parameters:
     - $ref: '#/parameters/tokenParam'
     - $ref: '#/parameters/versionParam'
@@ -12,15 +10,11 @@ get:
     - $ref: '#/parameters/projectIdParam'
     - $ref: '#/parameters/dateFormatParam'
     - $ref: '#/parameters/filterParam'
-    - $ref: '#/parameters/pathtoloadParam'
-    - $ref: '#/parameters/sortorderParam'
   description: ''
   responses:
     '200':
       description: >-
-        Successful operation returning the array of id of contactdetails
+        Successful operation returning the number of userstatistics
         corresponding to the queries parameters
       schema:
-        type: array
-        items:
-          type: string
+        type: number

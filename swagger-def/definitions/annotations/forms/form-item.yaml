@@ -46,3 +46,7 @@ allOf:
         items: 
           - $ref: '#/definitions/NoteDocument'
         description: This is the list of attachments added to the answer
+      NeedAnswer:
+        type: boolean
+        example: true
+        description: This is a boolean to know if an answer is expected for this item depending of conditional

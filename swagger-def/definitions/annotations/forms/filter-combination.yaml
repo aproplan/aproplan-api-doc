@@ -1,0 +1,16 @@
+type: object
+allOf:
+  - $ref: '#/definitions/FormFilterCondition'
+  - type: object
+  - title: FilterCombination
+  - properties:
+      Type:
+        type: string
+        enum:
+          - And
+          - Or
+        description: to specify the kind of combination to apply between left and right filter
+      RightFilter:
+        $ref: '#/definitions/FormFilterCondition'
+      LeftFilter:
+        $ref: '#/definitions/FormFilterCondition'      

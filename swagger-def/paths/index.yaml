@@ -38,6 +38,18 @@
   $ref: ./actors/persons.yaml
 /personsids:
   $ref: ./actors/personsids.yaml
+/userstatisticscount:
+  $ref: ./actors/userstatisticscount.yaml
+/userstatistics:
+  $ref: ./actors/userstatistics.yaml
+/userstatisticsids:
+  $ref: ./actors/userstatisticsids.yaml
+/monthlystatisticscount:
+  $ref: ./actors/monthlystatisticscount.yaml
+/monthlystatistics:
+  $ref: ./actors/monthlystatistics.yaml
+/monthlystatisticsids:
+  $ref: ./actors/monthlystatisticsids.yaml
 /managedcompanycount:
   $ref: ./companies/managedcompanycount.yaml
 /managedcompanies:
