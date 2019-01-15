@@ -3,7 +3,8 @@
 ## Breaking change V.20
 
 To improve the performance of our API we made some infrastructure improvements requiring a breaking change in the API calls.
-Now, for each call to our API for an entity linked to a project, you need to supply a new parameter to the call: projectid
+
+Now, for each call to our API for an entity linked to a project, you need to supply a new parameter to the call: **projectid**
 
 `https://app.aproplan.com/rest/notes?projectid={projectid}&t={mytoken}[&requesterid={myrequesterid}&filter={filtervalue}][&pathtoload={pathtoloadvalue}][&sortorder={sortordervalue}][&withdeleted={withdeletedvalue}][&v={apiVersion}]`
 
