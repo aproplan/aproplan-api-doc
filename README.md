@@ -1,5 +1,14 @@
 # APROPLAN API
 
+## Breaking change V.20
+
+To improve the performance of our API we make some infrastructure that implies to make a breaking changes in the way to use the API. Now, for each call that you make to our API for an entity that is linked to a project, you need to supply a new parameter to the call: projectid
+
+`https://app.aproplan.com/rest/notes?projectid={projectid}&t={mytoken}[&requesterid={myrequesterid}&filter={filtervalue}][&pathtoload={pathtoloadvalue}][&sortorder={sortordervalue}][&withdeleted={withdeletedvalue}][&v={apiVersion}]`
+
+So, now you receive data by project.
+The cutt-off date for older version is Monday 2019/02/11
+
 ## Introduction
 
 You can communicate with APROPLAN by using REST functions provided by the API at the <https://api.aproplan.com/rest> url.
