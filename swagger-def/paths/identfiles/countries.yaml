@@ -6,7 +6,6 @@ get:
   parameters:
     - $ref: '#/parameters/versionParam'
     - $ref: '#/parameters/requesterParam'
-    - $ref: '#/parameters/projectIdParam'
     - $ref: '#/parameters/filterParam'
     - $ref: '#/parameters/pathtoloadParam'
   description: ''
@@ -27,7 +26,6 @@ post:
   parameters:
     - $ref: '#/parameters/versionParam'
     - $ref: '#/parameters/requesterParam'
-    - $ref: '#/parameters/projectIdParam'
     - in: body
       name: body
       description: This is the array of country to create through the cloud
@@ -50,7 +48,6 @@ put:
   parameters:
     - $ref: '#/parameters/versionParam'
     - $ref: '#/parameters/requesterParam'
-    - $ref: '#/parameters/projectIdParam'
     - in: body
       name: body
       description: This is the array of country to update in the cloud
@@ -73,7 +70,6 @@ delete:
   parameters:
     - $ref: '#/parameters/versionParam'
     - $ref: '#/parameters/requesterParam'
-    - $ref: '#/parameters/projectIdParam'
     - in: body
       name: body
       description: Array of country id to delete from the cloud
