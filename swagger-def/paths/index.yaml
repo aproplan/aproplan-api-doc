@@ -162,6 +162,8 @@
   $ref: ./documents/documentsids.yaml
 /attachmentdocumentsync:
   $ref: ./documents/attachmentdocumentsync.yaml
+/downloadfile:
+  $ref: ./documents/downloadfile.yaml
 /folderdocumentsync:
   $ref: ./documents/folderdocumentsync.yaml
 /versioncount:

@@ -3794,6 +3794,46 @@ paths:
             type: array
             items:
               $ref: '#/definitions/Document'
+  /downloadfile:
+    get:
+      operationId: downloadFile
+      tags:
+        - Documents
+      summary: Let the user to download a document in aproplan
+      parameters:
+        - $ref: '#/parameters/tokenParam'
+        - $ref: '#/parameters/versionParam'
+        - $ref: '#/parameters/requesterParam'
+        - $ref: '#/parameters/projectIdParam'
+        - in: query
+          name: documentid
+          type: string
+          format: uuid
+          required: true
+          description: the id of the document to download
+        - in: query
+          name: file
+          type: string
+          enum:
+            - working
+            - source
+          required: true
+          description: >-
+            To download the working or source file. By default, it is working
+            and if not defined, the source one.
+        - in: query
+          name: filename
+          type: string
+          required: false
+          description: >-
+            if you want a specific name for the file download, you can specify
+            it through this parameter
+      description: ''
+      responses:
+        '200':
+          description: Successful operation returning the file
+          schema:
+            type: string
   /folderdocumentsync:
     get:
       operationId: getFolderDocumentSync
@@ -7922,7 +7962,8 @@ definitions:
             enum:
               - Meeting
               - Handover
-              - Security
+              - QualityControl
+              - SiteDiary
           NumberingType:
             type: string
             enum:
