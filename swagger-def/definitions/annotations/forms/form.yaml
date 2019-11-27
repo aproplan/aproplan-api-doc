@@ -19,6 +19,7 @@ allOf:
           - Todo
           - InProgress
           - Done
+          - WaitingForFinalisation
       DoneDate:
         type: string
         format: date-time
