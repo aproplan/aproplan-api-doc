@@ -18,7 +18,7 @@ This nodejs module will show us some sample to interact with our API to create, 
 
 ## Testing
 
-Instead of to make your development with our API directly on the production, you can test first your development by using the following API address: https://api-tst.aproplan.com/ url. When you have validated your development, you can redirect to the production url.
+Instead of to make your development with our API directly on the production, you can test first your development by using the following API address: <https://api.aproplan-development.aproplan-prod1.lb4.co/rest> url. When you have validated your development, you can redirect to the production url.
 
 ## Documentation
 
@@ -53,9 +53,9 @@ To work on objects related to a projects (lists, points, forms...), you need fir
 * Run `npm install` to install packages (you need to have nodejs installed)
 * Run `node index.js` to run the program to show some sample
 
-## API Using
+## Using the API
 
-When you use APROPLAN API it is better to make first your test on the following url "<https://api-tst.aproplan.com/rest>" (application url: <https://app-tst.aproplan.com>).
+When you use APROPLAN API it is better to make first your test on the following url <https://api.aproplan-development.aproplan-prod1.lb4.co/rest> (application url: <https://app.aproplan-development.aproplan-prod1.lb4.co>).
 Before to use the API, you need to have a **requesterid** supplied by us. To get one requester, please contact the support. When you have it, you can start to call the APROPLAN API.
 For each call of the API, you need to have 3 mandatory parameters:
 
