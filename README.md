@@ -6,7 +6,7 @@ To improve the performance of our API we made some infrastructure improvements r
 
 Now, for each call to our API for an entity linked to a project, you need to supply a new parameter to the call: **projectid**
 
-`https://app.aproplan.com/rest/notes?projectid={projectid}&t={mytoken}[&requesterid={myrequesterid}&filter={filtervalue}][&pathtoload={pathtoloadvalue}][&sortorder={sortordervalue}][&withdeleted={withdeletedvalue}][&v={apiVersion}]`
+`https://api.aproplan.com/rest/notes?projectid={projectid}&t={mytoken}[&requesterid={myrequesterid}&filter={filtervalue}][&pathtoload={pathtoloadvalue}][&sortorder={sortordervalue}][&withdeleted={withdeletedvalue}][&v={apiVersion}]`
 
 So, now you receive data by project.
 The cutt-off date for older version is Monday 2019/02/11
@@ -55,12 +55,12 @@ To work on objects related to a projects (lists, points, forms...), you need fir
 
 ## Using the API
 
-When you use APROPLAN API it is better to make first your test on the following url <https://api.aproplan-development.aproplan-prod1.lb4.co/rest> (application url: <https://app.aproplan-development.aproplan-prod1.lb4.co>).
+When you use APROPLAN API it is better to make first your test on the following url <https://ap-api.development.dev1.eu-west-1.aws.dev.lb4.co/rest> (application url: <https://ap-app.development.dev1.eu-west-1.aws.dev.lb4.co/r>).
 Before to use the API, you need to have a **requesterid** supplied by us. To get one requester, please contact the support. When you have it, you can start to call the APROPLAN API.
 For each call of the API, you need to have 3 mandatory parameters:
 
 * **v** specifying the version of the API to use. Actual version = 15 (v=15)
-* **requesterid** to specify your requester id. A requesterId is a unique guid assigned to your product. You need to request one from <https://www.aproplan.com/integrations>
+* **requesterid** to specify your requester id. A requesterId is a unique guid assigned to your product. You need to request one by contacting support (at) letsbuild.com.
 * **t** to specify the token your receive while you call the **loginsecure** method to identify the user making the call. This parameter is not always mandatory, some calls doet not require to be authentified.
 
 But there are also some optional parameter:
@@ -91,7 +91,7 @@ General optional parameter:
 
 #### Get entities
 
-<https://app.aproplan.com/rest/entityname?t={mytoken}[&requesterid={myrequesterid}&filter={filtervalue}][&pathtoload={pathtoloadvalue}][&sortorder={sortordervalue}][&withdeleted={withdeletedvalue}][&v={apiVersion}]>
+<https://api.aproplan.com/rest/entityname?t={mytoken}[&requesterid={myrequesterid}&filter={filtervalue}][&pathtoload={pathtoloadvalue}][&sortorder={sortordervalue}][&withdeleted={withdeletedvalue}][&v={apiVersion}]>
 
 You will retrieve all the entities of the "entityname" type
 
@@ -114,7 +114,7 @@ Get the data of the entities you would like to retrieve by blocks of maximum 200
 
 #### Get ids of entities
 
-<https://app.aproplan.com/rest/entitynameids?t={mytoken}&requesterid={myrequesterid}&filter={filtervalue}][&sortorder={sortordervalue}][&withdeleted={withdeletedvalue}][&v={apiVersion}]>
+<https://api.aproplan.com/rest/entitynameids?t={mytoken}&requesterid={myrequesterid}&filter={filtervalue}][&sortorder={sortordervalue}][&withdeleted={withdeletedvalue}][&v={apiVersion}]>
 
 You will retrieve the ids of all the entities of "entityname" type,
 
@@ -129,7 +129,7 @@ Url parts:
 
 #### Get entities from ids
 
-<https://app.aproplan.com/rest/entityname?t={mytoken}&requesterid={myrequesterid}&[&ids={listofids}][&pathtoload={pathtoloadvalue}][&v={apiVersion}]>
+<https://api.aproplan.com/rest/entityname?t={mytoken}&requesterid={myrequesterid}&[&ids={listofids}][&pathtoload={pathtoloadvalue}][&v={apiVersion}]>
 
 you will retrieve all the entities of "entityname" type,
 
@@ -142,7 +142,7 @@ Url parts:
 
 #### Get count
 
-<https://app.aproplan.com/rest/entitynamecount?t={mytoken}&requesterid={myrequesterid}&filter={filtervalue}][&withdeleted={withdeletedvalue}][&v={apiVersion}]>
+<https://api.aproplan.com/rest/entitynamecount?t={mytoken}&requesterid={myrequesterid}&filter={filtervalue}][&withdeleted={withdeletedvalue}][&v={apiVersion}]>
 
 you will retrieve the count of all the entities of "entityname" type filtered by the filtervalue
 
@@ -256,7 +256,7 @@ The "sync" requests always return the main entity and child entities (no need to
 
 Those methods are used to create or update entities. To make those kind of operations, you just need to use this pattern of url
 
-<https://app.aproplan.com/rest/entityname?t={mytoken}&v={apiVersion}>
+<https://api.aproplan.com/rest/entityname?t={mytoken}&v={apiVersion}>
 
 * **entityname**: this is the entity you want to create/update (in plurals, eg: document -> rest/documentsids).
 * **pathtoload**: The PathToLoad parameter can be used the same way as for the GET methods. If it is used, the entities saved will be reloaded as well as the sub-entities of the PathToLoad before to be returned.
@@ -294,7 +294,7 @@ In the same way, here is an example that implies the move of some children:
 
 The standard way to delete entieties is to generate a delete request at the following url:
 
-https://app.aproplan.com/entityname?t={mytoken}&requesterid={myrequestervalue}&v={apiVersion}
+https://api.aproplan.com/entityname?t={mytoken}&requesterid={myrequestervalue}&v={apiVersion}
 
 The content of the request must contain the list of the ids of the entities to delete.
 
